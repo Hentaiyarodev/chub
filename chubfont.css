@@ -2,6 +2,11 @@
 =================================================================
   BUNNYUI V4 - CORE THEME STYLESHEET (DARK CAFE BUNNY VARIANT)
 =================================================================
+  A warm, cozy, and soft theme.
+  - "Dark Vibe" (Espresso/Dark Wood)
+  - "Cafe" (Cream, Caramel, Soft Fonts)
+  - "Bunny" (Soft, Rounded Corners)
+=================================================================
 */
 
 /*
@@ -9,35 +14,52 @@
 // 1. FONT IMPORTS
 ////////////////////////////////////////////////////////////////////////////////
 */
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Nunito:wght@400;700&family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Nunito:wght@400;700&family=Patrick+Hand&display=swap');
 
 /*
 ////////////////////////////////////////////////////////////////////////////////
 // 2. CORE THEME & LAYOUT
 ////////////////////////////////////////////////////////////////////////////////
 */
-.bb-sec {
-  /* -- Dark Cafe Bunny Palette -- */
-  --primary-bg: #1a1614;
-  --panel: #2b2522;
-  --ink: #f4e9e0;
-  --muted: #9b8a7d;
-  --accent: #e6a89c; /* Soft bunny-nose pink/peach */
+body {
+  /* This ensures the entire page background matches the theme */
+  background-color: var(--bg-dark, #2a2421);
+}
 
-  --font-heading: 'DM Serif Display', serif;
-  --font-flavor: 'Pacifico', cursive;
+.bb-sec {
+  /* --- Theme Palette --- */
+  /* Text */
+  --ink: #f5f0e8; /* Warm, creamy off-white */
+  --muted: #a39b8e; /* Muted tan/beige */
   
+  /* Backgrounds */
+  --bg-dark: #2a2421; /* Rich, dark espresso brown */
+  --bg-panel: #3a322f; /* Lighter, warm panel brown */
+
+  /* Accent */
+  --accent: #e69a6d; /* Soft caramel/latte */
+
+  /* --- Fonts --- */
+  --font-heading: 'Lora', serif;
+  --font-flavor: 'Patrick Hand', cursive;
+
+  /* --- Sizing --- */
+  --b-radius-main: 12px;
+  --b-radius-small: 8px;
+
+  /* --- Original Vars --- */
   font-family: 'Nunito', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
   position: relative;
   --gap: 20px;
   --hero-over: clamp(80px, 10vw, 200px);
   overflow: visible !important;
-  background: var(--primary-bg); /* Set main background */
-  color: var(--ink);
 }
 
 :root {
-  --border-radius: 12px; /* Global radius for softness */
+  /* Replaced cut variables with border-radius */
+  --b-radius-main: 12px;
+  --b-radius-small: 8px;
+  --pf-cut2: 12px; /* For compatibility if anything still uses it */
 }
 
 .bb-sec * {
@@ -59,7 +81,7 @@
 .bb-collection-subtitle {
   display: inline-block;
   background: var(--accent);
-  color: var(--primary-bg);
+  color: var(--bg-dark);
   padding: 6px 12px;
   font-size: 11px;
   font-weight: 700;
@@ -67,55 +89,55 @@
   letter-spacing: .1em;
   text-decoration: none;
   margin-bottom: 16px;
-  border-radius: 6px; /* Removed clip-path */
+  border-radius: 4px; /* Soft corner */
   transition: background .2s, color .2s;
 }
 
 .bb-collection-subtitle:hover {
   background: var(--ink);
-  color: var(--primary-bg);
+  color: var(--bg-dark);
 }
 
 .bb-title {
-  font-family: var(--font-heading), serif;
+  font-family: var(--font-heading), 'Lora', serif;
   font-size: clamp(48px, 8vw, 90px) !important;
   line-height: 1 !important;
-  font-weight: 400 !important;
+  font-weight: 700 !important; /* Lora needs weight */
   color: var(--ink) !important;
   margin: 0 0 12px !important;
-  letter-spacing: -0.01em !important;
-  text-transform: none; /* Serifs look better in title case */
+  letter-spacing: 0em !important;
+  text-transform: none; /* Lora looks better in Title Case */
 }
 
 .bb-tagline {
-  font-size: clamp(18px, 1.8vw, 20px) !important;
+  font-size: clamp(16px, 1.6vw, 16px) !important;
   line-height: 1.7 !important;
   font-weight: 400 !important;
-  color: var(--muted) !important; /* Softer than title */
+  color: var(--ink) !important;
   max-width: none !important;
   width: auto !important;
 }
 
 .bb-intros {
-  --panel: #2b2522; /* Use theme panel color */
+  --panel: var(--bg-panel);
   background: var(--panel);
   padding: clamp(16px, 2vw, 24px);
   position: relative;
   overflow: visible !important;
   max-width: 100% !important;
   margin: 0 !important;
-  border-radius: var(--border-radius); /* Softness */
+  border-radius: var(--b-radius-main); /* Soft corners */
 }
 
 .bb-section-title {
-  font-family: var(--font-flavor); /* Cafe script font */
-  text-transform: none;
+  font-family: var(--font-heading);
+  text-transform: uppercase;
   font-style: normal;
   letter-spacing: 0.05em;
-  font-size: clamp(24px, 2.5vw, 30px);
-  font-weight: 400;
+  font-size: clamp(16px, 1.6vw, 20px);
+  font-weight: 700;
   margin: 0 0 clamp(10px, 1.5vw, 14px);
-  color: var(--accent); /* Use accent for flavor */
+  color: var(--ink);
   display: flex;
   align-items: center;
   gap: .6em;
@@ -134,10 +156,10 @@
 
 .bb-intro-list li {
   counter-increment: scn;
-  background: rgba(255, 255, 255, .05);
+  background: rgba(0, 0, 0, .1); /* Darker inlay */
   padding: 16px 16px 16px 64px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: var(--border-radius); /* Removed clip-path */
+  border: 0;
+  border-radius: var(--b-radius-small); /* Soft corners */
   position: relative;
   overflow: hidden;
   transition: transform .2s, background .2s;
@@ -151,10 +173,10 @@
   transform: translateY(-50%);
   font-family: var(--font-heading);
   font-size: 28px;
-  font-weight: 400;
+  font-weight: 700;
   color: var(--accent);
   z-index: 0;
-  animation: accentGlow 2.5s ease-in-out infinite;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3); /* Cozy shadow, no glow */
 }
 
 .bb-card {
@@ -163,16 +185,15 @@
 }
 
 .bb-card p {
-  font-size: 13px;
-  line-height: 1.4;
+  font-size: 14px; /* Slightly more readable */
+  line-height: 1.5;
   margin: 0;
   color: var(--ink);
 }
 
 .bb-note {
   font-family: var(--font-flavor);
-  font-size: 1.1em !important; /* Slightly larger script */
-  color: var(--muted);
+  font-size: 1em !important;
 }
 
 .bb-meta-hdr {
@@ -188,51 +209,45 @@
   font-family: var(--font-flavor);
   color: var(--ink);
   text-transform: none;
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 400;
   margin: 0 0 16px;
   text-align: center !important;
 }
 
-/* Simplified soft button */
 .bb-kbtn {
-  height: auto;
+  /* This is the complex kofi button, we'll just re-color it */
+  height: 48px;
   display: inline-block;
-  padding: 14px 28px;
+  padding: 20px 24px;
   background: var(--accent);
-  color: var(--primary-bg);
+  color: var(--bg-dark); /* Updated */
   text-decoration: none;
   font-weight: 700;
-  font-size: 16px;
-  border-radius: 9999px;
-  transition: transform .2s, box-shadow .2s, background-color .2s;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-.bb-kbtn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-  background-color: var(--ink);
+  font-size: 14px;
 }
 
-/* Simplified Ko-fi button */
 .bb-support .bb-kbtn {
+  --ink: var(--bg-dark); /* Updated */
+  --paper: var(--ink); /* Updated */
+  --cta: var(--accent, #e69a6d); /* Updated */
   position: relative;
   display: inline-block !important;
   vertical-align: middle;
   padding: 1px 0 !important;
   margin: 0 !important;
   border-radius: 9999px;
-  background: var(--accent) !important;
-  color: var(--primary-bg) !important;
+  background: var(--ink) !important;
+  color: var(--paper) !important; /* Updated */
   text-decoration: none;
   font-weight: 700;
   line-height: 1;
   isolation: isolate;
   overflow: hidden;
-  transform: none;
+  transform: translate(-4px, -4px);
   outline: transparent solid 2px;
   outline-offset: 5px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: .5px .5px 0 0 var(--ink), 1px 1px 0 0 var(--ink), 1.5px 1.5px 0 0 var(--ink), 2px 2px 0 0 var(--ink), 2.5px 2.5px 0 0 var(--ink), 3px 3px 0 0 var(--ink), 0 0 0 2px var(--paper), .5px .5px 0 2px var(--paper), 1px 1px 0 2px var(--paper), 1.5px 1.5px 0 2px var(--paper), 2px 2px 0 2px var(--paper), 2.5px 2.5px 0 2px var(--paper), 3px 3px 0 2px var(--paper), 3.5px 3.5px 0 2px var(--paper), 4px 4px 0 2px var(--paper);
   transition: transform .15s, box-shadow .15s;
 }
 
@@ -241,13 +256,23 @@
   position: absolute;
   inset: 2px;
   border-radius: 9999px;
-  background: var(--accent);
-  border: 2px solid rgba(0, 0, 0, .15); /* Darker inner border */
+  background: var(--cta);
+  border: 2px solid rgba(255, 255, 255, .25);
   z-index: 0;
 }
 
 .bb-support .bb-kbtn::after {
-  content: none; /* Removed dots animation */
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border-radius: 9999px;
+  opacity: .45;
+  background-image: radial-gradient(rgba(255, 255, 255, .6) 20%, transparent 20%), radial-gradient(rgba(255, 255, 255, .6) 20%, transparent 20%);
+  background-size: 8px 8px;
+  background-position: 0 0, 4px 4px;
+  animation: .6s linear infinite kofiDots;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .bb-support .bb-kbtn>span {
@@ -255,16 +280,16 @@
   z-index: 1;
   display: block;
   padding: 1rem 1.25rem;
-  filter: none; /* Removed drop shadow */
+  filter: drop-shadow(0 -1px 0 rgba(0, 0, 0, .25));
 }
 
 .bb-support .bb-kbtn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transform: translate(0, 0);
+  box-shadow: 0 0 0 2px var(--paper);
 }
 
 .bb-support .bb-kbtn:focus-visible {
-  outline-color: var(--accent);
+  outline-color: var(--cta);
   outline-style: dashed;
 }
 
@@ -305,9 +330,6 @@
   background: var(--hero) center bottom/cover no-repeat;
   pointer-events: none;
   z-index: 1;
-  /* Added cafe filter */
-  filter: sepia(0.3) brightness(0.9);
-  opacity: 0.8;
 }
 
 .bb-top-content,
@@ -317,18 +339,18 @@
 .bbx-band .bb-intros { overflow: visible !important; }
 
 .bb-quote {
-  --panel: #2b2522;
-  --ink: #f4e9e0;
-  --muted: #9b8a7d;
+  --panel: var(--bg-panel);
+  --ink: var(--ink);
+  --muted: var(--muted);
   display: block;
   margin: 24px 0px;
   padding: 14px 16px 14px 48px;
-  background: var(--panel); /* Solid background */
+  background: rgba(0, 0, 0, .1); /* Darker inlay */
   color: var(--ink);
   font-style: normal;
-  border-left: 4px solid var(--accent);
+  border-left: 3px solid var(--accent);
   position: relative;
-  border-radius: var(--border-radius); /* Removed clip-path */
+  border-radius: var(--b-radius-small); /* Soft corners */
 }
 
 .bb-quote::before {
@@ -336,9 +358,9 @@
   position: absolute;
   left: 12px;
   top: 6px;
-  font: 900 40px/1 'DM Serif Display', serif;
-  color: rgba(255, 255, 255, .1);
-  -webkit-text-stroke: none;
+  font: 900 40px/1 helvetica, system-ui, sans-serif;
+  color: rgba(255, 255, 255, .05); /* Subtler */
+  -webkit-text-stroke: 1px rgba(255, 255, 255, .03); /* Subtler */
 }
 
 .bb-quote .q { display: block; }
@@ -374,13 +396,13 @@
   position: absolute;
   top: 90vh;
   right: -.04em;
-  font-family: var(--font-heading), serif; /* Changed font */
+  font-family: helvetica, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   font-weight: 900;
   font-size: clamp(120px, 26vw, 520px);
   line-height: .8;
   letter-spacing: -.02em;
-  color: rgba(255, 255, 255, .03); /* More subtle */
-  -webkit-text-stroke: 1px rgba(255, 255, 255, .05); /* More subtle */
+  color: rgba(255, 255, 255, .025);
+  -webkit-text-stroke: 1px rgba(255, 255, 255, .14);
   text-shadow: 0 1px 0 rgba(0, 0, 0, .4);
   z-index: 0;
   pointer-events: none;
@@ -406,30 +428,27 @@
 ////////////////////////////////////////////////////////////////////////////////
 */
 @keyframes kofiDots {
-  /* ... (original, unchanged) ... */
   0% { background-position: 0 0, 4px 4px; }
   100% { background-position: 8px 0, 12px 4px; }
 }
 
 @keyframes btn-sonar {
-  /* ... (original, unchanged) ... */
   0% { box-shadow: 0 0 0 0 var(--sonar-color); }
   70% { box-shadow: 0 0 0 12px rgba(255, 255, 255, 0); }
   100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
 }
 
 @keyframes fadeInUp {
-  /* ... (original, unchanged) ... */
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Removed puppetGlide keyframe, no longer used */
-
-@keyframes accentGlow {
-  0%, 100% { text-shadow: 0 0 5px rgb(from var(--accent) r g b / .2); }
-  50% { text-shadow: 0 0 15px rgb(from var(--accent) r g b / .6); } /* Softer glow */
+@keyframes puppetGlide {
+  0% { transform: translateY(60vh) rotate(-1deg); opacity: 0; }
+  100% { transform: translateY(0) rotate(0); opacity: 1; }
 }
+
+/* Removed accentGlow, not on-theme */
 
 /*
 ////////////////////////////////////////////////////////////////////////////////
@@ -467,7 +486,6 @@
   .bbx-hero {
     background: var(--hero) top center/cover no-repeat !important;
     min-height: clamp(260px, 50vh, 560px) !important;
-    filter: sepia(0.3) brightness(0.9); /* Apply filter on mobile hero too */
   }
   .bb-intros { max-width: 100% !important; }
   .bbx-band .bb-intros {
@@ -504,7 +522,7 @@
 @media(hover:hover) {
   .bb-badge:hover {
     transform: translateY(-1px);
-    box-shadow: 0 0 0 1px rgba(255, 255, 255, .06) inset, 0 6px 14px rgba(0, 0, 0, .3);
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
   }
   .bb-kbtn:hover {
     transform: translateY(-2px);
@@ -524,7 +542,7 @@
 
 /*
 ////////////////////////////////////////////////////////////////////////////////
-// 5. CHUB.AI OVERRIDES [CAFE BUNNY THEME]
+// 5. CHUB.AI OVERRIDES [USE CAUTION]
 ////////////////////////////////////////////////////////////////////////////////
 */
 h3.ant-typography,
@@ -539,12 +557,11 @@ h4.ant-typography.mt-8+div {
   display: none !important;
 }
 
-/* Ant Tags (Cafe Style) */
 .ant-space.ant-space-horizontal.ant-space-align-center .ant-tag {
-  background: var(--panel) !important;
-  color: var(--accent) !important;
-  border: 1px solid var(--accent) !important;
-  border-radius: 4px !important; /* Rounded */
+  background: var(--muted) !important;
+  color: var(--bg-dark) !important;
+  border: none !important;
+  border-radius: 4px !important; /* Soft */
   padding: .15em .55em !important;
   font-size: .7rem !important;
   font-weight: 700 !important;
@@ -556,7 +573,7 @@ h4.ant-typography.mt-8+div {
 
 .ant-space.ant-space-horizontal.ant-space-align-center .ant-tag:hover {
   background: var(--accent) !important;
-  color: var(--panel) !important;
+  color: var(--bg-dark) !important;
 }
 
 .ant-space.ant-space-horizontal.ant-space-align-center {
@@ -566,10 +583,10 @@ h4.ant-typography.mt-8+div {
 }
 
 .ant-tag {
-  background: var(--panel) !important;
-  color: var(--accent) !important;
-  border: 1px solid var(--accent) !important;
-  border-radius: 4px !important; /* Rounded */
+  background: var(--muted) !important;
+  color: var(--bg-dark) !important;
+  border: none !important;
+  border-radius: 4px !important; /* Soft */
   padding: .10em .50em !important;
   font-size: .6rem !important;
   font-weight: 700 !important;
@@ -580,7 +597,7 @@ h4.ant-typography.mt-8+div {
 
 .ant-tag:hover {
   background: var(--accent) !important;
-  color: var(--panel) !important;
+  color: var(--bg-dark) !important;
   cursor: pointer;
 }
 .ant-ribbon.ant-ribbon-placement-end,
@@ -602,7 +619,6 @@ button.ant-btn:has(.anticon-star svg path[d*="M664.8 561.6"]) {
   z-index: 2147483647 !important;
 }
 
-/* Ant Buttons (Cafe Style) */
 button.ant-btn {
   position: relative;
   align-items: center !important;
@@ -614,7 +630,7 @@ button.ant-btn {
   height: 48px !important;
   min-width: 64px !important;
   padding: .5em 1.4em !important;
-  border-radius: 8px !important; /* Rounded */
+  border-radius: 8px !important;
   transition: transform .15s, box-shadow .15s, background-color .25s, color .25s, border-color .25s;
   cursor: pointer;
   overflow: visible !important;
@@ -624,17 +640,17 @@ button.ant-btn:hover { box-shadow: none !important; }
 button.ant-btn:active { transform: translateY(1px); }
 
 button.ant-btn.ant-btn-default {
-  background: var(--panel) !important;
+  background: var(--bg-panel) !important;
   color: var(--ink) !important;
   border: 1px solid var(--muted) !important;
-  box-shadow: 0px 2px 0 var(--muted);
+  box-shadow: 0 2px 0 rgba(0,0,0,0.2) !important; /* Softer shadow */
 }
 
 button.ant-btn.ant-btn-primary {
   background: var(--accent) !important;
-  color: var(--primary-bg) !important;
-  border: 1px solid var(--accent) !important;
-  box-shadow: 0px 2px 0 var(--primary-bg) !important;
+  color: var(--bg-dark) !important;
+  border: 1px solid rgba(0,0,0,0.2) !important;
+  box-shadow: 0 2px 0 rgba(0,0,0,0.2) !important;
 }
 
 button.ant-btn .ml-1,
@@ -655,25 +671,24 @@ button.ant-btn.ant-btn-default:has(.anticon-star)::after {
 
 button.ant-btn:has(svg.lucide-messages-square)::after { --sonar-color: var(--accent); }
 
-/* Chat Button (Cafe Style) */
 button.ant-btn:has(svg.lucide-messages-square) {
   font-size: 14px !important;
   font-weight: 800 !important;
   height: 64px !important;
   padding: 0 1.8em 0 1.8em;
-  border-radius: 12px !important; /* Rounded */
+  border-radius: 10px !important;
   background: var(--accent) !important;
-  color: var(--primary-bg) !important;
-  border: 2px solid var(--primary-bg) !important;
-  outline: 2px solid var(--accent);
-  box-shadow: none !important; /* Removed complex shadow */
+  color: var(--bg-dark) !important;
+  border: 2px solid var(--bg-dark) !important;
+  outline: 1px solid var(--muted);
+  box-shadow: 4px 4px 0 0 var(--bg-dark); /* Simplified shadow */
   z-index: 10;
   transition: background .25s, color .25s, box-shadow .25s, transform .15s;
 }
 
 button.ant-btn:has(svg.lucide-messages-square):hover {
   background: var(--ink) !important;
-  color: var(--primary-bg) !important;
+  color: var(--bg-dark) !important;
   box-shadow: none !important;
   border-color: var(--accent) !important;
 }
@@ -709,22 +724,22 @@ div.flex.flex-wrap.justify-end {
 }
 
 :is(h1, h2, h3).ant-typography[class*=css-] {
-  font-family: var(--font-heading), serif !important; /* Use heading font */
+  font-family: var(--font-heading) !important;
   font-size: clamp(30px, 4vw, 38px) !important;
   line-height: 1.15 !important;
   font-weight: 700 !important;
-  color: var(--ink) !important; /* Use theme color */
+  color: var(--ink) !important;
   margin: 0 0 6px !important;
   letter-spacing: 0 !important;
   max-width: 50%;
-  text-transform: none !important; /* Title case */
+  text-transform: none !important; /* Lora */
 }
 
 .msg-mkdn-container.font-size-message {
   font-size: clamp(16px, 1.6vw, 16px) !important;
   line-height: 1.7 !important;
   font-weight: 400 !important;
-  color: var(--ink) !important; /* Use theme color */
+  color: var(--ink) !important;
   max-width: none !important;
   width: auto !important;
 }
@@ -738,7 +753,6 @@ div.flex.flex-wrap.justify-end {
 .bbx-left { position: relative; z-index: 3; }
 .bbx-hero { position: relative; z-index: 2; }
 
-/* Hero Image - Grounded, no 'puppet' animation */
 .bbx-band::before {
   content: "";
   position: fixed;
@@ -752,10 +766,8 @@ div.flex.flex-wrap.justify-end {
   pointer-events: none;
   z-index: 1;
   transition: transform .8s ease;
-  transform: none; /* Removed animation */
-  animation: none; /* Removed animation */
-  filter: sepia(0.3) brightness(0.9); /* Warm filter */
-  opacity: 0.8; /* Slightly muted */
+  transform: translateY(60vh) rotate(-1deg);
+  animation: 2.2s cubic-bezier(.25, 1, .5, 1) both puppetGlide;
 }
 
 @media(prefers-reduced-motion:reduce) {
@@ -794,7 +806,7 @@ div.flex.flex-wrap.justify-end {
 
 .bbx-left { display: flex; flex-direction: column; }
 .bb-support {
-  --panel: #2b2522;
+  --panel: var(--bg-panel);
   background: var(--panel);
   margin-top: 24px !important;
   padding: clamp(16px, 2vw, 24px);
@@ -819,14 +831,13 @@ div.flex.flex-wrap.justify-end {
   }
 }
 
-/* Image - Rounded corners */
 .ant-col.text-left [class*=ant-image] {
   --pf-cut: 25%;
   --g: 12px;
   --st: 1px;
   position: relative;
   overflow: hidden;
-  border-radius: var(--border-radius); /* Rounded */
+  border-radius: var(--b-radius-main); /* Soft */
 }
 
 .ant-col.text-left [class*=ant-image] .ant-image-img {
@@ -838,7 +849,8 @@ div.flex.flex-wrap.justify-end {
 }
 
 .ant-col.text-left [class*=ant-image]::after {
-  content: none; /* Removed clip-path */
+  /* Removed pseudo-element */
+  display: none;
 }
 
 .ant-col.text-left [class*=ant-image] .ant-image-mask,
@@ -846,18 +858,17 @@ div.flex.flex-wrap.justify-end {
   display: none !important;
 }
 
-/* All panel elements rounded */
 .bb-support,
 .bbx-band .bb-intros {
-  border-radius: var(--border-radius) !important; /* Rounded */
+  border-radius: var(--b-radius-main) !important; /* Soft */
   clip-path: none !important; /* Removed clip-path */
   overflow: hidden !important;
 }
 
 .bb-presets {
-  --panel: #2b2522;
+  --panel: var(--bg-panel);
   background: var(--panel);
-  border-radius: var(--border-radius) !important; /* Rounded */
+  border-radius: var(--b-radius-main) !important; /* Soft */
   clip-path: none !important; /* Removed clip-path */
   padding: clamp(12px, 1.5vw, 20px);
   margin-top: 24px;
@@ -870,16 +881,15 @@ div.flex.flex-wrap.justify-end {
 
 .bb-presets-label {
   font-family: var(--font-flavor);
-  font-size: 18px; /* Larger script */
+  font-size: 16px;
   font-weight: 600;
-  color: var(--ink); /* Lighter */
+  color: var(--ink);
   white-space: nowrap;
 }
 
 @media(max-width:768px) { .bbx-band { padding-right: 0 !important; } }
 @media(min-width:769px) { .bbx-band { padding-right: clamp(16px, 8vw, 140px); } }
 
-/* Badges (Cafe Style) */
 .bb-badges {
   display: flex;
   flex-wrap: wrap;
@@ -888,38 +898,39 @@ div.flex.flex-wrap.justify-end {
 }
 
 .bb-badge {
-  --ink: #1a1614;
-  --paper: #f4e9e0;
-  --cta: #64748b; /* Default, will be overridden */
+  --ink: var(--bg-dark);
+  --paper: var(--ink);
+  --cta: var(--muted); /* Default to tan */
   position: relative;
   display: inline-block;
   padding: .6em 1.1em;
-  border-radius: 9999px; /* Rounded */
+  border-radius: 9999px;
   font: 800 10px/1 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   text-transform: uppercase;
-  color: var(--paper);
+  color: var(--bg-dark); /* Dark text on light badge */
   text-decoration: none;
   background: var(--cta);
-  border: 1px solid var(--ink);
-  box-shadow: 0 1px 1px rgba(0,0,0,0.3); /* Simpler shadow */
-  text-shadow: 0 1px 0 rgba(0, 0, 0, .35);
+  border: 1px solid var(--bg-dark);
+  box-shadow: 2px 2px 0 var(--ink); /* Simplified */
+  text-shadow: none;
   transition: transform .15s, box-shadow .15s, background .25s, color .25s, border-color .25s;
 }
 
 .bb-badge:hover {
   transform: translateY(-1px);
-  color: var(--paper);
+  color: var(--bg-dark);
   text-shadow: none;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
   border-color: var(--ink);
+  background: var(--accent); /* Caramel hover */
 }
 
 .bb-badge:active { transform: translateY(1px); }
-/* Cafe Badge Colors */
-.bb-badge-soji { --cta: linear-gradient(135deg, #e6a89c, #b37b70); }
-.bb-badge-deepseek { --cta: linear-gradient(135deg, #a18f80, #7a6a5d); }
-.bb-badge-claude { --cta: linear-gradient(135deg, #c7b2a3, #9b8a7d); }
-.bb-badge-grok { --cta: #2b2522; }
+/* Cafe-themed badge colors */
+.bb-badge-soji { --cta: linear-gradient(135deg, #e69a6d, #b9764d); color: var(--bg-dark) !important; }
+.bb-badge-deepseek { --cta: linear-gradient(135deg, #a39b8e, #7a7164); color: var(--ink) !important; }
+.bb-badge-claude { --cta: linear-gradient(135deg, #f5f0e8, #dcd4c7); color: var(--bg-dark) !important; }
+.bb-badge-grok { --cta: #3a322f; color: var(--ink) !important; }
 
 .ant-col.text-left.ant-col-xs-24.ant-col-lg-24 {
   position: relative !important;
@@ -929,9 +940,7 @@ div.flex.flex-wrap.justify-end {
 
 .ant-collapse {
   border: none !important;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%);
-  border-radius: var(--border-radius); /* Rounded */
-  overflow: hidden; /* For radius */
+  background: rgba(0,0,0,0.1); /* Inlay */
 }
 
 .ant-collapse-item { border-bottom: none !important; }
@@ -965,7 +974,7 @@ header.ant-layout-header {
   z-index: 99999 !important;
 }
 
-/* --- General Dropdown Item Styles (Cafe) --- */
+/* --- General Dropdown Item Styles --- */
 .ant-dropdown-menu-item {
   justify-content: flex-start !important;
   padding-top: 5px !important;
@@ -974,10 +983,14 @@ header.ant-layout-header {
 .ant-dropdown-menu-item .ant-dropdown-menu-title-content {
   text-align: left !important;
 }
+
+/* --- Hover Effects --- */
 li.ant-dropdown-menu-item:not(:has(.ant-upload-wrapper)):hover {
-  background-color: var(--panel) !important; /* Use panel color */
+  background-color: var(--bg-panel) !important;
   color: var(--ink) !important;
 }
+
+/* --- Special Styles for the "Upload" Button Item --- */
 li.ant-dropdown-menu-item:has(.ant-upload-wrapper):hover {
   background-color: transparent !important;
 }
@@ -992,69 +1005,67 @@ li.ant-dropdown-menu-item:has(.ant-upload-wrapper) .ant-btn {
 }
 li.ant-dropdown-menu-item:has(.ant-upload-wrapper) .ant-btn:hover,
 li.ant-dropdown-menu-item:has(.ant-upload-wrapper) .ant-btn:focus {
-  background-color: var(--panel) !important; /* Use panel color */
+  background-color: var(--bg-panel) !important;
   color: var(--ink) !important;
   outline: none !important;
 }
 
-/* "Post" Button (Cafe Style) */
 button.sc-ifyrAs {
-    display: inline-block !important;
-    font-size: 14px !important;
-    font-weight: 700 !important;
-    height: 40px !important;
-    padding: 0 2em !important;
-    border-radius: 8px !important;
-    background: var(--panel) !important;
-    color: var(--ink) !important;
-    border: 1px solid var(--muted) !important;
-    box-shadow: 0 2px 0 var(--muted);
-    cursor: pointer;
-    transition: transform 0.15s, box-shadow 0.15s, background-color 0.25s, color 0.25s, border-color 0.25s;
-  }
+  display: inline-block !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  height: 40px !important;
+  padding: 0 2em !important;
+  border-radius: 8px !important;
+  background: var(--bg-panel) !important;
+  color: var(--ink) !important;
+  border: 1px solid var(--muted) !important;
+  box-shadow: 0 2px 0 rgba(0,0,0,0.2) !important;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s, background-color 0.25s, color 0.25s, border-color 0.25s;
+}
 
-  button.sc-ifyrAs:hover {
-    background: var(--ink) !important;
-    color: var(--panel) !important;
-    box-shadow: none !important;
-    border-color: var(--ink) !important;
-  }
+button.sc-ifyrAs:hover {
+  background: var(--ink) !important;
+  color: var(--bg-dark) !important;
+  box-shadow: none !important;
+}
 
-  button.sc-ifyrAs {
-    position: relative !important;
-    overflow: visible !important;
-  }
+button.sc-ifyrAs {
+  position: relative !important;
+  overflow: visible !important;
+}
 
-  button.sc-ifyrAs::after {
-    content: "";
-    position: absolute;
-    inset: -2px;
-    border-radius: inherit;
-    background: transparent;
-    --sonar-color: var(--accent); /* Uses the theme's accent color */
-    box-shadow: 0 0 0 0 var(--sonar-color);
-    animation: 2.8s ease-out infinite btn-sonar !important;
-    pointer-events: none;
-    z-index: 1;
-  }
+button.sc-ifyrAs::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: transparent;
+  --sonar-color: var(--accent); /* Uses the theme's accent color */
+  box-shadow: 0 0 0 0 var(--sonar-color);
+  animation: 2.8s ease-out infinite btn-sonar !important;
+  pointer-events: none;
+  z-index: 1;
+}
 
+div.sc-blmEgr {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.ant-tooltip {
+  display: none !important;
+}
+
+@media (min-width: 992px) {
   div.sc-blmEgr {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    position: relative;
-    z-index: 2;
+    padding-right: 55%;
   }
-
-  .ant-tooltip {
-    display: none !important;
-  }
-
-  @media (min-width: 992px) {
-    div.sc-blmEgr {
-      padding-right: 55%;
-    }
-  }
+}
 
 .comment-width .ant-comment-inner{
   padding:16px;
@@ -1064,11 +1075,10 @@ button.sc-ifyrAs {
   margin-right:16px;
 }
 
-/* POV Badge (Cafe Style) */
 .pov-badge {
   display: inline-block;
-  background: var(--panel); /* Use panel color */
-  color: var(--muted);     /* Use muted color */
+  background: var(--bg-panel); /* Panel color */
+  color: var(--muted);      /* Muted text */
   padding: 3px 8px;
   margin-right: 6px;
   font-size: 10px;
@@ -1077,150 +1087,148 @@ button.sc-ifyrAs {
   text-transform: uppercase;
   letter-spacing: .08em;
   vertical-align: middle;
-  border-radius: 4px; /* Rounded */
-  clip-path: none; /* Removed clip-path */
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px; /* Soft */
 }
-
 :root {
-	--rel-w: 120px;
-	--rel-h: 72px;
-	--rel-text-h: 40px
+  --rel-w: 120px;
+  --rel-h: 72px;
+  --rel-text-h: 40px
 }
 
 .bb-sec .bb-relationships-panel {
-	margin-top: 24px !important;
-	margin-bottom: 24px !important
+  margin-top: 24px !important;
+  margin-bottom: 24px !important
 }
 
 .bb-intros .zg-body {
-	padding: 0 !important;
-	background: none !important;
-	overflow-x: auto !important;
-	overflow-y: visible !important;
-	-webkit-overflow-scrolling: touch !important;
-	scroll-snap-type: x proximity !important;
-	margin: 0 -24px !important
+  padding: 0 !important;
+  background: none !important;
+  overflow-x: auto !important;
+  overflow-y: visible !important;
+  -webkit-overflow-scrolling: touch !important;
+  scroll-snap-type: x proximity !important;
+  margin: 0 -24px !important
 }
 
 .bb-intros .zg-rel-row {
-	display: inline-flex !important;
-	flex-wrap: nowrap !important;
-	gap: 8px !important;
-	justify-content: flex-start !important;
-	min-width: max-content !important;
-	width: auto !important;
-	align-items: center;
-	padding: 4px 24px 16px !important
+  display: inline-flex !important;
+  flex-wrap: nowrap !important;
+  gap: 8px !important;
+  justify-content: flex-start !important;
+  min-width: max-content !important;
+  width: auto !important;
+  align-items: center;
+  padding: 4px 24px 16px !important
 }
 
-/* Scrollbar (Cafe Style) */
 .bb-intros .zg-body::-webkit-scrollbar {
-	height: 8px !important
-}
-.bb-intros .zg-body::-webkit-scrollbar-track {
-	background: rgba(0, 0, 0, .2) !important;
-	border-radius: 4px !important
-}
-.bb-intros .zg-body::-webkit-scrollbar-thumb {
-	background: var(--muted) !important; /* Use muted color */
-	border-radius: 4px !important;
-	border: 1px solid rgba(255, 255, 255, .1) !important
-}
-.bb-intros .zg-body::-webkit-scrollbar-thumb:hover {
-	background: var(--accent) !important; /* Use accent color */
+  height: 8px !important
 }
 
-/* Relationship Tile (Cafe Style) */
+.bb-intros .zg-body::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, .2) !important;
+  border-radius: 4px !important
+}
+
+.bb-intros .zg-body::-webkit-scrollbar-thumb {
+  background: var(--muted) !important;
+  border-radius: 4px !important;
+  border: 1px solid rgba(0, 0, 0, .1) !important
+}
+
+.bb-intros .zg-body::-webkit-scrollbar-thumb:hover {
+  background: var(--accent) !important
+}
+
 .bb-intros .zg-rel-tile {
-	position: relative !important;
-	display: block !important;
-	flex: 0 0 auto !important;
-	width: var(--rel-w) !important;
-	height: calc(var(--rel-h) + var(--rel-text-h)) !important;
-	text-decoration: none !important;
-	color: var(--ink) !important;
-	border: 1px solid rgba(255, 255, 255, .05) !important;
-	border-radius: var(--border-radius) !important; /* Rounded */
-	background: var(--panel) !important; /* Use panel color */
-	transition: border-color .2s, transform .15s, filter .2s !important;
-	overflow: hidden !important;
-	scroll-snap-align: start !important
+  position: relative !important;
+  display: block !important;
+  flex: 0 0 auto !important;
+  width: var(--rel-w) !important;
+  height: calc(var(--rel-h) + var(--rel-text-h)) !important;
+  text-decoration: none !important;
+  color: var(--ink) !important;
+  border: 1px solid rgba(0, 0, 0, .2) !important;
+  border-radius: 6px !important;
+  background: rgba(0, 0, 0, .1) !important;
+  transition: border-color .2s, transform .15s, filter .2s !important;
+  overflow: hidden !important;
+  scroll-snap-align: start !important
 }
 
 .bb-intros .zg-rel-tile:hover {
-	border-color: var(--accent) !important;
-	transform: translateY(-1px) !important;
-	filter: brightness(1.05) !important
+  border-color: var(--accent) !important;
+  transform: translateY(-1px) !important;
+  filter: brightness(1.05) !important
 }
 
 .bb-intros .zg-rel-tile img {
-	display: block !important;
-	width: 100% !important;
-	height: var(--rel-h) !important;
-	object-fit: cover !important;
-	border-radius: 4px 4px 0 0 !important
+  display: block !important;
+  width: 100% !important;
+  height: var(--rel-h) !important;
+  object-fit: cover !important;
+  border-radius: 4px 4px 0 0 !important
 }
 
 .bb-intros .zg-rel-tile::before {
-	content: '' !important;
-	position: absolute !important;
-	bottom: 0 !important;
-	left: 0 !important;
-	right: 0 !important;
-	height: var(--rel-text-h) !important;
-	background: var(--panel) !important; /* Use panel color */
-	border-radius: 0 0 5px 5px !important;
-	z-index: 1 !important
+  content: '' !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: var(--rel-text-h) !important;
+  background: var(--bg-dark) !important; /* Darker bg */
+  border-radius: 0 0 5px 5px !important;
+  z-index: 1 !important
 }
 
 .bb-intros .zg-rel-label {
-	position: absolute !important;
-	left: 0 !important;
-	right: 0 !important;
-	z-index: 2 !important;
-	pointer-events: none !important;
-	background: none !important;
-	bottom: 16px !important;
-	padding: 0 8px !important;
-	font: 400 16px/1 var(--font-flavor) !important; /* Use flavor font */
-	color: var(--ink) !important; /* Use ink color */
-	text-align: center !important;
-	white-space: nowrap !important;
-	overflow: hidden !important;
-	text-overflow: ellipsis !important;
-	text-transform: none !important;
-	letter-spacing: 0 !important
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 2 !important;
+  pointer-events: none !important;
+  background: none !important;
+  bottom: 16px !important;
+  padding: 0 8px !important;
+  font: 400 16px/1 var(--font-flavor) !important;
+  color: var(--ink) !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important
 }
 
 .bb-intros .zg-rel-tile::after {
-	content: attr(data-rel) !important;
-	position: absolute !important;
-	left: 0 !important;
-	right: 0 !important;
-	z-index: 2 !important;
-	pointer-events: none !important;
-	background: none !important;
-	bottom: 4px !important;
-	padding: 0 8px !important;
-	color: var(--muted) !important; /* Use muted color */
-	font: 700 9px/1 system-ui, -apple-system, sans-serif !important;
-	text-align: center !important;
-	white-space: nowrap !important;
-	overflow: hidden !important;
-	text-overflow: ellipsis !important;
-	letter-spacing: .06em !important;
-	text-transform: uppercase !important
+  content: attr(data-rel) !important;
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 2 !important;
+  pointer-events: none !important;
+  background: none !important;
+  bottom: 4px !important;
+  padding: 0 8px !important;
+  color: var(--muted) !important;
+  font: 700 9px/1 system-ui, -apple-system, sans-serif !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  letter-spacing: .06em !important;
+  text-transform: uppercase !important
 }
 
 .bb-subtitle{
-	font-weight:700; 
-	font-size: 12px; 
-	line-height:32px;
-	text-transform:uppercase;
-	letter-spacing:.2em;
-	color:var(--accent);
-	margin-bottom:24px
+  font-weight:700; 
+  font-size: 12px; 
+  line-height:32px;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:var(--accent);
+  margin-bottom:24px
 }
 
 .dOesoR,.hFiwlk,.cSOzTo,.bPlxTo,.isKXvo,.dAxClk,.fRJWto,.gYqOac{min-height:100%;max-height:24rem}.dOesoR::after,.hFiwlk::after,.cSOzTo::after,.bPlxTo::after,.isKXvo::after,.dAxClk::after,.fRJWto::after,.gYqOac::after{display:none}
@@ -1228,118 +1236,115 @@ button.sc-ifyrAs {
 
 /*
 =================================================================
-  PREMIUM FAVORITE BUTTON - CAFE THEME
+  COZY FAVORITE BUTTON - WARM PULSE
 =================================================================
 */
 
-/* 1. KEYFRAME FOR THE GENTLE SHAKE (UNCHANGED) */
-@keyframes gentle-shake {
-  0%, 80% {
-    transform: translateX(-12px) scale(1.15) rotate(0deg);
+/* 1. KEYFRAME FOR A SOFT, WARM PULSE */
+@keyframes warm-pulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 3px var(--accent));
+    opacity: .8;
   }
-  84% {
-    transform: translateX(-12px) scale(1.15) rotate(-5deg);
-  }
-  88% {
-    transform: translateX(-12px) scale(1.15) rotate(4deg);
-  }
-  92% {
-    transform: translateX(-12px) scale(1.15) rotate(-2deg);
-  }
-  96% {
-    transform: translateX(-12px) scale(1.15) rotate(1deg);
-  }
-  100% {
-    transform: translateX(-12px) scale(1.15) rotate(0deg);
+  50% {
+    filter: drop-shadow(0 0 10px var(--accent));
+    opacity: 1;
   }
 }
 
-/* 2. KEYFRAME FOR THE GRADIENT SWEEP (CAFE COLORS) */
-@keyframes premium-sweep {
-  to {
-    background-position: 200% center;
-  }
-}
-
-
-/* --- Button & Border Styling --- */
-
-/* 1. Base button styles */
+/* 2. Style the button to remove old animations and apply the new one */
 button.ant-btn:has(.anticon-star svg path[d*="zM"]) {
   position: relative;
   isolation: isolate;
   border: none !important;
   box-shadow: none !important;
-  transform: translateX(-12px) scale(1.15);
-  animation: gentle-shake 6s ease-in-out infinite;
+  /* Remove old transform */
+  transform: none;
+  /* Apply the new warm pulse animation */
+  animation: warm-pulse 2s ease-in-out infinite;
 }
 
-/* 2. Animated gradient border (Cafe Colors) */
+/* 3. Remove the ::before element (which was the rainbow sweep) */
 button.ant-btn:has(.anticon-star svg path[d*="zM"])::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  inset: -1px; /* Covers the button edge */
-  border-radius: inherit;
-  padding: 2px;
-  /* Warm cafe gradient */
-  background: linear-gradient(90deg, var(--accent), var(--ink), var(--muted), var(--accent));
-  background-size: 200% 100%;
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-          mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-          mask-composite: exclude;
-  animation: premium-sweep 3s linear infinite;
+  display: none !important;
+  animation: none !important;
 }
-
 
 /* --- Star Icon Styling --- */
 
+/* 4. Style the SVG container to be clean */
 button.ant-btn:has(.anticon-star svg path[d*="zM"]) .anticon-star svg {
   animation: none;
   filter: none;
 }
 
+/* 5. Style the SVG path to be a solid, warm caramel color */
 button.ant-btn:has(.anticon-star svg path[d*="zM"]) .anticon-star svg path {
-  fill: var(--ink); /* Creamy star color */
-  stroke: rgba(0, 0, 0, 0.5);
-  stroke-width: 0.5px;
+  fill: var(--accent);
+  stroke: none;
   opacity: 1 !important;
   animation: none;
   filter: none;
 }
 
-/* --- Mobile Favorite Bar (Full Width) --- */
+/* 6. Restore styles for the *non-premium* star button */
+button.ant-btn:has(.anticon-star):not(:has(svg path[d*="zM"])) {
+  animation: none !important;
+  transform: none !important;
+}
+button.ant-btn:has(.anticon-star):not(:has(svg path[d*="zM"])) .anticon-star svg {
+  animation: none !important;
+  filter: none !important;
+  overflow: hidden;
+}
+button.ant-btn:has(.anticon-star):not(:has(svg path[d*="zM"])) .anticon-star svg path {
+  fill: currentColor !important;
+  stroke: none;
+}
+button.ant-btn:has(.ant-btn-default):has(.anticon-star):not(:has(svg path[d*="zM"]))::after {
+  /* This is the default button sonar, which is fine to keep */
+  --sonar-color: var(--accent);
+}
+
+/* 7. Mobile styles for the (now cozy) premium button */
 @media (max-width: 768px) {
-	.bunnyui-credit {
-		display:none;
-	}
+  .bunnyui-credit {
+    display:none;
+  }
+  
   button.ant-btn.ant-btn-icon-only:has(.anticon-star svg path[d*="zM"]) {
+    /* --- Positioning Overrides --- */
     position: fixed !important;
     bottom: 16px !important;
     left: 16px !important;
     right: 16px !important;
+    
+    /* --- Sizing Override --- */
     width: auto !important; /* Stretches the button */
-    transform: none !important; /* No shake when full-width */
-    animation: none !imporant;
-    /* Re-apply a sonar animation */
-    animation: 2.8s ease-out infinite btn-sonar !important;
-    --sonar-color: var(--accent);
-  }
-  
-  /* Disable the gradient border on mobile */
-  button.ant-btn.ant-btn-icon-only:has(.anticon-star svg path[d*="zM"])::before {
-    content: none !important;
-  }
-  
-  /* Make the button background solid on mobile */
-  button.ant-btn.ant-btn-icon-only:has(.anticon-star svg path[d*="zM"]) {
-     background: var(--accent) !important;
-  }
+    
+    /* --- Animation Reset --- */
+    transform: none !important;
+    animation: none !important; /* Disables the corner pulse */
 
-  /* Make the star dark on the light button */
-  button.ant-btn.ant-btn-icon-only:has(.anticon-star svg path[d*="zM"]) .anticon-star svg path {
-    fill: var(--primary-bg);
-    stroke: none;
+    /* --- Apply new theme colors --- */
+    background: var(--accent) !important;
+    color: var(--bg-dark) !important;
+    border: 1px solid rgba(0,0,0,0.2) !important;
+    box-shadow: 0 2px 0 rgba(0,0,0,0.2) !important;
+  }
+  
+  /* Re-applies the desired sonar pulse animation to the full-width button.
+  */
+  button.ant-btn.ant-btn-icon-only:has(.anticon-star svg path[d*="zM"])::after {
+      content: "";
+      position: absolute;
+      inset: -2px !important;
+      border-radius: inherit;
+      background: 0 0;
+      box-shadow: 0 0 0 0 var(--sonar-color);
+      --sonar-color: var(--accent);
+      animation: 2.8s ease-out infinite btn-sonar !important;
+      pointer-events: none;
+      z-index: 1;
   }
 }
