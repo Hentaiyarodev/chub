@@ -1,9 +1,8 @@
 /*
 =================================================================
-  BUNNYUI V4 - CORE THEME STYLESHEET (MINIMALIST LIGHT VARIANT)
+  BUNNYUI V4 - CORE THEME STYLESHEET (DARK VIBE CAFE VARIANT)
+  (c) 2025 BunnyUI. Redesenhado por [Seu Nome/Gemini]
 =================================================================
-  - Uses the same classes as the Arcana theme for compatibility.
-  - Re-styles for a clean, flat, light-mode aesthetic.
 */
 
 /*
@@ -11,7 +10,7 @@
 // 1. FONT IMPORTS
 ////////////////////////////////////////////////////////////////////////////////
 */
-/* Minimalist theme uses system fonts; custom fonts removed. */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Pacifico&family=Playfair+Display:wght@700&display=swap');
 
 /*
 ////////////////////////////////////////////////////////////////////////////////
@@ -19,329 +18,350 @@
 ////////////////////////////////////////////////////////////////////////////////
 */
 .bb-sec {
-  /* --- Core Palette --- */
-  --ink: #222;
-  --muted: #777;
-  --panel: #ffffff;
-  --accent: #111; /* Simple, dark accent */
+  /* -- Paleta de Cores "Dark Cafe" -- */
+  --ink: #f4e9de; /* Branco Creme (Espuma de Leite) */
+  --muted: #a3958b; /* Bege Acinzentado (Café com Leite) */
+  --accent: #c7a17a; /* Caramelo Suave */
+  --panel-bg: #3f322b; /* Marrom Escuro (Grão de Café) */
+  --page-bg: #2a211c; /* Marrom Mais Escuro (Espresso) */
 
-  background: #f9f9f9; /* Light page background */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-  position: relative;
-  --gap: 20px;
-  overflow: visible !important;
+  --font-heading: 'Playfair Display', serif;
+  --font-flavor: 'Pacifico', cursive;
+  
+  font-family: 'Lato', sans-serif;
+  background: var(--page-bg);
+  color: var(--ink);
+  position: relative;
+  --gap: 20px;
+  --hero-over: clamp(80px, 10vw, 200px);
+  overflow: visible !important;
 }
 
-:root {
-  --pf-cut2: 0px; /* Neutralized clip-path */
+:root { 
+  /* Remove o corte de canto, prefere border-radius */
+  --pf-cut2: 12px; 
 }
 
 .bb-sec * {
-  box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .bb-wrap {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px; /* Added more horizontal padding for aesthetics */
-  overflow: visible !important;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 8px;
+  overflow: visible !important;
 }
 
 .bb-header {
-  margin-bottom: 24px;
+  margin-bottom: 24px;
 }
 
 .bb-collection-subtitle {
-  display: inline-block;
-  background: transparent;
-  color: var(--muted);
-  border: 1px solid #eee;
-  padding: 4px 10px;
-  font-size: 10px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: .05em;
-  text-decoration: none;
-  margin-bottom: 16px;
-  clip-path: none; /* --- Removed clip-path --- */
-  border-radius: 4px;
-  transition: background .2s, color .2s;
+  display: inline-block;
+  background: var(--accent);
+  color: var(--page-bg);
+  padding: 6px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  text-decoration: none;
+  margin-bottom: 16px;
+  border-radius: 4px; /* Substitui clip-path */
+  transition: background .2s, color .2s;
 }
 
 .bb-collection-subtitle:hover {
-  background: #eee;
-  color: #000;
+  background: var(--ink);
+  color: var(--page-bg);
 }
 
 .bb-title {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  font-size: clamp(36px, 6vw, 54px) !important;
-  line-height: 1.1 !important;
-  font-weight: 700 !important;
-  color: var(--ink, #222) !important;
-  margin: 0 0 12px !important;
-  letter-spacing: -0.02em !important;
-  text-transform: none; /* Changed from uppercase */
+  font-family: var(--font-heading), serif;
+  font-size: clamp(48px, 8vw, 90px) !important;
+  line-height: 1.1 !important;
+  font-weight: 700 !important;
+  color: var(--ink, #f4e9de) !important;
+  margin: 0 0 12px !important;
+  letter-spacing: 0.01em !important;
+  text-transform: none; /* Playfair Display fica melhor em caixa normal */
 }
 
 .bb-tagline {
-  font-size: 18px !important;
-  line-height: 1.7 !important;
-  font-weight: 400 !important;
-  color: var(--muted, #777) !important;
-  max-width: 65ch !important; /* Improved readability */
-  width: auto !important;
+  font-size: clamp(16px, 1.6vw, 18px) !important;
+  line-height: 1.7 !important;
+  font-weight: 400 !important;
+  color: var(--ink, #f4e9de) !important;
+  max-width: none !important;
+  width: auto !important;
 }
 
 .bb-intros {
-  --panel: #ffffff;
-  background: var(--panel);
-  border: 1px solid #eee;
-  border-radius: 8px;
-  padding: clamp(20px, 4vw, 32px);
-  position: relative;
-  overflow: visible !important;
-  max-width: 100% !important;
-  margin: 0 !important;
-  clip-path: none; /* --- Removed clip-path --- */
+  --panel: var(--panel-bg);
+  background: var(--panel);
+  /* Adiciona uma textura de madeira sutil */
+  background-image: url('https://www.transparenttextures.com/patterns/wood-grain.png');
+  padding: clamp(16px, 2vw, 24px);
+  position: relative;
+  overflow: visible !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  border-radius: 12px; /* Canto suave */
 }
 
 .bb-section-title {
-  font-family: system-ui, -apple-system, sans-serif;
-  text-transform: uppercase;
-  font-style: normal;
-  letter-spacing: 0.05em;
-  font-size: 14px;
-  font-weight: 600;
-  margin: 0 0 16px;
-  color: var(--muted);
-  display: flex;
-  align-items: center;
-  gap: .6em;
-  line-height: 1.2;
+  font-family: var(--font-flavor);
+  text-transform: none;
+  font-style: normal;
+  letter-spacing: 0.05em;
+  font-size: clamp(24px, 2.2vw, 28px);
+  font-weight: 400;
+  margin: 0 0 clamp(10px, 1.5vw, 14px);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: .6em;
+  line-height: 1.2;
 }
 
 .bb-intro-list {
-  margin: 0;
-  padding: 0 !important;
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  margin: 0;
+  padding: 0 !important;
+  list-style: none;
+  counter-reset: scn;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .bb-intro-list li {
-  background: transparent;
-  padding: 16px; /* Reset padding */
-  border: 1px solid #eee;
-  border-radius: 6px;
-  clip-path: none; /* --- Removed clip-path --- */
-  position: relative;
-  overflow: hidden;
-  transition: transform .2s, background .2s;
+  counter-increment: scn;
+  background: rgba(0, 0, 0, .2); /* Painel mais escuro sobre a madeira */
+  padding: 16px 16px 16px 64px;
+  border: 0;
+  border-radius: 8px; /* Canto suave */
+  position: relative;
+  overflow: hidden;
+  transition: transform .2s, background .2s;
 }
 
 .bb-intro-list li::before {
-  display: none; /* --- Removed counter number --- */
-  animation: none;
+  content: counter(scn);
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--page-bg);
+  background: var(--accent);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  z-index: 0;
+  animation: none; /* Remove o brilho */
 }
 
 .bb-card {
-  padding: 0;
-  margin-bottom: 24px;
+  padding: 0;
+  margin-bottom: 24px;
 }
 
 .bb-card p {
-  font-size: 15px;
-  line-height: 1.6;
-  margin: 0;
-  color: var(--ink);
+  font-size: 16px; /* Texto do corpo mais legível */
+  line-height: 1.6;
+  margin: 0;
+  color: var(--ink);
 }
 
 .bb-note {
-  font-family: system-ui, -apple-system, sans-serif;
-  font-size: 1em !important;
-  font-style: italic;
-  color: var(--muted);
+  font-family: var(--font-flavor);
+  font-size: 1.25em !important;
+  color: var(--accent);
 }
 
 .bb-meta-hdr {
-  padding: 10px 0;
-  font-weight: 600;
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: .1em;
-  color: var(--muted);
+  padding: 10px 0;
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--muted);
 }
 
 .bb-support-title {
-  font-family: system-ui, -apple-system, sans-serif;
-  color: var(--ink);
-  text-transform: none;
-  font-size: 18px;
-  font-weight: 600;
-  margin: 0 0 16px;
-  text-align: center !important;
+  font-family: var(--font-flavor);
+  color: var(--ink);
+  text-transform: none;
+  font-size: 22px;
+  font-weight: 400;
+  margin: 0 0 16px;
+  text-align: center !important;
 }
 
 .bb-kbtn {
-  /* This class is targeted by .bb-support .bb-kbtn, which is more specific */
-  /* General fallbacks for a simple button */
-  height: auto;
-  display: inline-block;
-  padding: 12px 20px;
-  background: var(--accent);
-  color: #fff;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 14px;
-  border-radius: 6px;
+  /* Este seletor é usado pelo botão kofi, vamos reestilizá-lo */
+  height: 48px;
+  display: inline-block;
+  padding: 20px 24px;
+  background: var(--accent);
+  color: var(--page-bg);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+  border-radius: 8px;
 }
 
 .bb-support .bb-kbtn {
-  /* --- Re-skinning 3D Ko-fi button to simple flat button --- */
-  --ink: #111;
-  --paper: #fff;
-  --cta: var(--accent, #111);
-  position: relative;
-  display: inline-block !important;
-  vertical-align: middle;
-  padding: 14px 24px !important;
-  margin: 0 !important;
-  border-radius: 6px !important;
-  background: var(--cta) !important;
-  color: #fff !important;
-  text-decoration: none;
-  font-weight: 600;
-  line-height: 1.4 !important;
-  isolation: isolate;
-  overflow: hidden;
-  transform: none !important;
-  outline: none;
-  box-shadow: none !important; /* --- Removed 3D shadow --- */
-  transition: background .2s;
+  /* Botão Kofi reestilizado - remove o estilo pixel-art */
+  --ink: #0f1116;
+  --paper: #e9edf5;
+  --cta: var(--accent, #c7a17a);
+  position: relative;
+  display: inline-block !important;
+  vertical-align: middle;
+  padding: 1px 0 !important;
+  margin: 0 !important;
+  border-radius: 9999px;
+  background: var(--cta) !important;
+  color: var(--page-bg) !important;
+  text-decoration: none;
+  font-weight: 700;
+  line-height: 1;
+  isolation: isolate;
+  overflow: hidden;
+  transform: none;
+  outline: transparent solid 2px;
+  outline-offset: 5px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2), 0 2px 5px rgba(244, 233, 222, 0.3) inset; /* Sombra suave */
+  transition: transform .15s, box-shadow .15s;
 }
 
 .bb-support .bb-kbtn::before {
-  display: none !important; /* --- Removed 3D elements --- */
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  /* Gradiente sutil para efeito de "espuma" */
+  background: linear-gradient(180deg, rgba(255,255,255,0.3), rgba(255,255,255,0) 50%);
+  border: 2px solid rgba(255, 255, 255, .25);
+  z-index: 0;
 }
 
 .bb-support .bb-kbtn::after {
-  display: none !important; /* --- Removed dot animation --- */
+  /* Remove a animação de pontos */
+  display: none;
 }
 
-.bb-support .bb-kbtn > span {
-  position: relative;
-  z-index: 1;
-  display: block;
-  padding: 0 !important; /* Reset padding */
-  filter: none;
+.bb-support .bb-kbtn>span {
+  position: relative;
+  z-index: 1;
+  display: block;
+  padding: 1rem 1.25rem;
+  filter: none; /* Remove a sombra do texto */
 }
 
 .bb-support .bb-kbtn:hover {
-  transform: none !important;
-  box-shadow: none !important;
-  background: #333 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3), 0 2px 5px rgba(244, 233, 222, 0.3) inset;
 }
 
 .bb-support .bb-kbtn:focus-visible {
-  outline: 2px dashed var(--cta);
-  outline-offset: 2px;
+  outline-color: var(--cta);
+  outline-style: dashed;
 }
 
 .bb-credit {
-  font-size: 11px;
-  color: var(--muted);
-  margin-top: 12px;
-  text-align: center !important;
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 12px;
+  text-align: center !important;
 }
 
-/* --- Layout Overrides: Force single-column --- */
 .bbx-hero,
 .bb-top-content,
 .bb-bottom-content {
-  min-width: 0 !important;
-  position: relative !important;
-  overflow: visible !important;
+  min-width: 0 !important;
+  position: relative !important;
+  overflow: visible !important;
 }
 
 .bbx-band {
-  --bleed: 0px;
-  z-index: 1;
-  display: grid !important;
-  grid-template-columns: 1fr !important; /* --- Force single column --- */
-  align-items: start !important;
-  position: relative !important;
-  margin-top: 0 !important; /* --- Reset complex layout --- */
-  padding-top: 0 !important;
-  overflow: visible !important;
-  padding-right: 0 !important; /* --- Reset padding --- */
+  --bleed: 500px;
+  z-index: 10;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: start !important;
+  position: relative !important;
+  margin-top: calc(-1*var(--bleed)) !important;
+  padding-top: var(--bleed) !important;
+  overflow: visible !important;
 }
 
 .bbx-band::before {
-  display: none !important; /* --- Remove side hero image --- */
+  content: "";
+  position: absolute;
+  left: calc(50% + 10px);
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: var(--hero) center bottom/cover no-repeat;
+  pointer-events: none;
+  z-index: 1;
+  /* Adiciona um efeito de "janela" */
+  border-radius: 12px;
+  border: 4px solid var(--panel-bg);
+  box-shadow: 0 0 30px rgba(0,0,0,0.5);
 }
 
 .bb-top-content,
-.bb-bottom-content {
-  grid-column: 1;
-}
-.bbx-hero {
-  grid-column: 1; /* --- Force hero into main column --- */
-  grid-row: 1; /* --- Move hero to the top --- */
-  background: var(--hero) top center/cover no-repeat !important;
-  min-height: clamp(200px, 40vh, 350px) !important;
-  border-radius: 8px;
-  margin-bottom: 24px;
-}
-.bb-top-content {
-  grid-row: 2;
-}
-.bb-bottom-content {
-  grid-row: 3;
-}
+.bb-bottom-content { grid-column: 1; }
+.bbx-hero { grid-column: 2; }
 
-.bbx-band .bb-intros {
-  overflow: visible !important;
-}
+.bbx-band .bb-intros { overflow: visible !important; }
 
 .bb-quote {
-  --panel: #fdfdfd;
-  --ink: #333;
-  --muted: #888;
-  display: block;
-  margin: 24px 0px;
-  padding: 12px 16px 12px 20px;
-  background: transparent;
-  color: var(--muted);
-  font-style: italic;
-  border-left: 3px solid #eee; /* --- Minimalist quote style --- */
-  position: relative;
-  clip-path: none; /* --- Removed clip-path --- */
+  --panel: var(--panel-bg);
+  --ink: #f4e9de;
+  --muted: #a3958b;
+  display: block;
+  margin: 24px 0px;
+  padding: 24px 24px 24px 56px;
+  background: rgba(0, 0, 0, .2); /* Fundo escuro sutil */
+  color: var(--ink);
+  font-style: normal;
+  border-left: 3px solid var(--accent);
+  position: relative;
+  border-radius: 8px; /* Substitui clip-path */
 }
 
 .bb-quote::before {
-  display: none; /* --- Removed giant quote mark --- */
+  content: "“";
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  font: 700 60px/1 'Playfair Display', serif;
+  color: var(--accent);
+  opacity: 0.3;
+  -webkit-text-stroke: 0;
 }
 
-.bb-quote .q {
-  display: block;
-  font-size: 15px;
-  line-height: 1.6;
-}
+.bb-quote .q { display: block; }
 
 .bb-quote .by {
-  display: block;
-  margin-top: 8px;
-  font: normal 600 11px/1.2 system-ui, -apple-system, sans-serif;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: var(--muted);
-  font-style: normal;
+  display: block;
+  margin-top: 6px;
+  font: normal 600 11px/1.2 'Lato', sans-serif;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
 
-/* --- Neutralize all animations --- */
 .bb-collection-subtitle,
 .bb-header,
 .bb-quote,
@@ -349,16 +369,48 @@
 .bb-intros,
 .bb-presets,
 .bb-support {
-  animation: none;
+  animation: fadeInUp 1s cubic-bezier(.25, 1, .5, 1) both;
 }
 
+.bb-collection-subtitle { animation-delay: .2s; }
+.bb-header { animation-delay: .3s; }
+.bb-quote { animation-delay: .4s; }
+.bb-card { animation-delay: .5s; }
+.bb-intros { animation-delay: .6s; }
+.bb-presets { animation-delay: .7s; }
+.bb-support { animation-delay: .8s; }
+
 .bbx-num {
-  display: none; /* --- Remove giant background number --- */
+  position: absolute;
+  top: 90vh;
+  right: -.04em;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: clamp(120px, 26vw, 520px);
+  line-height: .8;
+  letter-spacing: -.02em;
+  color: rgba(199, 161, 122, .05); /* Cor de destaque, muito suave */
+  -webkit-text-stroke: 1px rgba(199, 161, 122, .1);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, .4);
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+  mix-blend-mode: normal;
 }
 
 .bunnyui-credit {
-  /* This is a helper element, can be styled or hidden */
-  display: none;
+  position: fixed;
+  left: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 2147483647;
+  font-family: 'Lato', sans-serif;
+  font-size: .75rem;
+  color: rgba(244, 233, 222, .4); /* Texto de crédito suave */
+  text-decoration: none;
+  cursor: pointer;
+}
+.bunnyui-credit::before {
+  content: "BunnyUI Cafe Theme ☕";
 }
 
 /*
@@ -366,63 +418,32 @@
 // 3. KEYFRAMES & ANIMATIONS
 ////////////////////////////////////////////////////////////////////////////////
 */
-/* --- Neutralize all animations --- */
 @keyframes kofiDots {
-  0% {
-    background-position: 0 0, 4px 4px;
-  }
-  100% {
-    background-position: 0 0, 4px 4px;
-  }
+  /* Não usado, mas mantido para integridade estrutural */
+  0% { background-position: 0 0, 4px 4px; }
+  100% { background-position: 8px 0, 12px 4px; }
 }
+
 @keyframes btn-sonar {
-  0% {
-    box-shadow: none;
-  }
-  100% {
-    box-shadow: none;
-  }
+  0% { box-shadow: 0 0 0 0 var(--sonar-color); }
+  70% { box-shadow: 0 0 0 12px rgba(255, 255, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
 }
+
 @keyframes fadeInUp {
-  from {
-    opacity: 1;
-    transform: none;
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
+
 @keyframes puppetGlide {
-  from {
-    opacity: 1;
-    transform: none;
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
+  0% { transform: translateY(60vh) rotate(-1deg); opacity: 0; }
+  100% { transform: translateY(0) rotate(0); opacity: 1; }
 }
+
 @keyframes accentGlow {
-  0%,
-  100% {
-    text-shadow: none;
-  }
-  50% {
-    text-shadow: none;
-  }
-}
-@keyframes gentle-shake {
-  0%, 100% { transform: none; }
-}
-@keyframes star-glow {
-  0%, 100% { filter: none; }
-  50% { filter: none; }
-}
-@keyframes premium-sweep {
-  to {
-    background-position: 0 center;
-  }
+  /* Pulso de brilho suave e quente */
+  0%, 100% { text-shadow: 0 0 4px var(--accent), 0 0 8px var(--accent); }
+  50% { text-shadow: 0 0 8px var(--accent), 0 0 16px var(--accent); }
 }
 
 /*
@@ -430,614 +451,942 @@
 // 4. RESPONSIVE & MEDIA QUERIES
 ////////////////////////////////////////////////////////////////////////////////
 */
-/* Base layout is now single-column, so many media queries are simplified */
-
 @media(min-width:769px) {
-  .bbx-band {
-    transform: none !important;
-    margin-left: 0 !important;
-  }
-  .bbx-band .bb-intros {
-    padding: clamp(20px, 4vw, 32px) !important;
-  }
+  .bbx-band {
+    transform: none !important;
+    margin-left: 0 !important;
+  }
+  .bbx-band .bb-intros {
+    padding: clamp(14px, 1.6vw, 18px) !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+  }
+  .bbx-band .bb-section-title {
+    margin: 0 0 10px !important;
+  }
+  .bbx-band .bb-intro-list {
+    padding-left: 0 !important;
+  }
 }
 
 @media(max-width:768px) {
-  .bb-wrap {
-    padding: 0 16px;
-  }
-  .bbx-band {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
-  }
-  .bbx-hero {
-    min-height: clamp(200px, 45vh, 400px) !important;
-    border-radius: 0; /* Full width on mobile */
-  }
-  .bb-intros,
-  .bb-support {
-    border-radius: 0 !important;
-    border-left: none;
-    border-right: none;
-  }
-  .bb-support .bb-kbtn {
-    width: 100% !important;
-    text-align: center !important;
-    display: block !important;
-  }
+  .bbx-band {
+    grid-template-columns: 1fr !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    overflow: visible !important;
+  }
+  .bb-top-content { grid-row: 1; }
+  .bbx-hero { grid-column: 1; grid-row: 2; }
+  .bb-bottom-content { grid-row: 3; }
+  .bbx-hero {
+    background: var(--hero) top center/cover no-repeat !important;
+    min-height: clamp(260px, 50vh, 560px) !important;
+  }
+  .bb-intros { max-width: 100% !important; }
+  .bbx-band .bb-intros {
+    margin: 0 !important;
+    padding: 16px !important;
+    max-width: 100% !important;
+    border-radius: 0 !important;
+  }
+  :is(h1, h2, h3, h4, h5, h6).ant-typography,
+  .ant-typography[class*="css-"],
+  .msg-mkdn-container.font-size-message,
+  .msg-mkdn-container.font-size-message>*,
+  .sc-beySPh.eewLKS.msg-mkdn-container.font-size-message,
+  .sc-beySPh.eewLKS.msg-mkdn-container.font-size-message>* {
+    max-width: none !important;
+    width: 100% !important;
+  }
+  .bbx-num {
+    font-size: clamp(80px, 40vw, 320px);
+    top: 2vh;
+    right: -.2em;
+    opacity: .35;
+  }
 }
 
 @media(max-width:480px) {
-  .bbx-hero {
-    min-height: clamp(180px, 40vh, 300px) !important;
-  }
+  .bb-intros { max-width: 100% !important; }
+  .bbx-hero {
+    min-height: clamp(240px, 52vh, 520px) !important;
+    background-position: top center !important;
+  }
 }
 
 @media(hover:hover) {
-  .bb-kbtn:hover {
-    transform: none;
-  }
+  .bb-badge:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.4);
+  }
+  .bb-kbtn:hover {
+    transform: translateY(-2px);
+  }
+  .ant-col.text-left [class*=ant-image]:hover .ant-image-img {
+    transform: scale(1.05); /* Zoom mais suave */
+    filter: contrast(1.05) saturate(1.05);
+  }
 }
 
 @media(prefers-reduced-motion:reduce) {
-  * {
-    animation: none !important;
-    transition: none !important;
-  }
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
 }
 
 /*
 ////////////////////////////////////////////////////////////////////////////////
-// 5. CHUB.AI OVERRIDES [MINIMALIST RE-SKIN]
+// 5. CHUB.AI OVERRIDES [USE CAUTION]
 ////////////////////////////////////////////////////////////////////////////////
 */
-/* --- Hiding default UI elements --- */
 h3.ant-typography,
 h5.ant-typography,
 div.msg-mkdn-container:not(:has(.bb-sec)),
 h4.ant-typography.mt-8,
 h4.ant-typography.mt-8+div {
-  display: none !important;
+  display: none !important;
 }
+
 .ant-layout-footer {
-  display: none !important;
+  display: none !important;
+}
+
+.ant-space.ant-space-horizontal.ant-space-align-center .ant-tag {
+  background: var(--panel-bg) !important;
+  color: var(--accent) !important;
+  border: 1px solid var(--accent) !important;
+  border-radius: 4px !important;
+  padding: .15em .55em !important;
+  font-size: .7rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  opacity: 1 !important;
+  transition: background .2s, color .2s;
+  clip-path: none !important;
+}
+
+.ant-space.ant-space-horizontal.ant-space-align-center .ant-tag:hover {
+  background: var(--accent) !important;
+  color: var(--page-bg) !important;
+}
+
+.ant-space.ant-space-horizontal.ant-space-align-center {
+  max-height: none !important;
+  overflow: visible !important;
+  flex-wrap: wrap !important;
+}
+
+.ant-tag {
+  /* Style for tags com cantos suaves */
+  background: var(--panel-bg) !important;
+  color: var(--accent) !important;
+  border: 1px solid #5a4a40 !important; /* Borda de painel sutil */
+  border-radius: 4px !important;
+  padding: .10em .50em !important;
+  font-size: .6rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  transition: background .2s, color .2s !important;
+  clip-path: none !important;
+}
+
+.ant-tag:hover {
+  background: var(--accent) !important;
+  color: var(--page-bg) !important;
+  cursor: pointer;
 }
 .ant-ribbon.ant-ribbon-placement-end,
 .no-vertical-anything *,
 div#chara-list {
-  display: none !important;
+  display: none !important;
 }
 
-/* --- Menu Bar --- */
 .ant-layout-header,
 .ant-menu-overflow-item.ant-menu-item.ant-menu-item-only-child.no-padding.ml-0.pl-0.mr-2,
-.ant-menu-overflow.ant-menu.ant-menu-root.ant-menu-horizontal.ant-menu-dark {
-  background-color: rgb(255, 255, 255, 0.8) !important; /* Light, blurred header */
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-bottom: 1px solid #eee;
+.ant-menu-overflow.ant-menu.ant-menu-root.ant-menu-horizontal.ant-menu-dark{
+  background-color: rgb(0, 0, 0, 0) !important;
 }
 
-/* --- Tags --- */
-.ant-space.ant-space-horizontal.ant-space-align-center .ant-tag,
-.ant-tag {
-  background: #eee !important;
-  color: #555 !important;
-  border: none !important;
-  border-radius: 4px !important;
-  padding: .15em .55em !important;
-  font-size: .65rem !important;
-  font-weight: 600 !important;
-  text-transform: uppercase !important;
-  opacity: 1 !important;
-  transition: background .2s, color .2s !important;
-  clip-path: none !important; /* --- Removed clip-path --- */
+button.ant-btn:has(.anticon-star svg path[d*="M664.8 561.6"]) {
+  position: fixed !important;
+  right: 24px !important;
+  bottom: 24px !important;
+  z-index: 2147483647 !important;
 }
 
-.ant-space.ant-space-horizontal.ant-space-align-center .ant-tag:hover,
-.ant-tag:hover {
-  background: #ddd !important;
-  color: #111 !important;
-  cursor: pointer;
-}
-
-.ant-space.ant-space-horizontal.ant-space-align-center {
-  max-height: none !important;
-  overflow: visible !important;
-  flex-wrap: wrap !important;
-}
-
-/* --- Buttons (Default & Primary) --- */
 button.ant-btn {
-  font-weight: 600 !important;
-  font-size: 14px !important;
-  height: 40px !important; /* Standard height */
-  padding: .5em 1.2em !important;
-  border-radius: 6px !important;
-  transition: background-color .2s, color .2s, border-color .2s;
-  cursor: pointer;
-  box-shadow: none !important;
+  position: relative;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: .5em;
+  white-space: nowrap;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  height: 48px !important;
+  min-width: 64px !important;
+  padding: .5em 1.4em !important;
+  border-radius: 8px !important; /* Cantos suaves */
+  transition: transform .15s, box-shadow .15s, background-color .25s, color .25s, border-color .25s;
+  cursor: pointer;
+  overflow: visible !important;
 }
-button.ant-btn:active {
-  transform: translateY(1px);
-}
+
+button.ant-btn:hover { box-shadow: none !important; }
+button.ant-btn:active { transform: translateY(1px); }
 
 button.ant-btn.ant-btn-default {
-  background: #fff !important;
-  color: #222 !important;
-  border: 1px solid #ccc !important;
-  box-shadow: none !important;
-}
-button.ant-btn.ant-btn-default:hover {
-  background: #f9f9f9 !important;
-  border-color: #bbb !important;
+  background: var(--panel-bg) !important;
+  color: var(--ink) !important;
+  border: 1px solid var(--accent) !important;
+  box-shadow: 0 2px 0 var(--page-bg) !important; /* Sombra escura */
 }
 
 button.ant-btn.ant-btn-primary {
-  background: #111 !important;
-  color: #fff !important;
-  border: 1px solid #111 !important;
-  box-shadow: none !important;
-}
-button.ant-btn.ant-btn-primary:hover {
-  background: #333 !important;
-  border-color: #333 !important;
+  background: var(--accent) !important;
+  color: var(--page-bg) !important;
+  border: 1px solid var(--ink) !important;
+  box-shadow: 0 2px 0 var(--page-bg) !important;
 }
 
-/* --- Neutralize Animated Buttons --- */
+button.ant-btn .ml-1,
+div.flex.flex-wrap.justify-end [class*=ml-] {}
+
 button.ant-btn:has(svg.lucide-messages-square)::after,
-button.ant-btn.ant-btn-default:has(.anticon-star)::after,
-button.sc-ifyrAs::after {
-  display: none !important;
-  animation: none !important;
+button.ant-btn.ant-btn-default:has(.anticon-star)::after {
+  content: "";
+  position: absolute;
+  inset: -2px !important;
+  border-radius: inherit;
+  background: 0 0;
+  box-shadow: 0 0 0 0 var(--sonar-color);
+  animation: 2.8s ease-out infinite btn-sonar !important;
+  pointer-events: none;
+  z-index: 1;
+  --sonar-color: var(--accent); /* Sempre usar a cor de destaque do café */
 }
 
-/* --- Chat Button --- */
 button.ant-btn:has(svg.lucide-messages-square) {
-  font-size: 14px !important;
-  font-weight: 600 !important;
-  height: 48px !important; /* Slightly larger */
-  padding: 0 1.6em !important;
-  border-radius: 6px !important;
-  background: #111 !important;
-  color: #fff !important;
-  border: 1px solid #111 !important;
-  outline: none;
-  box-shadow: none !important;
-  transition: background .2s, color .2s, border-color .2s, transform .15s;
+  font-size: 14px !important;
+  font-weight: 800 !important;
+  height: 64px !important;
+  padding: 0 1.8em 0 1.8em;
+  border-radius: 10px !important;
+  background: var(--accent) !important;
+  color: var(--page-bg) !important;
+  border: 2px solid var(--ink) !important;
+  outline: 1px solid var(--page-bg);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4) !important; /* Sombra suave, remove pixel art */
+  z-index: 10;
+  transition: background .25s, color .25s, box-shadow .25s, transform .15s;
 }
 
 button.ant-btn:has(svg.lucide-messages-square):hover {
-  background: #333 !important;
-  color: #fff !important;
-  box-shadow: none !important;
-  border-color: #333 !important;
+  background: var(--ink) !important;
+  color: var(--page-bg) !important;
+  box-shadow: none !important;
+  border-color: var(--accent) !important;
 }
 
-button.ant-btn:has(svg.lucide-messages-square):active {
-  transform: scale(.97);
-}
+button.ant-btn:has(svg.lucide-messages-square):active { transform: scale(.97); }
 
 div.flex.flex-wrap.justify-end {
-  padding-bottom: 24px; /* Simplified padding */
-  gap: 8px;
+  position: relative;
+  padding-bottom: 120px;
+  align-items: center;
+  gap: 8px;
 }
 
-/* --- NSFW Tag --- */
-.ant-space.ant-space-horizontal.ant-space-align-center .ant-space-item:first-child > .ant-tag.ant-tag-error {
-  width: auto !important;
-  height: auto !important;
-  color: #c92a2a !important;
-  background: #fff0f0 !important;
-  border: 1px solid #f9c9c9 !important;
-  line-height: 1.4 !important;
-  padding: .15em .55em !important;
-}
-.ant-space.ant-space-horizontal.ant-space-align-center .ant-space-item:first-child > .ant-tag.ant-tag-error::before {
-  display: none;
+.ant-space.ant-space-horizontal.ant-space-align-center .ant-space-item:first-child>.ant-tag.ant-tag-error {
+  position: relative;
+  display: inline-block !important;
+  width: 28px !important;
+  height: 28px !important;
+  padding: 0 !important;
+  background: 0 0 !important;
+  border: 0 !important;
+  color: transparent !important;
+  line-height: 0 !important;
+  overflow: hidden;
+  vertical-align: middle;
 }
 
-/* --- Text Content Styling --- */
+.ant-space.ant-space-horizontal.ant-space-align-center .ant-space-item:first-child>.ant-tag.ant-tag-error::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url(https://files.catbox.moe/e1xatc.svg) center/contain no-repeat;
+  /* Ícone mantido, pois é funcional */
+}
+
 :is(h1, h2, h3).ant-typography[class*=css-] {
-  font-size: clamp(28px, 4vw, 34px) !important;
-  line-height: 1.2 !important;
-  font-weight: 700 !important;
-  color: var(--ink, #222) !important;
-  margin: 0 0 10px !important;
-  letter-spacing: -0.01em !important;
-  max-width: none !important; /* Reset max-width */
+  /* Estilo para títulos de fallback (caso o .bb-title não pegue) */
+  font-family: var(--font-heading), serif !important;
+  font-size: clamp(30px, 4vw, 38px) !important;
+  line-height: 1.15 !important;
+  font-weight: 700 !important;
+  color: var(--ink, #f4e9de) !important;
+  margin: 0 0 6px !important;
+  letter-spacing: 0 !important;
+  max-width: 50%;
 }
 
 .msg-mkdn-container.font-size-message {
-  font-size: 16px !important;
-  line-height: 1.7 !important;
-  font-weight: 400 !important;
-  color: var(--ink, #333) !important;
-  max-width: none !important;
-  width: auto !important;
+  font-size: clamp(16px, 1.6vw, 17px) !important; /* Ligeiramente maior */
+  line-height: 1.7 !important;
+  font-weight: 400 !important;
+  color: var(--ink, #f4e9de) !important;
+  max-width: none !important;
+  width: auto !important;
 }
 
-/* --- Remove 50% width constraint on text --- */
-.msg-mkdn-container.font-size-message > :is(h1, h2, h3, p, blockquote, ul, ol):has(~ .bb-sec) {
-  max-width: none !important;
-}
-.msg-mkdn-container.font-size-message > :where(h1, h2, h3, p, blockquote, ul, ol, pre) {
-  max-width: 65ch !important; /* Set to readable line length */
-  margin-right: 0;
-}
-.msg-mkdn-container.font-size-message p > strong {
-  font-weight: 600 !important; /* Restore normal bold */
+.msg-mkdn-container.font-size-message>:is(h1, h2, h3, p, blockquote, ul, ol):has(~.bb-sec) { max-width: 50% !important; }
+.msg-mkdn-container.font-size-message>:where(h1, h2, h3, p, blockquote, ul, ol, pre) { max-width: 50% !important; margin-right: auto; }
+.msg-mkdn-container.font-size-message p>strong { font-weight: 700 !important; color: var(--accent); } /* Destaque sutil */
+
+.bb-sec, .bb-wrap, .bbx-band { overflow: visible !important; }
+.bbx-band { contain: unset !important; z-index: 2; }
+.bbx-left { position: relative; z-index: 3; }
+.bbx-hero { position: relative; z-index: 2; }
+
+.bbx-band::before {
+  content: "";
+  position: fixed;
+  left: 52%;
+  right: 0;
+  bottom: 0;
+  top: auto;
+  width: 48vw;
+  height: 100vh;
+  background: var(--hero) center bottom/contain no-repeat !important;
+  pointer-events: none;
+  z-index: 1;
+  transition: transform .8s ease;
+  transform: translateY(60vh) rotate(-1deg);
+  animation: 2.2s cubic-bezier(.25, 1, .5, 1) both puppetGlide;
+  
+  /* Estilo "Foto Polaroid" */
+  border: 10px solid var(--ink);
+  border-bottom-width: 45px;
+  border-radius: 4px;
+  box-shadow: -5px 5px 20px rgba(0,0,0,0.4);
 }
 
-/* --- General Layout --- */
-.bb-sec,
-.bb-wrap,
-.bbx-band {
-  overflow: visible !important;
-}
-.bbx-band {
-  contain: unset !important;
-  z-index: 2;
-}
-.bbx-left {
-  position: relative;
-  z-index: 3;
-}
-.bbx-hero {
-  position: relative;
-  z-index: 2;
+@media(prefers-reduced-motion:reduce) {
+  .bbx-band::before {
+    animation: none;
+    transform: none;
+    border: 10px solid var(--ink);
+    border-bottom-width: 45px;
+    border-radius: 4px;
+    box-shadow: -5px 5px 20px rgba(0,0,0,0.4);
+  }
 }
 
 @media(min-width:769px) and (max-width:991px) {
-  .bbx-band {
-    padding-right: 0 !important;
-  }
-  .bb-top-content {
-    grid-column: 1;
-    width: 100%;
-    margin-left: 0;
-    padding: 0;
-    background: transparent;
-  }
+  .bbx-band::before {
+    position: absolute;
+    left: auto;
+    right: -6vw;
+    top: auto;
+    bottom: -4vh;
+    width: min(680px, 60vw);
+    height: min(90vh, 820px);
+  }
+  .bbx-band { padding-right: clamp(24px, 12vw, 180px); }
+  .bb-top-content {
+    grid-column: 1 / -1;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    padding: 0 calc(50vw - 50% + 8px);
+    box-sizing: border-box;
+    background: transparent;
+  }
 }
 
-.bbx-left {
-  display: flex;
-  flex-direction: column;
+@media(max-width:768px) {
+  .bbx-band::before { content: none !important; }
+  .bb-bottom-content { grid-row: 3; }
+  .bb-intros { margin-bottom: 24px; padding: 16px !important; border-radius: 0 !important; }
 }
 
+.bbx-left { display: flex; flex-direction: column; }
 .bb-support {
-  --panel: #ffffff;
-  background: var(--panel);
-  margin-top: 24px !important;
-  padding: clamp(20px, 4vw, 32px);
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  max-width: 100%;
-  border: 1px solid #eee;
-  border-radius: 8px !important;
-  clip-path: none !important; /* --- Removed clip-path --- */
+  --panel: var(--panel-bg);
+  background: var(--panel);
+  background-image: url('https://www.transparenttextures.com/patterns/wood-grain.png');
+  margin-top: 24px !important;
+  padding: clamp(16px, 2vw, 24px);
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  max-width: 100%;
+}
+.bbx-band .bb-intros, .bb-support { max-width: 100%; }
+
+@media(max-width:768px) {
+  .bb-support {
+    border-radius: 0;
+    padding: 16px;
+  }
+  .bb-support .bb-kbtn {
+    width: 100% !important;
+    text-align: center !important;
+    display: block !important;
+  }
 }
 
-/* --- Image Styling --- */
 .ant-col.text-left [class*=ant-image] {
-  --pf-cut: 0; /* --- Removed clip-path --- */
-  --g: 0;
-  --st: 0;
-  position: relative;
-  overflow: hidden;
-  border-radius: 6px;
-  border: 1px solid #eee;
-}
-.ant-col.text-left [class*=ant-image] .ant-image-img {
-  clip-path: none;
-  transition: .3s;
-}
-.ant-col.text-left [class*=ant-image]::after {
-  display: none;
-}
-.ant-col.text-left [class*=ant-image]:hover .ant-image-img {
-  transform: scale(1.03);
-  filter: none;
+  /* Remove o corte de canto agressivo */
+  --pf-cut: 0;
+  --g: 0;
+  --st: 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px; /* Canto suave para a imagem */
 }
 
-/* --- Presets Bar --- */
+.ant-col.text-left [class*=ant-image] .ant-image-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  clip-path: none; /* Remove clip-path */
+  border-radius: 12px; /* Canto suave */
+  transition: .3s;
+}
+
+.ant-col.text-left [class*=ant-image]::after {
+  display: none; /* Remove o segundo corte */
+}
+
+.ant-col.text-left [class*=ant-image] .ant-image-mask,
+.ant-col.text-left [class*=ant-image] .ant-image-mask-info {
+  display: none !important;
+}
+
+.bb-support,
+.bbx-band .bb-intros {
+  border-radius: 12px !important; /* Canto suave */
+  clip-path: none !important; /* Remove clip-path */
+  overflow: hidden !important;
+}
+
 .bb-presets {
-  --panel: #ffffff;
-  background: var(--panel);
-  border-radius: 8px !important;
-  clip-path: none !important; /* --- Removed clip-path --- */
-  border: 1px solid #eee;
-  padding: 16px;
-  margin-top: 24px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  max-width: 100%;
+  --panel: var(--panel-bg);
+  background: var(--panel);
+  background-image: url('https://www.transparenttextures.com/patterns/wood-grain.png');
+  border-radius: 12px !important; /* Canto suave */
+  clip-path: none !important; /* Remove clip-path */
+  padding: clamp(12px, 1.5vw, 20px);
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  max-width: 100%;
 }
 
 .bb-presets-label {
-  font-family: system-ui, -apple-system, sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--ink);
-  white-space: nowrap;
+  font-family: var(--font-flavor);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--accent);
+  white-space: nowrap;
 }
 
-/* --- Badges --- */
+@media(max-width:768px) { .bbx-band { padding-right: 0 !important; } }
+@media(min-width:769px) { .bbx-band { padding-right: clamp(16px, 8vw, 140px); } }
+
 .bb-badges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 8px;
 }
 
 .bb-badge {
-  /* --- Re-skin 3D badge to flat --- */
-  --ink: #111;
-  --paper: #fff;
-  --cta: #eee;
-  position: relative;
-  display: inline-block;
-  padding: .5em .9em;
-  border-radius: 4px;
-  font: 600 10px/1 system-ui, -apple-system, sans-serif;
-  text-transform: uppercase;
-  color: #555;
-  text-decoration: none;
-  background: var(--cta);
-  border: none;
-  box-shadow: none;
-  text-shadow: none;
-  transition: background .2s, color .2s;
+  --ink: var(--page-bg);
+  --paper: var(--ink);
+  --cta: #64748b; /* Cor padrão mantida */
+  position: relative;
+  display: inline-block;
+  padding: .6em 1.1em;
+  border-radius: 9999px;
+  font: 800 10px/1 'Lato', sans-serif;
+  text-transform: uppercase;
+  color: #fff;
+  text-decoration: none;
+  background: var(--cta);
+  border: 1px solid rgba(0,0,0,0.2);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3); /* Sombra suave */
+  text-shadow: none;
+  transition: transform .15s, box-shadow .15s, background .25s, color .25s, border-color .25s;
 }
 
 .bb-badge:hover {
-  transform: none;
-  color: #111;
-  text-shadow: none;
-  box-shadow: none;
-  border-color: transparent;
-  background: #ddd;
+  transform: translateY(-1px);
+  color: #fff;
+  text-shadow: none;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.4);
+  border-color: var(--ink);
 }
-.bb-badge:active {
-  transform: translateY(1px);
-}
-.bb-badge-soji { --cta: #f3e8ff; color: #6b21a8; }
-.bb-badge-deepseek { --cta: #dbeafe; color: #1e40af; }
-.bb-badge-claude { --cta: #fffbeb; color: #b45309; }
-.bb-badge-grok { --cta: #eee; color: #333; }
 
-/* --- Collapse / Accordion --- */
+.bb-badge:active { transform: translateY(1px); }
+.bb-badge-soji { --cta: linear-gradient(135deg, #a78bfa, #6d28d9); }
+.bb-badge-deepseek { --cta: linear-gradient(135deg, #60a5fa, #1d4ed8); }
+.bb-badge-claude { --cta: linear-gradient(135deg, #fb923c, #ea580c); }
+.bb-badge-grok { --cta: #222; }
+
+.ant-col.text-left.ant-col-xs-24.ant-col-lg-24 {
+  position: relative !important;
+  z-index: 90 !important;
+  border: none !important;
+}
+
 .ant-collapse {
-  border: 1px solid #eee !important;
-  background: #fff;
-  border-radius: 6px;
-}
-.ant-collapse-item {
-  border-bottom: 1px solid #eee !important;
-}
-.ant-collapse-item:last-child {
-  border-bottom: none !important;
-}
-.ant-collapse-header {
-  font-weight: 600;
-  color: var(--ink);
-}
-.ant-collapse-content.ant-collapse-content-active {
-  background: #fdfdfd;
-  border-top: 1px solid #eee !important;
-  box-shadow: none;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
+  border: none !important;
+  background: rgba(0,0,0,0.1); /* Fundo sutil para o collapse */
+  border-radius: 8px;
 }
 
-/* --- Dropdown Menu --- */
+.ant-collapse-item { border-bottom: 1px solid var(--panel-bg) !important; }
+
+div.flex.flex-wrap.justify-end {
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+}
+
+@media(max-width:768px) {
+  .msg-mkdn-container.font-size-message p {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    inline-size: 100% !important;
+    max-inline-size: 100% !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+  }
+}
+
+.ant-collapse-content.ant-collapse-content-active {
+  background: rgba(0,0,0,0.2);
+  border: none !important;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35) inset; /* Sombra interna */
+}
+
+header.ant-layout-header {
+  z-index: 99999 !important;
+}
+
+/* --- Estilos de Dropdown (Menu) --- */
+
 .ant-dropdown-menu-item {
-  padding-top: 6px !important;
-  padding-bottom: 6px !important;
+  justify-content: flex-start !important;
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
 }
+
+.ant-dropdown-menu-title-content {
+  text-align: left !important;
+}
+
+
+/* --- Efeitos de Hover --- */
 li.ant-dropdown-menu-item:not(:has(.ant-upload-wrapper)):hover {
-  background-color: #f5f5f5 !important;
-  color: #111 !important;
+  background-color: var(--accent) !important;
+  color: var(--page-bg) !important;
 }
+
+
+/* --- Estilos Especiais para o Botão "Upload" --- */
 li.ant-dropdown-menu-item:has(.ant-upload-wrapper):hover {
-  background-color: transparent !important;
+  background-color: transparent !important;
 }
 li.ant-dropdown-menu-item:has(.ant-upload-wrapper) .ant-btn {
-  font-weight: 400 !important;
-  color: #333;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  width: 100%;
+  padding: 0 !important;
+  justify-content: flex-start !important;
+  font-weight: 400 !important;
 }
 li.ant-dropdown-menu-item:has(.ant-upload-wrapper) .ant-btn:hover,
 li.ant-dropdown-menu-item:has(.ant-upload-wrapper) .ant-btn:focus {
-  background-color: #f5f5f5 !important;
-  color: #111 !important;
+  background-color: var(--accent) !important;
+  color: var(--page-bg) !important;
+  outline: none !important;
 }
 
-/* --- Other Custom Button --- */
+/* Botão "sc-ifyrAs" (Ex: botão "More") */
 button.sc-ifyrAs {
-  display: inline-block !important;
-  font-size: 14px !important;
-  font-weight: 600 !important;
-  height: 40px !important;
-  padding: 0 1.8em !important;
-  border-radius: 6px !important;
-  background: #111 !important;
-  color: #fff !important;
-  border: 1px solid #111 !important;
-  box-shadow: none !important;
-  cursor: pointer;
-  transition: background-color .2s, border-color .2s;
-  position: relative !important;
-  overflow: hidden !important;
+    display: inline-block !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    height: 40px !important;
+    padding: 0 2em !important;
+    border-radius: 8px !important;
+    background: var(--panel-bg) !important;
+    color: var(--ink) !important;
+    border: 1px solid var(--accent) !important;
+    box-shadow: 0 2px 0 var(--page-bg);
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s, background-color 0.25s, color 0.25s, border-color 0.25s;
+  }
+
+  button.sc-ifyrAs:hover {
+    background: var(--accent) !important;
+    color: var(--page-bg) !important;
+    box-shadow: none !important;
+  }
+
+  button.sc-ifyrAs {
+    position: relative !important;
+    overflow: visible !important;
+  }
+
+  button.sc-ifyrAs::after {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    background: transparent;
+    --sonar-color: var(--accent); /* Cor de destaque do café */
+    box-shadow: 0 0 0 0 var(--sonar-color);
+    animation: 2.8s ease-out infinite btn-sonar !important;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  div.sc-blmEgr {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .ant-tooltip {
+    display: none !important;
+  }
+
+  @media (min-width: 992px) {
+    div.sc-blmEgr {
+      padding-right: 55%;
+    }
+  }
+
+.comment-width .ant-comment-inner{
+  padding:16px;
+  margin-bottom:16px;
+  background: rgba(0,0,0,0.1);
+  border-radius: 8px;
 }
-button.sc-ifyrAs:hover {
-  background: #333 !important;
-  border-color: #333 !important;
-  box-shadow: none !important;
+.ant-comment .ant-comment-nested{
+  margin-right:16px;
 }
 
-div.sc-blmEgr {
-  /* This was for centering the button against the 50% split */
-  /* Resetting it for a normal flow */
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  position: relative;
-  z-index: 2;
-  padding-right: 0;
-}
-@media (min-width: 992px) {
-  div.sc-blmEgr {
-    padding-right: 0;
-  }
-}
-
-.ant-tooltip {
-  /* Re-enable tooltip for accessibility */
-  display: block !important;
-  font-size: 12px;
-}
-
-/* --- POV Badge --- */
 .pov-badge {
-  display: inline-block;
-  background: #eee;
-  color: #555;
-  padding: 3px 8px;
-  margin-right: 6px;
-  font-size: 10px;
-  font-weight: 600;
-  line-height: 1.3;
-  text-transform: uppercase;
-  letter-spacing: .05em;
-  vertical-align: middle;
-  clip-path: none;
-  border-radius: 4px;
+  display: inline-block;
+  background: var(--panel-bg);
+  color: var(--accent);
+  padding: 3px 8px;
+  margin-right: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.3;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  vertical-align: middle;
+  border-radius: 4px; /* Substitui clip-path */
 }
 
-/* --- Relationships Scroller --- */
+/* -- Painel de Relacionamentos -- */
+:root {
+	--rel-w: 120px;
+	--rel-h: 72px;
+	--rel-text-h: 40px
+}
+
+.bb-sec .bb-relationships-panel {
+	margin-top: 24px !important;
+	margin-bottom: 24px !important
+}
+
 .bb-intros .zg-body {
-  margin: 0 -20px !important;
-  padding: 4px 20px 16px !important
+	padding: 0 !important;
+	background: none !important;
+	overflow-x: auto !important;
+	overflow-y: visible !important;
+	-webkit-overflow-scrolling: touch !important;
+	scroll-snap-type: x proximity !important;
+	margin: 0 -24px !important
+}
+
+.bb-intros .zg-rel-row {
+	display: inline-flex !important;
+	flex-wrap: nowrap !important;
+	gap: 8px !important;
+	justify-content: flex-start !important;
+	min-width: max-content !important;
+	width: auto !important;
+	align-items: center;
+	padding: 4px 24px 16px !important
+}
+
+.bb-intros .zg-body::-webkit-scrollbar {
+	height: 8px !important
+}
+
+.bb-intros .zg-body::-webkit-scrollbar-track {
+	background: rgba(0, 0, 0, .2) !important;
+	border-radius: 4px !important
+}
+
+.bb-intros .zg-body::-webkit-scrollbar-thumb {
+	background: var(--accent) !important; /* Scrollbar com cor de destaque */
+	border-radius: 4px !important;
+	border: 1px solid rgba(0, 0, 0, .3) !important
+}
+
+.bb-intros .zg-body::-webkit-scrollbar-thumb:hover {
+	background: var(--ink) !important
 }
 
 .bb-intros .zg-rel-tile {
-  border: 1px solid #eee !important;
-  border-radius: 6px !important;
-  background: #fdfdfd !important;
-  transition: border-color .2s !important;
-  transform: none !important;
-  filter: none !important;
+	position: relative !important;
+	display: block !important;
+	flex: 0 0 auto !important;
+	width: var(--rel-w) !important;
+	height: calc(var(--rel-h) + var(--rel-text-h)) !important;
+	text-decoration: none !important;
+	color: var(--ink) !important;
+	border: 1px solid #5a4a40 !important; /* Borda do painel sutil */
+	border-radius: 8px !important; /* Canto suave */
+	background: rgba(0, 0, 0, .2) !important;
+	transition: border-color .2s, transform .15s, filter .2s !important;
+	overflow: hidden !important;
+	scroll-snap-align: start !important
 }
 
 .bb-intros .zg-rel-tile:hover {
-  border-color: #aaa !important;
-  transform: none !important;
-  filter: none !important;
+	border-color: var(--accent) !important;
+	transform: translateY(-1px) !important;
+	filter: brightness(1.05) !important
 }
 
 .bb-intros .zg-rel-tile img {
-  border-radius: 4px 4px 0 0 !important;
+	display: block !important;
+	width: 100% !important;
+	height: var(--rel-h) !important;
+	object-fit: cover !important;
+	border-radius: 6px 6px 0 0 !important
 }
 
 .bb-intros .zg-rel-tile::before {
-  background: #fdfdfd !important;
-  border-top: 1px solid #eee;
-  border-radius: 0 0 5px 5px !important;
+	content: '' !important;
+	position: absolute !important;
+	bottom: 0 !important;
+	left: 0 !important;
+	right: 0 !important;
+	height: var(--rel-text-h) !important;
+	background: var(--page-bg) !important; /* Fundo de texto mais escuro */
+	border-radius: 0 0 7px 7px !important;
+	z-index: 1 !important
 }
 
 .bb-intros .zg-rel-label {
-  font: 600 15px/1 system-ui, -apple-system, sans-serif !important;
-  color: #111 !important;
+	position: absolute !important;
+	left: 0 !important;
+	right: 0 !important;
+	z-index: 2 !important;
+	pointer-events: none !important;
+	background: none !important;
+	bottom: 16px !important;
+	padding: 0 8px !important;
+	font: 400 16px/1 var(--font-flavor) !important;
+	color: var(--accent) !important; /* Nome com cor de destaque */
+	text-align: center !important;
+	white-space: nowrap !important;
+	overflow: hidden !important;
+	text-overflow: ellipsis !important;
+	text-transform: none !important;
+	letter-spacing: 0 !important
 }
 
 .bb-intros .zg-rel-tile::after {
-  color: var(--muted) !important;
-  font: 600 9px/1 system-ui, -apple-system, sans-serif !important;
+	content: attr(data-rel) !important;
+	position: absolute !important;
+	left: 0 !important;
+	right: 0 !important;
+	z-index: 2 !important;
+	pointer-events: none !important;
+	background: none !important;
+	bottom: 4px !important;
+	padding: 0 8px !important;
+	color: var(--muted) !important;
+	font: 700 9px/1 'Lato', sans-serif !important;
+	text-align: center !important;
+	white-space: nowrap !important;
+	overflow: hidden !important;
+	text-overflow: ellipsis !important;
+	letter-spacing: .06em !important;
+	text-transform: uppercase !important
 }
 
-.bb-subtitle {
-  font-weight: 600;
-  font-size: 11px;
-  line-height: 28px;
-  text-transform: uppercase;
-  letter-spacing: .1em;
-  color: var(--muted);
-  margin-bottom: 24px;
+.bb-subtitle{
+	font-weight:700; 
+	font-size: 12px; 
+	line-height:32px;
+	text-transform:uppercase;
+	letter-spacing:.2em;
+	color:var(--accent);
+	margin-bottom:24px
 }
 
-/* --- Favorite Button (Premium) --- */
-/* Neutralize all special animations */
-button.ant-btn:has(.anticon-star svg path[d*="zM"]) {
-  transform: none !important;
-  animation: none !important;
-  position: fixed !important; /* Keep original position */
-  background: #fff !important;
-  border: 1px solid #ccc !important;
-  box-shadow: none !important;
-  isolation: auto;
-}
+/* Remove a altura máxima da imagem de galeria */
+.dOesoR,.hFiwlk,.cSOzTo,.bPlxTo,.isKXvo,.dAxClk,.fRJWto,.gYqOac{min-height:100%;max-height:none}.dOesoR::after,.hFiwlk::after,.cSOzTo::after,.bPlxTo::after,.isKXvo::after,.dAxClk::after,.fRJWto::after,.gYqOac::after{display:none}
 
-button.ant-btn:has(.anticon-star svg path[d*="zM"])::before {
-  display: none !important;
-  animation: none !important;
-}
-
-button.ant-btn:has(.anticon-star svg path[d*="zM"]) .anticon-star svg {
-  animation: none !important;
-  filter: none !important;
-}
-
-button.ant-btn:has(.anticon-star svg path[d*="zM"]) .anticon-star svg path {
-  fill: #fadb14 !important; /* Standard yellow star */
-  stroke: none !important;
-  opacity: 1 !important;
-  filter: none;
-}
-
-/* --- Unfavorited Star --- */
-button.ant-btn:has(.anticon-star):not(:has(svg path[d*="zM"])) {
-  animation: none !important;
-  transform: none !important;
-  background: #fff !important;
-  border: 1px solid #ccc !important;
-  color: #555 !important;
+/* Estilo do Botão Favorito não-premium (normal) */
+@keyframes star-glow {0%, 100% {filter: drop-shadow(0 0 5px rgb(from var(--accent) r g b / 0.7));}50% {filter: drop-shadow(0 0 16px var(--accent));}}
+button.ant-btn:has(.anticon-star):not(:has(svg path[d*="zM"])) { 
+	animation: none !important;
+	transform: none !important;
 }
 button.ant-btn:has(.anticon-star):not(:has(svg path[d*="zM"])) .anticon-star svg {
-  animation: none !important;
-  filter: none !important;
+	animation: none !important;
+	filter: none !important;
+	overflow: hidden;
 }
 button.ant-btn:has(.anticon-star):not(:has(svg path[d*="zM"])) .anticon-star svg path {
-  fill: currentColor !important;
-  stroke: none;
+	fill: currentColor !important;
+	stroke: none;
 }
 button.ant-btn:has(.anticon-star):not(:has(svg path[d*="zM"]))::after {
-  animation: none !important;
-  display: none !important;
+	/* Mantém o sonar no botão de estrela padrão */
+	--sonar-color: var(--accent);
+	animation: 2.8s ease-out infinite btn-sonar !important;
 }
 
-/* --- Mobile Favorite Button --- */
 @media (max-width: 768px) {
-  .bunnyui-credit {
-    display: none;
+	.bunnyui-credit {
+		display:none;
+	}
+  /* Botão favorito em tela cheia no celular */
+  button.ant-btn.ant-btn-icon-only:has(.anticon-star svg path[d*="zM"]) {
+    position: fixed !important;
+    bottom: 16px !important;
+    left: 16px !important;
+    right: 16px !important;
+    width: auto !important; 
+    transform: none !important;
+    animation: none !important;
+  }
+  
+  button.ant-btn.ant-btn-icon-only:has(.anticon-star svg path[d*="zM"])::after {
+		/* Re-adiciona o sonar, mas usando a Keyframe do Botão e não a 'premium-sweep' */
+		content: "";
+		position: absolute;
+		inset: -2px !important;
+		border-radius: inherit;
+		background: 0 0;
+		box-shadow: 0 0 0 0 var(--sonar-color, var(--accent));
+		animation: 2.8s ease-out infinite btn-sonar !important;
+		pointer-events: none;
+		z-index: -1;
+  }
+  /* Esconde a borda 'premium' no celular */
+  button.ant-btn.ant-btn-icon-only:has(.anticon-star svg path[d*="zM"])::before {
+	  display: none;
   }
-  button.ant-btn.ant-btn-icon-only:has(.anticon-star svg path[d*="zM"]) {
-    transform: none !important;
-    animation: none !important;
-    background: #111 !important;
-    color: #fff !important;
-    border: none !important;
-  }
-  button.ant-btn.ant-btn-icon-only:has(.anticon-star svg path[d*="zM"]) .anticon-star svg path {
-    fill: #fadb14 !important;
-  }
-  button.ant-btn.ant-btn-icon-only:has(.anticon-star svg path[d*="zM"])::after {
-    display: none !important;
-    animation: none !important;
-  }
+}
+
+/*
+=================================================================
+  PREMIUM FAVORITE BUTTON - "DARK CAFE" THEME
+=================================================================
+*/
+
+/* 1. KEYFRAME PARA O GENTLE SHAKE (MANTIDO) */
+@keyframes gentle-shake {
+  0%, 80% {
+    transform: translateX(-12px) scale(1.15) rotate(0deg);
+  }
+  84% {
+    transform: translateX(-12px) scale(1.15) rotate(-5deg);
+  }
+  88% {
+    transform: translateX(-12px) scale(1.15) rotate(4deg);
+  }
+  92% {
+    transform: translateX(-12px) scale(1.15) rotate(-2deg);
+  }
+  96% {
+    transform: translateX(-12px) scale(1.15) rotate(1deg);
+  }
+  100% {
+    transform: translateX(-12px) scale(1.15) rotate(0deg);
+  }
+}
+
+/* 2. KEYFRAME PARA O "PREMIUM-SWEEP" (TEMA CAFÉ) */
+@keyframes premium-sweep {
+  to {
+    background-position: 200% center;
+  }
+}
+
+
+/* --- Estilo do Botão e Borda --- */
+
+/* 1. Estilos do botão base */
+button.ant-btn:has(.anticon-star svg path[d*="zM"]) {
+  position: relative;
+  isolation: isolate;
+  border: none !important;
+  box-shadow: none !important;
+  transform: translateX(-12px) scale(1.15);
+  animation: gentle-shake 6s ease-in-out infinite;
+}
+
+/* 2. Borda de gradiente animada (Tema Café) */
+button.ant-btn:has(.anticon-star svg path[d*="zM"])::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -1px; /* Cobre a borda do botão */
+  border-radius: inherit;
+  padding: 2px;
+  /* Gradiente com as cores do tema: Caramelo, Creme, Bege, Caramelo */
+  background: linear-gradient(90deg, #c7a17a, #f4e9de, #a3958b, #c7a17a, #c7a17a, #f4e9de, #a3958b, #c7a17a);
+  background-size: 200% 100%;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+          mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  animation: premium-sweep 3s linear infinite;
+}
+
+
+/* --- Estilo do Ícone de Estrela --- */
+
+/* 1. Estilo do container SVG */
+button.ant-btn:has(.anticon-star svg path[d*="zM"]) .anticon-star svg {
+  animation: none;
+  filter: drop-shadow(0 0 4px var(--accent)); /* Adiciona um brilho suave de caramelo */
+}
+
+/* 2. Estilo do path SVG (a estrela) */
+button.ant-btn:has(.anticon-star svg path[d*="zM"]) .anticon-star svg path {
+  fill: var(--accent); /* Cor de caramelo */
+  stroke: var(--page-bg); /* Contorno em marrom escuro */
+  stroke-width: 0.5px;
+  opacity: 1 !important;
+  animation: none;
+  filter: none;
 }
