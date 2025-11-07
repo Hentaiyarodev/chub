@@ -2,54 +2,59 @@
 =================================================================
   BUNNYUI V4 - CORE THEME STYLESHEET (DARK CAFE BUNNY VARIANT)
 =================================================================
+  * Themed by Gemini
+  * This stylesheet maintains all original selectors from the
+  * "Arcana 3" variant but applies a new "dark cafe" theme.
 */
 
 /*
 ////////////////////////////////////////////////////////////////////////////////
 // 1. FONT IMPORTS
+//    Replaced 'Anton' with 'Dosis' for a softer, more rounded feel.
+//    Kept 'Patrick Hand' for the "cafe menu" handwritten vibe.
 ////////////////////////////////////////////////////////////////////////////////
 */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Montserrat:wght@400;700&family=Patrick+Hand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@400;700&family=Patrick+Hand&display=swap');
 
 /*
 ////////////////////////////////////////////////////////////////////////////////
 // 2. CORE THEME & LAYOUT
+//    - New color palette: Deep coffee browns, creamy whites, and caramel accents.
+//    - New font variables.
+//    - Replaced all 'clip-path' corners with 'border-radius' for a soft "bunny" feel.
 ////////////////////////////////////////////////////////////////////////////////
 */
 
 :root {
-  /* FONTS */
-  --font-heading: 'Playfair Display', serif;
+  /* FONT STACKS */
+  --font-heading: 'Dosis', system-ui, -apple-system, sans-serif;
   --font-flavor: 'Patrick Hand', cursive;
-  --font-body: 'Montserrat', sans-serif;
-  
-  /* PALETTE */
-  --c-bg: #1C1A19;       /* Deepest espresso brown */
-  --c-panel: #2A2520;  /* Lighter panel brown */
-  --c-text: #F0E9E1;     /* Creamy text */
-  --c-muted: #A89F94;  /* Muted beige */
-  --c-accent: #D8A788; /* Latte accent */
-  --c-accent-dark: #BF8A69; /* Accent for hover */
-  
-  --pf-cut2: 12px; /* Default border radius */
-}
+  --font-base: 'Dosis', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
 
-body {
-  background-color: var(--c-bg); /* Set page background */
+  /* DARK CAFE COLOR PALETTE */
+  --ink: hsl(30, 70%, 94%); /* Creamy, parchment white */
+  --muted: hsl(30, 20%, 65%); /* Soft, warm gray-brown */
+  --panel: hsl(25, 30%, 12%); /* Deep, dark coffee brown */
+  --panel-darker: hsl(25, 30%, 8%); /* Even darker, like espresso */
+  --accent: hsl(28, 80%, 60%); /* Warm, rich caramel */
+  --accent-text: hsl(25, 30%, 12%); /* Dark text for on-accent buttons */
+  --accent-soft-bg: hsla(28, 80%, 60%, 0.1); /* Soft caramel background glow */
+  --accent-soft-border: hsla(28, 80%, 60%, 0.2); /* Soft caramel border */
+
+  /* BORDER RADIUS (Replaces --pf-cut) */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
 }
 
 .bb-sec {
-  --ink: var(--c-text);
-  --muted: var(--c-muted);
-  --accent: var(--c-accent);
-  --hero: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1511920183-565d0f1f0ed1?q=80&w=1974&auto=format&fit=crop);
-  
-  font-family: var(--font-body);
+  --ink: hsl(30, 70%, 94%);
+  --muted: hsl(30, 20%, 65%);
+  font-family: var(--font-base);
   position: relative;
   --gap: 20px;
   --hero-over: clamp(80px, 10vw, 200px);
   overflow: visible !important;
-  background-color: var(--c-bg);
 }
 
 .bb-sec * {
@@ -70,8 +75,8 @@ body {
 
 .bb-collection-subtitle {
   display: inline-block;
-  background: var(--c-accent);
-  color: var(--c-panel);
+  background: var(--accent); /* Changed from black */
+  color: var(--accent-text); /* Changed from white */
   padding: 6px 12px;
   font-size: 11px;
   font-weight: 700;
@@ -79,60 +84,54 @@ body {
   letter-spacing: .1em;
   text-decoration: none;
   margin-bottom: 16px;
-  clip-path: none; /* RE-DESIGN */
-  border-radius: 4px; /* RE-DESIGN */
+  border-radius: var(--radius-sm); /* Replaced clip-path */
   transition: background .2s, color .2s;
 }
 
 .bb-collection-subtitle:hover {
-  background: var(--c-accent-dark);
-  color: var(--c-panel);
+  background: var(--ink); /* Changed from white */
+  color: var(--panel); /* Changed from black */
 }
 
 .bb-title {
-  font-family: var(--font-heading), serif !important; /* RE-DESIGN */
+  font-family: var(--font-heading);
   font-size: clamp(48px, 8vw, 90px) !important;
   line-height: 1 !important;
-  font-weight: 700 !important; /* RE-DESIGN */
-  color: var(--ink, #e9edf5) !important;
+  font-weight: 700 !important; /* Bolder for Dosis */
+  color: var(--ink) !important;
   margin: 0 0 12px !important;
   letter-spacing: 0.02em !important;
-  text-transform: none; /* RE-DESIGN */
-  font-style: italic; /* RE-DESIGN */
+  text-transform: none; /* Softer than uppercase */
 }
 
 .bb-tagline {
-  font-family: var(--font-body) !important; /* RE-DESIGN */
-  font-size: clamp(16px, 1.8vw, 18px) !important; /* RE-DESIGN */
-  line-height: 1.6 !important; /* RE-DESIGN */
+  font-size: clamp(16px, 1.6vw, 18px) !important; /* Slightly larger */
+  line-height: 1.7 !important;
   font-weight: 400 !important;
-  color: var(--muted, #e9edf5) !important; /* RE-DESIGN */
+  color: var(--ink) !important;
   max-width: none !important;
   width: auto !important;
-  font-style: italic; /* RE-DESIGN */
 }
 
 .bb-intros {
-  --panel: var(--c-panel); /* RE-DESIGN */
+  --panel: hsl(25, 30%, 12%); /* Local override */
   background: var(--panel);
   padding: clamp(16px, 2vw, 24px);
   position: relative;
   overflow: visible !important;
   max-width: 100% !important;
   margin: 0 !important;
-  border-radius: var(--pf-cut2); /* RE-DESIGN */
-  border: 1px solid rgba(255, 255, 255, 0.05); /* RE-DESIGN */
 }
 
 .bb-section-title {
   font-family: var(--font-heading);
-  text-transform: none; /* RE-DESIGN */
+  text-transform: none; /* Softer */
   font-style: normal;
   letter-spacing: 0.05em;
-  font-size: clamp(18px, 1.8vw, 22px); /* RE-DESIGN */
-  font-weight: 700; /* RE-DESIGN */
+  font-size: clamp(18px, 1.6vw, 22px); /* Larger */
+  font-weight: 700; /* Bolder */
   margin: 0 0 clamp(10px, 1.5vw, 14px);
-  color: var(--c-accent); /* RE-DESIGN */
+  color: var(--ink);
   display: flex;
   align-items: center;
   gap: .6em;
@@ -151,19 +150,13 @@ body {
 
 .bb-intro-list li {
   counter-increment: scn;
-  background: rgba(0, 0, 0, .1); /* RE-DESIGN */
+  background: rgba(255, 255, 255, .02);
   padding: 16px 16px 16px 64px;
-  border: 1px solid rgba(255, 255, 255, 0.05); /* RE-DESIGN */
-  border-radius: 8px; /* RE-DESIGN */
-  clip-path: none; /* RE-DESIGN */
+  border: 1px solid rgba(255, 255, 255, 0.05); /* Softer border */
+  border-radius: var(--radius-md); /* Replaced clip-path */
   position: relative;
   overflow: hidden;
   transition: transform .2s, background .2s;
-}
-
-.bb-intro-list li:hover {
-  transform: translateY(-2px); /* RE-DESIGN */
-  background: rgba(0, 0, 0, 0.2); /* RE-DESIGN */
 }
 
 .bb-intro-list li::before {
@@ -172,12 +165,12 @@ body {
   left: 16px;
   top: 50%;
   transform: translateY(-50%);
-  font-family: var(--font-flavor); /* RE-DESIGN */
-  font-size: 34px; /* RE-DESIGN */
+  font-family: var(--font-flavor); /* Cafe menu font */
+  font-size: 34px; /* Larger */
   font-weight: 400;
   color: var(--accent);
   z-index: 0;
-  animation: none; /* RE-DESIGN */
+  animation: accentGlow 2.5s ease-in-out infinite;
 }
 
 .bb-card {
@@ -186,16 +179,16 @@ body {
 }
 
 .bb-card p {
-  font-size: 13px;
-  line-height: 1.4;
+  font-size: 14px; /* More readable */
+  line-height: 1.5; /* More readable */
   margin: 0;
-  color: var(--muted); /* RE-DESIGN */
+  color: var(--ink);
 }
 
 .bb-note {
-  font-family: var(--font-flavor);
-  font-size: 1.2em !important; /* RE-DESIGN */
-  color: var(--c-accent); /* RE-DESIGN */
+  font-family: var(--font-flavor) !important; /* Ensure override */
+  font-size: 1.15em !important; /* Slightly larger */
+  color: var(--muted);
 }
 
 .bb-meta-hdr {
@@ -209,47 +202,74 @@ body {
 
 .bb-support-title {
   font-family: var(--font-flavor);
-  color: #fff;
+  color: var(--ink); /* Brighter */
   text-transform: none;
-  font-size: 20px; /* RE-DESIGN */
+  font-size: 22px; /* Larger */
   font-weight: 400;
   margin: 0 0 16px;
   text-align: center !important;
 }
 
-/* RE-DESIGNED KO-FI BUTTON 
-  Removed all complex pixel-art box-shadows for a simple, soft button.
-*/
+.bb-kbtn {
+  height: 48px;
+  display: inline-block;
+  padding: 20px 24px;
+  background: var(--accent);
+  color: var(--accent-text); /* Dark text on light accent */
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+  border-radius: var(--radius-sm); /* Rounded */
+}
+
 .bb-support .bb-kbtn {
-  --ink: var(--c-panel); /* RE-DESIGN */
-  --paper: var(--c-text); /* RE-DESIGN */
-  --cta: var(--accent, #D8A788); /* RE-DESIGN */
+  /* This is the complex kofi-style button */
+  --ink: var(--panel-darker); /* Dark brown shadow */
+  --paper: var(--ink); /* Creamy white outline */
+  --cta: var(--accent);
   position: relative;
   display: inline-block !important;
   vertical-align: middle;
   padding: 1px 0 !important;
   margin: 0 !important;
   border-radius: 9999px;
-  background: var(--cta) !important; /* RE-DESIGN */
-  color: var(--ink) !important; /* RE-DESIGN */
+  background: var(--ink) !important; /* Shadow color base */
+  color: var(--accent-text) !important; /* Dark text */
   text-decoration: none;
   font-weight: 700;
   line-height: 1;
   isolation: isolate;
   overflow: hidden;
-  transform: none; /* RE-DESIGN */
+  transform: translate(-4px, -4px);
   outline: transparent solid 2px;
   outline-offset: 5px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* RE-DESIGN */
-  transition: transform .15s, box-shadow .15s, background-color .2s;
+  /* Shadow rebuilt with new warm colors */
+  box-shadow: .5px .5px 0 0 var(--ink), 1px 1px 0 0 var(--ink), 1.5px 1.5px 0 0 var(--ink), 2px 2px 0 0 var(--ink), 2.5px 2.5px 0 0 var(--ink), 3px 3px 0 0 var(--ink), 0 0 0 2px var(--paper), .5px .5px 0 2px var(--paper), 1px 1px 0 2px var(--paper), 1.5px 1.5px 0 2px var(--paper), 2px 2px 0 2px var(--paper), 2.5px 2.5px 0 2px var(--paper), 3px 3px 0 2px var(--paper), 3.5px 3.5px 0 2px var(--paper), 4px 4px 0 2px var(--paper);
+  transition: transform .15s, box-shadow .15s;
 }
 
 .bb-support .bb-kbtn::before {
-  display: none; /* RE-DESIGN */
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border-radius: 9999px;
+  background: var(--cta);
+  border: 2px solid hsla(30, 70%, 94%, 0.25); /* Creamy border */
+  z-index: 0;
 }
 
 .bb-support .bb-kbtn::after {
-  display: none; /* RE-DESIGN */
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border-radius: 9999px;
+  opacity: .25; /* Subtler dots */
+  background-image: radial-gradient(hsla(30, 70%, 94%, .6) 20%, transparent 20%), radial-gradient(hsla(30, 70%, 94%, .6) 20%, transparent 20%);
+  background-size: 8px 8px;
+  background-position: 0 0, 4px 4px;
+  animation: .6s linear infinite kofiDots;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .bb-support .bb-kbtn>span {
@@ -257,14 +277,12 @@ body {
   z-index: 1;
   display: block;
   padding: 1rem 1.25rem;
-  filter: none; /* RE-DESIGN */
-  color: var(--c-panel); /* RE-DESIGN */
+  filter: none; /* Removed harsh shadow */
 }
 
 .bb-support .bb-kbtn:hover {
-  transform: translateY(-2px); /* RE-DESIGN */
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25); /* RE-DESIGN */
-  background: var(--c-accent-dark) !important; /* RE-DESIGN */
+  transform: translate(0, 0);
+  box-shadow: 0 0 0 2px var(--paper);
 }
 
 .bb-support .bb-kbtn:focus-visible {
@@ -299,42 +317,38 @@ body {
   overflow: visible !important;
 }
 
-/* RE-DESIGN: Removed hero from ::before, will apply to .bbx-hero */
 .bbx-band::before {
-  display: none; /* RE-DESIGN */
+  content: "";
+  position: absolute;
+  left: calc(50% + 10px);
+  right: 0;
+  top: 0;
+  bottom: 0;
+  /* Replaced --hero var with a solid panel color */
+  background: var(--panel-darker);
+  pointer-events: none;
+  z-index: 1;
 }
 
 .bb-top-content,
 .bb-bottom-content { grid-column: 1; }
-.bbx-hero { 
-  grid-column: 2; 
-  /* RE-DESIGN: Hero image is now here */
-  background: var(--hero) center center / cover no-repeat;
-  border-radius: 12px;
-  overflow: hidden;
-  margin-top: calc(var(--hero-over) * -1); /* Pulls up */
-  height: 70vh;
-  min-height: 400px;
-  position: relative;
-  z-index: 1;
-}
+.bbx-hero { grid-column: 2; }
 
 .bbx-band .bb-intros { overflow: visible !important; }
 
 .bb-quote {
-  --panel: var(--c-panel); /* RE-DESIGN */
-  --ink: var(--c-text); /* RE-DESIGN */
-  --muted: var(--c-muted); /* RE-DESIGN */
+  --panel: hsl(25, 30%, 12%);
+  --ink: hsl(30, 70%, 94%);
+  --muted: hsl(30, 20%, 65%);
   display: block;
   margin: 24px 0px;
   padding: 14px 16px 14px 48px;
-  background: linear-gradient(90deg, rgba(255, 255, 255, .03), rgba(255, 255, 255, 0)); /* RE-DESIGN */
+  background: linear-gradient(90deg, hsla(30, 70%, 94%, .05), hsla(30, 70%, 94%, 0));
   color: var(--ink);
   font-style: normal;
-  border-left: 5px solid var(--accent); /* RE-DESIGN */
+  border-left: 3px solid var(--accent);
   position: relative;
-  clip-path: none; /* RE-DESIGN */
-  border-radius: 8px; /* RE-DESIGN */
+  border-radius: var(--radius-md); /* Replaced clip-path */
 }
 
 .bb-quote::before {
@@ -342,9 +356,9 @@ body {
   position: absolute;
   left: 12px;
   top: 6px;
-  font: 900 40px/1 'Playfair Display', serif; /* RE-DESIGN */
-  color: rgba(255, 255, 255, .05); /* RE-DESIGN */
-  -webkit-text-stroke: 0; /* RE-DESIGN */
+  font: 400 60px/1 var(--font-flavor); /* Cafe menu font */
+  color: hsla(28, 80%, 60%, 0.2); /* Soft caramel */
+  -webkit-text-stroke: 0;
 }
 
 .bb-quote .q { display: block; }
@@ -352,7 +366,7 @@ body {
 .bb-quote .by {
   display: block;
   margin-top: 6px;
-  font: normal 600 11px/1.2 var(--font-body), system-ui, sans-serif; /* RE-DESIGN */
+  font: normal 600 11px/1.2 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   letter-spacing: .08em;
   text-transform: uppercase;
   color: var(--muted);
@@ -376,7 +390,6 @@ body {
 .bb-presets { animation-delay: .7s; }
 .bb-support { animation-delay: .8s; }
 
-/* RE-DESIGN: Toned down the background number */
 .bbx-num {
   position: absolute;
   top: 90vh;
@@ -386,8 +399,8 @@ body {
   font-size: clamp(120px, 26vw, 520px);
   line-height: .8;
   letter-spacing: -.02em;
-  color: rgba(255, 255, 255, .01); /* RE-DESIGN */
-  -webkit-text-stroke: 1px rgba(255, 255, 255, .03); /* RE-DESIGN */
+  color: hsla(30, 70%, 94%, 0.03); /* Soft cream color */
+  -webkit-text-stroke: 1px hsla(30, 70%, 94%, 0.05); /* Softer stroke */
   text-shadow: 0 1px 0 rgba(0, 0, 0, .4);
   z-index: 0;
   pointer-events: none;
@@ -402,7 +415,7 @@ body {
   z-index: 2147483647;
   font-family: monospace;
   font-size: .75rem;
-  color: rgba(255, 255, 255, .3); /* RE-DESIGN */
+  color: rgba(255, 255, 255, .6);
   text-decoration: none;
   cursor: pointer;
 }
@@ -413,7 +426,6 @@ body {
 ////////////////////////////////////////////////////////////////////////////////
 */
 @keyframes kofiDots {
-  /* Kept for .bb-kbtn if needed, but we removed it */
   0% { background-position: 0 0, 4px 4px; }
   100% { background-position: 8px 0, 12px 4px; }
 }
@@ -429,14 +441,13 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* RE-DESIGN: Softer glide */
 @keyframes puppetGlide {
-  0% { transform: translateY(10vh); opacity: 0; }
-  100% { transform: translateY(0); opacity: 1; }
+  0% { transform: translateY(60vh) rotate(-1deg); opacity: 0; }
+  100% { transform: translateY(0) rotate(0); opacity: 1; }
 }
 
 @keyframes accentGlow {
-  /* RE-DESIGN: Animation disabled on element */
+  /* This will now be a warm caramel glow */
   0%, 100% { text-shadow: 0 0 5px rgb(from var(--accent) r g b / .2); }
   50% { text-shadow: 0 0 20px rgb(from var(--accent) r g b / .7); }
 }
@@ -472,24 +483,18 @@ body {
     overflow: visible !important;
   }
   .bb-top-content { grid-row: 1; }
-  .bbx-hero { 
-    grid-column: 1; 
-    grid-row: 2; 
-    margin-top: 24px; /* RE-DESIGN: Add space on mobile */
-    height: 300px; /* RE-DESIGN: Adjust mobile height */
-  }
+  .bbx-hero { grid-column: 1; grid-row: 2; }
   .bb-bottom-content { grid-row: 3; }
   .bbx-hero {
-    background: var(--hero) top center/cover no-repeat !important; /* RE-DESIGN: Mobile hero */
+    background: var(--panel-darker) !important; /* Solid color fallback */
     min-height: clamp(260px, 50vh, 560px) !important;
-    border-radius: 12px; /* RE-DESIGN */
   }
   .bb-intros { max-width: 100% !important; }
   .bbx-band .bb-intros {
     margin: 0 !important;
     padding: 16px !important;
     max-width: 100% !important;
-    border-radius: var(--pf-cut2) !important; /* RE-DESIGN */
+    border-radius: 0 !important;
   }
   :is(h1, h2, h3, h4, h5, h6).ant-typography,
   .ant-typography[class*="css-"],
@@ -512,21 +517,21 @@ body {
   .bb-intros { max-width: 100% !important; }
   .bbx-hero {
     min-height: clamp(240px, 52vh, 520px) !important;
-    background-position: top center !important;
   }
 }
 
 @media(hover:hover) {
   .bb-badge:hover {
     transform: translateY(-1px);
-    box-shadow: 0 6px 14px rgba(0, 0, 0, .3);
+    box-shadow: 0 0 0 1px hsla(30, 70%, 94%, .06) inset, 0 6px 14px rgba(0, 0, 0, .3);
   }
   .bb-kbtn:hover {
     transform: translateY(-2px);
+    filter: brightness(1.1); /* General hover brightens */
   }
   .ant-col.text-left [class*=ant-image]:hover .ant-image-img {
-    transform: scale(1.05); /* RE-DESIGN */
-    filter: none; /* RE-DESIGN */
+    transform: scale(1.12);
+    filter: contrast(1.12) saturate(1.12);
   }
 }
 
@@ -540,6 +545,7 @@ body {
 /*
 ////////////////////////////////////////////////////////////////////////////////
 // 5. CHUB.AI OVERRIDES [USE CAUTION]
+//    Reskinned all elements to match the cafe theme.
 ////////////////////////////////////////////////////////////////////////////////
 */
 h3.ant-typography,
@@ -554,24 +560,23 @@ h4.ant-typography.mt-8+div {
   display: none !important;
 }
 
-/* RE-DESIGN: Soft, rounded tags */
 .ant-space.ant-space-horizontal.ant-space-align-center .ant-tag {
-  background: var(--c-muted) !important;
-  color: var(--c-panel) !important;
-  border: none !important;
-  border-radius: 4px !important; /* RE-DESIGN */
+  background: var(--accent-soft-bg) !important;
+  color: var(--accent) !important;
+  border: 1px solid var(--accent-soft-border) !important;
+  border-radius: var(--radius-sm) !important; /* Rounded */
   padding: .15em .55em !important;
   font-size: .7rem !important;
   font-weight: 700 !important;
   text-transform: uppercase !important;
   opacity: 1 !important;
   transition: background .2s, color .2s;
-  clip-path: none !important; /* RE-DESIGN */
+  clip-path: none !important; /* Removed clip-path */
 }
 
 .ant-space.ant-space-horizontal.ant-space-align-center .ant-tag:hover {
-  background: var(--c-text) !important;
-  color: var(--c-panel) !important;
+  background: var(--accent) !important;
+  color: var(--accent-text) !important;
 }
 
 .ant-space.ant-space-horizontal.ant-space-align-center {
@@ -581,22 +586,21 @@ h4.ant-typography.mt-8+div {
 }
 
 .ant-tag {
-  /* RE-DESIGN: General tag style */
-  background: var(--c-muted) !important;
-  color: var(--c-panel) !important;
-  border: none !important;
-  border-radius: 4px !important; /* RE-DESIGN */
+  background: var(--accent-soft-bg) !important;
+  color: var(--accent) !important;
+  border: 1px solid var(--accent-soft-border) !important;
+  border-radius: var(--radius-sm) !important; /* Rounded */
   padding: .10em .50em !important;
   font-size: .6rem !important;
   font-weight: 700 !important;
   text-transform: uppercase !important;
   transition: background .2s, color .2s !important;
-  clip-path: none !important; /* RE-DESIGN */
+  clip-path: none !important; /* Removed clip-path */
 }
 
 .ant-tag:hover {
-  background: var(--c-text) !important; /* RE-DESIGN */
-  color: var(--c-panel) !important; /* RE-DESIGN */
+  background: var(--accent) !important;
+  color: var(--accent-text) !important;
   cursor: pointer;
 }
 .ant-ribbon.ant-ribbon-placement-end,
@@ -629,7 +633,7 @@ button.ant-btn {
   height: 48px !important;
   min-width: 64px !important;
   padding: .5em 1.4em !important;
-  border-radius: 8px !important;
+  border-radius: var(--radius-md) !important; /* Rounded */
   transition: transform .15s, box-shadow .15s, background-color .25s, color .25s, border-color .25s;
   cursor: pointer;
   overflow: visible !important;
@@ -638,31 +642,29 @@ button.ant-btn {
 button.ant-btn:hover { box-shadow: none !important; }
 button.ant-btn:active { transform: translateY(1px); }
 
-/* RE-DESIGN: Default button (cafe style) */
+/* Softer default button */
 button.ant-btn.ant-btn-default {
   background: transparent !important;
-  color: var(--c-text) !important;
-  border: 1px solid var(--c-muted) !important;
-  box-shadow: none; /* RE-DESIGN */
+  color: var(--ink) !important;
+  border: 1px solid var(--muted) !important;
+  box-shadow: none !important;
 }
 button.ant-btn.ant-btn-default:hover {
-  background: var(--c-accent) !important;
-  color: var(--c-panel) !important;
-  border-color: var(--c-accent) !important;
+  background: var(--ink) !important;
+  color: var(--panel) !important;
+  border-color: var(--ink) !important;
 }
 
-/* RE-DESIGN: Primary button (cafe style) */
+/* Primary button uses accent colors */
 button.ant-btn.ant-btn-primary {
-  background: var(--c-accent) !important;
-  color: var(--c-panel) !important;
-  border: 1px solid var(--c-accent) !important; /* RE-DESIGN */
-  box-shadow: none !important; /* RE-DESIGN */
+  background: var(--accent) !important;
+  color: var(--accent-text) !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 button.ant-btn.ant-btn-primary:hover {
-  background: var(--c-accent-dark) !important;
-  border-color: var(--c-accent-dark) !important;
+  filter: brightness(1.1);
 }
-
 
 button.ant-btn .ml-1,
 div.flex.flex-wrap.justify-end [class*=ml-] {}
@@ -680,30 +682,31 @@ button.ant-btn.ant-btn-default:has(.anticon-star)::after {
   z-index: 1;
 }
 
-/*button.ant-btn.ant-btn-default:has(.anticon-star)::after { --sonar-color: var(--accent); }*/
 button.ant-btn:has(svg.lucide-messages-square)::after { --sonar-color: var(--accent); }
 
-/* RE-DESIGN: Chat button (soft, round) */
+/* Kofi-style chat button */
 button.ant-btn:has(svg.lucide-messages-square) {
+  --ink: var(--panel-darker);
+  --paper: var(--ink);
   font-size: 14px !important;
   font-weight: 800 !important;
   height: 64px !important;
   padding: 0 1.8em 0 1.8em;
-  border-radius: 9999px !important; /* RE-DESIGN */
+  border-radius: var(--radius-md) !important; /* Rounded */
   background: var(--accent) !important;
-  color: var(--c-panel) !important; /* RE-DESIGN */
-  border: 2px solid var(--accent) !important; /* RE-DESIGN */
-  outline: none; /* RE-DESIGN */
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4); /* RE-DESIGN */
+  color: var(--accent-text) !important;
+  border: 2px solid var(--panel-darker) !important; /* Dark brown border */
+  outline: 1px solid var(--ink); /* Cream outline */
+  box-shadow: .5px .5px 0 0 var(--ink), 1px 1px 0 0 var(--ink), 1.5px 1.5px 0 0 var(--ink), 2px 2px 0 0 var(--ink), 2.5px 2.5px 0 0 var(--ink), 3px 3px 0 0 var(--ink), 0 0 0 2px var(--paper), .5px .5px 0 2px var(--paper), 1px 1px 0 2px var(--paper), 1.5px 1.5px 0 2px var(--paper), 2px 2px 0 2px var(--paper), 2.5px 2.5px 0 2px var(--paper), 3px 3px 0 2px var(--paper), 3.5px 3.5px 0 2px var(--paper), 4px 4px 0 2px var(--paper);
   z-index: 10;
   transition: background .25s, color .25s, box-shadow .25s, transform .15s;
 }
 
 button.ant-btn:has(svg.lucide-messages-square):hover {
-  background: var(--c-accent-dark) !important; /* RE-DESIGN */
-  color: var(--c-panel) !important; /* RE-DESIGN */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important; /* RE-DESIGN */
-  border-color: var(--c-accent-dark) !important; /* RE-DESIGN */
+  background: var(--ink) !important;
+  color: var(--panel) !important;
+  box-shadow: none !important;
+  border-color: var(--accent) !important;
 }
 
 button.ant-btn:has(svg.lucide-messages-square):active { transform: scale(.97); }
@@ -715,7 +718,6 @@ div.flex.flex-wrap.justify-end {
   gap: 8px;
 }
 
-/* RE-DESIGN: Kept the icon, but removed the cut-corner logic */
 .ant-space.ant-space-horizontal.ant-space-align-center .ant-space-item:first-child>.ant-tag.ant-tag-error {
   position: relative;
   display: inline-block !important;
@@ -735,10 +737,11 @@ div.flex.flex-wrap.justify-end {
   position: absolute;
   inset: 0;
   background: url(https://files.catbox.moe/e1xatc.svg) center/contain no-repeat;
+  filter: hue-rotate(300deg) brightness(1.2); /* Shifted to warmer tone */
 }
 
 :is(h1, h2, h3).ant-typography[class*=css-] {
-  font-family: var(--font-heading) !important; /* RE-DESIGN */
+  font-family: var(--font-heading); /* Added */
   font-size: clamp(30px, 4vw, 38px) !important;
   line-height: 1.15 !important;
   font-weight: 700 !important;
@@ -746,11 +749,12 @@ div.flex.flex-wrap.justify-end {
   margin: 0 0 6px !important;
   letter-spacing: 0 !important;
   max-width: 50%;
-  font-style: italic; /* RE-DESIGN */
+  text-transform: none; /* Added */
 }
 
 .msg-mkdn-container.font-size-message {
-  font-size: clamp(16px, 1.6vw, 16px) !important;
+  font-family: var(--font-base); /* Added */
+  font-size: clamp(16px, 1.6vw, 17px) !important; /* Slightly larger */
   line-height: 1.7 !important;
   font-weight: 400 !important;
   color: var(--ink, #e9edf5) !important;
@@ -760,16 +764,29 @@ div.flex.flex-wrap.justify-end {
 
 .msg-mkdn-container.font-size-message>:is(h1, h2, h3, p, blockquote, ul, ol):has(~.bb-sec) { max-width: 50% !important; }
 .msg-mkdn-container.font-size-message>:where(h1, h2, h3, p, blockquote, ul, ol, pre) { max-width: 50% !important; margin-right: auto; }
-.msg-mkdn-container.font-size-message p>strong { font-weight: 700 !important; color: var(--c-accent); } /* RE-DESIGN */
+.msg-mkdn-container.font-size-message p>strong { font-weight: 700 !important; color: var(--accent); } /* Bolder, accented */
 
 .bb-sec, .bb-wrap, .bbx-band { overflow: visible !important; }
 .bbx-band { contain: unset !important; z-index: 2; }
 .bbx-left { position: relative; z-index: 3; }
 .bbx-hero { position: relative; z-index: 2; }
 
-/* RE-DESIGN: Removed fixed puppet logic, hero is now in-flow in .bbx-hero */
 .bbx-band::before {
-  display: none !important;
+  content: "";
+  position: fixed;
+  left: 52%;
+  right: 0;
+  bottom: 0;
+  top: auto;
+  width: 48vw;
+  height: 100vh;
+  /* Replaced hero image with solid color */
+  background: var(--panel-darker) !important;
+  pointer-events: none;
+  z-index: 1;
+  transition: transform .8s ease;
+  transform: translateY(60vh) rotate(-1deg);
+  animation: 2.2s cubic-bezier(.25, 1, .5, 1) both puppetGlide;
 }
 
 @media(prefers-reduced-motion:reduce) {
@@ -781,42 +798,34 @@ div.flex.flex-wrap.justify-end {
 
 @media(min-width:769px) and (max-width:991px) {
   .bbx-band::before {
-    display: none !important; /* RE-DESIGN */
+    position: absolute;
+    left: auto;
+    right: -6vw;
+    top: auto;
+    bottom: -4vh;
+    width: min(680px, 60vw);
+    height: min(90vh, 820px);
   }
-  .bbx-hero {
-    height: 50vh; /* RE-DESIGN */
-    margin-top: 24px;
-    grid-column: 1 / -1; /* RE-DESIGN: Stack hero on tablet */
-    grid-row: 2;
-  }
+  .bbx-band { padding-right: clamp(24px, 12vw, 180px); }
   .bb-top-content {
     grid-column: 1 / -1;
-    grid-row: 1;
-    width: 100%;
-    margin-left: 0;
-    padding: 0;
-  }
-  .bb-bottom-content {
-    grid-column: 1 / -1;
-    grid-row: 3;
-  }
-  .bbx-band { 
-    padding-right: 0; 
-    margin-top: 0 !important;
-    padding-top: 0 !important;
-    grid-template-columns: 1fr !important;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    padding: 0 calc(50vw - 50% + 8px);
+    box-sizing: border-box;
+    background: transparent;
   }
 }
 
 @media(max-width:768px) {
   .bbx-band::before { content: none !important; }
   .bb-bottom-content { grid-row: 3; }
-  .bb-intros { margin-bottom: 24px; padding: 16px !important; border-radius: var(--pf-cut2) !important; } /* RE-DESIGN */
+  .bb-intros { margin-bottom: 24px; padding: 16px !important; border-radius: 0 !important; }
 }
 
 .bbx-left { display: flex; flex-direction: column; }
 .bb-support {
-  --panel: var(--c-panel); /* RE-DESIGN */
+  --panel: hsl(25, 30%, 12%);
   background: var(--panel);
   margin-top: 24px !important;
   padding: clamp(16px, 2vw, 24px);
@@ -826,13 +835,12 @@ div.flex.flex-wrap.justify-end {
   align-items: center;
   gap: 12px;
   max-width: 100%;
-  border: 1px solid rgba(255, 255, 255, 0.05); /* RE-DESIGN */
 }
 .bbx-band .bb-intros, .bb-support { max-width: 100%; }
 
 @media(max-width:768px) {
   .bb-support {
-    border-radius: var(--pf-cut2); /* RE-DESIGN */
+    border-radius: 0;
     padding: 16px;
   }
   .bb-support .bb-kbtn {
@@ -842,27 +850,24 @@ div.flex.flex-wrap.justify-end {
   }
 }
 
-/* RE-DESIGN: Soft rounded image */
 .ant-col.text-left [class*=ant-image] {
-  --pf-cut: 0; /* RE-DESIGN */
-  --g: 12px;
-  --st: 1px;
   position: relative;
   overflow: hidden;
-  border-radius: 12px; /* RE-DESIGN */
+  border-radius: var(--radius-lg); /* Rounded container */
 }
 
 .ant-col.text-left [class*=ant-image] .ant-image-img {
   display: block;
   width: 100%;
   height: auto;
-  clip-path: none; /* RE-DESIGN */
-  border-radius: 12px; /* RE-DESIGN */
+  clip-path: none; /* Removed clip-path */
+  border-radius: var(--radius-lg); /* Rounded image */
   transition: .3s;
 }
 
 .ant-col.text-left [class*=ant-image]::after {
-  display: none; /* RE-DESIGN */
+  /* This pseudo-element is no longer needed */
+  display: none;
 }
 
 .ant-col.text-left [class*=ant-image] .ant-image-mask,
@@ -870,19 +875,19 @@ div.flex.flex-wrap.justify-end {
   display: none !important;
 }
 
-/* RE-DESIGN: Rounded panels */
+/* Rounded panels */
 .bb-support,
 .bbx-band .bb-intros {
-  border-radius: var(--pf-cut2) !important; /* RE-DESIGN */
-  clip-path: none; /* RE-DESIGN */
+  border-radius: var(--radius-lg) !important;
+  clip-path: none !important;
   overflow: hidden !important;
 }
 
 .bb-presets {
-  --panel: var(--c-panel); /* RE-DESIGN */
+  --panel: hsl(25, 30%, 12%);
   background: var(--panel);
-  border-radius: var(--pf-cut2) !important; /* RE-DESIGN */
-  clip-path: none; /* RE-DESIGN */
+  border-radius: var(--radius-lg) !important; /* Rounded */
+  clip-path: none !important; /* Removed clip-path */
   padding: clamp(12px, 1.5vw, 20px);
   margin-top: 24px;
   display: flex;
@@ -894,14 +899,14 @@ div.flex.flex-wrap.justify-end {
 
 .bb-presets-label {
   font-family: var(--font-flavor);
-  font-size: 18px; /* RE-DESIGN */
+  font-size: 18px; /* Larger */
   font-weight: 600;
-  color: #fff;
+  color: var(--ink); /* Brighter */
   white-space: nowrap;
 }
 
 @media(max-width:768px) { .bbx-band { padding-right: 0 !important; } }
-@media(min-width:769px) { .bbx-band { padding-right: 0; } } /* RE-DESIGN */
+@media(min-width:769px) { .bbx-band { padding-right: clamp(16px, 8vw, 140px); } }
 
 .bb-badges {
   display: flex;
@@ -910,41 +915,41 @@ div.flex.flex-wrap.justify-end {
   margin-bottom: 8px;
 }
 
-/* RE-DESIGN: Soft, simple badges */
 .bb-badge {
-  --ink: var(--c-panel);
-  --paper: #fff;
-  --cta: var(--c-muted);
+  /* Kofi-style badge, reskinned */
+  --ink: var(--panel-darker);
+  --paper: var(--ink);
+  --cta: var(--muted); /* Default to muted brown-gray */
   position: relative;
   display: inline-block;
   padding: .6em 1.1em;
-  border-radius: 9999px; /* RE-DESIGN */
-  font: 700 10px/1 var(--font-body), system-ui, sans-serif; /* RE-DESIGN */
+  border-radius: 9999px;
+  font: 800 10px/1 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   text-transform: uppercase;
-  color: var(--ink); /* RE-DESIGN */
+  color: #fff;
   text-decoration: none;
   background: var(--cta);
-  border: 1px solid transparent; /* RE-DESIGN */
-  box-shadow: none; /* RE-DESIGN */
-  text-shadow: none; /* RE-DESIGN */
+  border: 1px solid var(--panel-darker);
+  box-shadow: .5px .5px 0 var(--ink), 1px 1px 0 var(--ink), 0 0 0 1px var(--paper), .5px .5px 0 1px var(--paper), 1px 1px 0 1px var(--paper);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, .35);
   transition: transform .15s, box-shadow .15s, background .25s, color .25s, border-color .25s;
 }
 
 .bb-badge:hover {
-  transform: translateY(-1px); /* RE-DESIGN */
-  color: var(--ink); /* RE-DESIGN */
+  transform: none;
+  color: #fff;
   text-shadow: none;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* RE-DESIGN */
-  border-color: transparent; /* RE-DESIGN */
+  box-shadow: 0 0 0 1px var(--paper);
+  border-color: var(--ink);
+  filter: brightness(1.1); /* Added hover */
 }
 
 .bb-badge:active { transform: translateY(1px); }
-/* RE-DESIGN: Cafe-themed badge colors */
-.bb-badge-soji { --cta: #BFA8D8; } /* Lavender */
-.bb-badge-deepseek { --cta: #A8D8B9; } /* Matcha */
-.bb-badge-claude { --cta: #D8A788; } /* Caramel */
-.bb-badge-grok { --cta: #5E564F; color: var(--c-text); } /* Dark Roast */
-
+/* Badge colors reskinned */
+.bb-badge-soji { --cta: linear-gradient(135deg, hsl(28, 80%, 60%), hsl(25, 80%, 50%)); }
+.bb-badge-deepseek { --cta: linear-gradient(135deg, #60a5fa, #1d4ed8); } /* Kept as is */
+.bb-badge-claude { --cta: linear-gradient(135deg, #fb923c, #ea580c); } /* Kept as is */
+.bb-badge-grok { --cta: #222; } /* Kept as is */
 
 .ant-col.text-left.ant-col-xs-24.ant-col-lg-24 {
   position: relative !important;
@@ -954,8 +959,8 @@ div.flex.flex-wrap.justify-end {
 
 .ant-collapse {
   border: none !important;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0) 100%); /* RE-DESIGN */
-  border-radius: 8px; /* RE-DESIGN */
+  background: linear-gradient(90deg, hsla(30, 70%, 94%, 0.05) 0%, hsla(30, 70%, 94%, 0) 100%);
+  border-radius: var(--radius-md); /* Rounded */
 }
 
 .ant-collapse-item { border-bottom: none !important; }
@@ -978,50 +983,40 @@ div.flex.flex-wrap.justify-end {
 }
 
 .ant-collapse-content.ant-collapse-content-active {
-  background: rgba(0, 0, 0, 0.2); /* RE-DESIGN */
+  background: linear-gradient(to right, hsla(25, 30%, 8%, 0.65), hsla(25, 30%, 8%, 0.25)); /* Dark brown glass */
   border: none !important;
   backdrop-filter: blur(6px) saturate(120%);
   -webkit-backdrop-filter: blur(6px) saturate(120%);
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
-  border-top: 1px solid rgba(255, 255, 255, 0.05); /* RE-DESIGN */
+  border-radius: 0 0 var(--radius-md) var(--radius-md); /* Rounded */
 }
 
 header.ant-layout-header {
   z-index: 99999 !important;
 }
 
-/* --- General Dropdown Item Styles --- */
-/* RE-DESIGN: Darker, cozier dropdowns */
-.ant-dropdown-menu {
-  background-color: var(--c-panel) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  border-radius: 8px !important;
-}
+/* --- General Dropdown Item Styles (Keeping logic, reskinning) --- */
 
 .ant-dropdown-menu-item {
   justify-content: flex-start !important;
   padding-top: 5px !important;
   padding-bottom: 5px !important;
-  color: var(--c-text) !important;
 }
 
 .ant-dropdown-menu-item .ant-dropdown-menu-title-content {
   text-align: left !important;
 }
 
-
 /* --- Hover Effects --- */
 li.ant-dropdown-menu-item:not(:has(.ant-upload-wrapper)):hover {
-  background-color: var(--c-accent) !important;
-  color: var(--c-panel) !important;
+  background-color: var(--accent) !important; /* Caramel */
+  color: var(--accent-text) !important; /* Dark brown */
 }
-
 
 /* --- Special Styles for the "Upload" Button Item --- */
 li.ant-dropdown-menu-item:has(.ant-upload-wrapper):hover {
   background-color: transparent !important;
 }
-
 li.ant-dropdown-menu-item:has(.ant-upload-wrapper) .ant-btn {
   background: transparent !important;
   border: none !important;
@@ -1030,36 +1025,34 @@ li.ant-dropdown-menu-item:has(.ant-upload-wrapper) .ant-btn {
   padding: 0 !important;
   justify-content: flex-start !important;
   font-weight: 400 !important;
-  color: var(--c-text) !important;
 }
-
 li.ant-dropdown-menu-item:has(.ant-upload-wrapper) .ant-btn:hover,
 li.ant-dropdown-menu-item:has(.ant-upload-wrapper) .ant-btn:focus {
-  background-color: var(--c-accent) !important;
-  color: var(--c-panel) !important;
+  background-color: var(--accent) !important; /* Caramel */
+  color: var(--accent-text) !important; /* Dark brown */
   outline: none !important;
 }
 
-/* RE-DESIGN: Match other default buttons */
+/* Reskinned "Load More" button */
 button.sc-ifyrAs {
     display: inline-block !important;
     font-size: 14px !important;
     font-weight: 700 !important;
     height: 40px !important;
     padding: 0 2em !important;
-    border-radius: 8px !important;
-    background: transparent !important;
-    color: var(--c-text) !important;
-    border: 1px solid var(--c-muted) !important;
-    box-shadow: none;
+    border-radius: var(--radius-md) !important; /* Rounded */
+    background: transparent !important; /* Softer */
+    color: var(--ink) !important;
+    border: 1px solid var(--muted) !important;
+    box-shadow: none !important;
     cursor: pointer;
     transition: transform 0.15s, box-shadow 0.15s, background-color 0.25s, color 0.25s, border-color 0.25s;
   }
 
   button.sc-ifyrAs:hover {
-    background: var(--c-accent) !important;
-    color: var(--c-panel) !important;
-    border-color: var(--c-accent) !important;
+    background: var(--ink) !important;
+    color: var(--panel) !important;
+    border-color: var(--ink) !important;
     box-shadow: none !important;
   }
 
@@ -1067,15 +1060,15 @@ button.sc-ifyrAs {
     position: relative !important;
     overflow: visible !important;
   }
-  
-  /* Sonar for this button */
+
+  /* Sonar pulse for "Load More" */
   button.sc-ifyrAs::after {
     content: "";
     position: absolute;
     inset: -2px;
     border-radius: inherit;
     background: transparent;
-    --sonar-color: var(--accent); /* Uses the theme's accent color */
+    --sonar-color: var(--accent); /* Caramel pulse */
     box-shadow: 0 0 0 0 var(--sonar-color);
     animation: 2.8s ease-out infinite btn-sonar !important;
     pointer-events: none;
@@ -1103,18 +1096,16 @@ button.sc-ifyrAs {
 .comment-width .ant-comment-inner{
   padding:16px;
   margin-bottom:16px;
-  background: var(--c-panel); /* RE-DESIGN */
-  border-radius: 8px; /* RE-DESIGN */
 }
 .ant-comment .ant-comment-nested{
   margin-right:16px;
 }
 
-/* RE-DESIGN: POV badge */
+/* POV Badge reskinned */
 .pov-badge {
   display: inline-block;
-  background: var(--c-muted); /* RE-DESIGN */
-  color: var(--c-panel);      /* RE-DESIGN */
+  background: var(--panel-darker); /* Darkest brown */
+  color: var(--ink);
   padding: 3px 8px;
   margin-right: 6px;
   font-size: 10px;
@@ -1123,9 +1114,11 @@ button.sc-ifyrAs {
   text-transform: uppercase;
   letter-spacing: .08em;
   vertical-align: middle;
-  clip-path: none; /* RE-DESIGN */
-  border-radius: 4px; /* RE-DESIGN */
+  border-radius: var(--radius-sm); /* Rounded */
+  clip-path: none; /* Removed clip-path */
 }
+
+/* Relationship Panel */
 :root {
 	--rel-w: 120px;
 	--rel-h: 72px;
@@ -1158,27 +1151,24 @@ button.sc-ifyrAs {
 	padding: 4px 24px 16px !important
 }
 
-/* RE-DESIGN: Scrollbar */
+/* Scrollbar reskinned to be warmer */
 .bb-intros .zg-body::-webkit-scrollbar {
 	height: 8px !important
 }
-
 .bb-intros .zg-body::-webkit-scrollbar-track {
 	background: rgba(0, 0, 0, .2) !important;
 	border-radius: 4px !important
 }
-
 .bb-intros .zg-body::-webkit-scrollbar-thumb {
-	background: var(--c-muted) !important; /* RE-DESIGN */
+	background: hsla(28, 80%, 60%, 0.5) !important; /* Caramel */
 	border-radius: 4px !important;
-	border: 1px solid rgba(0, 0, 0, .2) !important
+	border: 1px solid rgba(255, 255, 255, .1) !important
 }
-
 .bb-intros .zg-body::-webkit-scrollbar-thumb:hover {
-	background: var(--c-text) !important; /* RE-DESIGN */
+	background: var(--accent) !important;
 }
 
-/* RE-DESIGN: Relation tile */
+/* Relationship tile reskinned */
 .bb-intros .zg-rel-tile {
 	position: relative !important;
 	display: block !important;
@@ -1187,9 +1177,9 @@ button.sc-ifyrAs {
 	height: calc(var(--rel-h) + var(--rel-text-h)) !important;
 	text-decoration: none !important;
 	color: var(--ink) !important;
-	border: 1px solid rgba(255, 255, 255, .05) !important; /* RE-DESIGN */
-	border-radius: 6px !important;
-	background: rgba(0, 0, 0, .2) !important; /* RE-DESIGN */
+	border: 1px solid var(--accent-soft-border) !important; /* Soft caramel border */
+	border-radius: var(--radius-md) !important; /* Rounded */
+	background: var(--accent-soft-bg) !important; /* Soft caramel bg */
 	transition: border-color .2s, transform .15s, filter .2s !important;
 	overflow: hidden !important;
 	scroll-snap-align: start !important
@@ -1216,7 +1206,7 @@ button.sc-ifyrAs {
 	left: 0 !important;
 	right: 0 !important;
 	height: var(--rel-text-h) !important;
-	background: #1A1716 !important; /* RE-DESIGN */
+	background: var(--panel-darker) !important; /* Darkest brown */
 	border-radius: 0 0 5px 5px !important;
 	z-index: 1 !important
 }
@@ -1231,7 +1221,7 @@ button.sc-ifyrAs {
 	bottom: 16px !important;
 	padding: 0 8px !important;
 	font: 400 16px/1 var(--font-flavor) !important;
-	color: #fff !important;
+	color: var(--ink) !important; /* Brighter */
 	text-align: center !important;
 	white-space: nowrap !important;
 	overflow: hidden !important;
@@ -1250,7 +1240,7 @@ button.sc-ifyrAs {
 	background: none !important;
 	bottom: 4px !important;
 	padding: 0 8px !important;
-	color: var(--muted) !important;
+	color: var(--muted) !important; /* Uses new muted color */
 	font: 700 9px/1 system-ui, -apple-system, sans-serif !important;
 	text-align: center !important;
 	white-space: nowrap !important;
@@ -1261,8 +1251,8 @@ button.sc-ifyrAs {
 }
 
 .bb-subtitle{
-	font-weight:700; 
-	font-size: 12px; 
+	font-weight:700;s
+	font-size: 12px;
 	line-height:32px;
 	text-transform:uppercase;
 	letter-spacing:.2em;
@@ -1270,108 +1260,136 @@ button.sc-ifyrAs {
 	margin-bottom:24px
 }
 
-.dOesoR,.hFiwlk,.cSOzTo,.bPlxTo,.isKXvo,.dAxClk,.fRJWto,.gYqOac{min-height:100%;max-height:24rem}.dOesoR::after,.hFiwlk::after,.cSOzTo::after,.bPlxTo::after,.isKXvo::after,.dAxClk::after,.fRJWto::after,.gYqOac{display:none}
-
+/* Fix for gallery height */
+.dOesoR,.hFiwlk,.cSOzTo,.bPlxTo,.isKXvo,.dAxClk,.fRJWto,.gYqOac{min-height:100%;max-height:24rem}.dOesoR::after,.hFiwlk::after,.cSOzTo::after,.bPlxTo::after,.isKXvo::after,.dAxClk::after,.fRJWto::after,.gYqOac::after{display:none}
 
 /*
 =================================================================
-  PREMIUM FAVORITE BUTTON - (DARK CAFE BUNNY VARIANT)
+  PREMIUM FAVORITE BUTTON - "CAFE GOLD" THEME
 =================================================================
+  * Replaced rainbow sweep with a warm, caramel/gold sweep.
+  * Kept the shake animation.
+  * Star is now caramel-colored.
 */
 
-/* 1. KEYFRAME FOR A SOFT, WARM PULSE (RE-DESIGN) */
-@keyframes cafe-glow {
-  0%, 100% {
-    box-shadow: 0 0 15px var(--accent);
+/* 1. KEYFRAME FOR THE GENTLE SHAKE (UNCHANGED) */
+@keyframes gentle-shake {
+  0%, 80% {
+    transform: translateX(-12px) scale(1.15) rotate(0deg);
   }
-  50% {
-    box-shadow: 0 0 25px var(--accent);
+  84% {
+    transform: translateX(-12px) scale(1.15) rotate(-5deg);
+  }
+  88% {
+    transform: translateX(-12px) scale(1.15) rotate(4deg);
+  }
+  92% {
+    transform: translateX(-12px) scale(1.15) rotate(-2deg);
+  }
+  96% {
+    transform: translateX(-12px) scale(1.15) rotate(1deg);
+  }
+  100% {
+    transform: translateX(-12px) scale(1.15) rotate(0deg);
   }
 }
 
-/* 2. KEYFRAME FOR GENTLE SHAKE (DISABLED) */
-@keyframes gentle-shake { 0% { transform: none; } }
-
-/* 3. KEYFRAME FOR PREMIUM SWEEP (DISABLED) */
-@keyframes premium-sweep { 0% { background-position: 0 0; } }
-
+/* 2. KEYFRAME FOR BORDER SWEEP (UNCHANGED) */
+@keyframes premium-sweep {
+  to {
+    background-position: 200% center;
+  }
+}
 
 /* --- Button & Border Styling --- */
-
-/* 1. Base button styles:
-   - Replaces shake and rainbow with a soft, warm glow.
-*/
 button.ant-btn:has(.anticon-star svg path[d*="zM"]) {
   position: relative;
   isolation: isolate;
-  border: 1px solid var(--accent) !important; /* RE-DESIGN */
-  background: var(--c-panel) !important; /* RE-DESIGN */
-  box-shadow: 0 0 15px var(--accent); /* RE-DESIGN */
-  transform: none; /* RE-DESIGN */
-  animation: cafe-glow 3s ease-in-out infinite; /* RE-DESIGN */
-  transition: background .3s, box-shadow .3s;
+  border: none !important;
+  box-shadow: none !important;
+  transform: translateX(-12px) scale(1.15);
+  animation: gentle-shake 6s ease-in-out infinite;
 }
 
-button.ant-btn:has(.anticon-star svg path[d*="zM"]):hover {
-  background: var(--accent) !important;
-}
-
-/* 2. Disabled gradient border */
+/* 2. Animated gradient border:
+   - Changed to a warm, "cafe gold" sweep.
+*/
 button.ant-btn:has(.anticon-star svg path[d*="zM"])::before {
-  display: none; /* RE-DESIGN */
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -1px; /* Covers the button edge */
+  border-radius: inherit;
+  padding: 2px;
+  /* Warm gold/caramel sweep */
+  background: linear-gradient(90deg, hsl(28, 80%, 60%), hsl(35, 80%, 60%), hsl(45, 80%, 60%), hsl(35, 80%, 60%), hsl(28, 80%, 60%));
+  background-size: 200% 100%;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+          mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  animation: premium-sweep 3s linear infinite;
 }
-
 
 /* --- Star Icon Styling --- */
-
-/* 1. Style the SVG container */
 button.ant-btn:has(.anticon-star svg path[d*="zM"]) .anticon-star svg {
   animation: none;
   filter: none;
 }
 
-/* 2. Style the SVG path for a solid, warm fill. */
+/* 2. Star path is now caramel-colored with a dark outline */
 button.ant-btn:has(.anticon-star svg path[d*="zM"]) .anticon-star svg path {
-  fill: var(--accent); /* RE-DESIGN */
-  stroke: none; /* RE-DESIGN */
-  stroke-width: 0; /* RE-DESIGN */
+  fill: var(--accent); /* Caramel fill */
+  stroke: var(--panel-darker); /* Dark brown stroke */
+  stroke-width: 0.5px;
   opacity: 1 !important;
   animation: none;
   filter: none;
-  transition: fill .3s;
 }
 
-/* 3. Star hover fill */
-button.ant-btn:has(.anticon-star svg path[d*="zM"]):hover .anticon-star svg path {
-  fill: var(--c-panel); /* RE-DESIGN */
+/* --- Un-favorited star button (back to normal) --- */
+button.ant-btn:has(.anticon-star):not(:has(svg path[d*="zM"])) {
+  animation: none !important;
+  transform: none !important;
+}
+button.ant-btn:has(.anticon-star):not(:has(svg path[d*="zM"])) .anticon-star svg {
+  animation: none !important;
+  filter: none !important;
+  overflow: hidden;
+}
+button.ant-btn:has(.anticon-star):not(:has(svg path[d*="zM"])) .anticon-star svg path {
+  fill: currentColor !important;
+  stroke: none;
+}
+button.ant-btn:has(.anticon-star):not(:has(svg path[d*="zM"]))::after {
+  animation: none !important;
+  display: none !important;
 }
 
-/* --- Mobile Button Bar --- */
+/* --- Responsive fix for full-width favorite button --- */
 @media (max-width: 768px) {
-  .bunnyui-credit {
-    display: none;
-  }
-  /* RE-DESIGN: Apply cafe style to mobile bar */
+	.bunnyui-credit {
+		display:none;
+	}
   button.ant-btn.ant-btn-icon-only:has(.anticon-star svg path[d*="zM"]) {
+    /* --- Positioning Overrides --- */
     position: fixed !important;
     bottom: 16px !important;
     left: 16px !important;
     right: 16px !important;
+    
+    /* --- Sizing Override --- */
     width: auto !important; /* Stretches the button */
     
-    /* RE-DESIGN STYLES */
-    background: var(--c-panel) !important;
-    border: 1px solid var(--accent) !important;
-    box-shadow: 0 0 15px var(--accent);
-    
-    /* Animation override */
+    /* --- Animation Reset --- */
     transform: none !important;
-    animation: cafe-glow 3s ease-in-out infinite !important;
+    animation: none !important;
   }
   
-  /* Disable the original sonar pulse */
+  /* Re-applies the desired sonar pulse animation */
   button.ant-btn.ant-btn-icon-only:has(.anticon-star svg path[d*="zM"])::after {
-      animation: none !imporant;
-      display: none !important;
+      /* This rule was missing a name, assuming 'btn-sonar' */
+      --sonar-color: var(--accent);
+      animation: btn-sonar 2.8s ease-out infinite !important;
   }
 }
