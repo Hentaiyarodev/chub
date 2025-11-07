@@ -2,59 +2,42 @@
 =================================================================
   BUNNYUI V4 - CORE THEME STYLESHEET (DARK CAFE BUNNY VARIANT)
 =================================================================
-  * Themed by Gemini
-  * This stylesheet maintains all original selectors from the
-  * "Arcana 3" variant but applies a new "dark cafe" theme.
 */
 
 /*
 ////////////////////////////////////////////////////////////////////////////////
 // 1. FONT IMPORTS
-//    Replaced 'Anton' with 'Dosis' for a softer, more rounded feel.
-//    Kept 'Patrick Hand' for the "cafe menu" handwritten vibe.
 ////////////////////////////////////////////////////////////////////////////////
 */
-@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@400;700&family=Patrick+Hand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Nunito:wght@400;700&family=Pacifico&display=swap');
 
 /*
 ////////////////////////////////////////////////////////////////////////////////
 // 2. CORE THEME & LAYOUT
-//    - New color palette: Deep coffee browns, creamy whites, and caramel accents.
-//    - New font variables.
-//    - Replaced all 'clip-path' corners with 'border-radius' for a soft "bunny" feel.
 ////////////////////////////////////////////////////////////////////////////////
 */
-
-:root {
-  /* FONT STACKS */
-  --font-heading: 'Dosis', system-ui, -apple-system, sans-serif;
-  --font-flavor: 'Patrick Hand', cursive;
-  --font-base: 'Dosis', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-
-  /* DARK CAFE COLOR PALETTE */
-  --ink: hsl(30, 70%, 94%); /* Creamy, parchment white */
-  --muted: hsl(30, 20%, 65%); /* Soft, warm gray-brown */
-  --panel: hsl(25, 30%, 12%); /* Deep, dark coffee brown */
-  --panel-darker: hsl(25, 30%, 8%); /* Even darker, like espresso */
-  --accent: hsl(28, 80%, 60%); /* Warm, rich caramel */
-  --accent-text: hsl(25, 30%, 12%); /* Dark text for on-accent buttons */
-  --accent-soft-bg: hsla(28, 80%, 60%, 0.1); /* Soft caramel background glow */
-  --accent-soft-border: hsla(28, 80%, 60%, 0.2); /* Soft caramel border */
-
-  /* BORDER RADIUS (Replaces --pf-cut) */
-  --radius-sm: 6px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-}
-
 .bb-sec {
-  --ink: hsl(30, 70%, 94%);
-  --muted: hsl(30, 20%, 65%);
-  font-family: var(--font-base);
+  /* -- Dark Cafe Bunny Palette -- */
+  --primary-bg: #1a1614;
+  --panel: #2b2522;
+  --ink: #f4e9e0;
+  --muted: #9b8a7d;
+  --accent: #e6a89c; /* Soft bunny-nose pink/peach */
+
+  --font-heading: 'DM Serif Display', serif;
+  --font-flavor: 'Pacifico', cursive;
+  
+  font-family: 'Nunito', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
   position: relative;
   --gap: 20px;
   --hero-over: clamp(80px, 10vw, 200px);
   overflow: visible !important;
+  background: var(--primary-bg); /* Set main background */
+  color: var(--ink);
+}
+
+:root {
+  --border-radius: 12px; /* Global radius for softness */
 }
 
 .bb-sec * {
@@ -75,8 +58,8 @@
 
 .bb-collection-subtitle {
   display: inline-block;
-  background: var(--accent); /* Changed from black */
-  color: var(--accent-text); /* Changed from white */
+  background: var(--accent);
+  color: var(--primary-bg);
   padding: 6px 12px;
   font-size: 11px;
   font-weight: 700;
@@ -84,54 +67,55 @@
   letter-spacing: .1em;
   text-decoration: none;
   margin-bottom: 16px;
-  border-radius: var(--radius-sm); /* Replaced clip-path */
+  border-radius: 6px; /* Removed clip-path */
   transition: background .2s, color .2s;
 }
 
 .bb-collection-subtitle:hover {
-  background: var(--ink); /* Changed from white */
-  color: var(--panel); /* Changed from black */
+  background: var(--ink);
+  color: var(--primary-bg);
 }
 
 .bb-title {
-  font-family: var(--font-heading);
+  font-family: var(--font-heading), serif;
   font-size: clamp(48px, 8vw, 90px) !important;
   line-height: 1 !important;
-  font-weight: 700 !important; /* Bolder for Dosis */
+  font-weight: 400 !important;
   color: var(--ink) !important;
   margin: 0 0 12px !important;
-  letter-spacing: 0.02em !important;
-  text-transform: none; /* Softer than uppercase */
+  letter-spacing: -0.01em !important;
+  text-transform: none; /* Serifs look better in title case */
 }
 
 .bb-tagline {
-  font-size: clamp(16px, 1.6vw, 18px) !important; /* Slightly larger */
+  font-size: clamp(18px, 1.8vw, 20px) !important;
   line-height: 1.7 !important;
   font-weight: 400 !important;
-  color: var(--ink) !important;
+  color: var(--muted) !important; /* Softer than title */
   max-width: none !important;
   width: auto !important;
 }
 
 .bb-intros {
-  --panel: hsl(25, 30%, 12%); /* Local override */
+  --panel: #2b2522; /* Use theme panel color */
   background: var(--panel);
   padding: clamp(16px, 2vw, 24px);
   position: relative;
   overflow: visible !important;
   max-width: 100% !important;
   margin: 0 !important;
+  border-radius: var(--border-radius); /* Softness */
 }
 
 .bb-section-title {
-  font-family: var(--font-heading);
-  text-transform: none; /* Softer */
+  font-family: var(--font-flavor); /* Cafe script font */
+  text-transform: none;
   font-style: normal;
   letter-spacing: 0.05em;
-  font-size: clamp(18px, 1.6vw, 22px); /* Larger */
-  font-weight: 700; /* Bolder */
+  font-size: clamp(24px, 2.5vw, 30px);
+  font-weight: 400;
   margin: 0 0 clamp(10px, 1.5vw, 14px);
-  color: var(--ink);
+  color: var(--accent); /* Use accent for flavor */
   display: flex;
   align-items: center;
   gap: .6em;
@@ -150,10 +134,10 @@
 
 .bb-intro-list li {
   counter-increment: scn;
-  background: rgba(255, 255, 255, .02);
+  background: rgba(255, 255, 255, .05);
   padding: 16px 16px 16px 64px;
-  border: 1px solid rgba(255, 255, 255, 0.05); /* Softer border */
-  border-radius: var(--radius-md); /* Replaced clip-path */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius); /* Removed clip-path */
   position: relative;
   overflow: hidden;
   transition: transform .2s, background .2s;
@@ -165,8 +149,8 @@
   left: 16px;
   top: 50%;
   transform: translateY(-50%);
-  font-family: var(--font-flavor); /* Cafe menu font */
-  font-size: 34px; /* Larger */
+  font-family: var(--font-heading);
+  font-size: 28px;
   font-weight: 400;
   color: var(--accent);
   z-index: 0;
@@ -179,15 +163,15 @@
 }
 
 .bb-card p {
-  font-size: 14px; /* More readable */
-  line-height: 1.5; /* More readable */
+  font-size: 13px;
+  line-height: 1.4;
   margin: 0;
   color: var(--ink);
 }
 
 .bb-note {
-  font-family: var(--font-flavor) !important; /* Ensure override */
-  font-size: 1.15em !important; /* Slightly larger */
+  font-family: var(--font-flavor);
+  font-size: 1.1em !important; /* Slightly larger script */
   color: var(--muted);
 }
 
@@ -202,49 +186,53 @@
 
 .bb-support-title {
   font-family: var(--font-flavor);
-  color: var(--ink); /* Brighter */
+  color: var(--ink);
   text-transform: none;
-  font-size: 22px; /* Larger */
+  font-size: 22px;
   font-weight: 400;
   margin: 0 0 16px;
   text-align: center !important;
 }
 
+/* Simplified soft button */
 .bb-kbtn {
-  height: 48px;
+  height: auto;
   display: inline-block;
-  padding: 20px 24px;
+  padding: 14px 28px;
   background: var(--accent);
-  color: var(--accent-text); /* Dark text on light accent */
+  color: var(--primary-bg);
   text-decoration: none;
   font-weight: 700;
-  font-size: 14px;
-  border-radius: var(--radius-sm); /* Rounded */
+  font-size: 16px;
+  border-radius: 9999px;
+  transition: transform .2s, box-shadow .2s, background-color .2s;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+.bb-kbtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  background-color: var(--ink);
 }
 
+/* Simplified Ko-fi button */
 .bb-support .bb-kbtn {
-  /* This is the complex kofi-style button */
-  --ink: var(--panel-darker); /* Dark brown shadow */
-  --paper: var(--ink); /* Creamy white outline */
-  --cta: var(--accent);
   position: relative;
   display: inline-block !important;
   vertical-align: middle;
   padding: 1px 0 !important;
   margin: 0 !important;
   border-radius: 9999px;
-  background: var(--ink) !important; /* Shadow color base */
-  color: var(--accent-text) !important; /* Dark text */
+  background: var(--accent) !important;
+  color: var(--primary-bg) !important;
   text-decoration: none;
   font-weight: 700;
   line-height: 1;
   isolation: isolate;
   overflow: hidden;
-  transform: translate(-4px, -4px);
+  transform: none;
   outline: transparent solid 2px;
   outline-offset: 5px;
-  /* Shadow rebuilt with new warm colors */
-  box-shadow: .5px .5px 0 0 var(--ink), 1px 1px 0 0 var(--ink), 1.5px 1.5px 0 0 var(--ink), 2px 2px 0 0 var(--ink), 2.5px 2.5px 0 0 var(--ink), 3px 3px 0 0 var(--ink), 0 0 0 2px var(--paper), .5px .5px 0 2px var(--paper), 1px 1px 0 2px var(--paper), 1.5px 1.5px 0 2px var(--paper), 2px 2px 0 2px var(--paper), 2.5px 2.5px 0 2px var(--paper), 3px 3px 0 2px var(--paper), 3.5px 3.5px 0 2px var(--paper), 4px 4px 0 2px var(--paper);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   transition: transform .15s, box-shadow .15s;
 }
 
@@ -253,23 +241,13 @@
   position: absolute;
   inset: 2px;
   border-radius: 9999px;
-  background: var(--cta);
-  border: 2px solid hsla(30, 70%, 94%, 0.25); /* Creamy border */
+  background: var(--accent);
+  border: 2px solid rgba(0, 0, 0, .15); /* Darker inner border */
   z-index: 0;
 }
 
 .bb-support .bb-kbtn::after {
-  content: "";
-  position: absolute;
-  inset: 4px;
-  border-radius: 9999px;
-  opacity: .25; /* Subtler dots */
-  background-image: radial-gradient(hsla(30, 70%, 94%, .6) 20%, transparent 20%), radial-gradient(hsla(30, 70%, 94%, .6) 20%, transparent 20%);
-  background-size: 8px 8px;
-  background-position: 0 0, 4px 4px;
-  animation: .6s linear infinite kofiDots;
-  z-index: 0;
-  pointer-events: none;
+  content: none; /* Removed dots animation */
 }
 
 .bb-support .bb-kbtn>span {
@@ -277,16 +255,16 @@
   z-index: 1;
   display: block;
   padding: 1rem 1.25rem;
-  filter: none; /* Removed harsh shadow */
+  filter: none; /* Removed drop shadow */
 }
 
 .bb-support .bb-kbtn:hover {
-  transform: translate(0, 0);
-  box-shadow: 0 0 0 2px var(--paper);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .bb-support .bb-kbtn:focus-visible {
-  outline-color: var(--cta);
+  outline-color: var(--accent);
   outline-style: dashed;
 }
 
@@ -324,10 +302,12 @@
   right: 0;
   top: 0;
   bottom: 0;
-  /* Replaced --hero var with a solid panel color */
-  background: var(--panel-darker);
+  background: var(--hero) center bottom/cover no-repeat;
   pointer-events: none;
   z-index: 1;
+  /* Added cafe filter */
+  filter: sepia(0.3) brightness(0.9);
+  opacity: 0.8;
 }
 
 .bb-top-content,
@@ -337,18 +317,18 @@
 .bbx-band .bb-intros { overflow: visible !important; }
 
 .bb-quote {
-  --panel: hsl(25, 30%, 12%);
-  --ink: hsl(30, 70%, 94%);
-  --muted: hsl(30, 20%, 65%);
+  --panel: #2b2522;
+  --ink: #f4e9e0;
+  --muted: #9b8a7d;
   display: block;
   margin: 24px 0px;
   padding: 14px 16px 14px 48px;
-  background: linear-gradient(90deg, hsla(30, 70%, 94%, .05), hsla(30, 70%, 94%, 0));
+  background: var(--panel); /* Solid background */
   color: var(--ink);
   font-style: normal;
-  border-left: 3px solid var(--accent);
+  border-left: 4px solid var(--accent);
   position: relative;
-  border-radius: var(--radius-md); /* Replaced clip-path */
+  border-radius: var(--border-radius); /* Removed clip-path */
 }
 
 .bb-quote::before {
@@ -356,9 +336,9 @@
   position: absolute;
   left: 12px;
   top: 6px;
-  font: 400 60px/1 var(--font-flavor); /* Cafe menu font */
-  color: hsla(28, 80%, 60%, 0.2); /* Soft caramel */
-  -webkit-text-stroke: 0;
+  font: 900 40px/1 'DM Serif Display', serif;
+  color: rgba(255, 255, 255, .1);
+  -webkit-text-stroke: none;
 }
 
 .bb-quote .q { display: block; }
@@ -394,13 +374,13 @@
   position: absolute;
   top: 90vh;
   right: -.04em;
-  font-family: helvetica, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--font-heading), serif; /* Changed font */
   font-weight: 900;
   font-size: clamp(120px, 26vw, 520px);
   line-height: .8;
   letter-spacing: -.02em;
-  color: hsla(30, 70%, 94%, 0.03); /* Soft cream color */
-  -webkit-text-stroke: 1px hsla(30, 70%, 94%, 0.05); /* Softer stroke */
+  color: rgba(255, 255, 255, .03); /* More subtle */
+  -webkit-text-stroke: 1px rgba(255, 255, 255, .05); /* More subtle */
   text-shadow: 0 1px 0 rgba(0, 0, 0, .4);
   z-index: 0;
   pointer-events: none;
@@ -426,30 +406,29 @@
 ////////////////////////////////////////////////////////////////////////////////
 */
 @keyframes kofiDots {
+  /* ... (original, unchanged) ... */
   0% { background-position: 0 0, 4px 4px; }
   100% { background-position: 8px 0, 12px 4px; }
 }
 
 @keyframes btn-sonar {
+  /* ... (original, unchanged) ... */
   0% { box-shadow: 0 0 0 0 var(--sonar-color); }
   70% { box-shadow: 0 0 0 12px rgba(255, 255, 255, 0); }
   100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
 }
 
 @keyframes fadeInUp {
+  /* ... (original, unchanged) ... */
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes puppetGlide {
-  0% { transform: translateY(60vh) rotate(-1deg); opacity: 0; }
-  100% { transform: translateY(0) rotate(0); opacity: 1; }
-}
+/* Removed puppetGlide keyframe, no longer used */
 
 @keyframes accentGlow {
-  /* This will now be a warm caramel glow */
   0%, 100% { text-shadow: 0 0 5px rgb(from var(--accent) r g b / .2); }
-  50% { text-shadow: 0 0 20px rgb(from var(--accent) r g b / .7); }
+  50% { text-shadow: 0 0 15px rgb(from var(--accent) r g b / .6); } /* Softer glow */
 }
 
 /*
@@ -486,8 +465,9 @@
   .bbx-hero { grid-column: 1; grid-row: 2; }
   .bb-bottom-content { grid-row: 3; }
   .bbx-hero {
-    background: var(--panel-darker) !important; /* Solid color fallback */
+    background: var(--hero) top center/cover no-repeat !important;
     min-height: clamp(260px, 50vh, 560px) !important;
+    filter: sepia(0.3) brightness(0.9); /* Apply filter on mobile hero too */
   }
   .bb-intros { max-width: 100% !important; }
   .bbx-band .bb-intros {
@@ -517,17 +497,17 @@
   .bb-intros { max-width: 100% !important; }
   .bbx-hero {
     min-height: clamp(240px, 52vh, 520px) !important;
+    background-position: top center !important;
   }
 }
 
 @media(hover:hover) {
   .bb-badge:hover {
     transform: translateY(-1px);
-    box-shadow: 0 0 0 1px hsla(30, 70%, 94%, .06) inset, 0 6px 14px rgba(0, 0, 0, .3);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, .06) inset, 0 6px 14px rgba(0, 0, 0, .3);
   }
   .bb-kbtn:hover {
     transform: translateY(-2px);
-    filter: brightness(1.1); /* General hover brightens */
   }
   .ant-col.text-left [class*=ant-image]:hover .ant-image-img {
     transform: scale(1.12);
@@ -544,8 +524,7 @@
 
 /*
 ////////////////////////////////////////////////////////////////////////////////
-// 5. CHUB.AI OVERRIDES [USE CAUTION]
-//    Reskinned all elements to match the cafe theme.
+// 5. CHUB.AI OVERRIDES [CAFE BUNNY THEME]
 ////////////////////////////////////////////////////////////////////////////////
 */
 h3.ant-typography,
@@ -560,11 +539,12 @@ h4.ant-typography.mt-8+div {
   display: none !important;
 }
 
+/* Ant Tags (Cafe Style) */
 .ant-space.ant-space-horizontal.ant-space-align-center .ant-tag {
-  background: var(--accent-soft-bg) !important;
+  background: var(--panel) !important;
   color: var(--accent) !important;
-  border: 1px solid var(--accent-soft-border) !important;
-  border-radius: var(--radius-sm) !important; /* Rounded */
+  border: 1px solid var(--accent) !important;
+  border-radius: 4px !important; /* Rounded */
   padding: .15em .55em !important;
   font-size: .7rem !important;
   font-weight: 700 !important;
@@ -576,7 +556,7 @@ h4.ant-typography.mt-8+div {
 
 .ant-space.ant-space-horizontal.ant-space-align-center .ant-tag:hover {
   background: var(--accent) !important;
-  color: var(--accent-text) !important;
+  color: var(--panel) !important;
 }
 
 .ant-space.ant-space-horizontal.ant-space-align-center {
@@ -586,10 +566,10 @@ h4.ant-typography.mt-8+div {
 }
 
 .ant-tag {
-  background: var(--accent-soft-bg) !important;
+  background: var(--panel) !important;
   color: var(--accent) !important;
-  border: 1px solid var(--accent-soft-border) !important;
-  border-radius: var(--radius-sm) !important; /* Rounded */
+  border: 1px solid var(--accent) !important;
+  border-radius: 4px !important; /* Rounded */
   padding: .10em .50em !important;
   font-size: .6rem !important;
   font-weight: 700 !important;
@@ -600,7 +580,7 @@ h4.ant-typography.mt-8+div {
 
 .ant-tag:hover {
   background: var(--accent) !important;
-  color: var(--accent-text) !important;
+  color: var(--panel) !important;
   cursor: pointer;
 }
 .ant-ribbon.ant-ribbon-placement-end,
@@ -622,6 +602,7 @@ button.ant-btn:has(.anticon-star svg path[d*="M664.8 561.6"]) {
   z-index: 2147483647 !important;
 }
 
+/* Ant Buttons (Cafe Style) */
 button.ant-btn {
   position: relative;
   align-items: center !important;
@@ -633,7 +614,7 @@ button.ant-btn {
   height: 48px !important;
   min-width: 64px !important;
   padding: .5em 1.4em !important;
-  border-radius: var(--radius-md) !important; /* Rounded */
+  border-radius: 8px !important; /* Rounded */
   transition: transform .15s, box-shadow .15s, background-color .25s, color .25s, border-color .25s;
   cursor: pointer;
   overflow: visible !important;
@@ -642,28 +623,18 @@ button.ant-btn {
 button.ant-btn:hover { box-shadow: none !important; }
 button.ant-btn:active { transform: translateY(1px); }
 
-/* Softer default button */
 button.ant-btn.ant-btn-default {
-  background: transparent !important;
+  background: var(--panel) !important;
   color: var(--ink) !important;
   border: 1px solid var(--muted) !important;
-  box-shadow: none !important;
-}
-button.ant-btn.ant-btn-default:hover {
-  background: var(--ink) !important;
-  color: var(--panel) !important;
-  border-color: var(--ink) !important;
+  box-shadow: 0px 2px 0 var(--muted);
 }
 
-/* Primary button uses accent colors */
 button.ant-btn.ant-btn-primary {
   background: var(--accent) !important;
-  color: var(--accent-text) !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-button.ant-btn.ant-btn-primary:hover {
-  filter: brightness(1.1);
+  color: var(--primary-bg) !important;
+  border: 1px solid var(--accent) !important;
+  box-shadow: 0px 2px 0 var(--primary-bg) !important;
 }
 
 button.ant-btn .ml-1,
@@ -684,27 +655,25 @@ button.ant-btn.ant-btn-default:has(.anticon-star)::after {
 
 button.ant-btn:has(svg.lucide-messages-square)::after { --sonar-color: var(--accent); }
 
-/* Kofi-style chat button */
+/* Chat Button (Cafe Style) */
 button.ant-btn:has(svg.lucide-messages-square) {
-  --ink: var(--panel-darker);
-  --paper: var(--ink);
   font-size: 14px !important;
   font-weight: 800 !important;
   height: 64px !important;
   padding: 0 1.8em 0 1.8em;
-  border-radius: var(--radius-md) !important; /* Rounded */
+  border-radius: 12px !important; /* Rounded */
   background: var(--accent) !important;
-  color: var(--accent-text) !important;
-  border: 2px solid var(--panel-darker) !important; /* Dark brown border */
-  outline: 1px solid var(--ink); /* Cream outline */
-  box-shadow: .5px .5px 0 0 var(--ink), 1px 1px 0 0 var(--ink), 1.5px 1.5px 0 0 var(--ink), 2px 2px 0 0 var(--ink), 2.5px 2.5px 0 0 var(--ink), 3px 3px 0 0 var(--ink), 0 0 0 2px var(--paper), .5px .5px 0 2px var(--paper), 1px 1px 0 2px var(--paper), 1.5px 1.5px 0 2px var(--paper), 2px 2px 0 2px var(--paper), 2.5px 2.5px 0 2px var(--paper), 3px 3px 0 2px var(--paper), 3.5px 3.5px 0 2px var(--paper), 4px 4px 0 2px var(--paper);
+  color: var(--primary-bg) !important;
+  border: 2px solid var(--primary-bg) !important;
+  outline: 2px solid var(--accent);
+  box-shadow: none !important; /* Removed complex shadow */
   z-index: 10;
   transition: background .25s, color .25s, box-shadow .25s, transform .15s;
 }
 
 button.ant-btn:has(svg.lucide-messages-square):hover {
   background: var(--ink) !important;
-  color: var(--panel) !important;
+  color: var(--primary-bg) !important;
   box-shadow: none !important;
   border-color: var(--accent) !important;
 }
@@ -737,40 +706,39 @@ div.flex.flex-wrap.justify-end {
   position: absolute;
   inset: 0;
   background: url(https://files.catbox.moe/e1xatc.svg) center/contain no-repeat;
-  filter: hue-rotate(300deg) brightness(1.2); /* Shifted to warmer tone */
 }
 
 :is(h1, h2, h3).ant-typography[class*=css-] {
-  font-family: var(--font-heading); /* Added */
+  font-family: var(--font-heading), serif !important; /* Use heading font */
   font-size: clamp(30px, 4vw, 38px) !important;
   line-height: 1.15 !important;
   font-weight: 700 !important;
-  color: var(--ink, #e9edf5) !important;
+  color: var(--ink) !important; /* Use theme color */
   margin: 0 0 6px !important;
   letter-spacing: 0 !important;
   max-width: 50%;
-  text-transform: none; /* Added */
+  text-transform: none !important; /* Title case */
 }
 
 .msg-mkdn-container.font-size-message {
-  font-family: var(--font-base); /* Added */
-  font-size: clamp(16px, 1.6vw, 17px) !important; /* Slightly larger */
+  font-size: clamp(16px, 1.6vw, 16px) !important;
   line-height: 1.7 !important;
   font-weight: 400 !important;
-  color: var(--ink, #e9edf5) !important;
+  color: var(--ink) !important; /* Use theme color */
   max-width: none !important;
   width: auto !important;
 }
 
 .msg-mkdn-container.font-size-message>:is(h1, h2, h3, p, blockquote, ul, ol):has(~.bb-sec) { max-width: 50% !important; }
 .msg-mkdn-container.font-size-message>:where(h1, h2, h3, p, blockquote, ul, ol, pre) { max-width: 50% !important; margin-right: auto; }
-.msg-mkdn-container.font-size-message p>strong { font-weight: 700 !important; color: var(--accent); } /* Bolder, accented */
+.msg-mkdn-container.font-size-message p>strong { font-weight: 400 !important; }
 
 .bb-sec, .bb-wrap, .bbx-band { overflow: visible !important; }
 .bbx-band { contain: unset !important; z-index: 2; }
 .bbx-left { position: relative; z-index: 3; }
 .bbx-hero { position: relative; z-index: 2; }
 
+/* Hero Image - Grounded, no 'puppet' animation */
 .bbx-band::before {
   content: "";
   position: fixed;
@@ -780,13 +748,14 @@ div.flex.flex-wrap.justify-end {
   top: auto;
   width: 48vw;
   height: 100vh;
-  /* Replaced hero image with solid color */
-  background: var(--panel-darker) !important;
+  background: var(--hero) center bottom/contain no-repeat !important;
   pointer-events: none;
   z-index: 1;
   transition: transform .8s ease;
-  transform: translateY(60vh) rotate(-1deg);
-  animation: 2.2s cubic-bezier(.25, 1, .5, 1) both puppetGlide;
+  transform: none; /* Removed animation */
+  animation: none; /* Removed animation */
+  filter: sepia(0.3) brightness(0.9); /* Warm filter */
+  opacity: 0.8; /* Slightly muted */
 }
 
 @media(prefers-reduced-motion:reduce) {
@@ -825,7 +794,7 @@ div.flex.flex-wrap.justify-end {
 
 .bbx-left { display: flex; flex-direction: column; }
 .bb-support {
-  --panel: hsl(25, 30%, 12%);
+  --panel: #2b2522;
   background: var(--panel);
   margin-top: 24px !important;
   padding: clamp(16px, 2vw, 24px);
@@ -850,10 +819,14 @@ div.flex.flex-wrap.justify-end {
   }
 }
 
+/* Image - Rounded corners */
 .ant-col.text-left [class*=ant-image] {
+  --pf-cut: 25%;
+  --g: 12px;
+  --st: 1px;
   position: relative;
   overflow: hidden;
-  border-radius: var(--radius-lg); /* Rounded container */
+  border-radius: var(--border-radius); /* Rounded */
 }
 
 .ant-col.text-left [class*=ant-image] .ant-image-img {
@@ -861,13 +834,11 @@ div.flex.flex-wrap.justify-end {
   width: 100%;
   height: auto;
   clip-path: none; /* Removed clip-path */
-  border-radius: var(--radius-lg); /* Rounded image */
   transition: .3s;
 }
 
 .ant-col.text-left [class*=ant-image]::after {
-  /* This pseudo-element is no longer needed */
-  display: none;
+  content: none; /* Removed clip-path */
 }
 
 .ant-col.text-left [class*=ant-image] .ant-image-mask,
@@ -875,18 +846,18 @@ div.flex.flex-wrap.justify-end {
   display: none !important;
 }
 
-/* Rounded panels */
+/* All panel elements rounded */
 .bb-support,
 .bbx-band .bb-intros {
-  border-radius: var(--radius-lg) !important;
-  clip-path: none !important;
+  border-radius: var(--border-radius) !important; /* Rounded */
+  clip-path: none !important; /* Removed clip-path */
   overflow: hidden !important;
 }
 
 .bb-presets {
-  --panel: hsl(25, 30%, 12%);
+  --panel: #2b2522;
   background: var(--panel);
-  border-radius: var(--radius-lg) !important; /* Rounded */
+  border-radius: var(--border-radius) !important; /* Rounded */
   clip-path: none !important; /* Removed clip-path */
   padding: clamp(12px, 1.5vw, 20px);
   margin-top: 24px;
@@ -899,15 +870,16 @@ div.flex.flex-wrap.justify-end {
 
 .bb-presets-label {
   font-family: var(--font-flavor);
-  font-size: 18px; /* Larger */
+  font-size: 18px; /* Larger script */
   font-weight: 600;
-  color: var(--ink); /* Brighter */
+  color: var(--ink); /* Lighter */
   white-space: nowrap;
 }
 
 @media(max-width:768px) { .bbx-band { padding-right: 0 !important; } }
 @media(min-width:769px) { .bbx-band { padding-right: clamp(16px, 8vw, 140px); } }
 
+/* Badges (Cafe Style) */
 .bb-badges {
   display: flex;
   flex-wrap: wrap;
@@ -916,40 +888,38 @@ div.flex.flex-wrap.justify-end {
 }
 
 .bb-badge {
-  /* Kofi-style badge, reskinned */
-  --ink: var(--panel-darker);
-  --paper: var(--ink);
-  --cta: var(--muted); /* Default to muted brown-gray */
+  --ink: #1a1614;
+  --paper: #f4e9e0;
+  --cta: #64748b; /* Default, will be overridden */
   position: relative;
   display: inline-block;
   padding: .6em 1.1em;
-  border-radius: 9999px;
+  border-radius: 9999px; /* Rounded */
   font: 800 10px/1 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   text-transform: uppercase;
-  color: #fff;
+  color: var(--paper);
   text-decoration: none;
   background: var(--cta);
-  border: 1px solid var(--panel-darker);
-  box-shadow: .5px .5px 0 var(--ink), 1px 1px 0 var(--ink), 0 0 0 1px var(--paper), .5px .5px 0 1px var(--paper), 1px 1px 0 1px var(--paper);
+  border: 1px solid var(--ink);
+  box-shadow: 0 1px 1px rgba(0,0,0,0.3); /* Simpler shadow */
   text-shadow: 0 1px 0 rgba(0, 0, 0, .35);
   transition: transform .15s, box-shadow .15s, background .25s, color .25s, border-color .25s;
 }
 
 .bb-badge:hover {
-  transform: none;
-  color: #fff;
+  transform: translateY(-1px);
+  color: var(--paper);
   text-shadow: none;
-  box-shadow: 0 0 0 1px var(--paper);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
   border-color: var(--ink);
-  filter: brightness(1.1); /* Added hover */
 }
 
 .bb-badge:active { transform: translateY(1px); }
-/* Badge colors reskinned */
-.bb-badge-soji { --cta: linear-gradient(135deg, hsl(28, 80%, 60%), hsl(25, 80%, 50%)); }
-.bb-badge-deepseek { --cta: linear-gradient(135deg, #60a5fa, #1d4ed8); } /* Kept as is */
-.bb-badge-claude { --cta: linear-gradient(135deg, #fb923c, #ea580c); } /* Kept as is */
-.bb-badge-grok { --cta: #222; } /* Kept as is */
+/* Cafe Badge Colors */
+.bb-badge-soji { --cta: linear-gradient(135deg, #e6a89c, #b37b70); }
+.bb-badge-deepseek { --cta: linear-gradient(135deg, #a18f80, #7a6a5d); }
+.bb-badge-claude { --cta: linear-gradient(135deg, #c7b2a3, #9b8a7d); }
+.bb-badge-grok { --cta: #2b2522; }
 
 .ant-col.text-left.ant-col-xs-24.ant-col-lg-24 {
   position: relative !important;
@@ -959,8 +929,9 @@ div.flex.flex-wrap.justify-end {
 
 .ant-collapse {
   border: none !important;
-  background: linear-gradient(90deg, hsla(30, 70%, 94%, 0.05) 0%, hsla(30, 70%, 94%, 0) 100%);
-  border-radius: var(--radius-md); /* Rounded */
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%);
+  border-radius: var(--border-radius); /* Rounded */
+  overflow: hidden; /* For radius */
 }
 
 .ant-collapse-item { border-bottom: none !important; }
@@ -983,37 +954,30 @@ div.flex.flex-wrap.justify-end {
 }
 
 .ant-collapse-content.ant-collapse-content-active {
-  background: linear-gradient(to right, hsla(25, 30%, 8%, 0.65), hsla(25, 30%, 8%, 0.25)); /* Dark brown glass */
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.25));
   border: none !important;
   backdrop-filter: blur(6px) saturate(120%);
   -webkit-backdrop-filter: blur(6px) saturate(120%);
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
-  border-radius: 0 0 var(--radius-md) var(--radius-md); /* Rounded */
 }
 
 header.ant-layout-header {
   z-index: 99999 !important;
 }
 
-/* --- General Dropdown Item Styles (Keeping logic, reskinning) --- */
-
+/* --- General Dropdown Item Styles (Cafe) --- */
 .ant-dropdown-menu-item {
   justify-content: flex-start !important;
   padding-top: 5px !important;
   padding-bottom: 5px !important;
 }
-
 .ant-dropdown-menu-item .ant-dropdown-menu-title-content {
   text-align: left !important;
 }
-
-/* --- Hover Effects --- */
 li.ant-dropdown-menu-item:not(:has(.ant-upload-wrapper)):hover {
-  background-color: var(--accent) !important; /* Caramel */
-  color: var(--accent-text) !important; /* Dark brown */
+  background-color: var(--panel) !important; /* Use panel color */
+  color: var(--ink) !important;
 }
-
-/* --- Special Styles for the "Upload" Button Item --- */
 li.ant-dropdown-menu-item:has(.ant-upload-wrapper):hover {
   background-color: transparent !important;
 }
@@ -1028,23 +992,23 @@ li.ant-dropdown-menu-item:has(.ant-upload-wrapper) .ant-btn {
 }
 li.ant-dropdown-menu-item:has(.ant-upload-wrapper) .ant-btn:hover,
 li.ant-dropdown-menu-item:has(.ant-upload-wrapper) .ant-btn:focus {
-  background-color: var(--accent) !important; /* Caramel */
-  color: var(--accent-text) !important; /* Dark brown */
+  background-color: var(--panel) !important; /* Use panel color */
+  color: var(--ink) !important;
   outline: none !important;
 }
 
-/* Reskinned "Load More" button */
+/* "Post" Button (Cafe Style) */
 button.sc-ifyrAs {
     display: inline-block !important;
     font-size: 14px !important;
     font-weight: 700 !important;
     height: 40px !important;
     padding: 0 2em !important;
-    border-radius: var(--radius-md) !important; /* Rounded */
-    background: transparent !important; /* Softer */
+    border-radius: 8px !important;
+    background: var(--panel) !important;
     color: var(--ink) !important;
     border: 1px solid var(--muted) !important;
-    box-shadow: none !important;
+    box-shadow: 0 2px 0 var(--muted);
     cursor: pointer;
     transition: transform 0.15s, box-shadow 0.15s, background-color 0.25s, color 0.25s, border-color 0.25s;
   }
@@ -1052,8 +1016,8 @@ button.sc-ifyrAs {
   button.sc-ifyrAs:hover {
     background: var(--ink) !important;
     color: var(--panel) !important;
-    border-color: var(--ink) !important;
     box-shadow: none !important;
+    border-color: var(--ink) !important;
   }
 
   button.sc-ifyrAs {
@@ -1061,14 +1025,13 @@ button.sc-ifyrAs {
     overflow: visible !important;
   }
 
-  /* Sonar pulse for "Load More" */
   button.sc-ifyrAs::after {
     content: "";
     position: absolute;
     inset: -2px;
     border-radius: inherit;
     background: transparent;
-    --sonar-color: var(--accent); /* Caramel pulse */
+    --sonar-color: var(--accent); /* Uses the theme's accent color */
     box-shadow: 0 0 0 0 var(--sonar-color);
     animation: 2.8s ease-out infinite btn-sonar !important;
     pointer-events: none;
@@ -1101,11 +1064,11 @@ button.sc-ifyrAs {
   margin-right:16px;
 }
 
-/* POV Badge reskinned */
+/* POV Badge (Cafe Style) */
 .pov-badge {
   display: inline-block;
-  background: var(--panel-darker); /* Darkest brown */
-  color: var(--ink);
+  background: var(--panel); /* Use panel color */
+  color: var(--muted);     /* Use muted color */
   padding: 3px 8px;
   margin-right: 6px;
   font-size: 10px;
@@ -1114,11 +1077,11 @@ button.sc-ifyrAs {
   text-transform: uppercase;
   letter-spacing: .08em;
   vertical-align: middle;
-  border-radius: var(--radius-sm); /* Rounded */
+  border-radius: 4px; /* Rounded */
   clip-path: none; /* Removed clip-path */
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Relationship Panel */
 :root {
 	--rel-w: 120px;
 	--rel-h: 72px;
@@ -1151,7 +1114,7 @@ button.sc-ifyrAs {
 	padding: 4px 24px 16px !important
 }
 
-/* Scrollbar reskinned to be warmer */
+/* Scrollbar (Cafe Style) */
 .bb-intros .zg-body::-webkit-scrollbar {
 	height: 8px !important
 }
@@ -1160,15 +1123,15 @@ button.sc-ifyrAs {
 	border-radius: 4px !important
 }
 .bb-intros .zg-body::-webkit-scrollbar-thumb {
-	background: hsla(28, 80%, 60%, 0.5) !important; /* Caramel */
+	background: var(--muted) !important; /* Use muted color */
 	border-radius: 4px !important;
 	border: 1px solid rgba(255, 255, 255, .1) !important
 }
 .bb-intros .zg-body::-webkit-scrollbar-thumb:hover {
-	background: var(--accent) !important;
+	background: var(--accent) !important; /* Use accent color */
 }
 
-/* Relationship tile reskinned */
+/* Relationship Tile (Cafe Style) */
 .bb-intros .zg-rel-tile {
 	position: relative !important;
 	display: block !important;
@@ -1177,9 +1140,9 @@ button.sc-ifyrAs {
 	height: calc(var(--rel-h) + var(--rel-text-h)) !important;
 	text-decoration: none !important;
 	color: var(--ink) !important;
-	border: 1px solid var(--accent-soft-border) !important; /* Soft caramel border */
-	border-radius: var(--radius-md) !important; /* Rounded */
-	background: var(--accent-soft-bg) !important; /* Soft caramel bg */
+	border: 1px solid rgba(255, 255, 255, .05) !important;
+	border-radius: var(--border-radius) !important; /* Rounded */
+	background: var(--panel) !important; /* Use panel color */
 	transition: border-color .2s, transform .15s, filter .2s !important;
 	overflow: hidden !important;
 	scroll-snap-align: start !important
@@ -1206,7 +1169,7 @@ button.sc-ifyrAs {
 	left: 0 !important;
 	right: 0 !important;
 	height: var(--rel-text-h) !important;
-	background: var(--panel-darker) !important; /* Darkest brown */
+	background: var(--panel) !important; /* Use panel color */
 	border-radius: 0 0 5px 5px !important;
 	z-index: 1 !important
 }
@@ -1220,8 +1183,8 @@ button.sc-ifyrAs {
 	background: none !important;
 	bottom: 16px !important;
 	padding: 0 8px !important;
-	font: 400 16px/1 var(--font-flavor) !important;
-	color: var(--ink) !important; /* Brighter */
+	font: 400 16px/1 var(--font-flavor) !important; /* Use flavor font */
+	color: var(--ink) !important; /* Use ink color */
 	text-align: center !important;
 	white-space: nowrap !important;
 	overflow: hidden !important;
@@ -1240,7 +1203,7 @@ button.sc-ifyrAs {
 	background: none !important;
 	bottom: 4px !important;
 	padding: 0 8px !important;
-	color: var(--muted) !important; /* Uses new muted color */
+	color: var(--muted) !important; /* Use muted color */
 	font: 700 9px/1 system-ui, -apple-system, sans-serif !important;
 	text-align: center !important;
 	white-space: nowrap !important;
@@ -1251,8 +1214,8 @@ button.sc-ifyrAs {
 }
 
 .bb-subtitle{
-	font-weight:700;s
-	font-size: 12px;
+	font-weight:700; 
+	font-size: 12px; 
 	line-height:32px;
 	text-transform:uppercase;
 	letter-spacing:.2em;
@@ -1260,16 +1223,13 @@ button.sc-ifyrAs {
 	margin-bottom:24px
 }
 
-/* Fix for gallery height */
 .dOesoR,.hFiwlk,.cSOzTo,.bPlxTo,.isKXvo,.dAxClk,.fRJWto,.gYqOac{min-height:100%;max-height:24rem}.dOesoR::after,.hFiwlk::after,.cSOzTo::after,.bPlxTo::after,.isKXvo::after,.dAxClk::after,.fRJWto::after,.gYqOac::after{display:none}
+
 
 /*
 =================================================================
-  PREMIUM FAVORITE BUTTON - "CAFE GOLD" THEME
+  PREMIUM FAVORITE BUTTON - CAFE THEME
 =================================================================
-  * Replaced rainbow sweep with a warm, caramel/gold sweep.
-  * Kept the shake animation.
-  * Star is now caramel-colored.
 */
 
 /* 1. KEYFRAME FOR THE GENTLE SHAKE (UNCHANGED) */
@@ -1294,14 +1254,17 @@ button.sc-ifyrAs {
   }
 }
 
-/* 2. KEYFRAME FOR BORDER SWEEP (UNCHANGED) */
+/* 2. KEYFRAME FOR THE GRADIENT SWEEP (CAFE COLORS) */
 @keyframes premium-sweep {
   to {
     background-position: 200% center;
   }
 }
 
+
 /* --- Button & Border Styling --- */
+
+/* 1. Base button styles */
 button.ant-btn:has(.anticon-star svg path[d*="zM"]) {
   position: relative;
   isolation: isolate;
@@ -1311,9 +1274,7 @@ button.ant-btn:has(.anticon-star svg path[d*="zM"]) {
   animation: gentle-shake 6s ease-in-out infinite;
 }
 
-/* 2. Animated gradient border:
-   - Changed to a warm, "cafe gold" sweep.
-*/
+/* 2. Animated gradient border (Cafe Colors) */
 button.ant-btn:has(.anticon-star svg path[d*="zM"])::before {
   content: "";
   position: absolute;
@@ -1321,8 +1282,8 @@ button.ant-btn:has(.anticon-star svg path[d*="zM"])::before {
   inset: -1px; /* Covers the button edge */
   border-radius: inherit;
   padding: 2px;
-  /* Warm gold/caramel sweep */
-  background: linear-gradient(90deg, hsl(28, 80%, 60%), hsl(35, 80%, 60%), hsl(45, 80%, 60%), hsl(35, 80%, 60%), hsl(28, 80%, 60%));
+  /* Warm cafe gradient */
+  background: linear-gradient(90deg, var(--accent), var(--ink), var(--muted), var(--accent));
   background-size: 200% 100%;
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
           mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -1331,65 +1292,54 @@ button.ant-btn:has(.anticon-star svg path[d*="zM"])::before {
   animation: premium-sweep 3s linear infinite;
 }
 
+
 /* --- Star Icon Styling --- */
+
 button.ant-btn:has(.anticon-star svg path[d*="zM"]) .anticon-star svg {
   animation: none;
   filter: none;
 }
 
-/* 2. Star path is now caramel-colored with a dark outline */
 button.ant-btn:has(.anticon-star svg path[d*="zM"]) .anticon-star svg path {
-  fill: var(--accent); /* Caramel fill */
-  stroke: var(--panel-darker); /* Dark brown stroke */
+  fill: var(--ink); /* Creamy star color */
+  stroke: rgba(0, 0, 0, 0.5);
   stroke-width: 0.5px;
   opacity: 1 !important;
   animation: none;
   filter: none;
 }
 
-/* --- Un-favorited star button (back to normal) --- */
-button.ant-btn:has(.anticon-star):not(:has(svg path[d*="zM"])) {
-  animation: none !important;
-  transform: none !important;
-}
-button.ant-btn:has(.anticon-star):not(:has(svg path[d*="zM"])) .anticon-star svg {
-  animation: none !important;
-  filter: none !important;
-  overflow: hidden;
-}
-button.ant-btn:has(.anticon-star):not(:has(svg path[d*="zM"])) .anticon-star svg path {
-  fill: currentColor !important;
-  stroke: none;
-}
-button.ant-btn:has(.anticon-star):not(:has(svg path[d*="zM"]))::after {
-  animation: none !important;
-  display: none !important;
-}
-
-/* --- Responsive fix for full-width favorite button --- */
+/* --- Mobile Favorite Bar (Full Width) --- */
 @media (max-width: 768px) {
 	.bunnyui-credit {
 		display:none;
 	}
   button.ant-btn.ant-btn-icon-only:has(.anticon-star svg path[d*="zM"]) {
-    /* --- Positioning Overrides --- */
     position: fixed !important;
     bottom: 16px !important;
     left: 16px !important;
     right: 16px !important;
-    
-    /* --- Sizing Override --- */
     width: auto !important; /* Stretches the button */
-    
-    /* --- Animation Reset --- */
-    transform: none !important;
-    animation: none !important;
+    transform: none !important; /* No shake when full-width */
+    animation: none !imporant;
+    /* Re-apply a sonar animation */
+    animation: 2.8s ease-out infinite btn-sonar !important;
+    --sonar-color: var(--accent);
   }
   
-  /* Re-applies the desired sonar pulse animation */
-  button.ant-btn.ant-btn-icon-only:has(.anticon-star svg path[d*="zM"])::after {
-      /* This rule was missing a name, assuming 'btn-sonar' */
-      --sonar-color: var(--accent);
-      animation: btn-sonar 2.8s ease-out infinite !important;
+  /* Disable the gradient border on mobile */
+  button.ant-btn.ant-btn-icon-only:has(.anticon-star svg path[d*="zM"])::before {
+    content: none !important;
+  }
+  
+  /* Make the button background solid on mobile */
+  button.ant-btn.ant-btn-icon-only:has(.anticon-star svg path[d*="zM"]) {
+     background: var(--accent) !important;
+  }
+
+  /* Make the star dark on the light button */
+  button.ant-btn.ant-btn-icon-only:has(.anticon-star svg path[d*="zM"]) .anticon-star svg path {
+    fill: var(--primary-bg);
+    stroke: none;
   }
 }
