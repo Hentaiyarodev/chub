@@ -1,395 +1,350 @@
 /*
-////////////////////////////////////////////////////////////////////////////////
-// hentaiyaroui.css - REDESIGN COMPLETO
-////////////////////////////////////////////////////////////////////////////////
+=================================================================
+  MODERN DARK AESTHETIC - STYLESHEET
+  Este ficheiro substitui hentaiyaroui.css e redefine todas as
+  classes originais para um novo visual.
+=================================================================
 */
 
-/* Reset and Base Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* 1. IMPORTAÇÃO DE FONTE E VARIÁVEIS ROOT
+----------------------------------------------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
 :root {
-    --primary: #0a0a0f;
-    --secondary: #111116;
-    --accent: #8b5cf6;
-    --accent-glow: rgba(139, 92, 246, 0.3);
-    --text-primary: #f8fafc;
-    --text-secondary: #94a3b8;
-    --text-muted: #64748b;
-    --border: #1e293b;
-    --border-light: #334155;
-    --success: #10b981;
-    --danger: #ef4444;
-    --warning: #f59e0b;
-    --card-bg: rgba(15, 23, 42, 0.6);
-    --glass: rgba(255, 255, 255, 0.05);
-    --font-primary: 'Inter', sans-serif;
-    --font-mono: 'JetBrains Mono', monospace;
+    /* Tipografia */
+    --font-main: 'Inter', sans-serif;
+    --font-heading: 'Inter', sans-serif; /* Substitui Anton */
+    --font-flavor: 'Inter', sans-serif;  /* Substitui Patrick Hand */
+
+    /* Nova Paleta de Cores "Dark Aesthetic" */
+    --color-bg: #0a0a0a;       /* Fundo quase preto */
+    --color-panel: #141414;   /* Painéis ligeiramente mais claros */
+    --color-border: #2b2b2b;  /* Bordas subtis */
+    --color-text: #e5e5e5;    /* Texto principal (branco suave) */
+    --color-muted: #a1a1a1;   /* Texto secundário (cinza) */
+    --color-accent: #9333ea;  /* Roxo vibrante como destaque */
+}
+
+/* 2. ESTILOS DE BASE E RESET
+----------------------------------------------------------------*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    background: var(--primary);
-    color: var(--text-primary);
-    font-family: var(--font-primary);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-main);
     line-height: 1.6;
-    overflow-x: hidden;
-    min-height: 100vh;
 }
 
-/* Typography */
-h1, h2, h3, h4, h5, h6 {
+/* Remove pseudo-elementos de fundo do design antigo */
+body::before,
+body::after {
+    display: none;
+    content: none;
+}
+
+/* 3. REDEFINIÇÃO DO LAYOUT PRINCIPAL
+----------------------------------------------------------------*/
+.bb-sec {
+    padding: 3rem 1rem; /* Mais espaçamento */
+}
+
+.bb-wrap {
+    width: 100%;
+    max-width: 900px; /* Layout centrado e mais contido */
+    margin: 0 auto;
+}
+
+/* O .bbx-band era uma grelha complexa. Agora é um container flex vertical. */
+.bbx-band {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; /* Espaço entre os elementos principais */
+}
+
+/* O .bbx-hero era um div vazio. Agora exibe a imagem --hero. */
+.bbx-hero {
+    width: 100%;
+    height: 400px; /* Altura de herói substancial */
+    /* Usa a variável --hero definida inline no HTML */
+    background: var(--hero) center center/cover no-repeat;
+    border-radius: 12px; /* Cantos arredondados modernos */
+    border: 1px solid var(--color-border);
+    margin-bottom: 1rem; /* Espaço abaixo da imagem */
+}
+
+/* O .bbx-num (número 15) é escondido para um design mais limpo */
+.bbx-num {
+    display: none;
+}
+
+.bb-top-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Espaço entre cabeçalho e nota do autor */
+}
+
+.bb-bottom-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Espaço entre as secções de baixo */
+}
+
+/* 4. ESTILIZAÇÃO DE COMPONENTES
+----------------------------------------------------------------*/
+
+/* --- Cabeçalho --- */
+.bb-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.bb-title {
+    font-family: var(--font-heading);
+    font-size: 3rem; /* Grande e impactante */
+    font-weight: 700;
+    color: #ffffff; /* Branco puro para o título */
+    line-height: 1.1;
+    text-transform: none; /* Remove o uppercase do original */
+    letter-spacing: -0.02em; /* Kerning mais apertado */
+}
+
+.bb-tagline {
+    font-size: 1rem;
+    color: var(--color-muted);
+    max-width: 65ch; /* Limita a largura da linha para legibilidade */
+}
+
+/* --- Cartão (Nota do Autor) --- */
+.bb-card {
+    background: var(--color-panel);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 0; /* O gap do flex container trata disto */
+}
+
+.bb-meta-hdr {
+    font-size: 0.75rem;
     font-weight: 600;
-    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-muted);
     margin-bottom: 0.5rem;
 }
 
-p {
-    margin-bottom: 1rem;
+.bb-note {
+    font-family: var(--font-flavor);
+    font-style: italic; /* Mantém um toque de "sabor" */
+    color: var(--color-text);
+    font-size: 0.9rem !important;
 }
 
-a {
-    color: var(--accent);
-    text-decoration: none;
-    transition: color 0.3s ease;
+/* --- Secções de Conteúdo (Personality, Attributes, Intros) --- */
+.bb-personality,
+.bb-attributes,
+.bb-intros {
+    background: var(--color-panel);
+    border: 1px solid var(--color-border);
+    border-radius: 12px; /* Cantos arredondados consistentes */
+    padding: 1.5rem;
+    margin-bottom: 0; /* Gerido pelo gap do flex */
 }
 
-a:hover {
-    color: var(--text-primary);
-}
-
-/* Utility Classes */
-.text-center { text-align: center; }
-.text-left { text-align: left; }
-.text-right { text-align: right; }
-
-.flex { display: flex; }
-.flex-column { flex-direction: column; }
-.items-center { align-items: center; }
-.justify-center { justify-content: center; }
-.justify-between { justify-content: space-between; }
-
-.mb-1 { margin-bottom: 0.5rem; }
-.mb-2 { margin-bottom: 1rem; }
-.mb-3 { margin-bottom: 1.5rem; }
-.mb-4 { margin-bottom: 2rem; }
-
-.mt-1 { margin-top: 0.5rem; }
-.mt-2 { margin-top: 1rem; }
-.mt-3 { margin-top: 1.5rem; }
-.mt-4 { margin-top: 2rem; }
-
-.p-1 { padding: 0.5rem; }
-.p-2 { padding: 1rem; }
-.p-3 { padding: 1.5rem; }
-.p-4 { padding: 2rem; }
-
-/* Animations */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes slideInLeft {
-    from { opacity: 0; transform: translateX(-30px); }
-    to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes slideInRight {
-    from { opacity: 0; transform: translateX(30px); }
-    to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.7; }
-}
-
-@keyframes glow {
-    0%, 100% { box-shadow: 0 0 5px var(--accent-glow); }
-    50% { box-shadow: 0 0 20px var(--accent-glow); }
-}
-
-/* Component Animations */
-.character-header {
-    animation: fadeIn 0.8s ease-out;
-}
-
-.hero-container {
-    animation: slideInLeft 0.8s ease-out 0.2s both;
-}
-
-.content-card {
-    animation: fadeIn 0.8s ease-out both;
-}
-
-.content-card:nth-child(1) { animation-delay: 0.3s; }
-.content-card:nth-child(2) { animation-delay: 0.4s; }
-.content-card:nth-child(3) { animation-delay: 0.5s; }
-
-.scenario-item {
-    animation: fadeIn 0.6s ease-out both;
-}
-
-.scenario-item:nth-child(1) { animation-delay: 0.3s; }
-.scenario-item:nth-child(2) { animation-delay: 0.4s; }
-.scenario-item:nth-child(3) { animation-delay: 0.5s; }
-.scenario-item:nth-child(4) { animation-delay: 0.6s; }
-.scenario-item:nth-child(5) { animation-delay: 0.7s; }
-
-/* Interactive Elements */
-.trait-item, .scenario-item, .content-card {
-    transition: all 0.3s ease;
-}
-
-.trait-item:hover, .scenario-item:hover {
-    transform: translateY(-2px);
-}
-
-.progress-fill {
-    transition: width 1s ease-in-out;
-}
-
-/* Button Styles */
-.btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.75rem 1.5rem;
-    background: var(--accent);
-    color: white;
-    border: none;
-    border-radius: 8px;
+.bb-section-title {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
     font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-accent); /* Usa a cor de destaque */
+    margin-bottom: 1rem;
+    /* Remove estilos antigos */
+    text-shadow: none;
+}
+
+/* --- Badges (Personality) --- */
+.bb-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.bb-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 9999px; /* Pílulas modernas */
+    
+    /* Ignora os estilos inline e define um novo visual */
+    background: rgba(147, 51, 234, 0.15) !important; /* Fundo roxo transparente */
+    border: 1px solid var(--color-accent) !important;
+    color: var(--color-accent) !important;
+    
+    /* Reseta estilos antigos */
+    box-shadow: none !important;
+    text-shadow: none;
+    transition: background 0.2s, color 0.2s;
+}
+
+.bb-badge:hover {
+    background: var(--color-accent) !important;
+    color: #fff !important;
+}
+
+/* --- Atributos Físicos (Barras de Progresso) --- */
+.bb-attr-item {
+    margin-top: 1rem;
+}
+.bb-attr-item:first-of-type {
+    margin-top: 0;
+}
+
+.bb-attr-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-text);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    /* Reseta estilos antigos */
+    font-family: var(--font-main);
+    text-shadow: none;
+    letter-spacing: 0.02em;
+}
+
+.attr-bar-bg {
+    width: 100%;
+    height: 12px; /* Mais fino */
+    background: #333; /* Fundo da barra mais escuro */
+    border-radius: 6px;
+    padding: 0; /* Remove padding */
+    box-shadow: none;
+    border: none;
+    overflow: hidden; /* Garante que o preenchimento fique contido */
+}
+
+.attr-bar-fill {
+    height: 100%;
+    background: var(--color-accent); /* Usa a cor de destaque */
+    border-radius: 6px;
+    box-shadow: none;
+}
+
+.bb-attr-size {
+    font-size: 0.8rem;
+    color: var(--color-muted);
+    margin-top: 0.5rem;
+    text-align: right;
+    text-transform: uppercase;
+    /* Reseta estilos antigos */
+    font-family: var(--font-main);
+    text-shadow: none;
+}
+
+/* --- Lista de Cenários (Intros) --- */
+.bb-intro-list {
+    list-style: none;
+    counter-reset: scn;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem; /* Espaço entre itens */
+}
+
+.bb-intro-list li {
+    counter-increment: scn;
+    background: var(--color-bg); /* Mais escuro que o painel */
+    padding: 1rem 1rem 1rem 3.5rem; /* Espaço para o número */
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
     position: relative;
     overflow: hidden;
+    transition: border-color 0.2s;
 }
 
-.btn::before {
-    content: '';
+.bb-intro-list li:hover {
+    border-color: var(--color-accent); /* Destaque no hover */
+}
+
+/* Estilo do número */
+.bb-intro-list li::before {
+    content: counter(scn, decimal-leading-zero);
     position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-    transition: left 0.5s;
-}
-
-.btn:hover::before {
-    left: 100%;
-}
-
-.btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(139, 92, 246, 0.3);
-}
-
-.btn-secondary {
-    background: transparent;
-    border: 1px solid var(--border);
-    color: var(--text-primary);
-}
-
-.btn-secondary:hover {
-    background: var(--glass);
-    border-color: var(--border-light);
-}
-
-/* Form Elements */
-input, textarea, select {
-    background: var(--secondary);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 0.75rem;
-    color: var(--text-primary);
-    font-family: var(--font-primary);
-    transition: all 0.3s ease;
-}
-
-input:focus, textarea:focus, select:focus {
-    outline: none;
-    border-color: var(--accent);
-    box-shadow: 0 0 0 3px var(--accent-glow);
-}
-
-/* Scrollbar Styling */
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: var(--secondary);
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--border);
-    border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: var(--border-light);
-}
-
-/* Selection Styling */
-::selection {
-    background: var(--accent);
-    color: white;
-}
-
-/* Focus Styles */
-button:focus-visible, 
-a:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-}
-
-/* Loading States */
-.loading {
-    opacity: 0.7;
-    pointer-events: none;
-}
-
-.loading::after {
-    content: '';
-    position: absolute;
+    left: 1.25rem;
     top: 50%;
-    left: 50%;
-    width: 20px;
-    height: 20px;
-    margin: -10px 0 0 -10px;
-    border: 2px solid var(--border);
-    border-top: 2px solid var(--accent);
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
+    transform: translateY(-50%);
+    font-family: var(--font-main);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    /* Remove animação antiga */
+    animation: none;
 }
 
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+/* Badge de POV */
+.pov-badge {
+    display: inline-block;
+    padding: 0.15rem 0.5rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 4px; /* Canto normal */
+    background: var(--color-border); /* Cor subtil */
+    color: var(--color-muted);
+    vertical-align: middle;
+    margin-right: 0.5rem;
+    /* Remove estilo antigo */
+    clip-path: none;
 }
 
-/* BunnyUI Credit Styling */
+/* Descrição do cenário */
+.bb-intro-list li > span[style*="display: block"] {
+    font-size: 0.9rem !important; /* Garante o override do inline */
+    opacity: 1 !important;
+    color: var(--color-muted) !important;
+    padding-left: 0 !important; /* Reseta o padding inline */
+    margin-top: 0.25rem !important;
+}
+
+/* 5. LIMPEZA E RESPONSIVIDADE
+----------------------------------------------------------------*/
+
+/* Esconde o link de crédito do tema antigo */
 .bunnyui-credit {
-    position: fixed;
-    bottom: 1rem;
-    right: 1rem;
-    background: var(--card-bg);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--border);
-    padding: 0.5rem 1rem;
-    border-radius: 100px;
-    font-size: 0.875rem;
-    color: var(--text-secondary);
-    text-decoration: none;
-    transition: all 0.3s ease;
-    z-index: 1000;
-}
-
-.bunnyui-credit:hover {
-    color: var(--text-primary);
-    border-color: var(--border-light);
-    transform: translateY(-2px);
-}
-
-/* Media Queries */
-@media (max-width: 1024px) {
-    .character-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
+    display: none;
 }
 
 @media (max-width: 768px) {
-    .container {
-        padding: 1rem;
+    .bb-sec {
+        padding: 1.5rem 0.5rem;
     }
-    
-    .content-card {
-        padding: 1.5rem;
-    }
-    
-    .traits-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-    
-    .hero-image {
-        height: 400px;
-    }
-    
-    .bunnyui-credit {
-        position: static;
-        margin-top: 2rem;
-        display: inline-block;
-    }
-}
 
-@media (max-width: 480px) {
-    .traits-grid {
-        grid-template-columns: 1fr;
+    .bbx-hero {
+        height: 250px; /* Herói mais baixo em mobile */
+        border-radius: 8px; /* Menos arredondamento */
     }
-    
-    .hero-image {
-        height: 300px;
-    }
-    
-    .card-header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    
-    .card-icon {
-        margin-bottom: 1rem;
-    }
-}
 
-/* Print Styles */
-@media print {
-    .bunnyui-credit,
-    .hero-overlay {
-        display: none;
+    .bb-title {
+        font-size: 2.25rem; /* Título mais pequeno */
     }
-    
-    .content-card {
-        border: 1px solid #ccc;
-        box-shadow: none;
-    }
-}
 
-/* High Contrast Mode Support */
-@media (prefers-contrast: high) {
-    :root {
-        --text-primary: #000;
-        --text-secondary: #333;
-        --border: #000;
+    /* Painéis de secção vão de ponta a ponta em mobile */
+    .bb-personality,
+    .bb-attributes,
+    .bb-intros {
+        padding: 1.25rem;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
     }
-    
-    body {
-        background: #fff;
-    }
-    
-    .content-card {
-        background: #f5f5f5;
-    }
-}
 
-/* Reduced Motion Support */
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
-}
-
-/* Dark mode is default, but this ensures consistency */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --primary: #0a0a0f;
-        --secondary: #111116;
+    .bb-wrap {
+        padding: 0;
     }
 }
