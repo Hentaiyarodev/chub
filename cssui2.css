@@ -1,480 +1,546 @@
-/*
-=================================================================
- CSSUI2 - DARK MODERN AESTHETIC THEME
-=================================================================
-*/ 
+/* =================================================================
+  DARK CYBER THEME - MODERN REDESIGN (CHUB.AI OVERHAUL)
+================================================================= */
 
 /*
 ////////////////////////////////////////////////////////////////////////////////
-// 1. FONT IMPORTS
+// 1. FONT IMPORTS & VARIABLES
 ////////////////////////////////////////////////////////////////////////////////
 */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --cyber-black: #0a0a0f;
+  --cyber-dark: #12121a;
+  --cyber-card: #1a1a25;
+  --cyber-border: #2a2a3a;
+  --cyber-accent: #00f3ff;
+  --cyber-accent-glow: rgba(0, 243, 255, 0.4);
+  --cyber-text: #e0e0ff;
+  --cyber-muted: #8a8aa3;
+  --cyber-success: #00ff88;
+  --cyber-warning: #ffaa00;
+  --cyber-danger: #ff2a6d;
+  --font-main: 'Rajdhani', system-ui, sans-serif;
+  --font-heading: 'Orbitron', monospace;
+  --neon-glow: 0 0 10px var(--cyber-accent-glow), 0 0 20px var(--cyber-accent-glow), 0 0 30px var(--cyber-accent-glow);
+}
 
 /*
 ////////////////////////////////////////////////////////////////////////////////
-// 2. CORE THEME & LAYOUT
+// 2. CORE THEME RESET & LAYOUT
 ////////////////////////////////////////////////////////////////////////////////
 */
 .bb-sec {
-    --ink: #ffffff;
-    --muted: rgba(255, 255, 255, 0.6);
-    --accent: #8b5cf6;
-    --accent-dark: #7c3aed;
-    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-    position: relative;
-    overflow: visible !important;
-    background: #0a0a0f !important;
+  background: linear-gradient(135deg, var(--cyber-black) 0%, var(--cyber-dark) 100%);
+  color: var(--cyber-text);
+  font-family: var(--font-main);
+  position: relative;
+  overflow: visible !important;
+  min-height: 100vh;
+}
+
+.bb-sec::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(0, 243, 255, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 42, 109, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .bb-wrap {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    overflow: visible !important;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
 }
 
-.bbx-band {
-    --bleed: 400px;
-    z-index: 10;
-    display: grid !important;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    align-items: start !important;
-    position: relative !important;
-    margin-top: calc(-1 * var(--bleed)) !important;
-    padding-top: var(--bleed) !important;
-    overflow: visible !important;
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 3. HEADER & TYPOGRAPHY
+////////////////////////////////////////////////////////////////////////////////
+*/
+.bb-header {
+  margin-bottom: 40px;
+  padding-top: 60px;
+  position: relative;
 }
 
-.bbx-band::before {
-    content: "";
-    position: fixed;
-    left: 52%;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    background: var(--hero) center center/cover no-repeat;
-    pointer-events: none;
-    z-index: 1;
-    opacity: 0.9;
-    mask: linear-gradient(90deg, transparent 0%, black 20%);
+.bb-collection-subtitle {
+  display: inline-block;
+  background: transparent;
+  color: var(--cyber-accent);
+  padding: 8px 16px;
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  border: 1px solid var(--cyber-accent);
+  box-shadow: var(--neon-glow);
+  margin-bottom: 24px;
+  position: relative;
+  overflow: hidden;
 }
 
-.bb-top-content, .bb-bottom-content { 
-    grid-column: 1; 
-    position: relative;
-    z-index: 2;
+.bb-collection-subtitle::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 243, 255, 0.4), transparent);
+  transition: left 0.6s;
 }
 
-.bbx-hero { 
-    grid-column: 2; 
-    position: relative;
-    z-index: 1;
+.bb-collection-subtitle:hover::before {
+  left: 100%;
 }
 
-/* Modern Typography */
 .bb-title {
-    font-family: 'Inter', sans-serif;
-    font-size: clamp(3rem, 8vw, 5rem) !important;
-    font-weight: 800;
-    background: linear-gradient(135deg, #fff 0%, #a78bfa 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    line-height: 0.9 !important;
-    margin: 0 0 1rem !important;
-    text-transform: uppercase;
-    letter-spacing: -0.02em;
+  font-family: var(--font-heading) !important;
+  font-size: clamp(52px, 9vw, 120px) !important;
+  font-weight: 900 !important;
+  background: linear-gradient(135deg, var(--cyber-text) 0%, var(--cyber-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0 0 20px !important;
+  text-transform: uppercase;
+  letter-spacing: 0.1em !important;
+  line-height: 0.9 !important;
+  text-shadow: 0 0 30px rgba(0, 243, 255, 0.3);
 }
 
 .bb-tagline {
-    font-size: 1.1rem !important;
-    line-height: 1.6 !important;
-    color: rgba(255, 255, 255, 0.8) !important;
-    font-weight: 400;
+  font-size: clamp(18px, 2vw, 22px) !important;
+  font-weight: 400 !important;
+  color: var(--cyber-muted) !important;
+  max-width: 600px !important;
+  line-height: 1.6 !important;
+  border-left: 3px solid var(--cyber-accent);
+  padding-left: 20px;
+  margin-left: 10px !important;
 }
 
-/* Modern Cards */
-.bb-card {
-    background: rgba(15, 15, 25, 0.7) !important;
-    backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 16px;
-    padding: 1.5rem;
-    margin: 1rem 0;
-    box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 4. CONTENT SECTIONS - CYBER CARDS
+////////////////////////////////////////////////////////////////////////////////
+*/
+.bb-intros {
+  background: rgba(26, 26, 37, 0.8) !important;
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--cyber-border);
+  border-radius: 12px;
+  padding: 30px !important;
+  margin: 40px 0 !important;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Section Titles */
+.bb-intros::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--cyber-accent), transparent);
+}
+
 .bb-section-title {
-    font-family: 'Inter', sans-serif;
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--ink);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin: 0 0 1.5rem;
-    position: relative;
+  font-family: var(--font-heading) !important;
+  font-size: 24px !important;
+  font-weight: 700 !important;
+  color: var(--cyber-accent) !important;
+  margin: 0 0 25px !important;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
-.bb-section-title::after {
-    content: "";
-    position: absolute;
-    bottom: -0.5rem;
-    left: 0;
-    width: 40px;
-    height: 2px;
-    background: linear-gradient(90deg, var(--accent), transparent);
+.bb-section-title::before {
+  content: "▶";
+  font-size: 16px;
+  color: var(--cyber-accent);
 }
 
-/* Modern Button Styles */
-.ant-btn {
-    position: relative;
-    border: none !important;
-    border-radius: 10px !important;
-    font-weight: 600 !important;
-    transition: all 0.3s ease !important;
-    overflow: hidden;
+.bb-intro-list {
+  margin: 0;
+  padding: 0 !important;
+  list-style: none;
+  counter-reset: cyber-counter;
+  display: grid;
+  gap: 15px;
 }
 
-.ant-btn-default {
-    background: rgba(15, 15, 25, 0.8) !important;
-    color: var(--ink) !important;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(139, 92, 246, 0.3) !important;
+.bb-intro-list li {
+  counter-increment: cyber-counter;
+  background: rgba(42, 42, 58, 0.6);
+  border: 1px solid var(--cyber-border);
+  border-radius: 8px;
+  padding: 20px 20px 20px 70px;
+  position: relative;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
 }
 
-.ant-btn-primary {
-    background: linear-gradient(135deg, var(--accent), var(--accent-dark)) !important;
-    color: white !important;
-    box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3) !important;
+.bb-intro-list li:hover {
+  border-color: var(--cyber-accent);
+  box-shadow: 0 0 20px rgba(0, 243, 255, 0.2);
+  transform: translateY(-2px);
 }
 
-.ant-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4) !important;
+.bb-intro-list li::before {
+  content: counter(cyber-counter, decimal-leading-zero);
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--cyber-accent);
+  background: rgba(0, 243, 255, 0.1);
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--cyber-accent);
 }
 
-/* Modern Input Styles */
-.ant-input, .ant-select-selector {
-    background: rgba(15, 15, 25, 0.6) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    border-radius: 10px !important;
-    color: var(--ink) !important;
-    backdrop-filter: blur(10px);
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 5. CHUB.AI SPECIFIC OVERRIDES - COMPLETE REDESIGN
+////////////////////////////////////////////////////////////////////////////////
+*/
+
+/* Main content area */
+.ant-col.text-left.ant-col-xs-24.ant-col-lg-24 {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
-.ant-input:focus, .ant-select-focused .ant-select-selector {
-    border-color: var(--accent) !important;
-    box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.2) !important;
-}
-
-/* Modern Tag Styles */
+/* Tags complete redesign */
 .ant-tag {
-    background: rgba(139, 92, 246, 0.1) !important;
-    border: 1px solid rgba(139, 92, 246, 0.3) !important;
-    color: var(--accent) !important;
-    border-radius: 8px !important;
-    font-weight: 500;
-    backdrop-filter: blur(10px);
+  background: rgba(42, 42, 58, 0.8) !important;
+  color: var(--cyber-text) !important;
+  border: 1px solid var(--cyber-border) !important;
+  border-radius: 20px !important;
+  padding: 6px 16px !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease !important;
+  backdrop-filter: blur(10px);
 }
 
-/* Header Styles */
+.ant-tag:hover {
+  background: var(--cyber-accent) !important;
+  color: var(--cyber-dark) !important;
+  border-color: var(--cyber-accent) !important;
+  box-shadow: var(--neon-glow);
+  transform: translateY(-2px);
+}
+
+/* Buttons cyber redesign */
+button.ant-btn {
+  background: transparent !important;
+  border: 1px solid var(--cyber-border) !important;
+  color: var(--cyber-text) !important;
+  font-family: var(--font-main) !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  padding: 12px 24px !important;
+  height: auto !important;
+  min-height: 44px !important;
+  transition: all 0.3s ease !important;
+  position: relative;
+  overflow: hidden;
+}
+
+button.ant-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 243, 255, 0.2), transparent);
+  transition: left 0.6s;
+}
+
+button.ant-btn:hover::before {
+  left: 100%;
+}
+
+button.ant-btn:hover {
+  border-color: var(--cyber-accent) !important;
+  box-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+button.ant-btn.ant-btn-primary {
+  background: linear-gradient(135deg, var(--cyber-accent) 0%, #0099ff 100%) !important;
+  border: none !important;
+  color: var(--cyber-dark) !important;
+  font-weight: 700 !important;
+}
+
+/* Chat/Send button special styling */
+button.ant-btn:has(svg.lucide-messages-square) {
+  background: linear-gradient(135deg, var(--cyber-accent) 0%, #0099ff 100%) !important;
+  border: none !important;
+  color: var(--cyber-dark) !important;
+  font-weight: 700 !important;
+  padding: 16px 32px !important;
+  font-size: 16px !important;
+  border-radius: 10px !important;
+  box-shadow: 0 0 20px rgba(0, 243, 255, 0.4) !important;
+}
+
+button.ant-btn:has(svg.lucide-messages-square):hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 0 30px rgba(0, 243, 255, 0.6) !important;
+}
+
+/* Favorite button cyber styling */
+button.ant-btn:has(.anticon-star) {
+  background: rgba(255, 170, 0, 0.1) !important;
+  border: 1px solid var(--cyber-warning) !important;
+  color: var(--cyber-warning) !important;
+}
+
+button.ant-btn:has(.anticon-star):hover {
+  background: var(--cyber-warning) !important;
+  color: var(--cyber-dark) !important;
+  box-shadow: 0 0 20px rgba(255, 170, 0, 0.4);
+}
+
+/* Header navigation */
 .ant-layout-header {
-    background: rgba(10, 10, 15, 0.9) !important;
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(10, 10, 15, 0.9) !important;
+  backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid var(--cyber-border) !important;
+  height: 70px !important;
+  padding: 0 40px !important;
 }
 
-/* Menu Styles */
-.ant-menu {
-    background: transparent !important;
-    border: none !important;
+.ant-menu-dark {
+  background: transparent !important;
 }
 
-.ant-menu-item {
-    color: var(--muted) !important;
-    border-radius: 8px !important;
-    margin: 0 4px !important;
+.ant-menu-overflow-item.ant-menu-item {
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  border-radius: 6px;
+  margin: 0 5px !important;
+  transition: all 0.3s ease;
 }
 
-.ant-menu-item:hover {
-    color: var(--ink) !important;
-    background: rgba(139, 92, 246, 0.1) !important;
+.ant-menu-overflow-item.ant-menu-item:hover {
+  border-color: var(--cyber-accent) !important;
+  background: rgba(0, 243, 255, 0.1) !important;
 }
 
-.ant-menu-item-selected {
-    color: var(--accent) !important;
-    background: rgba(139, 92, 246, 0.15) !important;
-}
-
-/* Modal Styles */
-.ant-modal-content {
-    background: rgba(20, 20, 30, 0.95) !important;
-    backdrop-filter: blur(30px);
-    border-radius: 20px !important;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
-}
-
-.ant-modal-header {
-    background: transparent !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* Table Styles */
-.ant-table {
-    background: transparent !important;
-}
-
-.ant-table-thead > tr > th {
-    background: rgba(139, 92, 246, 0.1) !important;
-    color: var(--accent) !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    font-weight: 600;
-}
-
-.ant-table-tbody > tr > td {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    color: var(--muted);
-}
-
-.ant-table-tbody > tr:hover > td {
-    background: rgba(139, 92, 246, 0.05) !important;
-    color: var(--ink);
-}
-
-/* Progress Styles */
-.ant-progress-line {
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.ant-progress-bg {
-    background: linear-gradient(90deg, var(--accent), var(--accent-dark));
-    border-radius: 10px;
-}
-
-/* Notification Styles */
-.ant-notification-notice {
-    background: rgba(20, 20, 30, 0.95) !important;
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-/* Tooltip Styles */
-.ant-tooltip-inner {
-    background: rgba(20, 20, 30, 0.95) !important;
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    color: var(--ink);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-/* Dropdown Styles */
-.ant-dropdown {
-    border-radius: 12px !important;
-    overflow: hidden;
-}
-
+/* Dropdown menus cyber style */
 .ant-dropdown-menu {
-    background: rgba(20, 20, 30, 0.95) !important;
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  background: rgba(26, 26, 37, 0.95) !important;
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--cyber-border);
+  border-radius: 8px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .ant-dropdown-menu-item {
-    color: var(--muted) !important;
+  color: var(--cyber-text) !important;
+  padding: 12px 20px !important;
+  transition: all 0.3s ease;
 }
 
 .ant-dropdown-menu-item:hover {
-    background: rgba(139, 92, 246, 0.1) !important;
-    color: var(--accent) !important;
+  background: rgba(0, 243, 255, 0.1) !important;
+  color: var(--cyber-accent) !important;
 }
 
-/* Animation Keyframes */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* Image containers */
+.ant-col.text-left [class*=ant-image] {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--cyber-border);
+  transition: all 0.3s ease;
 }
 
-@keyframes cyberGlow {
-    0%, 100% {
-        box-shadow: 0 0 5px rgba(139, 92, 246, 0.3);
-    }
-    50% {
-        box-shadow: 0 0 20px rgba(139, 92, 246, 0.6);
-    }
+.ant-col.text-left [class*=ant-image]:hover {
+  border-color: var(--cyber-accent);
+  box-shadow: 0 0 30px rgba(0, 243, 255, 0.3);
+  transform: translateY(-5px);
 }
 
-/* Responsive Design */
+.ant-col.text-left [class*=ant-image] .ant-image-img {
+  transition: transform 0.5s ease;
+}
+
+.ant-col.text-left [class*=ant-image]:hover .ant-image-img {
+  transform: scale(1.05);
+}
+
+/* Collapse components */
+.ant-collapse {
+  background: transparent !important;
+  border: 1px solid var(--cyber-border) !important;
+  border-radius: 8px !important;
+}
+
+.ant-collapse-item {
+  border-bottom: 1px solid var(--cyber-border) !important;
+}
+
+.ant-collapse-header {
+  color: var(--cyber-text) !important;
+  font-family: var(--font-main) !important;
+  font-weight: 600 !important;
+}
+
+.ant-collapse-content {
+  background: rgba(42, 42, 58, 0.6) !important;
+  color: var(--cyber-text) !important;
+  border-top: 1px solid var(--cyber-border) !important;
+}
+
+/* Comment sections */
+.ant-comment-inner {
+  padding: 20px !important;
+  background: rgba(42, 42, 58, 0.6) !important;
+  border-radius: 8px;
+  border: 1px solid var(--cyber-border);
+  margin-bottom: 15px !important;
+  backdrop-filter: blur(10px);
+}
+
+.ant-comment-content-author-name {
+  color: var(--cyber-accent) !important;
+  font-family: var(--font-heading) !important;
+}
+
+/* Tooltips */
+.ant-tooltip {
+  display: block !important;
+}
+
+.ant-tooltip-inner {
+  background: rgba(26, 26, 37, 0.95) !important;
+  color: var(--cyber-text) !important;
+  border: 1px solid var(--cyber-accent);
+  border-radius: 6px;
+  backdrop-filter: blur(10px);
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 6. RESPONSIVE DESIGN
+////////////////////////////////////////////////////////////////////////////////
+*/
 @media (max-width: 768px) {
-    .bbx-band {
-        grid-template-columns: 1fr !important;
-        margin-top: 0 !important;
-        padding-top: 0 !important;
-    }
-    
-    .bb-top-content { grid-row: 1; }
-    .bbx-hero { 
-        grid-column: 1; 
-        grid-row: 2;
-        min-height: 400px !important;
-    }
-    .bb-bottom-content { grid-row: 3; }
-    
-    .bbx-band::before {
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        background: var(--hero) center top/cover no-repeat !important;
-        mask: linear-gradient(180deg, black 0%, transparent 50%);
-    }
+  .bb-wrap {
+    padding: 0 15px;
+  }
+  
+  .bb-header {
+    padding-top: 30px;
+    margin-bottom: 30px;
+  }
+  
+  .bb-title {
+    font-size: clamp(42px, 12vw, 80px) !important;
+  }
+  
+  .ant-layout-header {
+    padding: 0 20px !important;
+  }
+  
+  .bb-intros {
+    padding: 20px !important;
+    margin: 20px 0 !important;
+  }
 }
 
 @media (max-width: 480px) {
-    .bb-wrap {
-        padding: 0 16px;
-    }
-    
-    .bb-card {
-        padding: 1rem;
-        margin: 0.5rem 0;
-    }
+  .bb-intro-list li {
+    padding: 15px 15px 15px 60px;
+  }
+  
+  .bb-intro-list li::before {
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+  }
 }
 
-/* Scrollbar Styling */
-::-webkit-scrollbar {
-    width: 8px;
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
-::-webkit-scrollbar-track {
-    background: rgba(15, 15, 25, 0.5);
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 7. UTILITY CLASSES & ANIMATIONS
+////////////////////////////////////////////////////////////////////////////////
+*/
+@keyframes cyberGlow {
+  0%, 100% {
+    box-shadow: 0 0 5px var(--cyber-accent-glow);
+  }
+  50% {
+    box-shadow: 0 0 20px var(--cyber-accent-glow), 0 0 30px var(--cyber-accent-glow);
+  }
 }
 
-::-webkit-scrollbar-thumb {
-    background: rgba(139, 92, 246, 0.3);
-    border-radius: 4px;
+@keyframes scanLine {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(400%);
+  }
 }
 
-::-webkit-scrollbar-thumb:hover {
-    background: rgba(139, 92, 246, 0.5);
+.cyber-scan::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--cyber-accent), transparent);
+  animation: scanLine 3s linear infinite;
 }
 
-/* Focus States */
-*:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-}
-
-/* Selection Styles */
-::selection {
-    background: rgba(139, 92, 246, 0.3);
-    color: white;
-}
-
-/* Loading States */
-.ant-spin-dot-item {
-    background-color: var(--accent) !important;
-}
-
-/* Avatar Styles */
-.ant-avatar {
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-/* Badge Styles */
-.ant-badge-count {
-    background: linear-gradient(135deg, var(--accent), var(--accent-dark)) !important;
-    box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
-}
-
-/* Divider Styles */
-.ant-divider {
-    border-color: rgba(255, 255, 255, 0.1) !important;
-}
-
-/* Rate Component */
-.ant-rate-star {
-    color: rgba(255, 255, 255, 0.2) !important;
-}
-
-.ant-rate-star-full {
-    color: var(--accent) !important;
-}
-
-/* Switch Component */
-.ant-switch-checked {
-    background: var(--accent) !important;
-}
-
-/* Slider Component */
-.ant-slider-track {
-    background: linear-gradient(90deg, var(--accent), var(--accent-dark)) !important;
-}
-
-.ant-slider-handle {
-    border: 2px solid var(--accent) !important;
-}
-
-/* Timeline Component */
-.ant-timeline-item-head {
-    background: transparent !important;
-    border: 2px solid var(--accent);
-}
-
-.ant-timeline-item-content {
-    color: var(--muted);
-}
-
-/* Alert Styles */
-.ant-alert {
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(20, 20, 30, 0.8) !important;
-    backdrop-filter: blur(10px);
-}
-
-.ant-alert-info {
-    border-color: rgba(139, 92, 246, 0.3) !important;
-    background: rgba(139, 92, 246, 0.1) !important;
-}
-
-/* Result Component */
-.ant-result {
-    padding: 40px 20px;
-}
-
-.ant-result-title {
-    color: var(--ink) !important;
-    font-weight: 600;
-}
-
-.ant-result-subtitle {
-    color: var(--muted) !important;
-}
-
-/* Skeleton Loading */
-.ant-skeleton {
-    background: rgba(255, 255, 255, 0.05) !important;
-}
-
-.ant-skeleton-active .ant-skeleton-paragraph > li {
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05)) !important;
+/* Hide unwanted Chub.ai elements */
+.ant-layout-footer,
+.ant-ribbon,
+.no-vertical-anything *,
+div#chara-list {
+  display: none !important;
 }
