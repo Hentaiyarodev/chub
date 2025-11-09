@@ -1,546 +1,495 @@
-/* =================================================================
-  DARK CYBER THEME - MODERN REDESIGN (CHUB.AI OVERHAUL)
-================================================================= */
+/*
+=================================================================
+  NEXUS UI - DARK MODERN THEME (COMPLETE REDESIGN)
+=================================================================
+*/
 
 /*
 ////////////////////////////////////////////////////////////////////////////////
-// 1. FONT IMPORTS & VARIABLES
+// 1. FONT IMPORTS - MODERN TYPOGRAPHY
 ////////////////////////////////////////////////////////////////////////////////
 */
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
-
-:root {
-  --cyber-black: #0a0a0f;
-  --cyber-dark: #12121a;
-  --cyber-card: #1a1a25;
-  --cyber-border: #2a2a3a;
-  --cyber-accent: #00f3ff;
-  --cyber-accent-glow: rgba(0, 243, 255, 0.4);
-  --cyber-text: #e0e0ff;
-  --cyber-muted: #8a8aa3;
-  --cyber-success: #00ff88;
-  --cyber-warning: #ffaa00;
-  --cyber-danger: #ff2a6d;
-  --font-main: 'Rajdhani', system-ui, sans-serif;
-  --font-heading: 'Orbitron', monospace;
-  --neon-glow: 0 0 10px var(--cyber-accent-glow), 0 0 20px var(--cyber-accent-glow), 0 0 30px var(--cyber-accent-glow);
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
 /*
 ////////////////////////////////////////////////////////////////////////////////
-// 2. CORE THEME RESET & LAYOUT
+// 2. CORE THEME RESET - DARK MODERN FOUNDATION
 ////////////////////////////////////////////////////////////////////////////////
 */
 .bb-sec {
-  background: linear-gradient(135deg, var(--cyber-black) 0%, var(--cyber-dark) 100%);
-  color: var(--cyber-text);
-  font-family: var(--font-main);
+  --ink: #e8eaed;
+  --muted: #9aa0a6;
+  --surface: #1e1e1e;
+  --elevated: #2d2d2d;
+  --accent: #00d4ff;
+  --accent-glow: rgba(0, 212, 255, 0.3);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
   position: relative;
+  --gap: 24px;
+  background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%);
   overflow: visible !important;
-  min-height: 100vh;
 }
 
-.bb-sec::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: 
-    radial-gradient(circle at 20% 80%, rgba(0, 243, 255, 0.05) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(255, 42, 109, 0.03) 0%, transparent 50%);
-  pointer-events: none;
-  z-index: 0;
+:root { 
+  --pf-cut2: 0px; /* Removing angled cuts for clean modern look */
+}
+
+.bb-sec * {
+  box-sizing: border-box;
 }
 
 .bb-wrap {
   width: 100%;
-  max-width: 1400px;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 0 20px;
-  position: relative;
-  z-index: 1;
+  padding: 0 24px;
+  overflow: visible !important;
 }
 
 /*
 ////////////////////////////////////////////////////////////////////////////////
-// 3. HEADER & TYPOGRAPHY
+// 3. HEADER & TYPOGRAPHY - MODERN MINIMALIST
 ////////////////////////////////////////////////////////////////////////////////
 */
 .bb-header {
-  margin-bottom: 40px;
-  padding-top: 60px;
-  position: relative;
+  margin-bottom: 32px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  padding-bottom: 24px;
 }
 
 .bb-collection-subtitle {
   display: inline-block;
-  background: transparent;
-  color: var(--cyber-accent);
+  background: linear-gradient(135deg, var(--accent) 0%, #0099cc 100%);
+  color: #000;
   padding: 8px 16px;
-  font-family: var(--font-heading);
-  font-size: 12px;
-  font-weight: 700;
+  font-size: 11px;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
-  border: 1px solid var(--cyber-accent);
-  box-shadow: var(--neon-glow);
-  margin-bottom: 24px;
-  position: relative;
-  overflow: hidden;
+  letter-spacing: .15em;
+  text-decoration: none;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 14px 0 var(--accent-glow);
 }
 
-.bb-collection-subtitle::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(0, 243, 255, 0.4), transparent);
-  transition: left 0.6s;
-}
-
-.bb-collection-subtitle:hover::before {
-  left: 100%;
+.bb-collection-subtitle:hover {
+  background: linear-gradient(135deg, #00e5ff 0%, var(--accent) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px 0 var(--accent-glow);
 }
 
 .bb-title {
-  font-family: var(--font-heading) !important;
-  font-size: clamp(52px, 9vw, 120px) !important;
-  font-weight: 900 !important;
-  background: linear-gradient(135deg, var(--cyber-text) 0%, var(--cyber-accent) 100%);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: clamp(52px, 9vw, 96px) !important;
+  line-height: 1 !important;
+  font-weight: 700 !important;
+  background: linear-gradient(135deg, #ffffff 0%, var(--accent) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  margin: 0 0 20px !important;
+  margin: 0 0 16px !important;
+  letter-spacing: -0.02em !important;
   text-transform: uppercase;
-  letter-spacing: 0.1em !important;
-  line-height: 0.9 !important;
-  text-shadow: 0 0 30px rgba(0, 243, 255, 0.3);
 }
 
 .bb-tagline {
-  font-size: clamp(18px, 2vw, 22px) !important;
-  font-weight: 400 !important;
-  color: var(--cyber-muted) !important;
-  max-width: 600px !important;
+  font-size: clamp(18px, 1.8vw, 20px) !important;
   line-height: 1.6 !important;
-  border-left: 3px solid var(--cyber-accent);
-  padding-left: 20px;
-  margin-left: 10px !important;
+  font-weight: 400 !important;
+  color: var(--muted) !important;
+  max-width: none !important;
+  width: auto !important;
 }
 
 /*
 ////////////////////////////////////////////////////////////////////////////////
-// 4. CONTENT SECTIONS - CYBER CARDS
+// 4. CONTENT SECTIONS - GLASS MORPHISM EFFECT
 ////////////////////////////////////////////////////////////////////////////////
 */
 .bb-intros {
-  background: rgba(26, 26, 37, 0.8) !important;
+  background: rgba(40, 40, 40, 0.7);
   backdrop-filter: blur(20px);
-  border: 1px solid var(--cyber-border);
-  border-radius: 12px;
-  padding: 30px !important;
-  margin: 40px 0 !important;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: clamp(20px, 3vw, 32px);
+  border-radius: 16px;
   position: relative;
-  overflow: hidden;
-}
-
-.bb-intros::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--cyber-accent), transparent);
+  overflow: visible !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 .bb-section-title {
-  font-family: var(--font-heading) !important;
-  font-size: 24px !important;
-  font-weight: 700 !important;
-  color: var(--cyber-accent) !important;
-  margin: 0 0 25px !important;
+  font-family: 'Inter', system-ui, sans-serif;
   text-transform: uppercase;
+  font-style: normal;
   letter-spacing: 0.1em;
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 600;
+  margin: 0 0 clamp(16px, 2vw, 20px);
+  color: var(--ink);
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: .8em;
+  line-height: 1.2;
 }
 
 .bb-section-title::before {
-  content: "▶";
-  font-size: 16px;
-  color: var(--cyber-accent);
+  content: "";
+  width: 4px;
+  height: 24px;
+  background: var(--accent);
+  border-radius: 2px;
 }
 
 .bb-intro-list {
   margin: 0;
   padding: 0 !important;
   list-style: none;
-  counter-reset: cyber-counter;
-  display: grid;
-  gap: 15px;
+  counter-reset: scn;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .bb-intro-list li {
-  counter-increment: cyber-counter;
-  background: rgba(42, 42, 58, 0.6);
-  border: 1px solid var(--cyber-border);
-  border-radius: 8px;
-  padding: 20px 20px 20px 70px;
+  counter-increment: scn;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px 20px 20px 80px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
   position: relative;
+  overflow: hidden;
   transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
 }
 
 .bb-intro-list li:hover {
-  border-color: var(--cyber-accent);
-  box-shadow: 0 0 20px rgba(0, 243, 255, 0.2);
-  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateX(8px);
+  border-color: var(--accent-glow);
 }
 
 .bb-intro-list li::before {
-  content: counter(cyber-counter, decimal-leading-zero);
+  content: counter(scn, decimal-leading-zero);
   position: absolute;
   left: 20px;
   top: 50%;
   transform: translateY(-50%);
-  font-family: var(--font-heading);
+  font-family: 'JetBrains Mono', monospace;
   font-size: 24px;
-  font-weight: 700;
-  color: var(--cyber-accent);
-  background: rgba(0, 243, 255, 0.1);
-  width: 40px;
-  height: 40px;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid var(--cyber-accent);
+  font-weight: 600;
+  color: var(--accent);
+  z-index: 0;
 }
 
 /*
 ////////////////////////////////////////////////////////////////////////////////
-// 5. CHUB.AI SPECIFIC OVERRIDES - COMPLETE REDESIGN
+// 5. BUTTONS & INTERACTIVE ELEMENTS - FUTURISTIC
 ////////////////////////////////////////////////////////////////////////////////
 */
-
-/* Main content area */
-.ant-col.text-left.ant-col-xs-24.ant-col-lg-24 {
-  background: transparent !important;
-  border: none !important;
-  padding: 0 !important;
-  margin: 0 !important;
-}
-
-/* Tags complete redesign */
-.ant-tag {
-  background: rgba(42, 42, 58, 0.8) !important;
-  color: var(--cyber-text) !important;
-  border: 1px solid var(--cyber-border) !important;
-  border-radius: 20px !important;
-  padding: 6px 16px !important;
-  font-size: 12px !important;
-  font-weight: 600 !important;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  transition: all 0.3s ease !important;
-  backdrop-filter: blur(10px);
-}
-
-.ant-tag:hover {
-  background: var(--cyber-accent) !important;
-  color: var(--cyber-dark) !important;
-  border-color: var(--cyber-accent) !important;
-  box-shadow: var(--neon-glow);
-  transform: translateY(-2px);
-}
-
-/* Buttons cyber redesign */
-button.ant-btn {
-  background: transparent !important;
-  border: 1px solid var(--cyber-border) !important;
-  color: var(--cyber-text) !important;
-  font-family: var(--font-main) !important;
-  font-weight: 600 !important;
-  border-radius: 8px !important;
-  padding: 12px 24px !important;
-  height: auto !important;
-  min-height: 44px !important;
-  transition: all 0.3s ease !important;
+.bb-kbtn {
+  height: 56px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 32px;
+  background: linear-gradient(135deg, var(--accent) 0%, #0099cc 100%);
+  color: #000;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 12px;
+  border: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
 }
 
-button.ant-btn::before {
+.bb-kbtn::before {
   content: "";
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(0, 243, 255, 0.2), transparent);
-  transition: left 0.6s;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
 }
 
-button.ant-btn:hover::before {
+.bb-kbtn:hover::before {
   left: 100%;
 }
 
-button.ant-btn:hover {
-  border-color: var(--cyber-accent) !important;
-  box-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
+.bb-kbtn:hover {
   transform: translateY(-2px);
+  box-shadow: 0 12px 25px var(--accent-glow);
 }
 
-button.ant-btn.ant-btn-primary {
-  background: linear-gradient(135deg, var(--cyber-accent) 0%, #0099ff 100%) !important;
-  border: none !important;
-  color: var(--cyber-dark) !important;
-  font-weight: 700 !important;
-}
-
-/* Chat/Send button special styling */
-button.ant-btn:has(svg.lucide-messages-square) {
-  background: linear-gradient(135deg, var(--cyber-accent) 0%, #0099ff 100%) !important;
-  border: none !important;
-  color: var(--cyber-dark) !important;
-  font-weight: 700 !important;
-  padding: 16px 32px !important;
-  font-size: 16px !important;
-  border-radius: 10px !important;
-  box-shadow: 0 0 20px rgba(0, 243, 255, 0.4) !important;
-}
-
-button.ant-btn:has(svg.lucide-messages-square):hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 0 30px rgba(0, 243, 255, 0.6) !important;
-}
-
-/* Favorite button cyber styling */
-button.ant-btn:has(.anticon-star) {
-  background: rgba(255, 170, 0, 0.1) !important;
-  border: 1px solid var(--cyber-warning) !important;
-  color: var(--cyber-warning) !important;
-}
-
-button.ant-btn:has(.anticon-star):hover {
-  background: var(--cyber-warning) !important;
-  color: var(--cyber-dark) !important;
-  box-shadow: 0 0 20px rgba(255, 170, 0, 0.4);
-}
-
-/* Header navigation */
-.ant-layout-header {
-  background: rgba(10, 10, 15, 0.9) !important;
-  backdrop-filter: blur(20px) !important;
-  border-bottom: 1px solid var(--cyber-border) !important;
-  height: 70px !important;
-  padding: 0 40px !important;
-}
-
-.ant-menu-dark {
-  background: transparent !important;
-}
-
-.ant-menu-overflow-item.ant-menu-item {
-  background: transparent !important;
-  border: 1px solid transparent !important;
-  border-radius: 6px;
-  margin: 0 5px !important;
-  transition: all 0.3s ease;
-}
-
-.ant-menu-overflow-item.ant-menu-item:hover {
-  border-color: var(--cyber-accent) !important;
-  background: rgba(0, 243, 255, 0.1) !important;
-}
-
-/* Dropdown menus cyber style */
-.ant-dropdown-menu {
-  background: rgba(26, 26, 37, 0.95) !important;
-  backdrop-filter: blur(20px);
-  border: 1px solid var(--cyber-border);
-  border-radius: 8px !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-}
-
-.ant-dropdown-menu-item {
-  color: var(--cyber-text) !important;
-  padding: 12px 20px !important;
-  transition: all 0.3s ease;
-}
-
-.ant-dropdown-menu-item:hover {
-  background: rgba(0, 243, 255, 0.1) !important;
-  color: var(--cyber-accent) !important;
-}
-
-/* Image containers */
-.ant-col.text-left [class*=ant-image] {
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid var(--cyber-border);
-  transition: all 0.3s ease;
-}
-
-.ant-col.text-left [class*=ant-image]:hover {
-  border-color: var(--cyber-accent);
-  box-shadow: 0 0 30px rgba(0, 243, 255, 0.3);
-  transform: translateY(-5px);
-}
-
-.ant-col.text-left [class*=ant-image] .ant-image-img {
-  transition: transform 0.5s ease;
-}
-
-.ant-col.text-left [class*=ant-image]:hover .ant-image-img {
-  transform: scale(1.05);
-}
-
-/* Collapse components */
-.ant-collapse {
-  background: transparent !important;
-  border: 1px solid var(--cyber-border) !important;
-  border-radius: 8px !important;
-}
-
-.ant-collapse-item {
-  border-bottom: 1px solid var(--cyber-border) !important;
-}
-
-.ant-collapse-header {
-  color: var(--cyber-text) !important;
-  font-family: var(--font-main) !important;
-  font-weight: 600 !important;
-}
-
-.ant-collapse-content {
-  background: rgba(42, 42, 58, 0.6) !important;
-  color: var(--cyber-text) !important;
-  border-top: 1px solid var(--cyber-border) !important;
-}
-
-/* Comment sections */
-.ant-comment-inner {
-  padding: 20px !important;
-  background: rgba(42, 42, 58, 0.6) !important;
-  border-radius: 8px;
-  border: 1px solid var(--cyber-border);
-  margin-bottom: 15px !important;
+/* Modern tag styling */
+.ant-tag {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: var(--ink) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 20px !important;
+  padding: 6px 16px !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  text-transform: none !important;
+  transition: all 0.3s ease !important;
   backdrop-filter: blur(10px);
 }
 
-.ant-comment-content-author-name {
-  color: var(--cyber-accent) !important;
-  font-family: var(--font-heading) !important;
-}
-
-/* Tooltips */
-.ant-tooltip {
-  display: block !important;
-}
-
-.ant-tooltip-inner {
-  background: rgba(26, 26, 37, 0.95) !important;
-  color: var(--cyber-text) !important;
-  border: 1px solid var(--cyber-accent);
-  border-radius: 6px;
-  backdrop-filter: blur(10px);
+.ant-tag:hover {
+  background: var(--accent) !important;
+  color: #000 !important;
+  border-color: var(--accent) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px var(--accent-glow);
 }
 
 /*
 ////////////////////////////////////////////////////////////////////////////////
-// 6. RESPONSIVE DESIGN
+// 6. LAYOUT COMPONENTS - ASYMMETRIC MODERN GRID
 ////////////////////////////////////////////////////////////////////////////////
 */
-@media (max-width: 768px) {
-  .bb-wrap {
-    padding: 0 15px;
+.bbx-band {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start !important;
+  position: relative !important;
+  margin: 60px 0 !important;
+  overflow: visible !important;
+}
+
+.bbx-band::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, transparent 0%, rgba(0, 212, 255, 0.05) 100%);
+  pointer-events: none;
+  z-index: -1;
+  border-radius: 24px;
+}
+
+.bb-top-content, .bb-bottom-content { 
+  grid-column: 1; 
+}
+
+.bbx-hero { 
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  position: relative;
+}
+
+.bbx-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, transparent 50%);
+  border-radius: 20px;
+  pointer-events: none;
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 7. ANIMATIONS - SMOOTH AND FUTURISTIC
+////////////////////////////////////////////////////////////////////////////////
+*/
+@keyframes fadeInUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(40px) scale(0.95); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0) scale(1); 
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(0, 212, 255, 0.4); }
+  50% { box-shadow: 0 0 30px rgba(0, 212, 255, 0.8); }
+}
+
+.bb-collection-subtitle,
+.bb-header,
+.bb-quote,
+.bb-card,
+.bb-intros,
+.bb-presets,
+.bb-support {
+  animation: fadeInUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) both;
+}
+
+/* Staggered animation delays */
+.bb-collection-subtitle { animation-delay: 0.1s; }
+.bb-header { animation-delay: 0.2s; }
+.bb-quote { animation-delay: 0.3s; }
+.bb-card { animation-delay: 0.4s; }
+.bb-intros { animation-delay: 0.5s; }
+.bb-presets { animation-delay: 0.6s; }
+.bb-support { animation-delay: 0.7s; }
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 8. RESPONSIVE DESIGN - MOBILE FIRST
+////////////////////////////////////////////////////////////////////////////////
+*/
+@media (max-width: 1024px) {
+  .bbx-band {
+    grid-template-columns: 1fr;
+    gap: 32px;
   }
   
-  .bb-header {
-    padding-top: 30px;
-    margin-bottom: 30px;
+  .bbx-hero {
+    grid-column: 1;
+    grid-row: 2;
+    min-height: 400px;
+  }
+  
+  .bb-top-content { grid-row: 1; }
+  .bb-bottom-content { grid-row: 3; }
+}
+
+@media (max-width: 768px) {
+  .bb-wrap {
+    padding: 0 16px;
   }
   
   .bb-title {
-    font-size: clamp(42px, 12vw, 80px) !important;
-  }
-  
-  .ant-layout-header {
-    padding: 0 20px !important;
+    font-size: clamp(36px, 12vw, 64px) !important;
   }
   
   .bb-intros {
-    padding: 20px !important;
-    margin: 20px 0 !important;
+    padding: 20px;
+    border-radius: 12px;
+  }
+  
+  .bb-intro-list li {
+    padding: 16px 16px 16px 64px;
   }
 }
 
 @media (max-width: 480px) {
-  .bb-intro-list li {
-    padding: 15px 15px 15px 60px;
+  .bbx-band {
+    margin: 40px 0 !important;
   }
   
-  .bb-intro-list li::before {
-    width: 35px;
-    height: 35px;
-    font-size: 18px;
-  }
-}
-
-/* Reduced motion support */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+  .bb-kbtn {
+    width: 100%;
+    justify-content: center;
   }
 }
 
 /*
 ////////////////////////////////////////////////////////////////////////////////
-// 7. UTILITY CLASSES & ANIMATIONS
+// 9. DARK MODERN OVERRIDES FOR CHUB.AI COMPONENTS
 ////////////////////////////////////////////////////////////////////////////////
 */
-@keyframes cyberGlow {
-  0%, 100% {
-    box-shadow: 0 0 5px var(--cyber-accent-glow);
-  }
-  50% {
-    box-shadow: 0 0 20px var(--cyber-accent-glow), 0 0 30px var(--cyber-accent-glow);
-  }
+.ant-layout-header {
+  background: rgba(20, 20, 20, 0.9) !important;
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-@keyframes scanLine {
-  0% {
-    transform: translateY(-100%);
-  }
-  100% {
-    transform: translateY(400%);
-  }
+.ant-btn {
+  border-radius: 10px !important;
+  font-weight: 500 !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
-.cyber-scan::after {
-  content: "";
+.ant-btn-default {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  color: var(--ink) !important;
+}
+
+.ant-btn-default:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border-color: var(--accent) !important;
+  transform: translateY(-2px);
+}
+
+.ant-btn-primary {
+  background: linear-gradient(135deg, var(--accent) 0%, #0099cc 100%) !important;
+  border: none !important;
+  color: #000 !important;
+  font-weight: 600 !important;
+}
+
+.ant-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px var(--accent-glow) !important;
+}
+
+/* Modern quote styling */
+.bb-quote {
+  background: rgba(255, 255, 255, 0.05);
+  border-left: 4px solid var(--accent);
+  border-radius: 12px;
+  padding: 24px 24px 24px 56px;
+  margin: 24px 0;
+  position: relative;
+  backdrop-filter: blur(10px);
+}
+
+.bb-quote::before {
+  content: "“";
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--cyber-accent), transparent);
-  animation: scanLine 3s linear infinite;
+  left: 20px;
+  top: 16px;
+  font: 900 36px/1 'Inter', sans-serif;
+  color: var(--accent);
 }
 
-/* Hide unwanted Chub.ai elements */
-.ant-layout-footer,
-.ant-ribbon,
-.no-vertical-anything *,
-div#chara-list {
-  display: none !important;
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 10. UTILITY CLASSES FOR MODERN ELEMENTS
+////////////////////////////////////////////////////////////////////////////////
+*/
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.neon-glow {
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Modern scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00e5ff;
 }
