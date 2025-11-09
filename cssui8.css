@@ -39,6 +39,7 @@
   background: linear-gradient(135deg, var(--dark-bg) 0%, var(--velvet) 50%, var(--deep-dark) 100%) !important;
   min-height: 100vh;
   position: relative;
+  overflow: hidden;
 }
 
 .ant-layout::before {
@@ -56,91 +57,193 @@
   z-index: 0;
 }
 
-/* Container dos corações subindo */
-.heart-container {
+/* 
+////////////////////////////////////////////////////////////////////////////////
+// 3. ANIMAÇÃO DOS CORAÇÕES SUBINDO
+////////////////////////////////////////////////////////////////////////////////
+*/
+
+.ant-layout::after {
+  content: "♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡";
   position: fixed;
-  top: 0;
+  bottom: -50px;
   left: 0;
   width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
-  overflow: hidden;
-}
-
-.heart {
-  position: absolute;
-  bottom: -50px;
-  font-size: 20px;
+  font-size: 24px;
   color: var(--ruby);
-  text-shadow: 0 0 10px var(--neon-pink);
-  animation: floatUp linear infinite, heartBeat 2s ease-in-out infinite;
-  opacity: 0.7;
+  text-align: center;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.6;
+  animation: hearts-float 15s linear infinite;
+  text-shadow: 0 0 10px rgba(255, 42, 109, 0.5);
 }
 
-.heart:nth-child(2n) {
-  color: var(--neon-pink);
-  text-shadow: 0 0 10px var(--ruby);
-}
-
-.heart:nth-child(3n) {
-  color: var(--gold);
-  text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
-}
-
-.heart:nth-child(4n) {
-  color: var(--neon-purple);
-  text-shadow: 0 0 10px var(--neon-blue);
-}
-
-/* Animações individuais para cada coração */
-.heart:nth-child(1) { left: 10%; animation-duration: 8s; animation-delay: 0s; font-size: 16px; }
-.heart:nth-child(2) { left: 20%; animation-duration: 10s; animation-delay: 2s; font-size: 22px; }
-.heart:nth-child(3) { left: 30%; animation-duration: 12s; animation-delay: 4s; font-size: 18px; }
-.heart:nth-child(4) { left: 40%; animation-duration: 9s; animation-delay: 1s; font-size: 24px; }
-.heart:nth-child(5) { left: 50%; animation-duration: 11s; animation-delay: 3s; font-size: 20px; }
-.heart:nth-child(6) { left: 60%; animation-duration: 13s; animation-delay: 5s; font-size: 26px; }
-.heart:nth-child(7) { left: 70%; animation-duration: 8s; animation-delay: 2s; font-size: 19px; }
-.heart:nth-child(8) { left: 80%; animation-duration: 10s; animation-delay: 4s; font-size: 23px; }
-.heart:nth-child(9) { left: 90%; animation-duration: 12s; animation-delay: 1s; font-size: 17px; }
-.heart:nth-child(10) { left: 15%; animation-duration: 14s; animation-delay: 6s; font-size: 21px; }
-.heart:nth-child(11) { left: 25%; animation-duration: 9s; animation-delay: 3s; font-size: 25px; }
-.heart:nth-child(12) { left: 35%; animation-duration: 11s; animation-delay: 5s; font-size: 16px; }
-.heart:nth-child(13) { left: 45%; animation-duration: 13s; animation-delay: 2s; font-size: 22px; }
-.heart:nth-child(14) { left: 55%; animation-duration: 8s; animation-delay: 4s; font-size: 18px; }
-.heart:nth-child(15) { left: 65%; animation-duration: 10s; animation-delay: 1s; font-size: 24px; }
-
-@keyframes floatUp {
+@keyframes hearts-float {
   0% {
-    transform: translateY(0) rotate(0deg) scale(0.5);
+    transform: translateY(0) rotate(0deg);
     opacity: 0;
   }
   10% {
-    opacity: 0.8;
-    transform: translateY(-10vh) rotate(45deg) scale(0.8);
-  }
-  50% {
-    opacity: 1;
-    transform: translateY(-50vh) rotate(180deg) scale(1.2);
+    opacity: 0.6;
   }
   90% {
     opacity: 0.3;
-    transform: translateY(-90vh) rotate(315deg) scale(0.9);
   }
   100% {
-    transform: translateY(-100vh) rotate(360deg) scale(0.5);
+    transform: translateY(-100vh) rotate(360deg);
     opacity: 0;
   }
 }
 
-@keyframes heartBeat {
-  0%, 100% { opacity: 0.7; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.1); }
+/* Corações individuais com diferentes tempos e posições */
+.ant-layout-content::before,
+.ant-layout-content::after,
+.ant-layout-header::after {
+  content: "♡";
+  position: fixed;
+  bottom: -30px;
+  font-size: 20px;
+  color: var(--neon-pink);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+  text-shadow: 0 0 8px rgba(255, 0, 200, 0.6);
+}
+
+.ant-layout-content::before {
+  left: 10%;
+  animation: heart-float-1 12s linear infinite;
+  animation-delay: 1s;
+}
+
+.ant-layout-content::after {
+  left: 20%;
+  animation: heart-float-2 14s linear infinite;
+  animation-delay: 3s;
+}
+
+.ant-layout-header::after {
+  left: 30%;
+  animation: heart-float-3 16s linear infinite;
+  animation-delay: 5s;
+}
+
+/* Adicionando mais corações através de pseudo-elementos em outros containers */
+.ant-layout-sider::before,
+.ant-layout-footer::before {
+  content: "♡";
+  position: fixed;
+  bottom: -40px;
+  font-size: 18px;
+  color: var(--neon-purple);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+  text-shadow: 0 0 8px rgba(189, 0, 255, 0.6);
+}
+
+.ant-layout-sider::before {
+  left: 60%;
+  animation: heart-float-4 13s linear infinite;
+  animation-delay: 2s;
+}
+
+.ant-layout-footer::before {
+  left: 80%;
+  animation: heart-float-5 11s linear infinite;
+  animation-delay: 4s;
+}
+
+/* Animações individuais para variação */
+@keyframes heart-float-1 {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.7;
+  }
+  90% {
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateY(-120vh) translateX(20px) rotate(180deg);
+    opacity: 0;
+  }
+}
+
+@keyframes heart-float-2 {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.8;
+  }
+  85% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(-110vh) translateX(-15px) rotate(240deg);
+    opacity: 0;
+  }
+}
+
+@keyframes heart-float-3 {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.6;
+  }
+  80% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(-130vh) translateX(30px) rotate(300deg);
+    opacity: 0;
+  }
+}
+
+@keyframes heart-float-4 {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.5;
+  }
+  88% {
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateY(-115vh) translateX(-25px) rotate(150deg);
+    opacity: 0;
+  }
+}
+
+@keyframes heart-float-5 {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  18% {
+    opacity: 0.9;
+  }
+  82% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(-125vh) translateX(10px) rotate(270deg);
+    opacity: 0;
+  }
 }
 
 /* 
 ////////////////////////////////////////////////////////////////////////////////
-// 3. HEADER SEXY COM ELEMENTOS BUNNY
+// 4. HEADER SEXY COM ELEMENTOS BUNNY
 ////////////////////////////////////////////////////////////////////////////////
 */
 
@@ -154,36 +257,6 @@
   position: fixed !important;
   width: 100%;
   z-index: 999;
-}
-
-/* Orelhas de bunny decorativas no topo */
-.ant-layout-header::before {
-  content: "🐰";
-  position: absolute;
-  left: 50%;
-  top: -15px;
-  transform: translateX(-50%);
-  font-size: 24px;
-  filter: drop-shadow(0 0 10px var(--ruby));
-  z-index: 1000;
-}
-
-/* Coração no header */
-.ant-layout-header::after {
-  content: "♡";
-  position: absolute;
-  right: 30px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 24px;
-  color: var(--ruby);
-  text-shadow: var(--glow-ruby);
-  animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { transform: translateY(-50%) scale(1); }
-  50% { transform: translateY(-50%) scale(1.2); }
 }
 
 .ant-menu-dark {
@@ -241,7 +314,7 @@
 
 /* 
 ////////////////////////////////////////////////////////////////////////////////
-// 4. BOTÕES SEDUTORES COM NEON
+// 5. BOTÕES SEDUTORES COM NEON
 ////////////////////////////////////////////////////////////////////////////////
 */
 
@@ -294,28 +367,9 @@ button.ant-btn:has(.anticon-star) {
   50% { transform: scale(1.05); }
 }
 
-/* Efeito de partículas para elementos importantes */
-.ant-btn-primary::after {
-  content: "";
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: linear-gradient(45deg, var(--ruby), var(--neon-purple), var(--neon-blue), var(--ruby));
-  border-radius: 27px;
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.ant-btn-primary:hover::after {
-  opacity: 1;
-}
-
 /* 
 ////////////////////////////////////////////////////////////////////////////////
-// 5. CARDS E CONTAINERS LUXUOSOS
+// 6. CARDS E CONTAINERS LUXUOSOS
 ////////////////////////////////////////////////////////////////////////////////
 */
 
@@ -328,6 +382,8 @@ button.ant-btn:has(.anticon-star) {
     0 8px 32px rgba(0, 0, 0, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
   transition: all 0.3s ease !important;
+  position: relative;
+  z-index: 2;
 }
 
 .ant-card:hover {
@@ -354,7 +410,7 @@ button.ant-btn:has(.anticon-star) {
 
 /* 
 ////////////////////////////////////////////////////////////////////////////////
-// 6. TAGS E BADGES ESTILIZADOS
+// 7. TAGS E BADGES ESTILIZADOS
 ////////////////////////////////////////////////////////////////////////////////
 */
 
@@ -379,7 +435,7 @@ button.ant-btn:has(.anticon-star) {
 
 /* 
 ////////////////////////////////////////////////////////////////////////////////
-// 7. FORMULÁRIOS E INPUTS SENSUAIS
+// 8. FORMULÁRIOS E INPUTS SENSUAIS
 ////////////////////////////////////////////////////////////////////////////////
 */
 
@@ -412,7 +468,7 @@ button.ant-btn:has(.anticon-star) {
 
 /* 
 ////////////////////////////////////////////////////////////////////////////////
-// 8. COLLAPSE E ACORDEÕES
+// 9. COLLAPSE E ACORDEÕES
 ////////////////////////////////////////////////////////////////////////////////
 */
 
@@ -450,13 +506,33 @@ button.ant-btn:has(.anticon-star) {
 
 /* 
 ////////////////////////////////////////////////////////////////////////////////
-// 9. TYPOGRAPHY PERSONALIZADA
+// 10. ELEMENTOS BUNNY TEMÁTICOS DECORATIVOS
+////////////////////////////////////////////////////////////////////////////////
+*/
+
+/* Orelhas de bunny decorativas no topo */
+.ant-layout-header::before {
+  content: "🐰";
+  position: absolute;
+  left: 50%;
+  top: -15px;
+  transform: translateX(-50%);
+  font-size: 24px;
+  filter: drop-shadow(0 0 10px var(--ruby));
+  z-index: 1000;
+}
+
+/* 
+////////////////////////////////////////////////////////////////////////////////
+// 11. TYPOGRAPHY PERSONALIZADA
 ////////////////////////////////////////////////////////////////////////////////
 */
 
 .ant-typography {
   color: var(--champagne) !important;
   font-family: var(--font-modern) !important;
+  position: relative;
+  z-index: 2;
 }
 
 h1.ant-typography {
@@ -485,7 +561,7 @@ h3.ant-typography {
 
 /* 
 ////////////////////////////////////////////////////////////////////////////////
-// 10. SCROLLBAR PERSONALIZADA
+// 12. SCROLLBAR PERSONALIZADA
 ////////////////////////////////////////////////////////////////////////////////
 */
 
@@ -508,7 +584,7 @@ h3.ant-typography {
 
 /* 
 ////////////////////////////////////////////////////////////////////////////////
-// 11. ANIMAÇÕES E EFEITOS ESPECIAIS
+// 13. ANIMAÇÕES E EFEITOS ESPECIAIS
 ////////////////////////////////////////////////////////////////////////////////
 */
 
@@ -521,9 +597,28 @@ h3.ant-typography {
   animation: neon-pulse 2s ease-in-out infinite;
 }
 
+/* Efeito de partículas para elementos importantes */
+.ant-btn-primary::after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--ruby), var(--neon-purple), var(--neon-blue), var(--ruby));
+  border-radius: 27px;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.ant-btn-primary:hover::after {
+  opacity: 1;
+}
+
 /* 
 ////////////////////////////////////////////////////////////////////////////////
-// 12. RESPONSIVIDADE
+// 14. RESPONSIVIDADE
 ////////////////////////////////////////////////////////////////////////////////
 */
 
@@ -544,15 +639,17 @@ h3.ant-typography {
   .ant-card {
     margin: 10px !important;
   }
-
-  .heart-container .heart {
-    font-size: 14px !important;
+  
+  /* Reduz intensidade dos corações em mobile */
+  .ant-layout::after {
+    font-size: 18px;
+    opacity: 0.4;
   }
 }
 
 /* 
 ////////////////////////////////////////////////////////////////////////////////
-// 13. ELEMENTOS ESPECÍFICOS DO CHUB
+// 15. ELEMENTOS ESPECÍFICOS DO CHUB
 ////////////////////////////////////////////////////////////////////////////////
 */
 
@@ -584,13 +681,13 @@ div#chara-list {
 
 /* 
 ////////////////////////////////////////////////////////////////////////////////
-// 14. EFEITOS FINAIS DE IMERSÃO
+// 16. EFEITOS FINAIS DE IMERSÃO
 ////////////////////////////////////////////////////////////////////////////////
 */
 
 .ant-layout-content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   padding-top: 90px !important;
 }
 
@@ -604,4 +701,15 @@ div#chara-list {
 /* Transições suaves para tudo */
 * {
   transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Garantir que o conteúdo fique acima dos corações */
+.ant-layout-content > *,
+.ant-card,
+.ant-btn,
+.ant-input,
+.ant-select,
+.ant-tag {
+  position: relative;
+  z-index: 2;
 }
