@@ -1,0 +1,586 @@
+/*
+=================================================================
+  DARK SEXY BUNNY GIRL CAFÉ - NEON ALLURE THEME
+=================================================================
+*/
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 1. FONT IMPORTS & VARIABLES
+////////////////////////////////////////////////////////////////////////////////
+*/
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Orbitron:wght@400;700&family=Raleway:wght@300;400;600&display=swap');
+
+:root {
+  --deep-night: #0a0a0f;
+  --velvet-black: #1a1a2e;
+  --dark-chocolate: #2d1b17;
+  --ruby-red: #ff0055;
+  --electric-purple: #9d00ff;
+  --hot-pink: #ff2a6d;
+  --neon-blue: #00f3ff;
+  --golden-glow: #ffd700;
+  --silver-mist: #e0e0e0;
+  --accent: var(--ruby-red);
+  --font-elegant: 'Playfair Display', serif;
+  --font-neon: 'Orbitron', sans-serif;
+  --font-body: 'Raleway', sans-serif;
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 2. CORE THEME RESET - DARK SEXY BUNNY CAFÉ
+////////////////////////////////////////////////////////////////////////////////
+*/
+.bb-sec {
+  --ink: var(--silver-mist);
+  --muted: #a0a0a0;
+  font-family: var(--font-body);
+  position: relative;
+  --gap: 20px;
+  --hero-over: clamp(80px, 10vw, 200px);
+  overflow: visible !important;
+  background: linear-gradient(135deg, var(--velvet-black) 0%, var(--deep-night) 50%, var(--dark-chocolate) 100%);
+  min-height: 100vh;
+}
+
+.bb-sec::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(255, 0, 85, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(157, 0, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(255, 42, 109, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bb-wrap {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  overflow: visible !important;
+  position: relative;
+  z-index: 2;
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 3. BUNNY CAFÉ HEADER & TYPOGRAPHY
+////////////////////////////////////////////////////////////////////////////////
+*/
+.bb-header {
+  margin-bottom: 32px;
+  position: relative;
+}
+
+.bb-collection-subtitle {
+  display: inline-block;
+  background: linear-gradient(45deg, var(--ruby-red), var(--hot-pink));
+  color: var(--velvet-black);
+  padding: 8px 16px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .15em;
+  text-decoration: none;
+  margin-bottom: 20px;
+  clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
+  transition: all 0.3s ease;
+  font-family: var(--font-neon);
+  text-shadow: 0 0 10px rgba(255, 0, 85, 0.5);
+}
+
+.bb-collection-subtitle:hover {
+  background: linear-gradient(45deg, var(--neon-blue), var(--electric-purple));
+  transform: translateX(5px);
+  text-shadow: 0 0 15px rgba(0, 243, 255, 0.8);
+}
+
+.bb-title {
+  font-family: var(--font-elegant);
+  font-size: clamp(52px, 9vw, 100px) !important;
+  line-height: 1 !important;
+  font-weight: 700 !important;
+  background: linear-gradient(45deg, var(--silver-mist), var(--golden-glow));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0 0 16px !important;
+  letter-spacing: 0.03em !important;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.bb-title::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--ruby-red), transparent);
+}
+
+.bb-tagline {
+  font-size: clamp(18px, 2vw, 20px) !important;
+  line-height: 1.6 !important;
+  font-weight: 300 !important;
+  color: var(--silver-mist) !important;
+  max-width: none !important;
+  width: auto !important;
+  font-style: italic;
+  opacity: 0.9;
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 4. SEXY NEON CARDS & CONTAINERS
+////////////////////////////////////////////////////////////////////////////////
+*/
+.bb-intros {
+  background: rgba(26, 26, 46, 0.8);
+  backdrop-filter: blur(10px);
+  padding: clamp(20px, 3vw, 32px);
+  position: relative;
+  overflow: visible !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.bb-intros::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    var(--ruby-red), 
+    var(--hot-pink), 
+    var(--electric-purple), 
+    transparent);
+  animation: neonFlow 3s ease-in-out infinite;
+}
+
+.bb-section-title {
+  font-family: var(--font-neon);
+  text-transform: uppercase;
+  font-style: normal;
+  letter-spacing: 0.1em;
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 600;
+  margin: 0 0 clamp(12px, 2vw, 18px);
+  color: var(--neon-blue);
+  display: flex;
+  align-items: center;
+  gap: .8em;
+  line-height: 1.2;
+  text-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
+}
+
+.bb-section-title::before {
+  content: "✦";
+  color: var(--hot-pink);
+  font-size: 1.2em;
+}
+
+.bb-intro-list {
+  margin: 0;
+  padding: 0 !important;
+  list-style: none;
+  counter-reset: scn;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.bb-intro-list li {
+  counter-increment: scn;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+  padding: 20px 20px 20px 80px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+.bb-intro-list li:hover {
+  transform: translateX(5px);
+  border-color: var(--ruby-red);
+  box-shadow: 0 5px 20px rgba(255, 0, 85, 0.2);
+}
+
+.bb-intro-list li::before {
+  content: counter(scn, decimal-leading-zero);
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-neon);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--accent);
+  z-index: 1;
+  text-shadow: 0 0 15px currentColor;
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 5. BUNNY-THEMED BUTTONS & INTERACTIVE ELEMENTS
+////////////////////////////////////////////////////////////////////////////////
+*/
+.ant-btn {
+  position: relative;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: .5em;
+  white-space: nowrap;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  height: 48px !important;
+  min-width: 64px !important;
+  padding: .5em 1.8em !important;
+  border-radius: 25px !important;
+  transition: all 0.3s ease !important;
+  cursor: pointer;
+  overflow: hidden !important;
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.ant-btn.ant-btn-default {
+  background: linear-gradient(135deg, var(--velvet-black), var(--deep-night)) !important;
+  color: var(--silver-mist) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+}
+
+.ant-btn.ant-btn-default:hover {
+  background: linear-gradient(135deg, var(--ruby-red), var(--hot-pink)) !important;
+  color: var(--velvet-black) !important;
+  border-color: transparent !important;
+  transform: translateY(-2px);
+  box-shadow: 
+    0 8px 25px rgba(255, 0, 85, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+}
+
+.ant-btn.ant-btn-primary {
+  background: linear-gradient(135deg, var(--ruby-red), var(--hot-pink)) !important;
+  color: var(--velvet-black) !important;
+  border: none !important;
+  box-shadow: 
+    0 4px 20px rgba(255, 0, 85, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.1) !important;
+  font-weight: 700 !important;
+}
+
+.ant-btn.ant-btn-primary:hover {
+  background: linear-gradient(135deg, var(--electric-purple), var(--neon-blue)) !important;
+  transform: translateY(-2px);
+  box-shadow: 
+    0 8px 30px rgba(157, 0, 255, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Bunny Ear Effect on Hover */
+.ant-btn::before,
+.ant-btn::after {
+  content: "";
+  position: absolute;
+  top: -8px;
+  width: 15px;
+  height: 20px;
+  background: linear-gradient(135deg, var(--ruby-red), var(--hot-pink));
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.ant-btn::before { left: 15px; }
+.ant-btn::after { right: 15px; }
+
+.ant-btn:hover::before,
+.ant-btn:hover::after {
+  opacity: 1;
+  transform: translateY(5px);
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 6. NEON TAGS & BADGES
+////////////////////////////////////////////////////////////////////////////////
+*/
+.ant-tag {
+  background: linear-gradient(135deg, rgba(255, 0, 85, 0.2), rgba(157, 0, 255, 0.2)) !important;
+  color: var(--silver-mist) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 15px !important;
+  padding: 6px 12px !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  transition: all 0.3s ease !important;
+  backdrop-filter: blur(5px);
+  letter-spacing: 0.05em;
+}
+
+.ant-tag:hover {
+  background: linear-gradient(135deg, var(--ruby-red), var(--electric-purple)) !important;
+  color: var(--velvet-black) !important;
+  border-color: transparent !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(255, 0, 85, 0.3);
+  cursor: pointer;
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 7. SEXTY NEON LAYOUT COMPONENTS
+////////////////////////////////////////////////////////////////////////////////
+*/
+.ant-layout-header {
+  background: rgba(10, 10, 15, 0.9) !important;
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+.ant-menu-dark {
+  background: transparent !important;
+}
+
+.ant-menu-item {
+  transition: all 0.3s ease !important;
+  border-radius: 20px !important;
+  margin: 0 4px !important;
+}
+
+.ant-menu-item:hover {
+  background: linear-gradient(135deg, var(--ruby-red), var(--hot-pink)) !important;
+  color: var(--velvet-black) !important;
+}
+
+.ant-collapse {
+  background: rgba(26, 26, 46, 0.6) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 15px !important;
+}
+
+.ant-collapse-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+.ant-collapse-content {
+  background: rgba(10, 10, 15, 0.8) !important;
+  backdrop-filter: blur(5px);
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 8. BUNNY CAFÉ SPECIAL ELEMENTS
+////////////////////////////////////////////////////////////////////////////////
+*/
+.bb-support {
+  background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(45, 27, 23, 0.9));
+  backdrop-filter: blur(10px);
+  margin-top: 32px !important;
+  padding: clamp(20px, 3vw, 32px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.bb-support::before {
+  content: "🐰";
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 24px;
+  opacity: 0.3;
+}
+
+.bb-kbtn {
+  background: linear-gradient(135deg, var(--golden-glow), var(--ruby-red)) !important;
+  color: var(--velvet-black) !important;
+  border: none !important;
+  border-radius: 25px !important;
+  padding: 15px 30px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  box-shadow: 
+    0 6px 25px rgba(255, 215, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+  transition: all 0.3s ease !important;
+}
+
+.bb-kbtn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 
+    0 10px 35px rgba(255, 215, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 9. ANIMATIONS & KEYFRAMES
+////////////////////////////////////////////////////////////////////////////////
+*/
+@keyframes neonFlow {
+  0%, 100% {
+    opacity: 0.7;
+    background-position: -200% 0;
+  }
+  50% {
+    opacity: 1;
+    background-position: 200% 0;
+  }
+}
+
+@keyframes gentle-shake {
+  0%, 80% {
+    transform: translateX(-12px) scale(1.15) rotate(0deg);
+  }
+  84% {
+    transform: translateX(-12px) scale(1.15) rotate(-5deg);
+  }
+  88% {
+    transform: translateX(-12px) scale(1.15) rotate(4deg);
+  }
+  92% {
+    transform: translateX(-12px) scale(1.15) rotate(-2deg);
+  }
+  96% {
+    transform: translateX(-12px) scale(1.15) rotate(1deg);
+  }
+  100% {
+    transform: translateX(-12px) scale(1.15) rotate(0deg);
+  }
+}
+
+@keyframes premium-sweep {
+  to {
+    background-position: 200% center;
+  }
+}
+
+@keyframes fadeInUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(30px) rotateX(10deg); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0) rotateX(0); 
+  }
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 10. RESPONSIVE DESIGN
+////////////////////////////////////////////////////////////////////////////////
+*/
+@media (max-width: 768px) {
+  .bb-sec {
+    background: linear-gradient(135deg, var(--velvet-black), var(--deep-night));
+  }
+  
+  .bb-title {
+    font-size: clamp(36px, 12vw, 60px) !important;
+  }
+  
+  .ant-btn {
+    width: 100% !important;
+    margin-bottom: 8px;
+  }
+  
+  .bb-intros {
+    margin: 0 -10px !important;
+    border-radius: 0 !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .bbx-band::before {
+    background: radial-gradient(circle at 70% 50%, rgba(255, 0, 85, 0.1), transparent 50%);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 11. CHUB.AI OVERRIDES - BUNNY CAFÉ STYLE
+////////////////////////////////////////////////////////////////////////////////
+*/
+h3.ant-typography,
+h5.ant-typography,
+div.msg-mkdn-container:not(:has(.bb-sec)),
+h4.ant-typography.mt-8,
+h4.ant-typography.mt-8+div {
+  display: none !important;
+}
+
+.ant-layout-footer {
+  display: none !important;
+}
+
+/* Bunny-themed credit */
+.bunnyui-credit {
+  position: fixed;
+  left: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 2147483647;
+  font-family: var(--font-neon);
+  font-size: .75rem;
+  color: var(--silver-mist);
+  text-decoration: none;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.bunnyui-credit:hover {
+  opacity: 1;
+  color: var(--ruby-red);
+  text-shadow: 0 0 10px rgba(255, 0, 85, 0.5);
+}
+
+/* Premium favorite button with bunny theme */
+button.ant-btn:has(.anticon-star svg path[d*="zM"]) {
+  background: linear-gradient(135deg, var(--golden-glow), var(--ruby-red)) !important;
+  border: none !important;
+  box-shadow: 
+    0 4px 20px rgba(255, 215, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+}
+
+button.ant-btn:has(.anticon-star svg path[d*="zM"]) .anticon-star svg path {
+  fill: var(--velvet-black) !important;
+}
