@@ -1,0 +1,635 @@
+/* =================================================================
+  DARK SEXY BUNNY GIRL CAFÉ THEME - CSS ONLY
+  Transformação completa do perfil para ambiente sensual e misterioso
+================================================================= */
+
+/* 
+////////////////////////////////////////////////////////////////////////////////
+// 1. FONT IMPORTS & VARIÁVEIS GLOBAIS
+////////////////////////////////////////////////////////////////////////////////
+*/
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600;700&family=Orbitron:wght@400;700&display=swap');
+
+:root {
+  --dark-bg: #0a0a0a;
+  --deep-dark: #111111;
+  --velvet: #1a0f14;
+  --ruby: #ff2a6d;
+  --neon-purple: #bd00ff;
+  --neon-blue: #00f3ff;
+  --neon-pink: #ff00c8;
+  --gold: #ffd700;
+  --champagne: #f7e7ce;
+  --smoke: rgba(255, 255, 255, 0.1);
+  --glow-ruby: 0 0 10px rgba(255, 42, 109, 0.7), 0 0 20px rgba(255, 42, 109, 0.5);
+  --glow-purple: 0 0 10px rgba(189, 0, 255, 0.7), 0 0 20px rgba(189, 0, 255, 0.5);
+  --glow-blue: 0 0 10px rgba(0, 243, 255, 0.7), 0 0 20px rgba(0, 243, 255, 0.5);
+  --font-elegant: 'Playfair Display', serif;
+  --font-modern: 'Inter', sans-serif;
+  --font-neon: 'Orbitron', monospace;
+}
+
+/* 
+////////////////////////////////////////////////////////////////////////////////
+// 2. FUNDO PRINCIPAL E LAYOUT BASE
+////////////////////////////////////////////////////////////////////////////////
+*/
+
+.ant-layout {
+  background: linear-gradient(135deg, var(--dark-bg) 0%, var(--velvet) 50%, var(--deep-dark) 100%) !important;
+  min-height: 100vh;
+  position: relative;
+  overflow: auto !important;
+}
+
+.ant-layout::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(255, 42, 109, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(189, 0, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(0, 243, 255, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 
+////////////////////////////////////////////////////////////////////////////////
+// 3. ANIMAÇÃO DOS CORAÇÕES SUBINDO - MAIS CORAÇÕES!
+////////////////////////////////////////////////////////////////////////////////
+*/
+
+.heart {
+  position: fixed;
+  bottom: -50px;
+  font-size: 24px;
+  color: var(--ruby);
+  text-shadow: 0 0 15px var(--ruby), 0 0 30px var(--neon-pink);
+  animation: floatUp 6s linear infinite;
+  opacity: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Criando MUITOS mais corações - 30 corações no total! */
+.heart:nth-child(1) { left: 5%; animation-delay: 0s; animation-duration: 8s; }
+.heart:nth-child(2) { left: 10%; animation-delay: 0.3s; animation-duration: 7s; }
+.heart:nth-child(3) { left: 15%; animation-delay: 0.6s; animation-duration: 9s; }
+.heart:nth-child(4) { left: 20%; animation-delay: 0.9s; animation-duration: 6.5s; }
+.heart:nth-child(5) { left: 25%; animation-delay: 1.2s; animation-duration: 8.5s; }
+.heart:nth-child(6) { left: 30%; animation-delay: 1.5s; animation-duration: 7.2s; }
+.heart:nth-child(7) { left: 35%; animation-delay: 1.8s; animation-duration: 8.8s; }
+.heart:nth-child(8) { left: 40%; animation-delay: 2.1s; animation-duration: 6.8s; }
+.heart:nth-child(9) { left: 45%; animation-delay: 2.4s; animation-duration: 9.2s; }
+.heart:nth-child(10) { left: 50%; animation-delay: 2.7s; animation-duration: 7.5s; }
+.heart:nth-child(11) { left: 55%; animation-delay: 3s; animation-duration: 8.2s; }
+.heart:nth-child(12) { left: 60%; animation-delay: 3.3s; animation-duration: 6.7s; }
+.heart:nth-child(13) { left: 65%; animation-delay: 3.6s; animation-duration: 9s; }
+.heart:nth-child(14) { left: 70%; animation-delay: 3.9s; animation-duration: 7.8s; }
+.heart:nth-child(15) { left: 75%; animation-delay: 4.2s; animation-duration: 8.4s; }
+.heart:nth-child(16) { left: 80%; animation-delay: 4.5s; animation-duration: 6.9s; }
+.heart:nth-child(17) { left: 85%; animation-delay: 4.8s; animation-duration: 9.1s; }
+.heart:nth-child(18) { left: 90%; animation-delay: 5.1s; animation-duration: 7.3s; }
+.heart:nth-child(19) { left: 95%; animation-delay: 5.4s; animation-duration: 8.6s; }
+.heart:nth-child(20) { left: 8%; animation-delay: 5.7s; animation-duration: 7.1s; }
+.heart:nth-child(21) { left: 18%; animation-delay: 6s; animation-duration: 8.9s; }
+.heart:nth-child(22) { left: 28%; animation-delay: 6.3s; animation-duration: 6.6s; }
+.heart:nth-child(23) { left: 38%; animation-delay: 6.6s; animation-duration: 9.3s; }
+.heart:nth-child(24) { left: 48%; animation-delay: 6.9s; animation-duration: 7.4s; }
+.heart:nth-child(25) { left: 58%; animation-delay: 7.2s; animation-duration: 8.1s; }
+.heart:nth-child(26) { left: 68%; animation-delay: 7.5s; animation-duration: 6.8s; }
+.heart:nth-child(27) { left: 78%; animation-delay: 7.8s; animation-duration: 9.4s; }
+.heart:nth-child(28) { left: 88%; animation-delay: 8.1s; animation-duration: 7.6s; }
+.heart:nth-child(29) { left: 98%; animation-delay: 8.4s; animation-duration: 8.3s; }
+.heart:nth-child(30) { left: 12%; animation-delay: 8.7s; animation-duration: 7.9s; }
+
+/* Corações extras com cores variadas */
+.heart:nth-child(3n) { color: var(--neon-pink); text-shadow: 0 0 15px var(--neon-pink), 0 0 30px rgba(255, 0, 200, 0.6); }
+.heart:nth-child(5n) { color: var(--gold); text-shadow: 0 0 15px var(--gold), 0 0 30px rgba(255, 215, 0, 0.6); font-size: 28px; }
+.heart:nth-child(7n) { color: var(--neon-purple); text-shadow: 0 0 15px var(--neon-purple), 0 0 30px rgba(189, 0, 255, 0.6); }
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(0.8);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(-30px) rotate(5deg) scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: translateY(-250px) rotate(15deg) scale(1.1);
+  }
+  80% {
+    opacity: 0.4;
+    transform: translateY(-450px) rotate(25deg) scale(1.2);
+  }
+  100% {
+    transform: translateY(-600px) rotate(30deg) scale(1.3);
+    opacity: 0;
+  }
+}
+
+/* 
+////////////////////////////////////////////////////////////////////////////////
+// 4. SCROLLBAR PERSONALIZADA - ESTILO SENSUAL
+////////////////////////////////////////////////////////////////////////////////
+*/
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: linear-gradient(180deg, var(--deep-dark), var(--velvet));
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, var(--ruby), var(--neon-purple));
+  border-radius: 10px;
+  border: 2px solid var(--deep-dark);
+  box-shadow: var(--glow-ruby);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, var(--neon-purple), var(--neon-blue));
+  box-shadow: var(--glow-purple);
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--deep-dark);
+}
+
+/* Para Firefox */
+.ant-layout {
+  scrollbar-width: thin;
+  scrollbar-color: var(--ruby) var(--deep-dark);
+}
+
+/* 
+////////////////////////////////////////////////////////////////////////////////
+// 5. HEADER SEXY COM ELEMENTOS BUNNY
+////////////////////////////////////////////////////////////////////////////////
+*/
+
+.ant-layout-header {
+  background: rgba(10, 10, 10, 0.95) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--ruby) !important;
+  box-shadow: var(--glow-ruby);
+  height: 70px !important;
+  padding: 0 30px !important;
+  position: fixed !important;
+  width: 100%;
+  z-index: 999;
+}
+
+.ant-menu-dark {
+  background: transparent !important;
+  border-bottom: none !important;
+}
+
+.ant-menu-horizontal {
+  line-height: 68px !important;
+  border: none !important;
+}
+
+.ant-menu-item {
+  margin: 0 15px !important;
+  padding: 0 20px !important;
+  border-radius: 25px !important;
+  transition: all 0.3s ease !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.ant-menu-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 42, 109, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.ant-menu-item:hover::before {
+  left: 100%;
+}
+
+.ant-menu-item-selected {
+  background: linear-gradient(135deg, var(--ruby), var(--neon-purple)) !important;
+  box-shadow: var(--glow-ruby);
+}
+
+.ant-menu-item a {
+  color: var(--champagne) !important;
+  font-family: var(--font-modern);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 13px;
+}
+
+.ant-menu-item:hover a {
+  color: var(--gold) !important;
+  text-shadow: 0 0 10px var(--gold);
+}
+
+/* 
+////////////////////////////////////////////////////////////////////////////////
+// 6. BOTÕES SEDUTORES COM NEON
+////////////////////////////////////////////////////////////////////////////////
+*/
+
+.ant-btn {
+  border-radius: 25px !important;
+  font-family: var(--font-modern) !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  transition: all 0.3s ease !important;
+  position: relative;
+  overflow: hidden;
+  border: none !important;
+}
+
+.ant-btn-default {
+  background: linear-gradient(135deg, var(--deep-dark), var(--velvet)) !important;
+  color: var(--champagne) !important;
+  box-shadow: 0 0 0 1px var(--ruby) !important;
+}
+
+.ant-btn-default:hover {
+  background: linear-gradient(135deg, var(--ruby), var(--neon-purple)) !important;
+  color: white !important;
+  box-shadow: var(--glow-ruby) !important;
+  transform: translateY(-2px);
+}
+
+.ant-btn-primary {
+  background: linear-gradient(135deg, var(--ruby), var(--neon-purple)) !important;
+  color: white !important;
+  box-shadow: var(--glow-ruby) !important;
+}
+
+.ant-btn-primary:hover {
+  background: linear-gradient(135deg, var(--neon-purple), var(--neon-blue)) !important;
+  box-shadow: var(--glow-purple) !important;
+  transform: translateY(-2px);
+}
+
+/* Botão de favorito com efeito bunny especial */
+button.ant-btn:has(.anticon-star) {
+  background: linear-gradient(135deg, var(--gold), #ffaa00) !important;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.7) !important;
+  animation: gentle-pulse 2s ease-in-out infinite;
+}
+
+@keyframes gentle-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* 
+////////////////////////////////////////////////////////////////////////////////
+// 7. CARDS E CONTAINERS LUXUOSOS
+////////////////////////////////////////////////////////////////////////////////
+*/
+
+.ant-card {
+  background: rgba(26, 15, 20, 0.8) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--smoke) !important;
+  border-radius: 15px !important;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+  transition: all 0.3s ease !important;
+  position: relative;
+  z-index: 2;
+}
+
+.ant-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 12px 40px rgba(255, 42, 109, 0.2),
+    var(--glow-ruby) !important;
+  border-color: var(--ruby) !important;
+}
+
+.ant-card-head {
+  border-bottom: 1px solid var(--ruby) !important;
+  background: linear-gradient(135deg, transparent, rgba(255, 42, 109, 0.1)) !important;
+}
+
+.ant-card-head-title {
+  color: var(--champagne) !important;
+  font-family: var(--font-elegant) !important;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 18px !important;
+}
+
+/* 
+////////////////////////////////////////////////////////////////////////////////
+// 8. TAGS E BADGES ESTILIZADOS
+////////////////////////////////////////////////////////////////////////////////
+*/
+
+.ant-tag {
+  border: none !important;
+  border-radius: 15px !important;
+  padding: 4px 12px !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple)) !important;
+  color: white !important;
+  box-shadow: var(--glow-blue) !important;
+  transition: all 0.3s ease !important;
+}
+
+.ant-tag:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--glow-purple) !important;
+}
+
+/* 
+////////////////////////////////////////////////////////////////////////////////
+// 9. FORMULÁRIOS E INPUTS SENSUAIS
+////////////////////////////////////////////////////////////////////////////////
+*/
+
+.ant-input {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid var(--smoke) !important;
+  border-radius: 10px !important;
+  color: var(--champagne) !important;
+  font-family: var(--font-modern) !important;
+  transition: all 0.3s ease !important;
+  position: relative;
+  z-index: 2;
+}
+
+.ant-input:focus {
+  border-color: var(--ruby) !important;
+  box-shadow: var(--glow-ruby) !important;
+  background: rgba(255, 42, 109, 0.05) !important;
+}
+
+.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid var(--smoke) !important;
+  border-radius: 10px !important;
+  color: var(--champagne) !important;
+}
+
+.ant-select-focused:not(.ant-select-disabled).ant-select:not(.ant-select-customize-input) .ant-select-selector {
+  border-color: var(--ruby) !important;
+  box-shadow: var(--glow-ruby) !important;
+}
+
+/* 
+////////////////////////////////////////////////////////////////////////////////
+// 10. COLLAPSE E ACORDEÕES
+////////////////////////////////////////////////////////////////////////////////
+*/
+
+.ant-collapse {
+  background: transparent !important;
+  border: none !important;
+}
+
+.ant-collapse-item {
+  border: none !important;
+  margin-bottom: 10px !important;
+}
+
+.ant-collapse-header {
+  background: rgba(26, 15, 20, 0.8) !important;
+  border-radius: 10px !important;
+  border: 1px solid var(--smoke) !important;
+  color: var(--champagne) !important;
+  font-family: var(--font-modern) !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+}
+
+.ant-collapse-header:hover {
+  border-color: var(--ruby) !important;
+  box-shadow: var(--glow-ruby) !important;
+}
+
+.ant-collapse-content {
+  background: rgba(10, 10, 10, 0.8) !important;
+  border: none !important;
+  border-radius: 0 0 10px 10px !important;
+  color: var(--champagne) !important;
+}
+
+/* 
+////////////////////////////////////////////////////////////////////////////////
+// 11. ELEMENTOS BUNNY TEMÁTICOS DECORATIVOS
+////////////////////////////////////////////////////////////////////////////////
+*/
+
+/* Orelhas de bunny decorativas no topo */
+.ant-layout-header::before {
+  content: "🐰";
+  position: absolute;
+  left: 50%;
+  top: -15px;
+  transform: translateX(-50%);
+  font-size: 24px;
+  filter: drop-shadow(0 0 10px var(--ruby));
+  z-index: 1000;
+}
+
+/* 
+////////////////////////////////////////////////////////////////////////////////
+// 12. TYPOGRAPHY PERSONALIZADA
+////////////////////////////////////////////////////////////////////////////////
+*/
+
+.ant-typography {
+  color: var(--champagne) !important;
+  font-family: var(--font-modern) !important;
+  position: relative;
+  z-index: 2;
+}
+
+h1.ant-typography {
+  color: var(--gold) !important;
+  font-family: var(--font-elegant) !important;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-shadow: var(--glow-ruby);
+  font-size: 2.5em !important;
+}
+
+h2.ant-typography {
+  color: var(--ruby) !important;
+  font-family: var(--font-elegant) !important;
+  border-bottom: 2px solid var(--ruby);
+  padding-bottom: 10px;
+  font-size: 2em !important;
+}
+
+h3.ant-typography {
+  color: var(--neon-blue) !important;
+  font-family: var(--font-neon) !important;
+  text-shadow: var(--glow-blue);
+  font-size: 1.5em !important;
+}
+
+/* 
+////////////////////////////////////////////////////////////////////////////////
+// 13. ANIMAÇÕES E EFEITOS ESPECIAIS
+////////////////////////////////////////////////////////////////////////////////
+*/
+
+@keyframes neon-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.neon-text {
+  animation: neon-pulse 2s ease-in-out infinite;
+}
+
+/* Efeito de partículas para elementos importantes */
+.ant-btn-primary::after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--ruby), var(--neon-purple), var(--neon-blue), var(--ruby));
+  border-radius: 27px;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.ant-btn-primary:hover::after {
+  opacity: 1;
+}
+
+/* 
+////////////////////////////////////////////////////////////////////////////////
+// 14. RESPONSIVIDADE
+////////////////////////////////////////////////////////////////////////////////
+*/
+
+@media (max-width: 768px) {
+  .ant-layout-header {
+    padding: 0 15px !important;
+  }
+  
+  .ant-menu-item {
+    margin: 0 5px !important;
+    padding: 0 10px !important;
+  }
+  
+  h1.ant-typography {
+    font-size: 1.8em !important;
+  }
+  
+  .ant-card {
+    margin: 10px !important;
+  }
+  
+  /* Ainda mantém muitos corações em mobile, mas menos que no desktop */
+  .heart:nth-child(n+25) {
+    display: none;
+  }
+}
+
+/* 
+////////////////////////////////////////////////////////////////////////////////
+// 15. ELEMENTOS ESPECÍFICOS DO CHUB
+////////////////////////////////////////////////////////////////////////////////
+*/
+
+/* Esconder elementos indesejados */
+.ant-layout-footer,
+.no-vertical-anything *,
+div#chara-list {
+  display: none !important;
+}
+
+/* Ajustes para dropdowns do menu */
+.ant-dropdown-menu {
+  background: rgba(26, 15, 20, 0.95) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--ruby) !important;
+  border-radius: 10px !important;
+  box-shadow: var(--glow-ruby) !important;
+}
+
+.ant-dropdown-menu-item {
+  color: var(--champagne) !important;
+  transition: all 0.3s ease !important;
+}
+
+.ant-dropdown-menu-item:hover {
+  background: rgba(255, 42, 109, 0.2) !important;
+  color: var(--gold) !important;
+}
+
+/* 
+////////////////////////////////////////////////////////////////////////////////
+// 16. EFEITOS FINAIS DE IMERSÃO
+////////////////////////////////////////////////////////////////////////////////
+*/
+
+.ant-layout-content {
+  position: relative;
+  z-index: 2;
+  padding-top: 90px !important;
+}
+
+/* Brilho sutil em elementos interativos */
+.ant-btn:focus,
+.ant-input:focus,
+.ant-select-focused .ant-select-selector {
+  outline: none !important;
+}
+
+/* Transições suaves para tudo */
+* {
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Garantir que o conteúdo fique acima dos corações */
+.ant-layout-content > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Script para injetar os corações dinamicamente */
+<script>
+// Injeta os corações no DOM
+document.addEventListener('DOMContentLoaded', function() {
+  const layout = document.querySelector('.ant-layout');
+  if (layout) {
+    for (let i = 1; i <= 30; i++) {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.innerHTML = '♡';
+      layout.appendChild(heart);
+    }
+  }
+});
+</script>
