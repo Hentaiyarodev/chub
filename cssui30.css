@@ -1,0 +1,538 @@
+/* =================================================================
+  DARK SEXY BUNNY GIRL CAFÉ THEME - NEON ALLURE EDITION
+  ================================================================= */
+
+/* ////////////////////////////////////////////////////////////////////////////////
+// 1. FONT IMPORTS - Luxo & Modernidade
+//////////////////////////////////////////////////////////////////////////////// */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap');
+
+/* ////////////////////////////////////////////////////////////////////////////////
+// 2. CORE THEME & LAYOUT - Ambiente Noturno e Sensual
+//////////////////////////////////////////////////////////////////////////////// */
+.bb-sec {
+  --ink: #f0e6ff;
+  --muted: #b8a3cc;
+  --accent: #ff2a6d;
+  --accent-glow: #ff2a6d80;
+  --neon-purple: #bc13fe;
+  --neon-blue: #0ff0fc;
+  --neon-pink: #ff44cc;
+  --velvet-dark: #0a0414;
+  --deep-burgundy: #2d0b1a;
+  font-family: 'Inter', system-ui, sans-serif;
+  position: relative;
+  --gap: 24px;
+  background: linear-gradient(135deg, var(--velvet-dark) 0%, #1a0b2d 50%, var(--deep-burgundy) 100%);
+  overflow: visible !important;
+}
+
+:root { 
+  --pf-cut2: 12px;
+  --bunny-glow: 0 0 20px var(--neon-pink);
+}
+
+.bb-sec * {
+  box-sizing: border-box;
+}
+
+.bb-wrap {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  overflow: visible !important;
+  background: rgba(10, 4, 20, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 42, 109, 0.2);
+  border-radius: 0 0 20px 20px;
+}
+
+.bb-header {
+  margin-bottom: 32px;
+  position: relative;
+}
+
+.bb-collection-subtitle {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--neon-purple), var(--neon-pink));
+  color: #000;
+  padding: 8px 16px;
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .15em;
+  text-decoration: none;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  font-family: 'Orbitron', monospace;
+  box-shadow: var(--bunny-glow);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.bb-collection-subtitle::before {
+  content: "🐰";
+  margin-right: 8px;
+  filter: drop-shadow(0 0 5px var(--neon-pink));
+}
+
+.bb-collection-subtitle:hover {
+  background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px var(--neon-pink);
+}
+
+.bb-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(52px, 9vw, 120px) !important;
+  line-height: 1 !important;
+  font-weight: 700 !important;
+  background: linear-gradient(135deg, #ff2a6d, #bc13fe, #0ff0fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0 0 16px !important;
+  letter-spacing: 0.03em !important;
+  text-transform: uppercase;
+  text-shadow: 0 0 30px var(--accent-glow);
+  position: relative;
+}
+
+.bb-title::after {
+  content: "☕";
+  position: absolute;
+  right: -40px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.6em;
+  filter: drop-shadow(0 0 10px var(--neon-blue));
+}
+
+.bb-tagline {
+  font-size: clamp(18px, 2vw, 20px) !important;
+  line-height: 1.6 !important;
+  font-weight: 300 !important;
+  color: var(--ink) !important;
+  max-width: none !important;
+  width: auto !important;
+  font-style: italic;
+  opacity: 0.9;
+}
+
+.bb-intros {
+  background: linear-gradient(135deg, rgba(42, 10, 60, 0.8), rgba(109, 13, 53, 0.8));
+  padding: clamp(20px, 3vw, 32px);
+  position: relative;
+  overflow: visible !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  border: 1px solid rgba(255, 42, 109, 0.3);
+  border-radius: 15px;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.bb-intros::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--neon-pink), transparent);
+  animation: scanline 3s linear infinite;
+}
+
+@keyframes scanline {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.bb-section-title {
+  font-family: 'Orbitron', monospace;
+  text-transform: uppercase;
+  font-style: normal;
+  letter-spacing: 0.1em;
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 700;
+  margin: 0 0 clamp(12px, 2vw, 18px);
+  color: var(--neon-blue);
+  display: flex;
+  align-items: center;
+  gap: .8em;
+  line-height: 1.2;
+  text-shadow: 0 0 15px var(--neon-blue);
+}
+
+.bb-section-title::before {
+  content: "✦";
+  color: var(--neon-pink);
+  filter: drop-shadow(0 0 8px var(--neon-pink));
+}
+
+.bb-intro-list {
+  margin: 0;
+  padding: 0 !important;
+  list-style: none;
+  counter-reset: scn;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.bb-intro-list li {
+  counter-increment: scn;
+  background: linear-gradient(135deg, rgba(255, 42, 109, 0.1), rgba(188, 19, 254, 0.1));
+  padding: 20px 20px 20px 80px;
+  border: 1px solid rgba(255, 42, 109, 0.2);
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.bb-intro-list li:hover {
+  transform: translateX(8px);
+  border-color: var(--neon-pink);
+  box-shadow: 0 0 20px rgba(255, 68, 204, 0.3);
+}
+
+.bb-intro-list li::before {
+  content: counter(scn, decimal-leading-zero);
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Orbitron', monospace;
+  font-size: 32px;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  z-index: 0;
+  text-shadow: 0 0 20px var(--neon-purple);
+}
+
+/* ////////////////////////////////////////////////////////////////////////////////
+// 3. ANT DESIGN OVERRIDES - Transformação Total
+//////////////////////////////////////////////////////////////////////////////// */
+
+/* === Layout Components === */
+.ant-layout {
+  background: transparent !important;
+}
+
+.ant-layout-header {
+  background: linear-gradient(135deg, rgba(42, 10, 60, 0.95), rgba(109, 13, 53, 0.95)) !important;
+  backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid rgba(255, 42, 109, 0.3) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5) !important;
+}
+
+.ant-menu-dark {
+  background: transparent !important;
+}
+
+.ant-menu-overflow-item.ant-menu-item {
+  background: transparent !important;
+  border-radius: 8px !important;
+  margin: 0 4px !important;
+  transition: all 0.3s ease !important;
+}
+
+.ant-menu-overflow-item.ant-menu-item:hover {
+  background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple)) !important;
+  box-shadow: 0 0 15px var(--neon-pink) !important;
+}
+
+/* === Buttons - Estilo Bunny Café === */
+button.ant-btn {
+  position: relative;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: .6em;
+  white-space: nowrap;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  height: 48px !important;
+  min-width: 72px !important;
+  padding: .6em 1.6em !important;
+  border-radius: 12px !important;
+  transition: all 0.3s ease !important;
+  cursor: pointer;
+  overflow: hidden !important;
+  font-family: 'Orbitron', monospace !important;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+button.ant-btn.ant-btn-default {
+  background: linear-gradient(135deg, #2a0a3c, #6d0d35) !important;
+  color: var(--ink) !important;
+  border: 1px solid var(--neon-purple) !important;
+  box-shadow: 0 0 15px rgba(188, 19, 254, 0.3) !important;
+}
+
+button.ant-btn.ant-btn-default:hover {
+  background: linear-gradient(135deg, var(--neon-purple), var(--neon-pink)) !important;
+  color: #000 !important;
+  box-shadow: 0 0 25px var(--neon-purple) !important;
+  transform: translateY(-2px);
+}
+
+button.ant-btn.ant-btn-primary {
+  background: linear-gradient(135deg, var(--accent), var(--neon-pink)) !important;
+  color: #000 !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 0 0 20px var(--accent-glow) !important;
+  font-weight: 800 !important;
+}
+
+button.ant-btn.ant-btn-primary:hover {
+  background: linear-gradient(135deg, var(--neon-pink), var(--accent)) !important;
+  box-shadow: 0 0 30px var(--neon-pink) !important;
+  transform: translateY(-2px);
+}
+
+/* === Special Chat Button with Bunny Ears Effect === */
+button.ant-btn:has(svg.lucide-messages-square) {
+  background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple)) !important;
+  color: #000 !important;
+  border: 2px solid rgba(255, 255, 255, 0.8) !important;
+  box-shadow: 0 0 30px var(--neon-blue) !important;
+  font-size: 16px !important;
+  font-weight: 900 !important;
+  height: 72px !important;
+  padding: 0 2.2em !important;
+  border-radius: 20px !important;
+  position: relative;
+  overflow: visible !important;
+}
+
+button.ant-btn:has(svg.lucide-messages-square)::before,
+button.ant-btn:has(svg.lucide-messages-square)::after {
+  content: "🐰";
+  position: absolute;
+  top: -15px;
+  font-size: 20px;
+  filter: drop-shadow(0 0 10px var(--neon-pink));
+  opacity: 0.8;
+}
+
+button.ant-btn:has(svg.lucide-messages-square)::before {
+  left: 15px;
+}
+
+button.ant-btn:has(svg.lucide-messages-square)::after {
+  right: 15px;
+}
+
+button.ant-btn:has(svg.lucide-messages-square):hover {
+  background: linear-gradient(135deg, var(--neon-purple), var(--neon-blue)) !important;
+  box-shadow: 0 0 40px var(--neon-purple) !important;
+  transform: translateY(-3px) scale(1.02);
+}
+
+/* === Tags & Badges - Estilo Neon === */
+.ant-tag {
+  background: linear-gradient(135deg, rgba(255, 42, 109, 0.2), rgba(188, 19, 254, 0.2)) !important;
+  color: var(--ink) !important;
+  border: 1px solid var(--neon-pink) !important;
+  border-radius: 6px !important;
+  padding: .3em .8em !important;
+  font-size: .7rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  transition: all 0.3s ease !important;
+  font-family: 'Orbitron', monospace !important;
+  letter-spacing: 0.05em;
+}
+
+.ant-tag:hover {
+  background: linear-gradient(135deg, var(--neon-pink), var(--accent)) !important;
+  color: #000 !important;
+  box-shadow: 0 0 15px var(--neon-pink) !important;
+  transform: translateY(-1px);
+  cursor: pointer;
+}
+
+/* === Cards & Containers === */
+.ant-card {
+  background: linear-gradient(135deg, rgba(42, 10, 60, 0.8), rgba(109, 13, 53, 0.8)) !important;
+  border: 1px solid rgba(255, 42, 109, 0.3) !important;
+  border-radius: 15px !important;
+  backdrop-filter: blur(10px) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+}
+
+.ant-collapse {
+  background: transparent !important;
+  border: 1px solid rgba(255, 42, 109, 0.3) !important;
+  border-radius: 12px !important;
+}
+
+.ant-collapse-item {
+  border-bottom: 1px solid rgba(255, 42, 109, 0.2) !important;
+}
+
+.ant-collapse-content {
+  background: linear-gradient(135deg, rgba(42, 10, 60, 0.6), rgba(109, 13, 53, 0.6)) !important;
+  backdrop-filter: blur(15px) !important;
+}
+
+/* === Dropdown Menus === */
+.ant-dropdown-menu {
+  background: linear-gradient(135deg, #2a0a3c, #1a0b2d) !important;
+  border: 1px solid var(--neon-purple) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 32px rgba(188, 19, 254, 0.3) !important;
+  backdrop-filter: blur(20px) !important;
+}
+
+.ant-dropdown-menu-item {
+  color: var(--ink) !important;
+  transition: all 0.3s ease !important;
+}
+
+.ant-dropdown-menu-item:hover {
+  background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple)) !important;
+  color: #000 !important;
+}
+
+/* === Favorite Button Premium === */
+button.ant-btn:has(.anticon-star svg path[d*="zM"]) {
+  background: linear-gradient(135deg, #ffd700, #ff6b00) !important;
+  border: none !important;
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.5) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+button.ant-btn:has(.anticon-star svg path[d*="zM"])::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(135deg, #ff007f, #ff7f00, #ffff00, #00ff00, #007fff, #9400d3, #ff007f);
+  background-size: 200% 100%;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: premium-sweep 3s linear infinite;
+}
+
+@keyframes premium-sweep {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* ////////////////////////////////////////////////////////////////////////////////
+// 4. ANIMATIONS & EFFECTS - Magia Neon
+//////////////////////////////////////////////////////////////////////////////// */
+@keyframes neonPulse {
+  0%, 100% {
+    opacity: 1;
+    text-shadow: 0 0 10px currentColor;
+  }
+  50% {
+    opacity: 0.8;
+    text-shadow: 0 0 20px currentColor, 0 0 30px currentColor;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 5px currentColor;
+  }
+  50% {
+    box-shadow: 0 0 20px currentColor, 0 0 30px currentColor;
+  }
+}
+
+/* ////////////////////////////////////////////////////////////////////////////////
+// 5. RESPONSIVE DESIGN
+//////////////////////////////////////////////////////////////////////////////// */
+@media (max-width: 768px) {
+  .bb-wrap {
+    padding: 0 12px;
+  }
+  
+  .bb-title {
+    font-size: clamp(42px, 12vw, 80px) !important;
+  }
+  
+  .bb-intros {
+    padding: 16px !important;
+    border-radius: 10px !important;
+  }
+  
+  button.ant-btn:has(svg.lucide-messages-square) {
+    height: 60px !important;
+    font-size: 14px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .bb-sec {
+    --gap: 16px;
+  }
+  
+  .ant-tag {
+    font-size: .6rem !important;
+    padding: .2em .6em !important;
+  }
+}
+
+/* Efeitos de brilho ao passar o mouse */
+@media (hover: hover) {
+  .ant-btn:hover,
+  .ant-tag:hover,
+  .ant-menu-item:hover {
+    animation: neonPulse 1.5s ease-in-out infinite;
+  }
+}
+
+/* Acessibilidade - Redução de movimento */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Crédito Bunny Café */
+.bunnyui-credit {
+  position: fixed;
+  left: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 2147483647;
+  font-family: 'Orbitron', monospace;
+  font-size: .75rem;
+  color: var(--neon-blue);
+  text-decoration: none;
+  cursor: pointer;
+  text-shadow: 0 0 10px var(--neon-blue);
+  transition: all 0.3s ease;
+}
+
+.bunnyui-credit:hover {
+  color: var(--neon-pink);
+  text-shadow: 0 0 15px var(--neon-pink);
+}
