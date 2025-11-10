@@ -1,0 +1,584 @@
+/* =================================================================
+  DARK SEXY BUNNY GIRL CAFÉ THEME - NEON ALLURE EDITION
+================================================================= */
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 1. FONT IMPORTS - Luxurious & Mysterious
+////////////////////////////////////////////////////////////////////////////////
+*/
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Orbitron:wght@400;700;900&family=Quicksand:wght@300;400;600;700&display=swap');
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 2. CORE THEME & LAYOUT - Dark Seductive Foundation
+////////////////////////////////////////////////////////////////////////////////
+*/
+.bb-sec {
+  --ink: #f0e6ff;
+  --muted: #b8a3d4;
+  --accent: #ff2a6d;
+  --accent-glow: #ff2a6d80;
+  --neon-purple: #bc13fe;
+  --neon-pink: #ff44cc;
+  --neon-blue: #0ff0fc;
+  --velvet-dark: #0a0414;
+  --deep-burgundy: #2d0b28;
+  font-family: 'Quicksand', system-ui, sans-serif;
+  position: relative;
+  --gap: 24px;
+  --hero-over: clamp(100px, 12vw, 240px);
+  overflow: visible !important;
+  background: linear-gradient(135deg, var(--velvet-dark) 0%, var(--deep-burgundy) 50%, #1a0b2e 100%);
+  min-height: 100vh;
+}
+
+:root { 
+  --pf-cut2: 20px; 
+  --bunny-glow: 0 0 20px var(--accent-glow);
+}
+
+.bb-sec * {
+  box-sizing: border-box;
+}
+
+.bb-wrap {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  overflow: visible !important;
+}
+
+.bb-header {
+  margin-bottom: 32px;
+  position: relative;
+}
+
+.bb-collection-subtitle {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--neon-purple), var(--neon-pink));
+  color: #000;
+  padding: 8px 16px;
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .15em;
+  text-decoration: none;
+  margin-bottom: 20px;
+  clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
+  transition: all .3s ease;
+  font-family: 'Orbitron', monospace;
+  box-shadow: var(--bunny-glow);
+}
+
+.bb-collection-subtitle:hover {
+  background: linear-gradient(135deg, var(--neon-pink), var(--neon-blue));
+  transform: translateX(4px);
+  box-shadow: 0 0 30px var(--neon-blue);
+}
+
+.bb-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(52px, 9vw, 110px) !important;
+  line-height: 0.9 !important;
+  font-weight: 700 !important;
+  background: linear-gradient(135deg, #ff2a6d, #bc13fe, #0ff0fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0 0 16px !important;
+  letter-spacing: 0.03em !important;
+  text-transform: uppercase;
+  text-shadow: 0 0 30px var(--accent-glow);
+  position: relative;
+}
+
+.bb-title::after {
+  content: "🐰";
+  position: absolute;
+  right: -40px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.6em;
+  filter: drop-shadow(0 0 10px var(--neon-pink));
+}
+
+.bb-tagline {
+  font-size: clamp(18px, 2vw, 20px) !important;
+  line-height: 1.6 !important;
+  font-weight: 300 !important;
+  color: var(--ink) !important;
+  max-width: none !important;
+  width: auto !important;
+  font-style: italic;
+  text-shadow: 0 0 10px rgba(240, 230, 255, 0.3);
+}
+
+.bb-intros {
+  background: linear-gradient(135deg, rgba(42, 8, 56, 0.8), rgba(20, 3, 34, 0.9));
+  padding: clamp(20px, 3vw, 32px);
+  position: relative;
+  overflow: visible !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  border: 1px solid rgba(188, 19, 254, 0.3);
+  backdrop-filter: blur(10px);
+  box-shadow: 
+    inset 0 0 30px rgba(255, 42, 109, 0.1),
+    0 0 40px rgba(188, 19, 254, 0.2);
+}
+
+.bb-intros::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--neon-purple), var(--neon-pink), transparent);
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+.bb-section-title {
+  font-family: 'Orbitron', monospace;
+  text-transform: uppercase;
+  font-style: normal;
+  letter-spacing: 0.08em;
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 700;
+  margin: 0 0 clamp(12px, 2vw, 18px);
+  color: var(--neon-blue);
+  display: flex;
+  align-items: center;
+  gap: .8em;
+  line-height: 1.2;
+  text-shadow: 0 0 15px var(--neon-blue);
+}
+
+.bb-section-title::before {
+  content: "✦";
+  font-size: 1.2em;
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+.bb-intro-list {
+  margin: 0;
+  padding: 0 !important;
+  list-style: none;
+  counter-reset: scn;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.bb-intro-list li {
+  counter-increment: scn;
+  background: linear-gradient(135deg, rgba(255, 42, 109, 0.1), rgba(188, 19, 254, 0.05));
+  padding: 20px 20px 20px 80px;
+  border: 1px solid rgba(255, 42, 109, 0.2);
+  border-radius: 8px;
+  clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+.bb-intro-list li:hover {
+  transform: translateX(8px);
+  border-color: var(--neon-pink);
+  box-shadow: 0 0 20px rgba(255, 68, 204, 0.3);
+}
+
+.bb-intro-list li::before {
+  content: counter(scn, decimal-leading-zero);
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Orbitron', monospace;
+  font-size: 32px;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--neon-purple), var(--neon-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  z-index: 0;
+  animation: neonPulse 2s ease-in-out infinite;
+}
+
+.bb-card {
+  padding: 0;
+  margin-bottom: 32px;
+}
+
+.bb-card p {
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0;
+  color: var(--ink);
+  font-weight: 300;
+}
+
+.bb-note {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1em !important;
+  font-style: italic;
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 3. ANTD COMPONENT OVERRIDES - Bunny Girl Café Style
+////////////////////////////////////////////////////////////////////////////////
+*/
+
+/* === LAYOUT COMPONENTS === */
+.ant-layout {
+  background: transparent !important;
+}
+
+.ant-layout-header {
+  background: linear-gradient(135deg, rgba(42, 8, 56, 0.95), rgba(20, 3, 34, 0.98)) !important;
+  backdrop-filter: blur(15px) !important;
+  border-bottom: 1px solid rgba(188, 19, 254, 0.3) !important;
+  box-shadow: 0 4px 30px rgba(255, 42, 109, 0.15) !important;
+}
+
+.ant-menu-dark {
+  background: transparent !important;
+}
+
+.ant-menu-item {
+  background: transparent !important;
+  border-radius: 8px !important;
+  margin: 0 4px !important;
+  transition: all 0.3s ease !important;
+}
+
+.ant-menu-item:hover {
+  background: linear-gradient(135deg, rgba(255, 42, 109, 0.2), rgba(188, 19, 254, 0.1)) !important;
+  box-shadow: 0 0 15px rgba(255, 42, 109, 0.3) !important;
+}
+
+/* === BUTTONS - Neon Seductive Style === */
+button.ant-btn {
+  position: relative;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: .6em;
+  white-space: nowrap;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  height: 48px !important;
+  min-width: 72px !important;
+  padding: .6em 1.6em !important;
+  border-radius: 12px !important;
+  transition: all 0.3s ease !important;
+  cursor: pointer;
+  overflow: hidden !important;
+  font-family: 'Orbitron', monospace !important;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+button.ant-btn.ant-btn-default {
+  background: linear-gradient(135deg, var(--velvet-dark), var(--deep-burgundy)) !important;
+  color: var(--neon-blue) !important;
+  border: 1px solid var(--neon-blue) !important;
+  box-shadow: 
+    0 0 15px rgba(15, 240, 252, 0.3),
+    inset 0 0 10px rgba(15, 240, 252, 0.1) !important;
+}
+
+button.ant-btn.ant-btn-default:hover {
+  background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple)) !important;
+  color: var(--velvet-dark) !important;
+  box-shadow: 0 0 25px var(--neon-blue) !important;
+  transform: translateY(-2px);
+}
+
+button.ant-btn.ant-btn-primary {
+  background: linear-gradient(135deg, var(--neon-pink), var(--accent)) !important;
+  color: #000 !important;
+  border: 1px solid transparent !important;
+  box-shadow: 
+    0 0 20px rgba(255, 42, 109, 0.5),
+    inset 0 0 15px rgba(255, 255, 255, 0.2) !important;
+  font-weight: 900 !important;
+}
+
+button.ant-btn.ant-btn-primary:hover {
+  background: linear-gradient(135deg, var(--accent), var(--neon-purple)) !important;
+  box-shadow: 0 0 30px var(--accent) !important;
+  transform: translateY(-2px);
+}
+
+/* Special Chat Button */
+button.ant-btn:has(svg.lucide-messages-square) {
+  background: linear-gradient(135deg, var(--neon-purple), var(--neon-pink)) !important;
+  color: #000 !important;
+  border: 2px solid transparent !important;
+  box-shadow: 
+    0 0 25px rgba(188, 19, 254, 0.6),
+    inset 0 0 20px rgba(255, 255, 255, 0.3) !important;
+  font-weight: 900 !important;
+  height: 60px !important;
+  border-radius: 16px !important;
+  position: relative;
+  overflow: hidden;
+}
+
+button.ant-btn:has(svg.lucide-messages-square)::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple), var(--neon-pink));
+  border-radius: inherit;
+  z-index: -1;
+  animation: rotate 3s linear infinite;
+}
+
+button.ant-btn:has(svg.lucide-messages-square):hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 
+    0 0 40px rgba(188, 19, 254, 0.8),
+    inset 0 0 25px rgba(255, 255, 255, 0.4) !important;
+}
+
+/* === TAGS & BADGES === */
+.ant-tag {
+  background: linear-gradient(135deg, rgba(255, 42, 109, 0.2), rgba(188, 19, 254, 0.1)) !important;
+  color: var(--neon-blue) !important;
+  border: 1px solid rgba(15, 240, 252, 0.4) !important;
+  border-radius: 6px !important;
+  padding: .3em .8em !important;
+  font-size: .7rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  transition: all 0.3s ease !important;
+  clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%) !important;
+  font-family: 'Orbitron', monospace !important;
+}
+
+.ant-tag:hover {
+  background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple)) !important;
+  color: var(--velvet-dark) !important;
+  box-shadow: 0 0 15px var(--neon-blue) !important;
+  transform: translateX(4px);
+}
+
+/* === COLLAPSE/PANELS === */
+.ant-collapse {
+  background: linear-gradient(135deg, rgba(42, 8, 56, 0.6), rgba(20, 3, 34, 0.8)) !important;
+  border: 1px solid rgba(188, 19, 254, 0.3) !important;
+  backdrop-filter: blur(10px);
+}
+
+.ant-collapse-item {
+  border-bottom: 1px solid rgba(255, 42, 109, 0.2) !important;
+}
+
+.ant-collapse-header {
+  color: var(--neon-blue) !important;
+  font-family: 'Orbitron', monospace !important;
+}
+
+.ant-collapse-content {
+  background: linear-gradient(135deg, rgba(10, 4, 20, 0.8), rgba(45, 11, 40, 0.6)) !important;
+  border-top: 1px solid rgba(255, 42, 109, 0.2) !important;
+  color: var(--ink) !important;
+}
+
+/* === SPECIAL BUNNY ELEMENTS === */
+.bb-bunny-ears {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 60px;
+}
+
+.bb-bunny-ears::before,
+.bb-bunny-ears::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--neon-pink), var(--accent));
+  border-radius: 50% 50% 40% 40%;
+  top: 0;
+}
+
+.bb-bunny-ears::before {
+  left: 0;
+  transform: rotate(-15deg);
+}
+
+.bb-bunny-ears::after {
+  right: 0;
+  transform: rotate(15deg);
+}
+
+/* Coffee Cup Element */
+.bb-coffee-cup {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 80px;
+  opacity: 0.1;
+  filter: drop-shadow(0 0 10px var(--accent));
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 4. KEYFRAMES & ANIMATIONS - Hypnotic Neon Effects
+////////////////////////////////////////////////////////////////////////////////
+*/
+@keyframes neonPulse {
+  0%, 100% { 
+    text-shadow: 0 0 10px var(--neon-purple), 0 0 20px var(--neon-purple);
+  }
+  50% { 
+    text-shadow: 0 0 15px var(--neon-blue), 0 0 30px var(--neon-blue), 0 0 40px var(--neon-blue);
+  }
+}
+
+@keyframes shimmer {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+@keyframes sparkle {
+  0%, 100% { 
+    transform: scale(1) rotate(0deg);
+    text-shadow: 0 0 10px var(--neon-blue);
+  }
+  50% { 
+    transform: scale(1.2) rotate(180deg);
+    text-shadow: 0 0 20px var(--neon-pink), 0 0 30px var(--neon-purple);
+  }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { 
+    box-shadow: 0 0 20px rgba(255, 42, 109, 0.3);
+  }
+  50% { 
+    box-shadow: 0 0 30px rgba(255, 42, 109, 0.6), 0 0 40px rgba(188, 19, 254, 0.4);
+  }
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 5. RESPONSIVE DESIGN - Seductive on All Devices
+////////////////////////////////////////////////////////////////////////////////
+*/
+@media (max-width: 768px) {
+  .bb-sec {
+    --gap: 16px;
+  }
+  
+  .bb-title {
+    font-size: clamp(36px, 12vw, 80px) !important;
+  }
+  
+  .bb-intros {
+    padding: 16px !important;
+    margin: 0 -16px !important;
+    border-radius: 0 !important;
+  }
+  
+  button.ant-btn {
+    height: 44px !important;
+    font-size: 13px !important;
+  }
+  
+  .ant-menu-item {
+    margin: 0 2px !important;
+    font-size: 12px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .bb-wrap {
+    padding: 0 12px;
+  }
+  
+  .bb-collection-subtitle {
+    font-size: 10px;
+    padding: 6px 12px;
+  }
+  
+  .bb-intro-list li {
+    padding: 16px 16px 16px 60px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Hover device support */
+@media (hover: hover) {
+  .ant-tag:hover {
+    transform: translateX(4px);
+  }
+  
+  button.ant-btn:hover {
+    transform: translateY(-2px);
+  }
+  
+  .bb-intro-list li:hover {
+    transform: translateX(8px);
+  }
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 6. CHUB.AI OVERRIDES - Bunny-fied
+////////////////////////////////////////////////////////////////////////////////
+*/
+.ant-layout-footer {
+  display: none !important;
+}
+
+/* Hide unnecessary elements */
+h3.ant-typography,
+h5.ant-typography,
+div.msg-mkdn-container:not(:has(.bb-sec)),
+h4.ant-typography.mt-8,
+h4.ant-typography.mt-8+div {
+  display: none !important;
+}
+
+/* Premium favorite button with bunny theme */
+button.ant-btn:has(.anticon-star svg path[d*="zM"]) {
+  background: linear-gradient(135deg, var(--neon-pink), var(--accent)) !important;
+  border: none !important;
+  box-shadow: 
+    0 0 20px rgba(255, 42, 109, 0.5),
+    inset 0 0 15px rgba(255, 255, 255, 0.3) !important;
+}
+
+button.ant-btn:has(.anticon-star svg path[d*="zM"]) .anticon-star svg path {
+  fill: #000 !important;
+}
