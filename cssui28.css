@@ -1,0 +1,621 @@
+/*
+=================================================================
+  DARK SEXY BUNNY CAFÉ - NEON ALLURE THEME
+=================================================================
+*/
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 1. FONT IMPORTS & VARIABLES
+////////////////////////////////////////////////////////////////////////////////
+*/
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Orbitron:wght@400;700&family=Raleway:wght@300;400;600&display=swap');
+
+:root {
+  --deep-night: #0a0a0f;
+  --velvet-black: #1a1a25;
+  --dark-chocolate: #2d1a1a;
+  --ruby-red: #ff0055;
+  --electric-purple: #9d00ff;
+  --neon-pink: #ff00aa;
+  --electric-blue: #00eeff;
+  --gold-glow: #ffd700;
+  --soft-silver: #e6e6fa;
+  --bunny-white: #fff5f5;
+  --accent: var(--ruby-red);
+  --font-elegant: 'Playfair Display', serif;
+  --font-neon: 'Orbitron', sans-serif;
+  --font-body: 'Raleway', sans-serif;
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 2. CORE THEME & LAYOUT TRANSFORMATION
+////////////////////////////////////////////////////////////////////////////////
+*/
+.bb-sec {
+  --ink: var(--bunny-white);
+  --muted: var(--soft-silver);
+  font-family: var(--font-body);
+  position: relative;
+  --gap: 24px;
+  background: linear-gradient(135deg, var(--deep-night) 0%, var(--dark-chocolate) 50%, var(--velvet-black) 100%);
+  min-height: 100vh;
+  overflow: visible !important;
+}
+
+.bb-sec * {
+  box-sizing: border-box;
+}
+
+.bb-wrap {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  overflow: visible !important;
+  background: rgba(10, 10, 15, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 0, 85, 0.2);
+  border-top: none;
+}
+
+.bb-header {
+  margin-bottom: 32px;
+  position: relative;
+}
+
+.bb-header::before {
+  content: "🐰";
+  position: absolute;
+  left: -40px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  filter: drop-shadow(0 0 10px var(--neon-pink));
+}
+
+.bb-collection-subtitle {
+  display: inline-block;
+  background: linear-gradient(45deg, var(--ruby-red), var(--electric-purple));
+  color: var(--bunny-white);
+  padding: 8px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .15em;
+  text-decoration: none;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  box-shadow: 0 0 20px rgba(255, 0, 85, 0.4);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.bb-collection-subtitle::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.bb-collection-subtitle:hover::before {
+  left: 100%;
+}
+
+.bb-collection-subtitle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(255, 0, 85, 0.6);
+}
+
+.bb-title {
+  font-family: var(--font-elegant);
+  font-size: clamp(52px, 9vw, 100px) !important;
+  line-height: 1 !important;
+  font-weight: 700 !important;
+  background: linear-gradient(45deg, var(--bunny-white), var(--gold-glow));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0 0 16px !important;
+  letter-spacing: 0.03em !important;
+  text-transform: uppercase;
+  text-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+}
+
+.bb-tagline {
+  font-size: clamp(18px, 2vw, 20px) !important;
+  line-height: 1.6 !important;
+  font-weight: 300 !important;
+  color: var(--soft-silver) !important;
+  max-width: none !important;
+  width: auto !important;
+  font-style: italic;
+  border-left: 3px solid var(--electric-purple);
+  padding-left: 16px;
+}
+
+.bb-intros {
+  background: linear-gradient(135deg, rgba(26, 26, 37, 0.9), rgba(45, 26, 26, 0.9));
+  padding: clamp(20px, 3vw, 32px);
+  position: relative;
+  overflow: visible !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  border: 1px solid rgba(157, 0, 255, 0.3);
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.bb-intros::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--electric-blue), transparent);
+  animation: neonFlow 3s ease-in-out infinite;
+}
+
+@keyframes neonFlow {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+.bb-section-title {
+  font-family: var(--font-neon);
+  text-transform: uppercase;
+  font-style: normal;
+  letter-spacing: 0.1em;
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 400;
+  margin: 0 0 clamp(12px, 2vw, 18px);
+  color: var(--electric-blue);
+  display: flex;
+  align-items: center;
+  gap: .8em;
+  line-height: 1.2;
+  text-shadow: 0 0 10px rgba(0, 238, 255, 0.5);
+}
+
+.bb-section-title::before {
+  content: "✦";
+  font-size: 1.2em;
+  color: var(--neon-pink);
+}
+
+.bb-intro-list {
+  margin: 0;
+  padding: 0 !important;
+  list-style: none;
+  counter-reset: scn;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.bb-intro-list li {
+  counter-increment: scn;
+  background: linear-gradient(135deg, rgba(255, 0, 85, 0.1), rgba(157, 0, 255, 0.1));
+  padding: 20px 20px 20px 80px;
+  border: 1px solid rgba(255, 0, 85, 0.2);
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+.bb-intro-list li::before {
+  content: counter(scn, decimal-leading-zero);
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-neon);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--ruby-red);
+  z-index: 0;
+  animation: accentGlow 2s ease-in-out infinite;
+  text-shadow: 0 0 20px currentColor;
+}
+
+.bb-intro-list li:hover {
+  transform: translateX(8px);
+  border-color: var(--electric-blue);
+  box-shadow: 0 0 20px rgba(0, 238, 255, 0.3);
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 3. ANTD COMPONENT OVERHAUL - BUNNY CAFÉ STYLE
+////////////////////////////////////////////////////////////////////////////////
+*/
+
+/* Layout Components */
+.ant-layout {
+  background: var(--deep-night) !important;
+}
+
+.ant-layout-header {
+  background: linear-gradient(135deg, var(--velvet-black), var(--dark-chocolate)) !important;
+  border-bottom: 1px solid rgba(255, 0, 85, 0.3) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+.ant-menu-dark {
+  background: transparent !important;
+}
+
+.ant-menu-item {
+  background: rgba(255, 255, 255, 0.05) !important;
+  margin: 0 8px !important;
+  border-radius: 6px !important;
+  transition: all 0.3s ease !important;
+  border: 1px solid transparent !important;
+}
+
+.ant-menu-item:hover {
+  background: linear-gradient(45deg, rgba(255, 0, 85, 0.2), rgba(157, 0, 255, 0.2)) !important;
+  border-color: var(--ruby-red) !important;
+  box-shadow: 0 0 15px rgba(255, 0, 85, 0.3) !important;
+}
+
+/* Buttons - Complete Redesign */
+button.ant-btn {
+  position: relative;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: .6em;
+  white-space: nowrap;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  height: 48px !important;
+  min-width: 72px !important;
+  padding: .6em 1.6em !important;
+  border-radius: 8px !important;
+  transition: all 0.3s ease !important;
+  cursor: pointer;
+  overflow: hidden !important;
+  border: none !important;
+  font-family: var(--font-body) !important;
+}
+
+button.ant-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(45deg, var(--ruby-red), var(--electric-purple), var(--electric-blue));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: premium-sweep 3s linear infinite;
+}
+
+button.ant-btn>span {
+  position: relative;
+  z-index: 1;
+}
+
+button.ant-btn.ant-btn-default {
+  background: linear-gradient(45deg, var(--velvet-black), var(--dark-chocolate)) !important;
+  color: var(--bunny-white) !important;
+}
+
+button.ant-btn.ant-btn-primary {
+  background: linear-gradient(45deg, var(--ruby-red), var(--neon-pink)) !important;
+  color: var(--bunny-white) !important;
+  box-shadow: 0 4px 20px rgba(255, 0, 85, 0.4) !important;
+}
+
+button.ant-btn:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(255, 0, 85, 0.5) !important;
+}
+
+button.ant-btn:active {
+  transform: translateY(0) !important;
+}
+
+/* Special Chat Button */
+button.ant-btn:has(svg.lucide-messages-square) {
+  background: linear-gradient(45deg, var(--electric-purple), var(--electric-blue)) !important;
+  color: var(--deep-night) !important;
+  font-weight: 700 !important;
+  height: 60px !important;
+  padding: 0 2em !important;
+  border-radius: 12px !important;
+  box-shadow: 0 6px 25px rgba(157, 0, 255, 0.5) !important;
+  font-size: 16px !important;
+}
+
+button.ant-btn:has(svg.lucide-messages-square):hover {
+  background: linear-gradient(45deg, var(--electric-blue), var(--electric-purple)) !important;
+  box-shadow: 0 8px 30px rgba(0, 238, 255, 0.6) !important;
+}
+
+/* Tags */
+.ant-tag {
+  background: linear-gradient(45deg, rgba(255, 0, 85, 0.2), rgba(157, 0, 255, 0.2)) !important;
+  color: var(--bunny-white) !important;
+  border: 1px solid rgba(255, 0, 85, 0.4) !important;
+  border-radius: 6px !important;
+  padding: .4em .8em !important;
+  font-size: .7rem !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+  backdrop-filter: blur(5px) !important;
+}
+
+.ant-tag:hover {
+  background: linear-gradient(45deg, var(--ruby-red), var(--electric-purple)) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(255, 0, 85, 0.3) !important;
+}
+
+/* Cards & Containers */
+.ant-card {
+  background: linear-gradient(135deg, rgba(26, 26, 37, 0.9), rgba(45, 26, 26, 0.9)) !important;
+  border: 1px solid rgba(255, 0, 85, 0.2) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+.ant-collapse {
+  background: transparent !important;
+  border: 1px solid rgba(255, 0, 85, 0.2) !important;
+  border-radius: 8px !important;
+}
+
+.ant-collapse-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  background: linear-gradient(135deg, rgba(26, 26, 37, 0.8), rgba(45, 26, 26, 0.8)) !important;
+}
+
+.ant-collapse-content {
+  background: linear-gradient(135deg, rgba(10, 10, 15, 0.9), rgba(26, 26, 37, 0.9)) !important;
+  border-top: 1px solid rgba(255, 0, 85, 0.2) !important;
+}
+
+/* Dropdown Menus */
+.ant-dropdown-menu {
+  background: linear-gradient(135deg, var(--velvet-black), var(--dark-chocolate)) !important;
+  border: 1px solid rgba(255, 0, 85, 0.3) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+.ant-dropdown-menu-item {
+  color: var(--bunny-white) !important;
+  transition: all 0.3s ease !important;
+}
+
+.ant-dropdown-menu-item:hover {
+  background: linear-gradient(45deg, rgba(255, 0, 85, 0.2), rgba(157, 0, 255, 0.2)) !important;
+  color: var(--electric-blue) !important;
+}
+
+/* Images with Bunny Café Style */
+.ant-col.text-left [class*=ant-image] {
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  border: 2px solid transparent !important;
+  background: linear-gradient(45deg, var(--ruby-red), var(--electric-purple)) !important;
+  padding: 3px !important;
+}
+
+.ant-col.text-left [class*=ant-image] .ant-image-img {
+  border-radius: 10px !important;
+  transition: all 0.3s ease !important;
+}
+
+.ant-col.text-left [class*=ant-image]:hover .ant-image-img {
+  transform: scale(1.05) !important;
+  filter: brightness(1.1) contrast(1.1) !important;
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 4. BUNNY CAFÉ SPECIAL ELEMENTS
+////////////////////////////////////////////////////////////////////////////////
+*/
+
+/* Bunny Ear Decoration */
+.bb-header::after {
+  content: "🐰";
+  position: absolute;
+  right: -40px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  filter: drop-shadow(0 0 10px var(--electric-purple));
+  animation: bunnyTwitch 4s ease-in-out infinite;
+}
+
+@keyframes bunnyTwitch {
+  0%, 90%, 100% { transform: translateY(-50%) rotate(0deg); }
+  92% { transform: translateY(-50%) rotate(-5deg); }
+  96% { transform: translateY(-50%) rotate(5deg); }
+}
+
+/* Coffee Cup Element */
+.bb-support::before {
+  content: "☕";
+  position: absolute;
+  left: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  filter: drop-shadow(0 0 8px var(--gold-glow));
+  animation: steamRise 3s ease-in-out infinite;
+}
+
+@keyframes steamRise {
+  0%, 100% { 
+    transform: translateY(-50%) translateY(0);
+    opacity: 0.7;
+  }
+  50% { 
+    transform: translateY(-50%) translateY(-10px);
+    opacity: 1;
+  }
+}
+
+/* Neon Glow Effects */
+.bb-kbtn {
+  background: linear-gradient(45deg, var(--ruby-red), var(--neon-pink)) !important;
+  color: var(--bunny-white) !important;
+  border: none !important;
+  border-radius: 8px !important;
+  padding: 12px 24px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+  box-shadow: 0 4px 20px rgba(255, 0, 85, 0.4) !important;
+  transition: all 0.3s ease !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.bb-kbtn:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 25px rgba(255, 0, 85, 0.6) !important;
+}
+
+/* Premium Elements */
+.bb-badge {
+  background: linear-gradient(45deg, var(--electric-purple), var(--electric-blue)) !important;
+  color: var(--deep-night) !important;
+  border: none !important;
+  border-radius: 20px !important;
+  padding: 8px 16px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  box-shadow: 0 4px 15px rgba(157, 0, 255, 0.4) !important;
+  transition: all 0.3s ease !important;
+}
+
+.bb-badge:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(0, 238, 255, 0.5) !important;
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 5. ANIMATIONS & KEYFRAMES
+////////////////////////////////////////////////////////////////////////////////
+*/
+
+@keyframes premium-sweep {
+  to {
+    background-position: 200% center;
+  }
+}
+
+@keyframes accentGlow {
+  0%, 100% { 
+    text-shadow: 0 0 10px var(--ruby-red), 0 0 20px var(--ruby-red);
+  }
+  50% { 
+    text-shadow: 0 0 20px var(--ruby-red), 0 0 40px var(--ruby-red);
+  }
+}
+
+@keyframes btn-sonar {
+  0% { 
+    box-shadow: 0 0 0 0 rgba(255, 0, 85, 0.7);
+  }
+  70% { 
+    box-shadow: 0 0 0 15px rgba(255, 0, 85, 0);
+  }
+  100% { 
+    box-shadow: 0 0 0 0 rgba(255, 0, 85, 0);
+  }
+}
+
+@keyframes fadeInUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(40px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 6. RESPONSIVE DESIGN
+////////////////////////////////////////////////////////////////////////////////
+*/
+
+@media (max-width: 768px) {
+  .bb-wrap {
+    padding: 0 16px;
+  }
+  
+  .bb-header::before,
+  .bb-header::after,
+  .bb-support::before {
+    display: none;
+  }
+  
+  .bb-title {
+    font-size: clamp(36px, 12vw, 60px) !important;
+  }
+  
+  button.ant-btn {
+    width: 100% !important;
+    margin-bottom: 8px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .bb-intros {
+    padding: 16px !important;
+  }
+  
+  .bb-intro-list li {
+    padding: 16px 16px 16px 60px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Hide unwanted elements */
+.ant-layout-footer,
+.ant-ribbon,
+.no-vertical-anything *,
+div#chara-list {
+  display: none !important;
+}
+
+/* BunnyUI Credit - Themed */
+.bunnyui-credit {
+  background: linear-gradient(45deg, var(--ruby-red), var(--electric-purple)) !important;
+  color: var(--bunny-white) !important;
+  padding: 8px 16px !important;
+  border-radius: 6px !important;
+  font-family: var(--font-neon) !important;
+  box-shadow: 0 4px 15px rgba(255, 0, 85, 0.3) !important;
+}
