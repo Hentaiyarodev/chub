@@ -1,0 +1,584 @@
+/*
+=================================================================
+  DARK SEXY BUNNY GIRL CAFÉ - NEON ALLURE THEME
+=================================================================
+*/
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 1. FONT IMPORTS & VARIABLES
+////////////////////////////////////////////////////////////////////////////////
+*/
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Orbitron:wght@400;700&family=Raleway:wght@300;400;600&display=swap');
+
+:root {
+  --deep-night: #0a0a0f;
+  --velvet-black: #1a1a2e;
+  --dark-chocolate: #2d1b17;
+  --ruby-red: #ff2a6d;
+  --electric-purple: #9d4edd;
+  --neon-pink: #ff00ff;
+  --neon-blue: #00eeff;
+  --gold-glow: #ffd700;
+  --silver-mist: #e0e0e0;
+  --coffee-brown: #8b4513;
+  --accent: var(--ruby-red);
+  --font-elegant: 'Playfair Display', serif;
+  --font-neon: 'Orbitron', sans-serif;
+  --font-body: 'Raleway', sans-serif;
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 2. CORE THEME & LAYOUT TRANSFORMATION
+////////////////////////////////////////////////////////////////////////////////
+*/
+.bb-sec {
+  --ink: var(--silver-mist);
+  --muted: #a0a0a0;
+  font-family: var(--font-body);
+  position: relative;
+  --gap: 24px;
+  background: linear-gradient(135deg, var(--deep-night) 0%, var(--velvet-black) 50%, var(--dark-chocolate) 100%);
+  overflow: visible !important;
+  min-height: 100vh;
+}
+
+.bb-sec::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(255, 42, 109, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(157, 78, 221, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(255, 215, 0, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bb-wrap {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.bb-header {
+  margin-bottom: 32px;
+  position: relative;
+}
+
+.bb-collection-subtitle {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--ruby-red), var(--electric-purple));
+  color: var(--velvet-black);
+  padding: 8px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .15em;
+  text-decoration: none;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  font-family: var(--font-neon);
+  box-shadow: 0 0 15px rgba(255, 42, 109, 0.5);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.bb-collection-subtitle::before {
+  content: "🐰";
+  margin-right: 8px;
+  filter: drop-shadow(0 0 5px var(--gold-glow));
+}
+
+.bb-collection-subtitle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(255, 42, 109, 0.8);
+  background: linear-gradient(135deg, var(--neon-pink), var(--neon-blue));
+}
+
+.bb-title {
+  font-family: var(--font-elegant);
+  font-size: clamp(52px, 9vw, 120px) !important;
+  line-height: 1 !important;
+  font-weight: 700 !important;
+  background: linear-gradient(135deg, var(--silver-mist), var(--gold-glow));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0 0 16px !important;
+  letter-spacing: 0.03em !important;
+  text-transform: uppercase;
+  text-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+}
+
+.bb-tagline {
+  font-size: clamp(18px, 2vw, 20px) !important;
+  line-height: 1.6 !important;
+  font-weight: 300 !important;
+  color: var(--silver-mist) !important;
+  max-width: 600px !important;
+  font-style: italic;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 3. ANT DESIGN COMPONENTS - DARK BUNNY CAFÉ STYLING
+////////////////////////////////////////////////////////////////////////////////
+*/
+
+/* Layout Components */
+.ant-layout {
+  background: transparent !important;
+}
+
+.ant-layout-header {
+  background: rgba(26, 26, 46, 0.95) !important;
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 42, 109, 0.3) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5) !important;
+}
+
+.ant-menu-dark {
+  background: transparent !important;
+}
+
+.ant-menu-item {
+  color: var(--silver-mist) !important;
+  transition: all 0.3s ease !important;
+  border-radius: 8px !important;
+  margin: 0 4px !important;
+}
+
+.ant-menu-item:hover {
+  color: var(--ruby-red) !important;
+  background: rgba(255, 42, 109, 0.1) !important;
+  box-shadow: 0 0 15px rgba(255, 42, 109, 0.3) !important;
+}
+
+/* Buttons - Complete Transformation */
+button.ant-btn {
+  position: relative;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: .5em;
+  white-space: nowrap;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  height: 48px !important;
+  min-width: 64px !important;
+  padding: .5em 1.8em !important;
+  border-radius: 12px !important;
+  transition: all 0.3s ease !important;
+  cursor: pointer;
+  overflow: hidden !important;
+  font-family: var(--font-neon) !important;
+  border: none !important;
+}
+
+button.ant-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  padding: 2px;
+  background: linear-gradient(135deg, var(--ruby-red), var(--electric-purple), var(--neon-blue));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+button.ant-btn.ant-btn-default {
+  background: linear-gradient(135deg, var(--velvet-black), var(--deep-night)) !important;
+  color: var(--silver-mist) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+}
+
+button.ant-btn.ant-btn-primary {
+  background: linear-gradient(135deg, var(--ruby-red), var(--neon-pink)) !important;
+  color: var(--velvet-black) !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 25px rgba(255, 42, 109, 0.4) !important;
+}
+
+button.ant-btn:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 8px 30px rgba(255, 42, 109, 0.6) !important;
+}
+
+button.ant-btn:active {
+  transform: translateY(-1px) !important;
+}
+
+/* Special Chat Button */
+button.ant-btn:has(svg.lucide-messages-square) {
+  background: linear-gradient(135deg, var(--electric-purple), var(--neon-blue)) !important;
+  color: var(--velvet-black) !important;
+  font-weight: 800 !important;
+  height: 60px !important;
+  padding: 0 2.2em !important;
+  border-radius: 15px !important;
+  box-shadow: 
+    0 0 30px rgba(157, 78, 221, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+button.ant-btn:has(svg.lucide-messages-square)::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: rotate(45deg);
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+/* Cards & Containers */
+.bb-intros {
+  background: linear-gradient(135deg, rgba(26, 26, 46, 0.8), rgba(45, 27, 23, 0.6)) !important;
+  backdrop-filter: blur(15px);
+  padding: clamp(20px, 3vw, 32px) !important;
+  border-radius: 20px !important;
+  border: 1px solid rgba(255, 42, 109, 0.2) !important;
+  box-shadow: 
+    0 8px 40px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.bb-intros::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--ruby-red), var(--electric-purple), transparent);
+}
+
+.bb-section-title {
+  font-family: var(--font-elegant);
+  text-transform: uppercase;
+  font-style: normal;
+  letter-spacing: 0.08em;
+  font-size: clamp(20px, 2vw, 24px);
+  font-weight: 600;
+  margin: 0 0 clamp(16px, 2vw, 20px);
+  color: var(--gold-glow);
+  display: flex;
+  align-items: center;
+  gap: .8em;
+  line-height: 1.2;
+}
+
+.bb-section-title::before {
+  content: "☕";
+  font-size: 1.4em;
+  filter: drop-shadow(0 0 8px var(--gold-glow));
+}
+
+.bb-intro-list {
+  margin: 0;
+  padding: 0 !important;
+  list-style: none;
+  counter-reset: scn;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.bb-intro-list li {
+  counter-increment: scn;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+  padding: 20px 20px 20px 80px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.bb-intro-list li:hover {
+  transform: translateX(8px);
+  border-color: var(--ruby-red);
+  box-shadow: 0 0 20px rgba(255, 42, 109, 0.3);
+}
+
+.bb-intro-list li::before {
+  content: counter(scn, decimal-leading-zero);
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-neon);
+  font-size: 32px;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--ruby-red), var(--electric-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  z-index: 1;
+  text-shadow: 0 0 20px rgba(255, 42, 109, 0.5);
+}
+
+/* Tags & Badges */
+.ant-tag {
+  background: linear-gradient(135deg, var(--velvet-black), rgba(255, 42, 109, 0.2)) !important;
+  color: var(--silver-mist) !important;
+  border: 1px solid rgba(255, 42, 109, 0.3) !important;
+  border-radius: 8px !important;
+  padding: 6px 12px !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  transition: all 0.3s ease !important;
+  backdrop-filter: blur(10px);
+}
+
+.ant-tag:hover {
+  background: linear-gradient(135deg, var(--ruby-red), var(--electric-purple)) !important;
+  color: var(--velvet-black) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 42, 109, 0.4) !important;
+  cursor: pointer;
+}
+
+/* Support Section */
+.bb-support {
+  background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(45, 27, 23, 0.7)) !important;
+  backdrop-filter: blur(20px);
+  margin-top: 32px !important;
+  padding: clamp(20px, 3vw, 32px) !important;
+  border-radius: 20px !important;
+  border: 1px solid rgba(255, 215, 0, 0.2) !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.bb-support::after {
+  content: "🐇";
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  font-size: 24px;
+  opacity: 0.3;
+  filter: drop-shadow(0 0 10px var(--gold-glow));
+}
+
+.bb-support-title {
+  font-family: var(--font-elegant);
+  color: var(--gold-glow) !important;
+  text-transform: none;
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0 0 20px;
+  text-align: center !important;
+}
+
+/* Quote Styling */
+.bb-quote {
+  background: linear-gradient(135deg, rgba(255, 42, 109, 0.1), rgba(157, 78, 221, 0.05)) !important;
+  backdrop-filter: blur(10px);
+  margin: 28px 0px;
+  padding: 20px 20px 20px 60px;
+  color: var(--silver-mist);
+  font-style: italic;
+  border-left: 4px solid var(--electric-purple) !important;
+  border-radius: 12px;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.bb-quote::before {
+  content: "❝";
+  position: absolute;
+  left: 16px;
+  top: 12px;
+  font: 900 36px/1 var(--font-elegant);
+  color: var(--electric-purple);
+  text-shadow: 0 0 15px rgba(157, 78, 221, 0.5);
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 4. ANIMATIONS & EFFECTS
+////////////////////////////////////////////////////////////////////////////////
+*/
+
+@keyframes neonPulse {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(255, 42, 109, 0.5),
+                0 0 10px rgba(255, 42, 109, 0.3),
+                0 0 15px rgba(255, 42, 109, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 10px rgba(255, 42, 109, 0.8),
+                0 0 20px rgba(255, 42, 109, 0.5),
+                0 0 30px rgba(255, 42, 109, 0.2);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    text-shadow: 0 0 5px currentColor;
+  }
+  50% {
+    text-shadow: 0 0 20px currentColor,
+                 0 0 30px currentColor;
+  }
+}
+
+/* Apply animations to interactive elements */
+button.ant-btn.ant-btn-primary {
+  animation: neonPulse 2s ease-in-out infinite;
+}
+
+.bb-section-title {
+  animation: glow 3s ease-in-out infinite;
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 5. RESPONSIVE DESIGN
+////////////////////////////////////////////////////////////////////////////////
+*/
+
+@media (max-width: 768px) {
+  .bb-sec {
+    --gap: 16px;
+  }
+  
+  .bb-wrap {
+    padding: 0 16px;
+  }
+  
+  .bb-title {
+    font-size: clamp(42px, 12vw, 80px) !important;
+  }
+  
+  .bb-intros,
+  .bb-support {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    border-radius: 16px !important;
+  }
+  
+  button.ant-btn {
+    height: 44px !important;
+    font-size: 13px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .bb-collection-subtitle {
+    font-size: 11px;
+    padding: 6px 12px;
+  }
+  
+  .bb-intro-list li {
+    padding: 16px 16px 16px 60px;
+  }
+  
+  .bb-intro-list li::before {
+    font-size: 24px;
+    left: 16px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 6. BUNNY CAFÉ SPECIAL ELEMENTS
+////////////////////////////////////////////////////////////////////////////////
+*/
+
+/* Bunny ear decoration for headers */
+.bb-header::before,
+.bb-header::after {
+  content: "🐰";
+  position: absolute;
+  top: -10px;
+  font-size: 24px;
+  opacity: 0.6;
+  filter: drop-shadow(0 0 8px var(--ruby-red));
+  animation: float 3s ease-in-out infinite;
+}
+
+.bb-header::before {
+  left: 0;
+  animation-delay: 0s;
+}
+
+.bb-header::after {
+  right: 0;
+  animation-delay: 1.5s;
+}
+
+/* Coffee steam effect */
+.bb-support::before {
+  content: "☕";
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 32px;
+  filter: drop-shadow(0 0 10px var(--gold-glow));
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Neon grid background pattern */
+.bb-sec::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(255, 42, 109, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(157, 78, 221, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.3;
+}
