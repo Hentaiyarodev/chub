@@ -1,0 +1,455 @@
+/* =================================================================
+  DARK SEXY BUNNY CAFÉ - CSS THEME
+  Um ambiente sedutor e misterioso com toques de neon e sensualidade
+================================================================= */
+
+/* ============================================
+  1. FONTES E IMPORTAÇÕES
+============================================ */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600;700&family=Orbitron:wght@400;700&display=swap');
+
+/* ============================================
+  2. VARIÁVEIS E CORES DO TEMA
+============================================ */
+:root {
+  --dark-bg: #0a0a0a;
+  --deep-dark: #111111;
+  --velvet: #1a0f14;
+  --ruby: #ff0055;
+  --neon-pink: #ff1493;
+  --neon-purple: #9400d3;
+  --neon-blue: #007fff;
+  --gold: #ffd700;
+  --silver: #c0c0c0;
+  --leather: #2a1a1a;
+  --lace: rgba(255, 255, 255, 0.1);
+  --glow-ruby: 0 0 10px rgba(255, 0, 85, 0.7), 0 0 20px rgba(255, 0, 85, 0.5);
+  --glow-pink: 0 0 15px rgba(255, 20, 147, 0.8), 0 0 25px rgba(255, 20, 147, 0.4);
+  --glow-purple: 0 0 10px rgba(148, 0, 211, 0.6);
+  --font-elegant: 'Playfair Display', serif;
+  --font-modern: 'Inter', sans-serif;
+  --font-neon: 'Orbitron', monospace;
+}
+
+/* ============================================
+  3. FUNDO E LAYOUT PRINCIPAL
+============================================ */
+.ant-layout {
+  background: linear-gradient(135deg, var(--dark-bg) 0%, var(--velvet) 50%, var(--deep-dark) 100%) !important;
+  min-height: 100vh;
+  position: relative;
+}
+
+.ant-layout::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(255, 0, 85, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(148, 0, 211, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(255, 20, 147, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ============================================
+  4. HEADER SEXY E MISTERIOSO
+============================================ */
+.ant-layout-header {
+  background: rgba(10, 10, 10, 0.95) !important;
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--lace) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  height: 70px !important;
+  padding: 0 30px !important;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.ant-menu-dark {
+  background: transparent !important;
+  border-bottom: none !important;
+}
+
+.ant-menu-horizontal {
+  line-height: 68px !important;
+  border-bottom: none !important;
+}
+
+.ant-menu-item {
+  margin: 0 15px !important;
+  padding: 0 20px !important;
+  border-radius: 25px;
+  transition: all 0.3s ease !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.ant-menu-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, var(--ruby), transparent);
+  transition: left 0.5s ease;
+}
+
+.ant-menu-item:hover::before {
+  left: 100%;
+}
+
+.ant-menu-item:hover {
+  background: rgba(255, 0, 85, 0.1) !important;
+  box-shadow: var(--glow-ruby);
+  transform: translateY(-2px);
+}
+
+.ant-menu-item-selected {
+  background: linear-gradient(135deg, var(--ruby), var(--neon-pink)) !important;
+  box-shadow: var(--glow-pink);
+}
+
+/* ============================================
+  5. BOTÕES SEDUTORES
+============================================ */
+.ant-btn {
+  border-radius: 25px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  position: relative;
+  overflow: hidden;
+  border: none !important;
+}
+
+.ant-btn-default {
+  background: linear-gradient(135deg, var(--leather), #3a2a2a) !important;
+  color: var(--silver) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.ant-btn-default:hover {
+  background: linear-gradient(135deg, #3a2a2a, var(--leather)) !important;
+  color: var(--gold) !important;
+  box-shadow: var(--glow-purple);
+  transform: translateY(-2px);
+}
+
+.ant-btn-primary {
+  background: linear-gradient(135deg, var(--ruby), var(--neon-pink)) !important;
+  color: white !important;
+  box-shadow: var(--glow-pink);
+}
+
+.ant-btn-primary:hover {
+  background: linear-gradient(135deg, var(--neon-pink), var(--ruby)) !important;
+  box-shadow: 0 0 30px rgba(255, 20, 147, 0.6);
+  transform: translateY(-2px) scale(1.05);
+}
+
+.ant-btn::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: rotate(45deg) translate(-20%, -100%);
+  transition: transform 0.6s ease;
+}
+
+.ant-btn:hover::after {
+  transform: rotate(45deg) translate(20%, 100%);
+}
+
+/* ============================================
+  6. CARDS E CONTAINERS LUXUOSOS
+============================================ */
+.ant-card {
+  background: rgba(26, 15, 20, 0.8) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--lace) !important;
+  border-radius: 15px !important;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.ant-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 15px 40px rgba(0, 0, 0, 0.4),
+    var(--glow-purple),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border-color: var(--neon-purple) !important;
+}
+
+.ant-card-head {
+  background: linear-gradient(135deg, transparent, rgba(255, 0, 85, 0.1)) !important;
+  border-bottom: 1px solid var(--lace) !important;
+  padding: 20px 24px !important;
+}
+
+.ant-card-head-title {
+  color: var(--gold) !important;
+  font-family: var(--font-elegant);
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* ============================================
+  7. FORMULÁRIOS SENSUAIS
+============================================ */
+.ant-input {
+  background: rgba(42, 26, 26, 0.8) !important;
+  border: 1px solid var(--lace) !important;
+  border-radius: 10px !important;
+  color: var(--silver) !important;
+  padding: 12px 16px !important;
+  transition: all 0.3s ease !important;
+}
+
+.ant-input:hover {
+  border-color: var(--neon-pink) !important;
+  box-shadow: var(--glow-pink);
+}
+
+.ant-input:focus {
+  border-color: var(--ruby) !important;
+  box-shadow: var(--glow-ruby);
+  background: rgba(42, 26, 26, 0.9) !important;
+}
+
+.ant-select:not(.ant-select-disabled):hover .ant-select-selector {
+  border-color: var(--neon-pink) !important;
+  box-shadow: var(--glow-pink);
+}
+
+.ant-select-focused .ant-select-selector {
+  border-color: var(--ruby) !important;
+  box-shadow: var(--glow-ruby) !important;
+}
+
+/* ============================================
+  8. TAGS E BADGES NEON
+============================================ */
+.ant-tag {
+  border: none !important;
+  border-radius: 15px !important;
+  padding: 4px 12px !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple)) !important;
+  color: white !important;
+  box-shadow: var(--glow-purple);
+  transition: all 0.3s ease;
+}
+
+.ant-tag:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(148, 0, 211, 0.8);
+}
+
+/* ============================================
+  9. MENUS DROPDOWN SEXYS
+============================================ */
+.ant-dropdown-menu {
+  background: rgba(26, 15, 20, 0.95) !important;
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--lace) !important;
+  border-radius: 10px !important;
+  box-shadow: 
+    0 10px 40px rgba(0, 0, 0, 0.5),
+    var(--glow-purple);
+  padding: 8px 0 !important;
+}
+
+.ant-dropdown-menu-item {
+  padding: 12px 20px !important;
+  color: var(--silver) !important;
+  transition: all 0.3s ease !important;
+  position: relative;
+}
+
+.ant-dropdown-menu-item:hover {
+  background: linear-gradient(135deg, rgba(255, 0, 85, 0.2), rgba(255, 20, 147, 0.1)) !important;
+  color: var(--gold) !important;
+  padding-left: 30px !important;
+}
+
+.ant-dropdown-menu-item::before {
+  content: "♥";
+  position: absolute;
+  left: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  color: var(--ruby);
+}
+
+.ant-dropdown-menu-item:hover::before {
+  opacity: 1;
+}
+
+/* ============================================
+  10. COLLAPSES E ACORDEÕES
+============================================ */
+.ant-collapse {
+  background: transparent !important;
+  border: 1px solid var(--lace) !important;
+  border-radius: 10px !important;
+}
+
+.ant-collapse-item {
+  border-bottom: 1px solid var(--lace) !important;
+}
+
+.ant-collapse-header {
+  background: linear-gradient(135deg, transparent, rgba(255, 0, 85, 0.05)) !important;
+  color: var(--gold) !important;
+  font-weight: 600;
+  padding: 16px 20px !important;
+  transition: all 0.3s ease;
+}
+
+.ant-collapse-header:hover {
+  background: linear-gradient(135deg, transparent, rgba(255, 0, 85, 0.1)) !important;
+  color: var(--ruby) !important;
+}
+
+.ant-collapse-content {
+  background: rgba(42, 26, 26, 0.6) !important;
+  color: var(--silver) !important;
+  border-top: 1px solid var(--lace) !important;
+}
+
+/* ============================================
+  11. ELEMENTOS BUNNY THEME
+============================================ */
+/* Orelhas de coelha decorativas */
+.ant-layout-header::after {
+  content: "♡";
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 24px;
+  color: var(--ruby);
+  text-shadow: var(--glow-ruby);
+  z-index: 1001;
+}
+
+/* Botão de favorito especial */
+.ant-btn:has(.anticon-star) {
+  background: linear-gradient(135deg, var(--gold), #ffed4a) !important;
+  color: #000 !important;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+  animation: pulse-gold 2s ease-in-out infinite;
+}
+
+@keyframes pulse-gold {
+  0%, 100% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.6); }
+  50% { box-shadow: 0 0 30px rgba(255, 215, 0, 0.9); }
+}
+
+/* ============================================
+  12. ANIMAÇÕES E EFEITOS ESPECIAIS
+============================================ */
+@keyframes neonPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+.ant-card {
+  animation: float 6s ease-in-out infinite;
+}
+
+.ant-tag {
+  animation: neonPulse 3s ease-in-out infinite;
+}
+
+/* ============================================
+  13. RESPONSIVIDADE
+============================================ */
+@media (max-width: 768px) {
+  .ant-layout-header {
+    padding: 0 15px !important;
+  }
+  
+  .ant-menu-item {
+    margin: 0 5px !important;
+    padding: 0 12px !important;
+  }
+  
+  .ant-card {
+    margin: 10px !important;
+  }
+}
+
+/* ============================================
+  14. SCROLLBAR PERSONALIZADA
+============================================ */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--deep-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, var(--ruby), var(--neon-pink));
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, var(--neon-pink), var(--ruby));
+  box-shadow: var(--glow-pink);
+}
+
+/* ============================================
+  15. ELEMENTOS DE TEXTO E TIPOGRAFIA
+============================================ */
+.ant-typography {
+  color: var(--silver) !important;
+}
+
+h1.ant-typography,
+h2.ant-typography,
+h3.ant-typography {
+  color: var(--gold) !important;
+  font-family: var(--font-elegant);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+h1.ant-typography::after,
+h2.ant-typography::after,
+h3.ant-typography::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--ruby), transparent);
+}
+
+/* ============================================
+  FIM DO TEMA DARK SEXY BUNNY CAFÉ
+============================================ */
