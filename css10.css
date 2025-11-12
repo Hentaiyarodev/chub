@@ -1,0 +1,417 @@
+/* =================================================================
+  DARK SEXY BUNNY CAFÉ - CSS THEME
+  Um ambiente sedutor e misterioso com toques de neon e luxo
+================================================================= */
+
+/* ================================
+  1. FONTES E IMPORTAÇÕES
+================================ */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&family=Orbitron:wght@400;700&display=swap');
+
+:root {
+  --font-elegant: 'Playfair Display', serif;
+  --font-modern: 'Inter', sans-serif;
+  --font-neon: 'Orbitron', monospace;
+}
+
+/* ================================
+  2. VARIÁVEIS DE CORES E TEMA
+================================ */
+:root {
+  /* Cores Base - Fundos Escuros */
+  --dark-velvet: #0a0a0f;
+  --deep-midnight: #151520;
+  --shadow-purple: #1a1625;
+  --rich-plum: #231c2b;
+  
+  /* Cores de Destaque - Neon Sensual */
+  --neon-ruby: #ff0055;
+  --electric-fuchsia: #ff00aa;
+  --violet-glow: #8b00ff;
+  --golden-amber: #ffaa00;
+  --aqua-dream: #00ffff;
+  
+  /* Cores de Textura */
+  --velvet-texture: linear-gradient(135deg, #1a1625 0%, #231c2b 100%);
+  --neon-glow: 0 0 10px currentColor, 0 0 20px currentColor;
+  --subtle-shine: rgba(255,255,255,0.1);
+}
+
+/* ================================
+  3. RESET E ESTILOS GLOBAIS
+================================ */
+.ant-layout {
+  background: var(--dark-velvet) !important;
+  color: #fff !important;
+  font-family: var(--font-modern) !important;
+}
+
+.ant-layout-content {
+  background: linear-gradient(135deg, var(--dark-velvet) 0%, var(--shadow-purple) 100%) !important;
+  min-height: 100vh !important;
+}
+
+/* ================================
+  4. HEADER SEXY BUNNY STYLE
+================================ */
+.ant-layout-header {
+  background: rgba(10, 10, 15, 0.95) !important;
+  backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid var(--neon-ruby) !important;
+  box-shadow: 0 4px 20px rgba(255, 0, 85, 0.3) !important;
+  height: 70px !important;
+  padding: 0 30px !important;
+}
+
+.ant-menu {
+  background: transparent !important;
+  border: none !important;
+}
+
+.ant-menu-horizontal {
+  line-height: 68px !important;
+}
+
+.ant-menu-item {
+  color: rgba(255,255,255,0.7) !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  font-size: 13px !important;
+  margin: 0 15px !important;
+  position: relative !important;
+  transition: all 0.3s ease !important;
+}
+
+.ant-menu-item:hover {
+  color: var(--neon-ruby) !important;
+  text-shadow: var(--neon-glow) !important;
+}
+
+.ant-menu-item::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 50% !important;
+  width: 0 !important;
+  height: 2px !important;
+  background: var(--neon-ruby) !important;
+  transition: all 0.3s ease !important;
+  transform: translateX(-50%) !important;
+}
+
+.ant-menu-item:hover::after {
+  width: 100% !important;
+}
+
+/* ================================
+  5. BOTÕES SENSUAIS
+================================ */
+.ant-btn {
+  border-radius: 25px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  border: none !important;
+}
+
+.ant-btn-default {
+  background: var(--rich-plum) !important;
+  color: rgba(255,255,255,0.8) !important;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3) !important;
+}
+
+.ant-btn-default:hover {
+  background: var(--electric-fuchsia) !important;
+  color: #fff !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(255, 0, 170, 0.4) !important;
+}
+
+.ant-btn-primary {
+  background: linear-gradient(135deg, var(--neon-ruby), var(--electric-fuchsia)) !important;
+  color: #fff !important;
+  box-shadow: 0 4px 20px rgba(255, 0, 85, 0.4) !important;
+}
+
+.ant-btn-primary:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 30px rgba(255, 0, 170, 0.6) !important;
+  background: linear-gradient(135deg, var(--electric-fuchsia), var(--neon-ruby)) !important;
+}
+
+/* Efeito de brilho nos botões */
+.ant-btn::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent) !important;
+  transition: left 0.5s ease !important;
+}
+
+.ant-btn:hover::before {
+  left: 100% !important;
+}
+
+/* ================================
+  6. CARDS E CONTAINERS LUXUOSOS
+================================ */
+.ant-card {
+  background: var(--velvet-texture) !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  border-radius: 15px !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3) !important;
+  backdrop-filter: blur(10px) !important;
+  transition: all 0.3s ease !important;
+}
+
+.ant-card:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 12px 40px rgba(255, 0, 85, 0.2) !important;
+  border-color: var(--neon-ruby) !important;
+}
+
+.ant-card-head {
+  border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+  background: linear-gradient(135deg, rgba(255,0,85,0.1), rgba(139,0,255,0.1)) !important;
+  border-radius: 15px 15px 0 0 !important;
+}
+
+.ant-card-head-title {
+  color: #fff !important;
+  font-family: var(--font-elegant) !important;
+  font-weight: 700 !important;
+  text-shadow: 0 0 10px rgba(255,255,255,0.5) !important;
+}
+
+/* ================================
+  7. FORMULÁRIOS E INPUTS
+================================ */
+.ant-input {
+  background: rgba(255,255,255,0.05) !important;
+  border: 1px solid rgba(255,255,255,0.2) !important;
+  border-radius: 10px !important;
+  color: #fff !important;
+  transition: all 0.3s ease !important;
+}
+
+.ant-input:hover {
+  border-color: var(--electric-fuchsia) !important;
+  box-shadow: 0 0 10px rgba(255, 0, 170, 0.3) !important;
+}
+
+.ant-input:focus {
+  border-color: var(--neon-ruby) !important;
+  box-shadow: 0 0 15px rgba(255, 0, 85, 0.5) !important;
+  background: rgba(255,255,255,0.08) !important;
+}
+
+.ant-select:not(.ant-select-disabled):hover .ant-select-selector {
+  border-color: var(--electric-fuchsia) !important;
+  box-shadow: 0 0 10px rgba(255, 0, 170, 0.3) !important;
+}
+
+/* ================================
+  8. TAGS E BADGES NEON
+================================ */
+.ant-tag {
+  border: none !important;
+  border-radius: 15px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  font-size: 11px !important;
+  padding: 4px 12px !important;
+  background: linear-gradient(135deg, var(--violet-glow), var(--electric-fuchsia)) !important;
+  color: #fff !important;
+  box-shadow: 0 4px 15px rgba(139, 0, 255, 0.3) !important;
+}
+
+/* ================================
+  9. MODAIS E DROPDOWNS
+================================ */
+.ant-modal-content {
+  background: var(--velvet-texture) !important;
+  border-radius: 20px !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5) !important;
+  backdrop-filter: blur(20px) !important;
+}
+
+.ant-modal-header {
+  background: linear-gradient(135deg, rgba(255,0,85,0.1), rgba(139,0,255,0.1)) !important;
+  border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+  border-radius: 20px 20px 0 0 !important;
+}
+
+.ant-dropdown-menu {
+  background: var(--rich-plum) !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  border-radius: 15px !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+.ant-dropdown-menu-item {
+  color: rgba(255,255,255,0.8) !important;
+  transition: all 0.3s ease !important;
+}
+
+.ant-dropdown-menu-item:hover {
+  background: linear-gradient(135deg, var(--neon-ruby), var(--electric-fuchsia)) !important;
+  color: #fff !important;
+}
+
+/* ================================
+  10. ANIMAÇÕES E EFEITOS ESPECIAIS
+================================ */
+@keyframes neonPulse {
+  0%, 100% {
+    text-shadow: 0 0 5px currentColor, 0 0 10px currentColor;
+  }
+  50% {
+    text-shadow: 0 0 15px currentColor, 0 0 30px currentColor;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(255, 0, 85, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 0, 85, 0.8);
+  }
+}
+
+/* Aplicar animações a elementos específicos */
+.ant-btn-primary {
+  animation: glow 2s ease-in-out infinite !important;
+}
+
+/* ================================
+  11. ELEMENTOS BUNNY THEME
+================================ */
+/* Orelhas de coelha decorativas */
+.bunny-ears::before,
+.bunny-ears::after {
+  content: '' !important;
+  position: absolute !important;
+  top: -20px !important;
+  width: 20px !important;
+  height: 30px !important;
+  background: var(--neon-ruby) !important;
+  border-radius: 50% 50% 0 0 !important;
+  transform: rotate(-45deg) !important;
+  box-shadow: var(--neon-glow) !important;
+}
+
+.bunny-ears::after {
+  right: 20px !important;
+  transform: rotate(45deg) !important;
+}
+
+.bunny-ears::before {
+  left: 20px !important;
+}
+
+/* ================================
+  12. RESPONSIVIDADE
+================================ */
+@media (max-width: 768px) {
+  .ant-layout-header {
+    padding: 0 15px !important;
+  }
+  
+  .ant-menu-item {
+    margin: 0 8px !important;
+    font-size: 12px !important;
+  }
+  
+  .ant-card {
+    margin: 10px !important;
+  }
+}
+
+/* ================================
+  13. UTILITÁRIOS VISUAIS
+================================ */
+.glow-text {
+  text-shadow: var(--neon-glow) !important;
+  animation: neonPulse 2s ease-in-out infinite !important;
+}
+
+.velvet-surface {
+  background: var(--velvet-texture) !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+.floating-element {
+  animation: float 3s ease-in-out infinite !important;
+}
+
+/* ================================
+  14. SCROLLBAR PERSONALIZADA
+================================ */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--dark-velvet);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, var(--neon-ruby), var(--electric-fuchsia));
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, var(--electric-fuchsia), var(--neon-ruby));
+}
+
+/* ================================
+  15. ESTADOS ESPECIAIS
+================================ */
+.ant-btn:active {
+  transform: translateY(1px) !important;
+  transition: transform 0.1s ease !important;
+}
+
+.ant-menu-item-selected {
+  color: var(--neon-ruby) !important;
+  text-shadow: var(--neon-glow) !important;
+}
+
+.ant-menu-item-selected::after {
+  width: 100% !important;
+}
+
+/* Efeito de partículas brilhantes (pseudo-elementos) */
+.glow-dust::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: radial-gradient(circle at 20% 80%, rgba(255, 0, 170, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(0, 255, 255, 0.1) 0%, transparent 50%) !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+}
