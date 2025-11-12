@@ -1,0 +1,430 @@
+/* =================================================================
+  DARK SEXY BUNNY GIRL CAFÉ THEME - CSS ONLY
+  Transformação completa do perfil para ambiente sensual e misterioso
+================================================================= */
+
+/* ////////////////////////////////////////////////////////////////////////////////
+// 1. FONT IMPORTS & VARIABLES
+//////////////////////////////////////////////////////////////////////////////// */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;700&display=swap');
+
+:root {
+  /* Cores Principais - Dark Seduction Palette */
+  --midnight: #0a0a0f;
+  --velvet: #1a0f1a;
+  --deep-purple: #2d1b2d;
+  --ruby: #ff2a6d;
+  --neon-pink: #ff00ff;
+  --neon-blue: #00ffff;
+  --electric-purple: #bf00ff;
+  --gold: #ffd700;
+  --silver: #c0c0c0;
+  --smoke: rgba(255,255,255,0.1);
+  
+  /* Variáveis de Tema */
+  --bg-primary: var(--midnight);
+  --bg-secondary: var(--velvet);
+  --bg-accent: var(--deep-purple);
+  --text-primary: #ffffff;
+  --text-secondary: #e0e0e0;
+  --text-muted: #a0a0a0;
+  --accent: var(--ruby);
+  --accent-glow: 0 0 20px rgba(255, 42, 109, 0.6);
+  --neon-glow: 0 0 15px currentColor;
+  
+  /* Fontes Temáticas */
+  --font-elegant: 'Playfair Display', serif;
+  --font-modern: 'Inter', sans-serif;
+  --font-neon: 'Orbitron', monospace;
+}
+
+/* ////////////////////////////////////////////////////////////////////////////////
+// 2. RESET & LAYOUT FOUNDATION - MANTENDO ESTRUTURA ANT DESIGN
+//////////////////////////////////////////////////////////////////////////////// */
+
+/* Layout Principal - Fundo Escuro Luxuoso */
+.ant-layout {
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%) !important;
+  color: var(--text-primary) !important;
+  font-family: var(--font-modern) !important;
+  min-height: 100vh;
+}
+
+/* Header - Barra Superior Sensual */
+.ant-layout-header {
+  background: rgba(10, 10, 15, 0.95) !important;
+  backdrop-filter: blur(10px) !important;
+  border-bottom: 1px solid var(--smoke) !important;
+  box-shadow: 0 4px 30px rgba(255, 42, 109, 0.3) !important;
+  height: 70px !important;
+  padding: 0 30px !important;
+}
+
+/* Menu Principal - Navegação Sedutora */
+.ant-menu {
+  background: transparent !important;
+  border: none !important;
+  font-family: var(--font-modern) !important;
+}
+
+.ant-menu-horizontal {
+  line-height: 68px !important;
+}
+
+.ant-menu-item {
+  color: var(--text-secondary) !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  transition: all 0.3s ease !important;
+  margin: 0 15px !important;
+  position: relative !important;
+}
+
+.ant-menu-item:hover {
+  color: var(--ruby) !important;
+  text-shadow: var(--neon-glow) !important;
+}
+
+.ant-menu-item::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 50% !important;
+  width: 0 !important;
+  height: 2px !important;
+  background: linear-gradient(90deg, var(--ruby), var(--neon-pink)) !important;
+  transition: all 0.3s ease !important;
+  transform: translateX(-50%) !important;
+}
+
+.ant-menu-item:hover::after {
+  width: 100% !important;
+}
+
+.ant-menu-item-selected {
+  color: var(--ruby) !important;
+  text-shadow: var(--neon-glow) !important;
+}
+
+.ant-menu-item-selected::after {
+  width: 100% !important;
+}
+
+/* ////////////////////////////////////////////////////////////////////////////////
+// 3. COMPONENTES PRINCIPAIS - BOTÕES, CARDS, FORMULÁRIOS
+//////////////////////////////////////////////////////////////////////////////// */
+
+/* Botões - Estilo Neon Luxuoso */
+.ant-btn {
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  border: none !important;
+}
+
+.ant-btn-default {
+  background: linear-gradient(135deg, var(--bg-accent), var(--velvet)) !important;
+  color: var(--text-primary) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+}
+
+.ant-btn-default:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(255, 42, 109, 0.4) !important;
+  color: var(--ruby) !important;
+}
+
+.ant-btn-primary {
+  background: linear-gradient(135deg, var(--ruby), var(--electric-purple)) !important;
+  color: white !important;
+  box-shadow: var(--accent-glow) !important;
+}
+
+.ant-btn-primary:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 0 30px rgba(255, 42, 109, 0.8) !important;
+  background: linear-gradient(135deg, var(--neon-pink), var(--ruby)) !important;
+}
+
+/* Efeito de brilho nos botões */
+.ant-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.ant-btn:hover::before {
+  left: 100%;
+}
+
+/* Cards - Cartões Elegantes com Brilho */
+.ant-card {
+  background: rgba(26, 15, 26, 0.8) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid var(--smoke) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+  transition: all 0.3s ease !important;
+}
+
+.ant-card:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 12px 40px rgba(255, 42, 109, 0.2) !important;
+  border-color: rgba(255, 42, 109, 0.3) !important;
+}
+
+.ant-card-head {
+  border-bottom: 1px solid var(--smoke) !important;
+  color: var(--text-primary) !important;
+  font-family: var(--font-elegant) !important;
+}
+
+.ant-card-body {
+  color: var(--text-secondary) !important;
+}
+
+/* Formulários - Inputs com Estilo Neon */
+.ant-input {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid var(--smoke) !important;
+  border-radius: 6px !important;
+  color: var(--text-primary) !important;
+  transition: all 0.3s ease !important;
+}
+
+.ant-input:hover {
+  border-color: var(--ruby) !important;
+  box-shadow: 0 0 10px rgba(255, 42, 109, 0.3) !important;
+}
+
+.ant-input:focus {
+  border-color: var(--ruby) !important;
+  box-shadow: 0 0 15px rgba(255, 42, 109, 0.5) !important;
+}
+
+.ant-select:not(.ant-select-disabled):hover .ant-select-selector {
+  border-color: var(--ruby) !important;
+  box-shadow: 0 0 10px rgba(255, 42, 109, 0.3) !important;
+}
+
+/* ////////////////////////////////////////////////////////////////////////////////
+// 4. ELEMENTOS ESPECIAIS DO TEMA BUNNY GIRL CAFÉ
+//////////////////////////////////////////////////////////////////////////////// */
+
+/* Badges/Tags - Estilo Exclusivo */
+.ant-tag {
+  border: none !important;
+  border-radius: 20px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  font-size: 11px !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.ant-tag:hover {
+  transform: scale(1.05) !important;
+  box-shadow: var(--neon-glow) !important;
+}
+
+/* Efeito de orelhas de coelha sutil em elementos especiais */
+.ant-card-head-title::before {
+  content: '🐰';
+  margin-right: 8px;
+  font-size: 0.9em;
+  opacity: 0.7;
+}
+
+/* Efeitos de Café - Padrões sutis */
+.ant-layout-content {
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(255, 42, 109, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(191, 0, 255, 0.05) 0%, transparent 50%);
+}
+
+/* Animações de Brilho Neon */
+@keyframes neonPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Aplicando animações em elementos interativos */
+.ant-btn-primary {
+  animation: neonPulse 2s ease-in-out infinite;
+}
+
+.ant-card:hover {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* ////////////////////////////////////////////////////////////////////////////////
+// 5. TYPOGRAPHY & TEXT EFFECTS
+//////////////////////////////////////////////////////////////////////////////// */
+
+.ant-typography {
+  color: var(--text-primary) !important;
+}
+
+h1.ant-typography,
+h2.ant-typography,
+h3.ant-typography {
+  font-family: var(--font-elegant) !important;
+  font-weight: 700 !important;
+  background: linear-gradient(135deg, var(--text-primary), var(--silver)) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  text-shadow: 0 2px 10px rgba(255, 255, 255, 0.1) !important;
+}
+
+h4.ant-typography,
+h5.ant-typography {
+  font-family: var(--font-modern) !important;
+  color: var(--text-secondary) !important;
+  font-weight: 600 !important;
+}
+
+/* ////////////////////////////////////////////////////////////////////////////////
+// 6. COMPONENTES AVANÇADOS & OVERRIDES ESPECÍFICOS
+//////////////////////////////////////////////////////////////////////////////// */
+
+/* Modal/Drawer - Overlays Luxuosos */
+.ant-modal-content,
+.ant-drawer-content {
+  background: var(--bg-secondary) !important;
+  border: 1px solid var(--smoke) !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5) !important;
+}
+
+.ant-modal-header {
+  background: transparent !important;
+  border-bottom: 1px solid var(--smoke) !important;
+}
+
+/* Table - Tabelas Elegantes */
+.ant-table {
+  background: transparent !important;
+  color: var(--text-primary) !important;
+}
+
+.ant-table-thead > tr > th {
+  background: rgba(255, 42, 109, 0.1) !important;
+  color: var(--text-primary) !important;
+  border-bottom: 1px solid var(--smoke) !important;
+  font-weight: 600 !important;
+}
+
+.ant-table-tbody > tr > td {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+  color: var(--text-secondary) !important;
+}
+
+.ant-table-tbody > tr:hover > td {
+  background: rgba(255, 42, 109, 0.05) !important;
+  color: var(--text-primary) !important;
+}
+
+/* ////////////////////////////////////////////////////////////////////////////////
+// 7. RESPONSIVE & MEDIA QUERIES
+//////////////////////////////////////////////////////////////////////////////// */
+
+@media (max-width: 768px) {
+  .ant-layout-header {
+    padding: 0 15px !important;
+    height: 60px !important;
+  }
+  
+  .ant-menu-item {
+    margin: 0 8px !important;
+    font-size: 12px !important;
+  }
+  
+  .ant-card {
+    margin: 10px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .ant-btn {
+    font-size: 12px !important;
+    padding: 8px 16px !important;
+  }
+  
+  h1.ant-typography {
+    font-size: 24px !important;
+  }
+}
+
+/* ////////////////////////////////////////////////////////////////////////////////
+// 8. UTILITY CLASSES & EFFECTS ESPECIAIS
+//////////////////////////////////////////////////////////////////////////////// */
+
+/* Efeito de brilho ao passar o mouse em qualquer elemento interativo */
+.ant-btn,
+.ant-card,
+.ant-menu-item,
+.ant-tag {
+  position: relative;
+}
+
+.ant-btn:hover::after,
+.ant-card:hover::after,
+.ant-menu-item:hover::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--ruby), var(--neon-pink), var(--neon-blue), var(--electric-purple));
+  border-radius: inherit;
+  z-index: -1;
+  animation: gradientShift 3s ease infinite;
+  background-size: 400% 400%;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Remove estilos padrão do Ant Design que conflitam */
+.ant-layout-footer {
+  background: var(--bg-primary) !important;
+  color: var(--text-muted) !important;
+  border-top: 1px solid var(--smoke) !important;
+}
+
+/* Scrollbar customizada */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--ruby), var(--electric-purple));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(var(--neon-pink), var(--ruby));
+}
