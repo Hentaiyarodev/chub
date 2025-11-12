@@ -1,0 +1,456 @@
+/* =================================================================
+  DARK SEXY BUNNY GIRL CAFÉ THEME - CSS Transformation
+  Neon Allure Edition
+================================================================= */
+
+/* ////////////////////////////////////////////////////////////////////////////////
+// 1. FONT IMPORTS - Luxurious & Modern
+//////////////////////////////////////////////////////////////////////////////// */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600;700&family=Orbitron:wght@400;700&display=swap');
+
+/* ////////////////////////////////////////////////////////////////////////////////
+// 2. CORE THEME VARIABLES - Dark Seductive Palette
+//////////////////////////////////////////////////////////////////////////////// */
+:root {
+  --ink: #f0e6ff;
+  --muted: #b8a9d4;
+  --accent: #ff2d95;
+  --accent-glow: rgba(255, 45, 149, 0.6);
+  --neon-blue: #00f3ff;
+  --neon-purple: #b967ff;
+  --deep-black: #0a0a0f;
+  --velvet-dark: #1a1525;
+  --rich-burgundy: #2d112b;
+  --golden-highlight: #ffd700;
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+  --font-neon: 'Orbitron', monospace;
+}
+
+/* ////////////////////////////////////////////////////////////////////////////////
+// 3. ANT DESIGN COMPONENT OVERHAUL - Complete Visual Transformation
+//////////////////////////////////////////////////////////////////////////////// */
+
+/* === LAYOUT FOUNDATION === */
+.ant-layout {
+  background: linear-gradient(135deg, var(--deep-black) 0%, var(--velvet-dark) 50%, var(--rich-burgundy) 100%) !important;
+  color: var(--ink) !important;
+  font-family: var(--font-body) !important;
+}
+
+.ant-layout-header {
+  background: rgba(10, 10, 15, 0.95) !important;
+  backdrop-filter: blur(10px) !important;
+  border-bottom: 1px solid rgba(255, 45, 149, 0.3) !important;
+  box-shadow: 0 0 20px var(--accent-glow) !important;
+  height: 70px !important;
+  padding: 0 30px !important;
+}
+
+.ant-layout-content {
+  background: transparent !important;
+  position: relative;
+}
+
+.ant-layout-content::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(255, 45, 149, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(0, 243, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(185, 103, 255, 0.08) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* === NAVIGATION & MENU === */
+.ant-menu {
+  background: transparent !important;
+  border: none !important;
+  font-family: var(--font-body) !important;
+}
+
+.ant-menu-horizontal {
+  line-height: 68px !important;
+}
+
+.ant-menu-item {
+  color: var(--muted) !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  margin: 0 15px !important;
+  position: relative !important;
+  transition: all 0.3s ease !important;
+}
+
+.ant-menu-item:hover {
+  color: var(--ink) !important;
+  background: transparent !important;
+}
+
+.ant-menu-item::after {
+  content: "" !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 50% !important;
+  width: 0 !important;
+  height: 2px !important;
+  background: linear-gradient(90deg, var(--accent), var(--neon-blue)) !important;
+  transition: all 0.3s ease !important;
+  transform: translateX(-50%) !important;
+}
+
+.ant-menu-item:hover::after {
+  width: 100% !important;
+}
+
+.ant-menu-item-selected {
+  color: var(--ink) !important;
+  background: transparent !important;
+}
+
+.ant-menu-item-selected::after {
+  width: 100% !important;
+}
+
+/* === BUTTONS - Neon Seduction === */
+.ant-btn {
+  border: none !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  font-family: var(--font-body) !important;
+}
+
+.ant-btn-default {
+  background: linear-gradient(135deg, rgba(255, 45, 149, 0.2), rgba(185, 103, 255, 0.2)) !important;
+  color: var(--ink) !important;
+  box-shadow: 
+    0 0 15px rgba(255, 45, 149, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+.ant-btn-default:hover {
+  background: linear-gradient(135deg, rgba(255, 45, 149, 0.3), rgba(185, 103, 255, 0.3)) !important;
+  box-shadow: 
+    0 0 25px rgba(255, 45, 149, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+  transform: translateY(-2px) !important;
+}
+
+.ant-btn-primary {
+  background: linear-gradient(135deg, var(--accent), var(--neon-purple)) !important;
+  color: white !important;
+  box-shadow: 
+    0 0 20px var(--accent-glow),
+    0 4px 15px rgba(0, 0, 0, 0.3) !important;
+}
+
+.ant-btn-primary:hover {
+  background: linear-gradient(135deg, #ff1a8c, #a852ff) !important;
+  box-shadow: 
+    0 0 30px var(--accent-glow),
+    0 6px 20px rgba(0, 0, 0, 0.4) !important;
+  transform: translateY(-2px) !important;
+}
+
+.ant-btn-icon-only {
+  border-radius: 50% !important;
+  width: 45px !important;
+  height: 45px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* === SPECIAL FAVORITE BUTTON - Bunny Girl Signature === */
+button.ant-btn:has(.anticon-star svg path[d*="zM"]) {
+  background: linear-gradient(135deg, var(--accent), var(--neon-purple)) !important;
+  box-shadow: 
+    0 0 25px var(--accent-glow),
+    inset 0 0 15px rgba(255, 255, 255, 0.2) !important;
+  animation: gentle-pulse 3s ease-in-out infinite !important;
+}
+
+@keyframes gentle-pulse {
+  0%, 100% { 
+    box-shadow: 
+      0 0 25px var(--accent-glow),
+      inset 0 0 15px rgba(255, 255, 255, 0.2) !important;
+  }
+  50% { 
+    box-shadow: 
+      0 0 35px var(--accent-glow),
+      inset 0 0 20px rgba(255, 255, 255, 0.3) !important;
+  }
+}
+
+/* === TYPOGRAPHY === */
+.ant-typography {
+  color: var(--ink) !important;
+  font-family: var(--font-body) !important;
+}
+
+h1.ant-typography {
+  font-family: var(--font-heading) !important;
+  font-size: clamp(2.5rem, 5vw, 4rem) !important;
+  background: linear-gradient(135deg, var(--ink), var(--muted)) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  text-shadow: 0 0 30px rgba(255, 45, 149, 0.3) !important;
+  margin-bottom: 0.5rem !important;
+}
+
+h2.ant-typography, h3.ant-typography {
+  font-family: var(--font-heading) !important;
+  color: var(--ink) !important;
+  position: relative !important;
+  display: inline-block !important;
+}
+
+h2.ant-typography::after, h3.ant-typography::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+}
+
+/* === CARDS & CONTAINERS === */
+.ant-card {
+  background: rgba(26, 21, 37, 0.7) !important;
+  backdrop-filter: blur(15px) !important;
+  border: 1px solid rgba(255, 45, 149, 0.2) !important;
+  border-radius: 12px !important;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+  transition: all 0.3s ease !important;
+}
+
+.ant-card:hover {
+  border-color: rgba(255, 45, 149, 0.4) !important;
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+  transform: translateY(-5px) !important;
+}
+
+.ant-card-head {
+  border-bottom: 1px solid rgba(255, 45, 149, 0.3) !important;
+  background: linear-gradient(135deg, rgba(255, 45, 149, 0.1), rgba(185, 103, 255, 0.1)) !important;
+}
+
+.ant-card-head-title {
+  color: var(--ink) !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+}
+
+/* === TAGS & BADGES === */
+.ant-tag {
+  background: linear-gradient(135deg, rgba(255, 45, 149, 0.2), rgba(0, 243, 255, 0.2)) !important;
+  color: var(--ink) !important;
+  border: none !important;
+  border-radius: 20px !important;
+  padding: 4px 12px !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  backdrop-filter: blur(10px) !important;
+  box-shadow: 0 0 10px rgba(255, 45, 149, 0.2) !important;
+  transition: all 0.3s ease !important;
+}
+
+.ant-tag:hover {
+  background: linear-gradient(135deg, rgba(255, 45, 149, 0.3), rgba(0, 243, 255, 0.3)) !important;
+  box-shadow: 0 0 15px rgba(255, 45, 149, 0.4) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* === INPUTS & FORMS === */
+.ant-input {
+  background: rgba(26, 21, 37, 0.7) !important;
+  border: 1px solid rgba(255, 45, 149, 0.3) !important;
+  border-radius: 8px !important;
+  color: var(--ink) !important;
+  font-family: var(--font-body) !important;
+  transition: all 0.3s ease !important;
+}
+
+.ant-input:hover {
+  border-color: rgba(255, 45, 149, 0.5) !important;
+  box-shadow: 0 0 10px rgba(255, 45, 149, 0.2) !important;
+}
+
+.ant-input:focus {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 15px var(--accent-glow) !important;
+}
+
+/* === DROPDOWN MENUS === */
+.ant-dropdown-menu {
+  background: rgba(26, 21, 37, 0.95) !important;
+  backdrop-filter: blur(15px) !important;
+  border: 1px solid rgba(255, 45, 149, 0.3) !important;
+  border-radius: 8px !important;
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(255, 45, 149, 0.2) !important;
+}
+
+.ant-dropdown-menu-item {
+  color: var(--muted) !important;
+  transition: all 0.3s ease !important;
+}
+
+.ant-dropdown-menu-item:hover {
+  background: linear-gradient(135deg, rgba(255, 45, 149, 0.2), rgba(185, 103, 255, 0.2)) !important;
+  color: var(--ink) !important;
+}
+
+/* === COLLAPSE/PANELS === */
+.ant-collapse {
+  background: transparent !important;
+  border: none !important;
+}
+
+.ant-collapse-item {
+  background: rgba(26, 21, 37, 0.7) !important;
+  backdrop-filter: blur(15px) !important;
+  border: 1px solid rgba(255, 45, 149, 0.2) !important;
+  border-radius: 8px !important;
+  margin-bottom: 12px !important;
+  transition: all 0.3s ease !important;
+}
+
+.ant-collapse-item:hover {
+  border-color: rgba(255, 45, 149, 0.4) !important;
+  box-shadow: 0 0 15px rgba(255, 45, 149, 0.2) !important;
+}
+
+.ant-collapse-header {
+  color: var(--ink) !important;
+  font-weight: 600 !important;
+}
+
+.ant-collapse-content {
+  background: rgba(10, 10, 15, 0.5) !important;
+  border-top: 1px solid rgba(255, 45, 149, 0.2) !important;
+  color: var(--muted) !important;
+}
+
+/* === BUNNY GIRL THEME ELEMENTS === */
+/* Subtle bunny ear shapes in corners */
+.ant-layout-header::before {
+  content: "♡";
+  position: absolute;
+  top: 15px;
+  left: 20px;
+  font-size: 1.5rem;
+  color: var(--accent);
+  text-shadow: 0 0 10px var(--accent-glow);
+}
+
+.ant-layout-header::after {
+  content: "☕";
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 1.5rem;
+  color: var(--neon-blue);
+  text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+}
+
+/* Neon glow effects on interactive elements */
+.ant-btn, .ant-tag, .ant-card, .ant-menu-item {
+  position: relative;
+}
+
+.ant-btn::before, .ant-tag::before, .ant-card::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(135deg, var(--accent), var(--neon-blue), var(--neon-purple));
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.ant-btn:hover::before, .ant-tag:hover::before, .ant-card:hover::before {
+  opacity: 0.3;
+}
+
+/* ////////////////////////////////////////////////////////////////////////////////
+// 4. RESPONSIVE DESIGN
+//////////////////////////////////////////////////////////////////////////////// */
+@media (max-width: 768px) {
+  .ant-layout-header {
+    padding: 0 15px !important;
+    height: 60px !important;
+  }
+  
+  .ant-menu-item {
+    margin: 0 8px !important;
+    font-size: 0.9rem !important;
+  }
+  
+  .ant-btn {
+    padding: 8px 16px !important;
+    font-size: 0.85rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .ant-layout-header::before,
+  .ant-layout-header::after {
+    font-size: 1.2rem !important;
+    top: 18px !important;
+  }
+}
+
+/* ////////////////////////////////////////////////////////////////////////////////
+// 5. ACCESSIBILITY & REDUCED MOTION
+//////////////////////////////////////////////////////////////////////////////// */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --ink: #ffffff;
+    --muted: #cccccc;
+    --accent: #ff0080;
+    --deep-black: #000000;
+  }
+}
+
+/* Dark mode enforcement */
+@media (prefers-color-scheme: light) {
+  .ant-layout {
+    background: linear-gradient(135deg, #0a0a0f 0%, #1a1525 50%, #2d112b 100%) !important;
+  }
+}
