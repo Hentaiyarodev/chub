@@ -1,0 +1,428 @@
+/* =================================================================
+  DARK SEXY BUNNY GIRL CAFÉ THEME - NEON ALLURE EDITION
+================================================================= */
+
+/* ////////////////////////////////////////////////////////////////////////////////
+// 1. FONT IMPORTS - LUXURY & FUTURISTIC
+//////////////////////////////////////////////////////////////////////////////// */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Orbitron:wght@400;700;900&family=Raleway:ital,wght@0,300;0,600;0,800;1,300&display=swap');
+
+/* ////////////////////////////////////////////////////////////////////////////////
+// 2. CORE THEME VARIABLES - DARK SEDUCTIVE PALETTE
+//////////////////////////////////////////////////////////////////////////////// */
+:root {
+  --ink: #f0e6ff;
+  --muted: #b8a9d4;
+  --accent: #ff2a78;
+  --accent-glow: #ff2a78aa;
+  --neon-purple: #c724ff;
+  --neon-pink: #ff2a9d;
+  --neon-blue: #00e0ff;
+  --deep-velvet: #1a0b1f;
+  --dark-chocolate: #2d1a23;
+  --ruby-red: #ff0055;
+  --golden-glow: #ffd700;
+  --font-heading: 'Orbitron', sans-serif;
+  --font-elegant: 'Playfair Display', serif;
+  --font-flavor: 'Raleway', sans-serif;
+}
+
+/* ////////////////////////////////////////////////////////////////////////////////
+// 3. ANT DESIGN COMPLETE OVERHAUL - BUNNY GIRL CAFÉ STYLING
+//////////////////////////////////////////////////////////////////////////////// */
+
+/* === LAYOUT FOUNDATION === */
+.ant-layout {
+  background: linear-gradient(135deg, var(--deep-velvet) 0%, #0a0610 50%, #1f0f2a 100%) !important;
+  background-attachment: fixed !important;
+  color: var(--ink) !important;
+  font-family: var(--font-flavor) !important;
+}
+
+.ant-layout-header {
+  background: rgba(42, 8, 48, 0.85) !important;
+  backdrop-filter: blur(15px) saturate(180%) !important;
+  border-bottom: 1px solid var(--neon-purple) !important;
+  box-shadow: 0 0 25px var(--accent-glow) !important;
+  height: 70px !important;
+  padding: 0 30px !important;
+}
+
+.ant-layout-content {
+  background: transparent !important;
+  position: relative;
+  overflow-x: hidden !important;
+}
+
+.ant-layout-content::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(255, 42, 120, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(199, 36, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(0, 224, 255, 0.08) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* === MENU SYSTEM - BUNNY ELEGANCE === */
+.ant-menu {
+  background: transparent !important;
+  border: none !important;
+  font-family: var(--font-heading) !important;
+  font-weight: 600 !important;
+}
+
+.ant-menu-horizontal {
+  line-height: 68px !important;
+}
+
+.ant-menu-item {
+  color: var(--muted) !important;
+  font-size: 14px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+  margin: 0 15px !important;
+  padding: 0 20px !important;
+  border-radius: 25px !important;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.ant-menu-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s ease;
+}
+
+.ant-menu-item:hover::before {
+  left: 100%;
+}
+
+.ant-menu-item:hover {
+  color: var(--ink) !important;
+  background: rgba(255, 42, 120, 0.15) !important;
+  box-shadow: 0 0 20px var(--accent-glow) !important;
+  transform: translateY(-2px) !important;
+}
+
+.ant-menu-item-selected {
+  color: var(--ink) !important;
+  background: linear-gradient(135deg, var(--accent), var(--neon-purple)) !important;
+  box-shadow: 0 0 25px var(--accent-glow) !important;
+}
+
+/* === BUTTONS - NEON SEDUCTION === */
+.ant-btn {
+  border: none !important;
+  border-radius: 12px !important;
+  font-family: var(--font-heading) !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  isolation: isolate !important;
+}
+
+.ant-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.6s ease;
+  z-index: 1;
+}
+
+.ant-btn:hover::before {
+  left: 100%;
+}
+
+.ant-btn-default {
+  background: linear-gradient(135deg, var(--dark-chocolate), #3a1e2f) !important;
+  color: var(--muted) !important;
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+}
+
+.ant-btn-default:hover {
+  background: linear-gradient(135deg, #4a2538, #2d1a23) !important;
+  color: var(--ink) !important;
+  box-shadow: 
+    0 6px 20px rgba(255, 42, 120, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+  transform: translateY(-2px) !important;
+}
+
+.ant-btn-primary {
+  background: linear-gradient(135deg, var(--accent), var(--neon-pink)) !important;
+  color: #fff !important;
+  box-shadow: 
+    0 4px 20px var(--accent-glow),
+    0 0 10px rgba(255, 42, 120, 0.5) !important;
+}
+
+.ant-btn-primary:hover {
+  background: linear-gradient(135deg, var(--neon-pink), var(--accent)) !important;
+  box-shadow: 
+    0 6px 25px var(--accent-glow),
+    0 0 15px rgba(255, 42, 120, 0.7) !important;
+  transform: translateY(-2px) scale(1.02) !important;
+}
+
+/* === SPECIAL CHAT BUTTON - BUNNY WHISPER === */
+.ant-btn:has(svg.lucide-messages-square) {
+  background: linear-gradient(135deg, var(--neon-purple), var(--neon-blue)) !important;
+  color: #fff !important;
+  font-size: 16px !important;
+  font-weight: 800 !important;
+  padding: 0 2.5em !important;
+  height: 70px !important;
+  border-radius: 35px !important;
+  box-shadow: 
+    0 8px 30px rgba(199, 36, 255, 0.4),
+    0 0 20px rgba(0, 224, 255, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+  position: relative !important;
+}
+
+.ant-btn:has(svg.lucide-messages-square)::after {
+  content: "💬";
+  position: absolute;
+  right: 25px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+}
+
+.ant-btn:has(svg.lucide-messages-square):hover {
+  background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple)) !important;
+  box-shadow: 
+    0 12px 40px rgba(199, 36, 255, 0.6),
+    0 0 25px rgba(0, 224, 255, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
+  transform: translateY(-3px) scale(1.03) !important;
+}
+
+/* === TAGS & BADGES - VELVET ELEGANCE === */
+.ant-tag {
+  background: linear-gradient(135deg, rgba(255, 42, 120, 0.2), rgba(199, 36, 255, 0.15)) !important;
+  color: var(--muted) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 15px !important;
+  padding: 4px 12px !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  backdrop-filter: blur(10px) !important;
+  transition: all 0.3s ease !important;
+}
+
+.ant-tag:hover {
+  background: linear-gradient(135deg, rgba(255, 42, 120, 0.3), rgba(199, 36, 255, 0.25)) !important;
+  color: var(--ink) !important;
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 15px var(--accent-glow) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* === TYPOGRAPHY - LUXURY TEXT === */
+.ant-typography {
+  color: var(--ink) !important;
+  font-family: var(--font-flavor) !important;
+}
+
+h1.ant-typography {
+  font-family: var(--font-elegant) !important;
+  font-size: clamp(42px, 6vw, 78px) !important;
+  font-weight: 700 !important;
+  background: linear-gradient(135deg, var(--ink), var(--muted), var(--neon-blue)) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  text-shadow: 0 0 30px rgba(0, 224, 255, 0.3) !important;
+  margin-bottom: 10px !important;
+}
+
+h2.ant-typography {
+  font-family: var(--font-heading) !important;
+  font-size: clamp(24px, 3vw, 36px) !important;
+  color: var(--muted) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+  margin-bottom: 20px !important;
+}
+
+/* === COLLAPSE/PANELS - VELVET CONTAINERS === */
+.ant-collapse {
+  background: rgba(42, 8, 48, 0.6) !important;
+  backdrop-filter: blur(15px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 15px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+}
+
+.ant-collapse-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+.ant-collapse-header {
+  color: var(--ink) !important;
+  font-family: var(--font-heading) !important;
+  font-weight: 600 !important;
+  padding: 20px !important;
+}
+
+.ant-collapse-content {
+  background: rgba(26, 11, 31, 0.8) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+  color: var(--muted) !important;
+}
+
+/* === IMAGE CONTAINERS - BUNNY GLAM === */
+.ant-image {
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4) !important;
+  transition: all 0.4s ease !important;
+}
+
+.ant-image:hover {
+  transform: translateY(-5px) scale(1.02) !important;
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.5),
+    0 0 20px var(--accent-glow) !important;
+}
+
+.ant-image-img {
+  border-radius: 12px !important;
+  transition: transform 0.4s ease !important;
+}
+
+.ant-image:hover .ant-image-img {
+  transform: scale(1.08) !important;
+}
+
+/* === DROPDOWN MENUS - MIDNIGHT SECRETS === */
+.ant-dropdown-menu {
+  background: rgba(42, 8, 48, 0.95) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 12px !important;
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.4),
+    0 0 20px var(--accent-glow) !important;
+  padding: 8px !important;
+}
+
+.ant-dropdown-menu-item {
+  color: var(--muted) !important;
+  border-radius: 8px !important;
+  margin: 2px 0 !important;
+  padding: 12px 16px !important;
+  transition: all 0.3s ease !important;
+}
+
+.ant-dropdown-menu-item:hover {
+  background: linear-gradient(135deg, rgba(255, 42, 120, 0.2), rgba(199, 36, 255, 0.15)) !important;
+  color: var(--ink) !important;
+  box-shadow: 0 0 15px var(--accent-glow) !important;
+}
+
+/* === SPECIAL FAVORITE BUTTON - PREMIUM BUNNY === */
+button.ant-btn:has(.anticon-star svg path[d*="zM"]) {
+  background: linear-gradient(135deg, var(--golden-glow), #ffaa00) !important;
+  box-shadow: 
+    0 6px 20px rgba(255, 215, 0, 0.4),
+    0 0 15px rgba(255, 215, 0, 0.3) !important;
+  animation: gentle-shake 6s ease-in-out infinite !important;
+}
+
+@keyframes gentle-shake {
+  0%, 80% { transform: translateX(-12px) scale(1.15) rotate(0deg); }
+  84% { transform: translateX(-12px) scale(1.15) rotate(-5deg); }
+  88% { transform: translateX(-12px) scale(1.15) rotate(4deg); }
+  92% { transform: translateX(-12px) scale(1.15) rotate(-2deg); }
+  96% { transform: translateX(-12px) scale(1.15) rotate(1deg); }
+  100% { transform: translateX(-12px) scale(1.15) rotate(0deg); }
+}
+
+/* === BUNNY EARS DECORATION - THEMATIC ELEMENT === */
+.ant-layout-header::before {
+  content: "🐰";
+  position: absolute;
+  left: 50%;
+  top: -5px;
+  transform: translateX(-50%);
+  font-size: 24px;
+  filter: drop-shadow(0 0 10px var(--accent-glow));
+  opacity: 0.7;
+  z-index: 1000;
+}
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 768px) {
+  .ant-layout-header {
+    padding: 0 15px !important;
+    height: 60px !important;
+  }
+  
+  .ant-menu-item {
+    margin: 0 8px !important;
+    padding: 0 12px !important;
+    font-size: 12px !important;
+  }
+  
+  .ant-btn:has(svg.lucide-messages-square) {
+    height: 60px !important;
+    font-size: 14px !important;
+    padding: 0 1.5em !important;
+  }
+  
+  .ant-layout-header::before {
+    font-size: 20px;
+    top: -3px;
+  }
+}
+
+/* === REDUCED MOTION SUPPORT === */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* === CUSTOM SCROLLBAR - DARK ELEGANCE === */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--deep-velvet);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, var(--accent), var(--neon-purple));
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, var(--neon-purple), var(--accent));
+}
