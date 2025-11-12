@@ -1,0 +1,689 @@
+/* =================================================================
+  DARK SEXY BUNNY GIRL CAFÉ THEME - COMPLETE REDESIGN
+  Neon Allure & Luxury Redesign
+================================================================= */
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 1. FONT IMPORTS - Luxury & Modern Mix
+////////////////////////////////////////////////////////////////////////////////
+*/
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600;700&family=Orbitron:wght@400;700&display=swap');
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 2. CORE THEME VARIABLES - Dark Seductive Palette
+////////////////////////////////////////////////////////////////////////////////
+*/
+:root {
+  --ink: #f8f0ff;
+  --muted: #b8a3c9;
+  --accent: #ff2a6d;
+  --accent-glow: #ff2a6d80;
+  --neon-purple: #bc13fe;
+  --neon-pink: #ff44cc;
+  --neon-blue: #0ff0fc;
+  --deep-black: #0a0a0f;
+  --velvet-dark: #1a1423;
+  --luxury-gold: #d4af37;
+  --cafe-brown: #3a2618;
+  --ruby-red: #e0115f;
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+  --font-neon: 'Orbitron', monospace;
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 3. CORE LAYOUT TRANSFORMATION - Bunny Girl Café Atmosphere
+////////////////////////////////////////////////////////////////////////////////
+*/
+.bb-sec {
+  background: linear-gradient(135deg, var(--deep-black) 0%, var(--velvet-dark) 50%, #2d1b36 100%);
+  font-family: var(--font-body);
+  position: relative;
+  overflow: visible !important;
+  min-height: 100vh;
+}
+
+.bb-sec::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(255, 42, 109, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(188, 19, 254, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bb-wrap {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Bunny Ears Decorative Element */
+.bb-wrap::after {
+  content: "🐰";
+  position: absolute;
+  top: -20px;
+  right: 40px;
+  font-size: 24px;
+  opacity: 0.6;
+  filter: drop-shadow(0 0 10px var(--neon-pink));
+  animation: bunnyTwitch 4s ease-in-out infinite;
+}
+
+@keyframes bunnyTwitch {
+  0%, 90%, 100% { transform: rotate(0deg); }
+  92% { transform: rotate(-8deg); }
+  96% { transform: rotate(6deg); }
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 4. HEADER & TYPOGRAPHY - Luxury Redesign
+////////////////////////////////////////////////////////////////////////////////
+*/
+.bb-header {
+  margin-bottom: 40px;
+  padding-top: 60px;
+  position: relative;
+}
+
+.bb-collection-subtitle {
+  display: inline-block;
+  background: linear-gradient(45deg, var(--ruby-red), var(--neon-pink));
+  color: #fff;
+  padding: 8px 20px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .15em;
+  text-decoration: none;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  box-shadow: 0 0 20px var(--accent-glow);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.bb-collection-subtitle::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.bb-collection-subtitle:hover::before {
+  left: 100%;
+}
+
+.bb-collection-subtitle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px var(--accent-glow);
+}
+
+.bb-title {
+  font-family: var(--font-heading);
+  font-size: clamp(52px, 9vw, 120px) !important;
+  line-height: 1 !important;
+  font-weight: 700 !important;
+  background: linear-gradient(45deg, var(--ink), var(--luxury-gold), var(--neon-pink));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0 0 20px !important;
+  letter-spacing: 0.03em !important;
+  text-transform: uppercase;
+  position: relative;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+}
+
+.bb-tagline {
+  font-size: clamp(18px, 2vw, 20px) !important;
+  line-height: 1.6 !important;
+  font-weight: 300 !important;
+  color: var(--muted) !important;
+  max-width: 600px !important;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  position: relative;
+  padding-left: 20px;
+  border-left: 3px solid var(--neon-purple);
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 5. CONTENT SECTIONS - Velvet & Neon Design
+////////////////////////////////////////////////////////////////////////////////
+*/
+.bb-intros {
+  background: linear-gradient(135deg, rgba(26, 20, 35, 0.9) 0%, rgba(58, 38, 24, 0.8) 100%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  padding: clamp(24px, 3vw, 36px) !important;
+  position: relative;
+  overflow: visible !important;
+  border-radius: 15px;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.bb-intros::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--neon-purple), var(--neon-pink), transparent);
+  animation: neonFlow 3s ease-in-out infinite;
+}
+
+@keyframes neonFlow {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+.bb-section-title {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  font-style: italic;
+  letter-spacing: 0.1em;
+  font-size: clamp(20px, 2vw, 24px);
+  font-weight: 600;
+  margin: 0 0 25px;
+  color: var(--luxury-gold);
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  position: relative;
+}
+
+.bb-section-title::before {
+  content: "☕";
+  font-size: 1.2em;
+  filter: drop-shadow(0 0 5px var(--luxury-gold));
+}
+
+.bb-intro-list {
+  margin: 0;
+  padding: 0 !important;
+  list-style: none;
+  counter-reset: scn;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.bb-intro-list li {
+  counter-increment: scn;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+  padding: 20px 20px 20px 80px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+.bb-intro-list li:hover {
+  transform: translateX(5px);
+  border-color: var(--neon-pink);
+  box-shadow: 0 5px 20px rgba(255, 68, 204, 0.3);
+}
+
+.bb-intro-list li::before {
+  content: counter(scn, decimal-leading-zero);
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-neon);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--neon-blue);
+  z-index: 2;
+  text-shadow: 0 0 10px var(--neon-blue);
+  animation: neonPulse 2s ease-in-out infinite;
+}
+
+@keyframes neonPulse {
+  0%, 100% { 
+    text-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue);
+  }
+  50% { 
+    text-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue);
+  }
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 6. BUTTONS & INTERACTIVE ELEMENTS - Complete Redesign
+////////////////////////////////////////////////////////////////////////////////
+*/
+.ant-btn {
+  position: relative;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: .8em;
+  white-space: nowrap;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  height: 50px !important;
+  min-width: 120px !important;
+  padding: .8em 2em !important;
+  border-radius: 25px !important;
+  transition: all 0.3s ease !important;
+  cursor: pointer;
+  overflow: hidden !important;
+  border: none !important;
+  font-family: var(--font-body) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.ant-btn.ant-btn-default {
+  background: linear-gradient(45deg, var(--velvet-dark), var(--cafe-brown)) !important;
+  color: var(--muted) !important;
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+}
+
+.ant-btn.ant-btn-default:hover {
+  background: linear-gradient(45deg, var(--ruby-red), var(--neon-pink)) !important;
+  color: #fff !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 
+    0 6px 25px rgba(255, 42, 109, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+}
+
+.ant-btn.ant-btn-primary {
+  background: linear-gradient(45deg, var(--neon-purple), var(--neon-pink)) !important;
+  color: #fff !important;
+  box-shadow: 
+    0 4px 20px var(--accent-glow),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+}
+
+.ant-btn.ant-btn-primary:hover {
+  background: linear-gradient(45deg, var(--neon-pink), var(--ruby-red)) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 
+    0 6px 30px var(--accent-glow),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
+}
+
+/* Special Chat Button with Bunny Ears Effect */
+button.ant-btn:has(svg.lucide-messages-square) {
+  background: linear-gradient(45deg, var(--neon-purple), var(--neon-blue)) !important;
+  color: #fff !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  height: 70px !important;
+  padding: 0 2.5em !important;
+  border-radius: 35px !important;
+  position: relative;
+  overflow: visible !important;
+}
+
+button.ant-btn:has(svg.lucide-messages-square)::before,
+button.ant-btn:has(svg.lucide-messages-square)::after {
+  content: "🐰";
+  position: absolute;
+  top: -15px;
+  font-size: 16px;
+  opacity: 0.8;
+  animation: bunnyFloat 3s ease-in-out infinite;
+}
+
+button.ant-btn:has(svg.lucide-messages-square)::before {
+  left: 20px;
+  animation-delay: 0s;
+}
+
+button.ant-btn:has(svg.lucide-messages-square)::after {
+  right: 20px;
+  animation-delay: 1.5s;
+}
+
+@keyframes bunnyFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(5deg); }
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 7. TAGS & BADGES - Neon Glow Redesign
+////////////////////////////////////////////////////////////////////////////////
+*/
+.ant-tag {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%) !important;
+  color: var(--muted) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 15px !important;
+  padding: .4em 1em !important;
+  font-size: .7rem !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  transition: all 0.3s ease !important;
+  backdrop-filter: blur(5px);
+  position: relative;
+  overflow: hidden;
+}
+
+.ant-tag:hover {
+  background: linear-gradient(135deg, var(--neon-purple), var(--neon-pink)) !important;
+  color: #fff !important;
+  border-color: transparent !important;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px var(--accent-glow);
+  cursor: pointer;
+}
+
+.ant-tag::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.ant-tag:hover::before {
+  left: 100%;
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 8. SPECIAL ELEMENTS - Café & Bunny Theme Integration
+////////////////////////////////////////////////////////////////////////////////
+*/
+.bb-quote {
+  background: linear-gradient(135deg, rgba(58, 38, 24, 0.6) 0%, rgba(26, 20, 35, 0.8) 100%);
+  color: var(--ink);
+  margin: 30px 0px;
+  padding: 20px 25px 20px 60px;
+  border-left: 4px solid var(--luxury-gold);
+  border-radius: 10px;
+  position: relative;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.bb-quote::before {
+  content: "❝";
+  position: absolute;
+  left: 20px;
+  top: 15px;
+  font: 900 36px/1 var(--font-heading);
+  color: var(--luxury-gold);
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+.bb-support {
+  background: linear-gradient(135deg, rgba(26, 20, 35, 0.95) 0%, rgba(58, 38, 24, 0.9) 100%);
+  margin-top: 40px !important;
+  padding: clamp(24px, 3vw, 36px);
+  border-radius: 15px !important;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.bb-support::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 9. ANIMATIONS & EFFECTS - Seductive Motion
+////////////////////////////////////////////////////////////////////////////////
+*/
+@keyframes fadeInUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(40px) rotateX(10deg); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0) rotateX(0); 
+  }
+}
+
+@keyframes gentleGlow {
+  0%, 100% { 
+    box-shadow: 0 0 20px var(--accent-glow);
+  }
+  50% { 
+    box-shadow: 0 0 30px var(--accent-glow), 0 0 40px rgba(255, 42, 109, 0.2);
+  }
+}
+
+@keyframes liquidHover {
+  0%, 100% { 
+    transform: translateY(0) scale(1);
+    border-radius: 15px;
+  }
+  50% { 
+    transform: translateY(-5px) scale(1.02);
+    border-radius: 20px;
+  }
+}
+
+/* Apply animations to interactive elements */
+.ant-btn:hover,
+.ant-tag:hover,
+.bb-collection-subtitle:hover {
+  animation: liquidHover 0.6s ease;
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 10. RESPONSIVE DESIGN - Mobile Luxury
+////////////////////////////////////////////////////////////////////////////////
+*/
+@media (max-width: 768px) {
+  .bb-wrap {
+    padding: 0 20px;
+  }
+  
+  .bb-header {
+    padding-top: 40px;
+  }
+  
+  .bb-title {
+    font-size: clamp(42px, 12vw, 80px) !important;
+  }
+  
+  .bb-intros,
+  .bb-support {
+    margin: 20px -20px !important;
+    border-radius: 0 !important;
+    border-left: none;
+    border-right: none;
+  }
+  
+  .ant-btn {
+    width: 100% !important;
+    margin: 10px 0 !important;
+  }
+  
+  button.ant-btn:has(svg.lucide-messages-square) {
+    height: 60px !important;
+    font-size: 14px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .bb-wrap {
+    padding: 0 15px;
+  }
+  
+  .bb-intro-list li {
+    padding: 15px 15px 15px 60px;
+  }
+  
+  .bb-intro-list li::before {
+    left: 15px;
+    font-size: 20px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 11. CHUB.AI OVERRIDES - Dark Seductive Theme
+////////////////////////////////////////////////////////////////////////////////
+*/
+.ant-layout-header {
+  background: linear-gradient(135deg, var(--deep-black) 0%, var(--velvet-dark) 100%) !important;
+  backdrop-filter: blur(10px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5) !important;
+}
+
+.ant-menu-dark {
+  background: transparent !important;
+}
+
+.ant-menu-item {
+  transition: all 0.3s ease !important;
+}
+
+.ant-menu-item:hover {
+  background: linear-gradient(45deg, var(--neon-purple), var(--neon-pink)) !important;
+  color: #fff !important;
+}
+
+/* Hide unnecessary elements */
+.ant-layout-footer,
+.ant-ribbon,
+.no-vertical-anything * {
+  display: none !important;
+}
+
+/* Premium favorite button with bunny theme */
+button.ant-btn:has(.anticon-star svg path[d*="zM"]) {
+  background: linear-gradient(45deg, var(--luxury-gold), #ffd700) !important;
+  color: #000 !important;
+  animation: gentleGlow 2s ease-in-out infinite !important;
+}
+
+button.ant-btn:has(.anticon-star svg path[d*="zM"])::before {
+  content: "💖";
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  font-size: 12px;
+  animation: heartBeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartBeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 12. RELATIONSHIPS PANEL - Luxury Redesign
+////////////////////////////////////////////////////////////////////////////////
+*/
+.bb-relationships-panel {
+  background: linear-gradient(135deg, rgba(26, 20, 35, 0.9) 0%, rgba(58, 38, 24, 0.8) 100%) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 15px;
+  padding: 24px !important;
+  margin: 30px 0 !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.bb-relationships-panel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--luxury-gold), transparent);
+}
+
+.bb-subtitle {
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+  text-transform: uppercase;
+  letter-spacing: .2em;
+  color: var(--luxury-gold) !important;
+  margin-bottom: 20px !important;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+/* Final touch - add subtle particle effect */
+.bb-sec::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(2px 2px at 20% 30%, rgba(255, 255, 255, 0.3) 50%, transparent 100%),
+    radial-gradient(2px 2px at 40% 70%, rgba(255, 255, 255, 0.2) 50%, transparent 100%),
+    radial-gradient(1px 1px at 60% 20%, rgba(255, 255, 255, 0.4) 50%, transparent 100%),
+    radial-gradient(1px 1px at 80% 50%, rgba(255, 255, 255, 0.2) 50%, transparent 100%);
+  background-size: 200px 200px;
+  animation: float 20s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes float {
+  from { transform: translateY(0) translateX(0); }
+  to { transform: translateY(-200px) translateX(100px); }
+}
