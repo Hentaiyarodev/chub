@@ -1,0 +1,298 @@
+<style>
+/*
+=================================================================
+  MILF TRAPACEIRA HENTAI UI – V1 (NSFW / ANT-DESIGN FULL OVERRIDE)
+  Tema: Sedução proibida, luxúria escondida, traição deliciosa
+  Usuário = Amante secreto (você é quem ela trai o marido com)
+=================================================================
+*/
+
+/*//////////////////////////////////////////////////////////////
+// 1. FONT IMPORTS (Sensual + Elegante)
+//////////////////////////////////////////////////////////////*/
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Playfair+Display:ital,wght@0,600;1,700&family=Great+Vibes&display=swap');
+
+/*//////////////////////////////////////////////////////////////
+// 2. CORES & VARIÁVEIS (Vermelho sangue, rosa neon, preto aveludado)
+//////////////////////////////////////////////////////////////*/
+:root {
+  --ink: #ffe6f2;          /* Texto suave, pele de pêssego */
+  --muted: #ff99cc;        /* Rosa choque suave */
+  --accent: #ff1a75;       /* Vermelho paixão neon */
+  --panel: #1a001a;        /* Preto aveludado profundo */
+  --hero: url('https://i.imgur.com/EXAMPLE_HENTAI_MILF.jpg') center/cover no-repeat; /* ← SUBSTITUA pela sua imagem NSFW */
+  --pf-cut2: 24px;
+  --font-heading: 'Cinzel Decorative', cursive;
+  --font-flavor: 'Great Vibes', cursive;
+  --font-body: 'Playfair Display', serif;
+}
+
+/*//////////////////////////////////////////////////////////////
+// 3. LAYOUT PRINCIPAL & ANT-DESIGN GRID
+//////////////////////////////////////////////////////////////*/
+.bb-sec {
+  --gap: 32px;
+  font-family: var(--font-body);
+  position: relative;
+  overflow: visible !important;
+  background: linear-gradient(135deg, #0d001a, #2a0033);
+  min-height: 100vh;
+  color: var(--ink);
+}
+
+.bb-wrap { max-width: 1300px; margin: 0 auto; padding: 0 16px; }
+
+.ant-row { gap: var(--gap); }
+
+.ant-col-lg-12, .ant-col-lg-6 {
+  background: var(--panel) !important;
+  border-radius: 16px !important;
+  padding: 24px !important;
+  box-shadow: 0 8px 32px rgba(255, 26, 117, 0.25) !important;
+  border: 1px solid rgba(255, 26, 117, 0.3) !important;
+  transition: all .3s ease !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.ant-col-lg-12:hover, .ant-col-lg-6:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 16px 48px rgba(255, 26, 117, 0.4) !important;
+  border-color: var(--accent) !important;
+}
+
+/*//////////////////////////////////////////////////////////////
+// 4. TÍTULOS & TEXTO (Hentai Style)
+//////////////////////////////////////////////////////////////*/
+.bb-title {
+  font-family: var(--font-heading) !important;
+  font-size: clamp(52px, 9vw, 110px) !important;
+  line-height: .9 !important;
+  color: var(--accent) !important;
+  text-shadow: 
+    0 0 10px var(--accent),
+    0 0 20px var(--accent),
+    0 0 40px var(--accent),
+    3px 3px 0 #000 !important;
+  letter-spacing: -0.02em !important;
+  margin: 0 0 16px !important;
+  animation: pulseGlow 2.5s ease-in-out infinite;
+}
+
+.bb-tagline {
+  font-family: var(--font-flavor) !important;
+  font-size: clamp(22px, 3vw, 36px) !important;
+  color: #ff99cc !important;
+  font-style: italic;
+  text-shadow: 0 0 8px rgba(255, 153, 204, .6);
+  margin-bottom: 32px !important;
+}
+
+.bb-section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(20px, 2.5vw, 28px);
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  margin: 0 0 16px;
+  display: flex;
+  align-items: center;
+  gap: .8em;
+}
+
+.bb-section-title::before {
+  content: "♡";
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+/*//////////////////////////////////////////////////////////////
+// 5. INTROS & CENÁRIOS (Roleplay Sedutor)
+//////////////////////////////////////////////////////////////*/
+.bb-intros {
+  background: linear-gradient(145deg, rgba(26,0,26,.9), rgba(10,0,15,.95)) !important;
+  border: 1px solid var(--accent) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.bb-intro-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.bb-intro-list li {
+  background: rgba(255, 26, 117, .1);
+  padding: 20px 20px 20px 72px;
+  border-radius: 12px;
+  border-left: 4px solid var(--accent);
+  position: relative;
+  transition: all .3s ease;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%);
+}
+
+.bb-intro-list li:hover {
+  background: rgba(255, 26, 117, .2);
+  transform: translateX(8px);
+  box-shadow: 0 0 20px rgba(255, 26, 117, .4);
+}
+
+.bb-intro-list li::before {
+  content: counter(scn, decimal-leading-zero);
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-heading);
+  font-size: 32px;
+  color: var(--accent);
+  text-shadow: 0 0 12px var(--accent);
+  animation: accentGlow 2s ease-in-out infinite;
+}
+
+/*//////////////////////////////////////////////////////////////
+// 6. TAGS ANT-DESIGN (NSFW Badges)
+//////////////////////////////////////////////////////////////*/
+.ant-tag {
+  background: linear-gradient(135deg, #ff1a75, #ff66b3) !important;
+  color: #000 !important;
+  border: none !important;
+  border-radius: 9999px !important;
+  padding: .3em .8em !important;
+  font-size: .75rem !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  letter-spacing: .08em;
+  box-shadow: 0 2px 8px rgba(255, 26, 117, .4) !important;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%) !important;
+  transition: all .2s !important;
+}
+
+.ant-tag:hover {
+  background: #fff !important;
+  color: #000 !important;
+  transform: scale(1.1);
+  box-shadow: 0 0 16px var(--accent) !important;
+}
+
+/*//////////////////////////////////////////////////////////////
+// 7. BOTÃO CHAT (Pulsando de desejo)
+//////////////////////////////////////////////////////////////*/
+button.ant-btn:has(svg.lucide-messages-square) {
+  height: 72px !important;
+  font-size: 18px !important;
+  font-weight: 800 !important;
+  background: linear-gradient(135deg, var(--accent), #ff3399) !important;
+  color: #fff !important;
+  border: 2px solid #000 !important;
+  border-radius: 16px !important;
+  box-shadow: 
+    0 0 20px rgba(255, 26, 117, .6),
+    inset 0 0 20px rgba(255, 255, 255, .2),
+    0 4px 0 #000 !important;
+  animation: heartbeat 1.8s ease-in-out infinite, pulseGlow 2s infinite;
+  transition: all .3s ease !important;
+  position: relative;
+  overflow: hidden;
+}
+
+button.ant-btn:has(svg.lucide-messages-square)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,.2) 50%, transparent 70%);
+  transform: translateX(-100%);
+  animation: shimmer 2.5s infinite;
+}
+
+button.ant-btn:has(svg.lucide-messages-square):hover {
+  background: #fff !important;
+  color: #000 !important;
+  transform: scale(1.05);
+  box-shadow: 0 0 30px var(--accent), 0 8px 0 #000 !important;
+}
+
+button.ant-btn:has(svg.lucide-messages-square):active {
+  transform: scale(.98) !important;
+}
+
+/*//////////////////////////////////////////////////////////////
+// 8. HERO IMAGE (MILF sedutora no fundo)
+//////////////////////////////////////////////////////////////*/
+.bbx-band::before {
+  content: "";
+  position: fixed;
+  left: 50%;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: var(--hero);
+  background-size: cover;
+  background-position: center 20%;
+  filter: blur(2px) brightness(.7);
+  z-index: -1;
+  animation: slowZoom 20s ease-in-out infinite alternate;
+}
+
+.bbx-hero {
+  min-height: 70vh !important;
+  background: linear-gradient(180deg, transparent 0%, var(--panel) 100%), var(--hero);
+  background-size: cover;
+  background-position: center 15%;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,.6);
+  position: relative;
+}
+
+.bbx-hero::after {
+  content: "🔞";
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 48px;
+  animation: heartbeat 1.5s infinite;
+  text-shadow: 0 0 20px var(--accent);
+}
+
+/*//////////////////////////////////////////////////////////////
+// 9. ANIMAÇÕES
+//////////////////////////////////////////////////////////////*/
+@keyframes pulseGlow {
+  0%, 100% { text-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent); }
+  50% { text-shadow: 0 0 20px var(--accent), 0 0 40px var(--accent), 0 0 60px var(--accent); }
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes slowZoom {
+  0% { transform: scale(1.05); }
+  100% { transform: scale(1.15); }
+}
+
+@keyframes accentGlow {
+  0%, 100% { text-shadow: 0 0 8px var(--accent); }
+  50% { text-shadow: 0 0 20px var(--accent), 0 0 30px var(--accent); }
+}
+
+/*//////////////////////////////////////////////////////////////
+// 10. RESPONSIVO
+//////////////////////////////////////////////////////////////*/
+@media (max-width: 768px) {
+  .ant-col-lg-12, .ant-col-lg-6 { padding: 16px !important; }
+  .bb-title { font-size: clamp(42px, 10vw, 72px) !important; }
+  .bbx-band::before { display: none; }
+  .bbx-hero { min-height: 50vh !important; }
+  button.ant-btn:has(svg.lucide-messages-square) { height: 60px !important; font-size: 16px !important; }
+}
+</style>
