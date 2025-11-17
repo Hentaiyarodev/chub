@@ -1,0 +1,332 @@
+<style>
+/* ============================================================= */
+/*  CLEANMODERN V1 – PREMIUM MINIMAL CHUB.AI THEME (2025 VIBE)  */
+/* ============================================================= */
+
+/* 1. FONT IMPORT */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* 2. ROOT & CORE */
+:root {
+  --bg: #f8f9fa;
+  --surface: #ffffff;
+  --text: #1a1a1a;
+  --text-muted: #6b7280;
+  --border: #e5e7eb;
+  --accent: #3b82f6; /* blue-500 – suave, moderno */
+  --accent-light: #dbeafe;
+  --radius: 12px;
+  --gap: 20px;
+  --font: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+.bb-sec {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow: visible !important;
+}
+
+.bb-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--gap);
+}
+
+/* 3. TYPOGRAPHY */
+.bb-title {
+  font-size: clamp(2.5rem, 6vw, 3.5rem) !important;
+  font-weight: 700 !important;
+  line-height: 1.1 !important;
+  margin: 0 0 0.5rem !important;
+  color: var(--text) !important;
+  letter-spacing: -0.02em;
+}
+
+.bb-subtitle {
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  background: var(--accent-light);
+  border-radius: 6px;
+}
+
+.bb-tagline {
+  font-size: 1.125rem;
+  color: var(--text-muted);
+  max-width: 65ch;
+  margin-bottom: 2rem;
+}
+
+/* 4. PANELS & CARDS */
+.bb-intros,
+.bb-presets,
+.bb-support {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: clamp(1rem, 2.5vw, 1.5rem);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  margin-bottom: var(--gap);
+}
+
+.bb-section-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.bb-section-title::before {
+  content: "";
+  width: 4px;
+  height: 1.5em;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+/* 5. INTRO LIST */
+.bb-intro-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.bb-intro-list li {
+  background: var(--bg);
+  padding: 1rem 1.25rem;
+  border-radius: 10px;
+  border-left: 3px solid var(--accent);
+  transition: all 0.2s ease;
+  position: relative;
+  counter-increment: item;
+}
+
+.bb-intro-list li:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  border-left-color: var(--accent);
+}
+
+.bb-intro-list li::before {
+  content: "0" counter(item);
+  position: absolute;
+  left: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--accent);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 700;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 6. BADGES */
+.bb-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.bb-badge {
+  background: #f1f5f9;
+  color: #475569;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.35rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  transition: all 0.2s ease;
+}
+
+.bb-badge:hover {
+  background: var(--accent-light);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* 7. QUOTE */
+.bb-quote {
+  background: linear-gradient(to right, #f8fafc, #f1f5f9);
+  border-left: 4px solid var(--accent);
+  padding: 1.25rem 1.5rem;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-style: italic;
+  color: #374151;
+  position: relative;
+  margin: 1.5rem 0;
+}
+
+.bb-quote::before {
+  content: "“";
+  position: absolute;
+  left: 0.75rem;
+  top: 0.75rem;
+  font-size: 3rem;
+  color: var(--accent);
+  opacity: 0.15;
+  font-family: Georgia, serif;
+}
+
+.bb-quote .by {
+  display: block;
+  margin-top: 0.75rem;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  text-transform: none;
+}
+
+/* 8. BUTTONS */
+.bb-kbtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--accent);
+  color: white !important;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.bb-kbtn:hover {
+  background: #2563eb;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59,130,246,0.25);
+}
+
+.bb-kbtn:active {
+  transform: translateY(0);
+}
+
+/* 9. HERO IMAGE (RIGHT SIDE) */
+.bbx-band {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gap);
+  align-items: start;
+  margin-top: 2rem;
+}
+
+.bbx-hero {
+  grid-column: 2;
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.bbx-hero img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.bbx-hero:hover img {
+  transform: scale(1.025);
+}
+
+/* 10. SUPPORT PANEL */
+.bb-support {
+  text-align: center;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+}
+
+.bb-support-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+/* 11. ANIMATIONS */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.bb-sec > * {
+  animation: fadeInUp 0.8s ease both;
+}
+
+.bb-sec > *:nth-child(1) { animation-delay: 0.1s; }
+.bb-sec > *:nth-child(2) { animation-delay: 0.2s; }
+.bb-sec > *:nth-child(3) { animation-delay: 0.3s; }
+.bb-sec > *:nth-child(4) { animation-delay: 0.4s; }
+
+/* 12. RESPONSIVE */
+@media (max-width: 768px) {
+  .bbx-band {
+    grid-template-columns: 1fr !important;
+  }
+  .bbx-hero {
+    grid-row: 1;
+    margin-bottom: 1.5rem;
+  }
+  .bb-title {
+    font-size: 2.5rem !important;
+  }
+  .bb-subtitle {
+    font-size: 0.875rem;
+  }
+}
+
+/* 13. ANT DESIGN OVERRIDES (clean & safe) */
+.ant-tag {
+  background: #f1f5f9 !important;
+  color: #475569 !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 8px !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  padding: 0.25rem 0.6rem !important;
+}
+
+.ant-tag:hover {
+  background: var(--accent-light) !important;
+  color: var(--accent) !important;
+  border-color: var(--accent) !important;
+}
+
+button.ant-btn.ant-btn-primary {
+  background: var(--accent) !important;
+  border: none !important;
+  border-radius: 10px !important;
+  height: 48px !important;
+  font-weight: 600 !important;
+}
+
+button.ant-btn.ant-btn-primary:hover {
+  background: #2563eb !important;
+}
+
+/* Hide junk */
+h3.ant-typography, .ant-layout-footer, .ant-ribbon { display: none !important; }
+
+</style>
