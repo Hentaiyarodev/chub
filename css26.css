@@ -1,0 +1,160 @@
+<style>
+/* ================================================================
+   MILF TRAPACEIRA — "Scarlet Betrayal" HENTAI THEME v6.9
+   (100% Chub.ai + Ant Design compatible — ultra perverted edition)
+================================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@900&family=Great+Vibes&family=Orbitron:wght@900&family=Playfair+Display+SC:wght@700&display=swap');
+
+:root {
+  --pink: #ff1493;
+  --deeppink: #ff0066;
+  --blood: #c80055;
+  --black: #0a0a0a;
+  --lace: rgba(255,20,147,0.08);
+  --glow: #ff1493;
+  --glow2: #ff69b4;
+  --broken-heart: #ff1493;
+}
+
+/* Fundo geral + lace overlay */
+.bb-sec {
+  background: linear-gradient(135deg, var(--black) 0%, #1a001a 100%);
+  color: #ffe4f0 !important;
+  font-family: 'Playfair Display SC', serif;
+  position: relative;
+  overflow: hidden !important;
+}
+.bb-sec::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: 
+    repeating-linear-gradient(45deg, transparent, transparent 10px, var(--lace) 10px, var(--lace) 20px),
+    url('https://i.imgur.com/8yOF3jK.png') center/cover; /* opcional: lace texture */
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Título principal — batom + glow neon */
+.bb-title {
+  font-family: 'Great Vibes', cursive !important;
+  font-size: clamp(68px, 12vw, 140px) !important;
+  background: linear-gradient(90deg, #ff1493, #ff69b4, #ff1493);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 30px var(--glow), 0 0 60px var(--glow2);
+  animation: pulseGlow 3s ease-in-out infinite;
+  letter-spacing: 4px;
+  margin: 20px 0 !important;
+  text-align: center;
+}
+
+/* Subtítulo sedutor */
+.bb-collection-subtitle {
+  background: var(--deeppink);
+  color: white;
+  padding: 8px 20px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+  animation: heartbeat 2s infinite;
+}
+
+/* Tags Ant Design — estilo "lingerie tags" */
+.ant-tag {
+  background: rgba(255,20,147,0.25) !important;
+  border: 1px solid var(--pink) !important;
+  color: #fff !important;
+  backdrop-filter: blur(6px);
+  font-weight: 900 !important;
+  text-transform: uppercase;
+  font-size: 11px !important;
+  padding: 4px 12px !important;
+  clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
+  box-shadow: 0 0 15px rgba(255,20,147,0.6) !important;
+  transition: all .3s !important;
+}
+.ant-tag:hover {
+  background: var(--pink) !important;
+  transform: scale(1.15) !important;
+  box-shadow: 0 0 30px var(--glow) !important;
+}
+
+/* Botão "Chat" — coração partido que sangra */
+button.ant-btn:has(svg.lucide-messages-square) {
+  background: linear-gradient(145deg, #000, #330011) !important;
+  border: 3px solid var(--pink) !important;
+  color: white !important;
+  font-size: 18px !important;
+  font-weight: 900 !important;
+  height: 70px !important;
+  border-radius: 50px !important;
+  box-shadow: 0 0 30px var(--glow), inset 0 0 20px rgba(255,20,147,0.4) !important;
+  position: relative;
+  overflow: hidden;
+  animation: heartbeat 1.8s infinite;
+}
+button.ant-btn:has(svg.lucide-messages-square)::before {
+  content: "💔";
+  position: absolute;
+  font-size: 40px;
+  top: 50%; left: 20px;
+  transform: translateY(-50%);
+  animation: drip 4s infinite;
+}
+button.ant-btn:has(svg.lucide-messages-square)::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: inherit;
+  background: linear-gradient(90deg, transparent, var(--pink), transparent);
+  animation: sonar 3s infinite;
+}
+
+/* Painel de introdução — sexy cards com glow */
+.bb-intros, .bb-presets, .bb-support {
+  background: rgba(20,0,20,0.7) !important;
+  border: 1px solid var(--pink) !important;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 40px rgba(255,20,147,0.5);
+  clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
+}
+
+/* Lista de cenários — cada item pulsa como um coração */
+.bb-intro-list li {
+  background: rgba(255,20,147,0.15) !important;
+  border: 1px dashed var(--pink) !important;
+  box-shadow: 0 0 20px var(--glow2);
+  animation: heartbeat 2.5s infinite;
+  transition: all .4s;
+}
+.bb-intro-list li:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 40px var(--glow);
+}
+
+/* Imagem hero — aparece como se estivesse saindo da lingerie */
+.bbx-band::before {
+  background: var(--hero) center/cover no-repeat !important;
+  filter: drop-shadow(0 0 40px var(--pink));
+  animation: float 12s ease-in-out infinite;
+}
+
+/* Animações específicas */
+@keyframes pulseGlow { 0%,100% { text-shadow: 0 0 30px var(--glow); } 50% { text-shadow: 0 0 80px var(--glow2); } }
+@keyframes heartbeat { 0%,100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+@keyframes drip { 0% { transform: translateY(-50%) translateX(0); } 70% { transform: translateY(-50%) translateX(0); } 90% { transform: translateY(20px) translateX(5px); } 100% { transform: translateY(-50%) translateX(0); } }
+@keyframes sonar { 0% { box-shadow: 0 0 0 0 rgba(255,20,147,0.7); } 70% { box-shadow: 0 0 0 20px rgba(255,20,147,0); } 100% { box-shadow: 0 0 0 0 rgba(255,20,147,0); } }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-30px) rotate(2deg); } }
+
+/* Responsivo */
+@media(max-width:768px) {
+  .bb-title { font-size: 80px !important; }
+  button.ant-btn:has(svg.lucide-messages-square) { height: 80px !important; font-size: 20px !important; }
+}
+</style>
+
