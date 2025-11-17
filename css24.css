@@ -1,0 +1,94 @@
+<div class="bb-sec" style="--accent: #ff1a8c; --hero: url('https://files.catbox.moe/9z7k3d.jpg'); --font-heading: 'Permanent Marker', cursive; --font-flavor: 'Indie Flower', cursive;">
+
+<style>
+/*=================================================================
+  HENTAI MILF TRAPACEIRA - SEDUCTION OVERDRIVE V1 (NSFW+ANTD)
+=================================================================*/
+
+/* 1. FONTS & SEDUCTION PALETTE */
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Indie+Flower:wght@400;700&family=Orbitron:wght@900&display=swap');
+
+.bb-sec {
+  --ink: #ffe6f2; --muted: #ff99cc; --panel: #1a001a;
+  font-family: system-ui, sans-serif;
+  --gap: 24px; --hero-over: clamp(100px, 12vw, 240px);
+  overflow: visible !important;
+}
+
+/* 2. LAYOUT & ANT DESIGN HACKS */
+.bb-wrap { max-width: 1280px; padding: 0 12px; }
+.bbx-band { 
+  grid-template-columns: minmax(0,1fr) minmax(0,1fr); 
+  margin-top: calc(-1*var(--bleed)); padding-top: var(--bleed); 
+  --bleed: 520px;
+}
+.bbx-band::before { 
+  background: var(--hero) center bottom/cover no-repeat; 
+  animation: puppetGlide 2.4s cubic-bezier(.25,1,.5,1) both;
+}
+
+/* 3. TITLES & TAGS - PERVERTED NEON GLOW */
+.bb-title { 
+  font-family: var(--font-heading); 
+  font-size: clamp(52px,9vw,110px)!important; 
+  color: #ff1a8c!important; 
+  text-shadow: 0 0 20px #ff1a8c, 0 0 40px #ff0066;
+  animation: neonPulse 1.8s ease-in-out infinite alternate;
+}
+.bb-tagline { 
+  font-family: var(--font-flavor); 
+  font-size: clamp(18px,2vw,22px)!important; 
+  color: #ffb3d9; 
+  text-shadow: 0 0 10px #ff66b3;
+}
+
+/* 4. INTROS - JUICY SCENARIO CARDS */
+.bb-intros { 
+  background: linear-gradient(135deg, #1a001a, #330033); 
+  border: 2px solid #ff1a8c; 
+  box-shadow: 0 0 30px rgba(255,26,140,.6);
+  clip-path: polygon(0 0,100% 0,100% calc(100% - 20px),calc(100% - 20px) 100%,0 100%);
+}
+.bb-intro-list li { 
+  background: rgba(255,26,140,.15); 
+  border: 1px dashed #ff66b3; 
+  padding: 18px 18px 18px 72px; 
+  clip-path: polygon(0 0,100% 0,100% calc(100% - 16px),calc(100% - 16px) 100%,0 100%);
+  transition: all .3s;
+}
+.bb-intro-list li:hover { 
+  transform: translateY(-4px); 
+  box-shadow: 0 8px 20px rgba(255,26,140,.4);
+}
+.bb-intro-list li::before { 
+  color: #ff1a8c; 
+  font-size: 32px; 
+  animation: accentGlow 1.5s ease-in-out infinite;
+}
+
+/* 5. ANT DESIGN OVERRIDES - FULL INTEGRATION */
+.ant-tag {
+  background: linear-gradient(45deg,#ff1a8c,#ff66b3)!important;
+  color: #000!important; border: none!important;
+  clip-path: polygon(0 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%)!important;
+  font-weight: 800!important; font-size: .75rem!important;
+  box-shadow: 0 0 15px rgba(255,26,140,.6)!important;
+}
+.ant-tag:hover { background: #fff!important; color: #ff1a8c!important; }
+
+/* 6. CHAT BUTTON - "COMEÇAR A TRAIR" */
+button.ant-btn:has(svg.lucide-messages-square) {
+  background: linear-gradient(45deg,#ff0066,#ff1a8c)!important;
+  border: 3px solid #fff!important; color: #fff!important;
+  box-shadow: 0 0 30px rgba(255,26,140,.8), inset 0 0 20px rgba(255,255,255,.3);
+  animation: btnPulse 2s infinite;
+}
+button.ant-btn:has(svg.lucide-messages-square):hover {
+  background: #fff!important; color: #ff0066!important;
+  box-shadow: 0 0 40px #ff1a8c;
+}
+
+/* 7. KEYFRAMES */
+@keyframes neonPulse { from { text-shadow: 0 0 20px #ff1a8c, 0 0 40px #ff0066; } to { text-shadow: 0 0 30px #ff1a8c, 0 0 60px #ff0066, 0 0 80px #ff0066; } }
+@keyframes btnPulse { 0%,100% { box-shadow: 0 0 30px rgba(255,26,140,.8); } 50% { box-shadow: 0 0 50px rgba(255,26,140,1); } }
+</style>
