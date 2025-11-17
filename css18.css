@@ -1,0 +1,423 @@
+<style>
+/*
+=================================================================
+  HENTAI TEMPTRESS UI V9 - PERVERTED NEON LUST THEME
+  (ANT-DESIGN FULL OVERRIDE + INLINE CSS)
+=================================================================
+*/
+
+/* 
+////////////////////////////////////////////////////////////////////////////////
+// 1. FONT IMPORTS (SEXY, CURVY, TENTACLE-INSPIRED)
+////////////////////////////////////////////////////////////////////////////////
+*/
+@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Nosifer&family=Monoton&family=Orbitron:wght@900&family=VT323&display=swap');
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 2. CORE THEME VARIABLES (PINK-NEON DRIPPING HENTAI VIBES)
+////////////////////////////////////////////////////////////////////////////////
+*/
+.bb-sec {
+  --ink: #ffccff;          /* Soft cum-pink text */
+  --muted: #ff99cc;        /* Hotter pink for subtle */
+  --accent: #ff1493;       /* Deepthroat pink */
+  --panel: #1a0022;        /* Void-purple background */
+  --hero: url('https://files.catbox.moe/xyz123.png'); /* HENTAI HERO IMAGE (tentacle succubus) */
+  --font-heading: 'Monoton', cursive;
+  --font-flavor: 'Creepster', cursive;
+  --pf-cut2: 24px;
+  --gap: 24px;
+  font-family: 'VT323', monospace;
+  position: relative;
+  overflow: visible !important;
+  background: linear-gradient(180deg, #1a0022, #2a0033);
+  color: var(--ink);
+  min-height: 100vh;
+}
+
+/* Glow pulse for all text */
+.bb-sec * { text-shadow: 0 0 8px var(--accent), 0 0 16px rgba(255,20,147,.6); }
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 3. LAYOUT & HERO (TENTACLE HERO SLIDES IN FROM BELOW)
+////////////////////////////////////////////////////////////////////////////////
+*/
+.bb-wrap { max-width: 1280px; margin: 0 auto; padding: 0 12px; }
+.bb-header { margin-bottom: 32px; }
+
+.bbx-band {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gap);
+  margin-top: calc(-1*500px) !important;
+  padding-top: 500px !important;
+  position: relative !important;
+  overflow: visible !important;
+  z-index: 10;
+}
+
+.bbx-band::before {
+  content: "";
+  position: fixed;
+  left: 52%; right: 0; top: 0; bottom: 0;
+  background: var(--hero) center bottom / contain no-repeat !important;
+  transform: translateY(80vh) scale(1.1) rotate(2deg);
+  animation: tentacleRise 2.8s cubic-bezier(.2,1,.3,1) both;
+  filter: drop-shadow(0 0 30px #ff1493) brightness(1.1);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.bb-top-content, .bb-bottom-content { grid-column: 1; }
+.bbx-hero { grid-column: 2; min-height: 70vh; }
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 4. TITLES & TAGLINE (DRIPPING, PULSATING, LEWD)
+////////////////////////////////////////////////////////////////////////////////
+*/
+.bb-title {
+  font-family: var(--font-heading);
+  font-size: clamp(56px, 10vw, 120px) !important;
+  line-height: .9 !important;
+  font-weight: 400 !important;
+  color: #ff66b3 !important;
+  margin: 0 0 8px !important;
+  letter-spacing: -0.02em !important;
+  text-transform: uppercase;
+  animation: pulseGlow 2s ease-in-out infinite;
+  background: linear-gradient(90deg, #ff1493, #ff66b3, #ff99cc, #ff1493);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 20px #ff1493);
+}
+
+.bb-tagline {
+  font-family: var(--font-flavor);
+  font-size: clamp(18px, 2vw, 22px) !important;
+  color: #ffb3d9 !important;
+  font-style: italic;
+  animation: dripText 3s ease-in-out infinite;
+  text-shadow: 0 2px 4px rgba(0,0,0,.5), 0 0 12px #ff1493;
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 5. INTROS & LISTS (TENTACLE-CUT PANELS, PULSATING NUMBERS)
+////////////////////////////////////////////////////////////////////////////////
+*/
+.bb-intros {
+  background: var(--panel);
+  padding: clamp(20px, 3vw, 32px);
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden !important;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 32px), calc(100% - 32px) 100%, 0 100%);
+  box-shadow: 0 0 30px rgba(255,20,147,.4), inset 0 0 20px rgba(255,20,147,.1);
+  animation: panelPulse 4s ease-in-out infinite;
+}
+
+.bb-section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(20px, 2vw, 26px);
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 16px;
+  display: flex;
+  align-items: center;
+  gap: .8em;
+  animation: neonFlicker 1.5s infinite;
+}
+
+.bb-intro-list {
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  counter-reset: lewd;
+}
+
+.bb-intro-list li {
+  counter-increment: lewd;
+  background: rgba(255,20,147,.08);
+  padding: 18px 18px 18px 72px;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  clip pontoon: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+  border: 1px solid rgba(255,20,147,.3);
+  transition: all .3s;
+  animation: listEnter 1s backwards;
+}
+
+.bb-intro-list li:hover {
+  transform: translateX(8px) scale(1.02);
+  box-shadow: 0 0 20px rgba(255,20,147,.6);
+  border-color: #ff66b3;
+}
+
+.bb-intro-list li::before {
+  content: counter(lewd, decimal-leading-zero);
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Orbitron', sans-serif;
+  font-size: 32px;
+  font-weight: 900;
+  color: #ff1493;
+  z-index: 2;
+  animation: numberThrob 1.8s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px #ff1493);
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 6. CARDS, QUOTES, SUPPORT (LEWD BUTTONS, CUM-DRIP EFFECTS)
+////////////////////////////////////////////////////////////////////////////////
+*/
+.bb-card {
+  background: rgba(255,20,147,.05);
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px dashed rgba(255,105,180,.4);
+  margin-bottom: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.bb-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #ff66b3, transparent);
+  animation: dripLine 2s linear infinite;
+}
+
+.bb-quote {
+  background: linear-gradient(90deg, rgba(255,20,147,.15), transparent);
+  padding: 16px 16px 16px 56px;
+  border-left: 4px solid var(--accent);
+  font-style: italic;
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+  animation: quotePulse 3s ease-in-out infinite;
+}
+
+.bb-quote::before {
+  content: "♡";
+  position: absolute;
+  left: 12px;
+  top: 8px;
+  font-size: 36px;
+  color: #ff66b3;
+  animation: heartBeat 1.5s ease-in-out infinite;
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 7. BUTTONS (PULSATING, WET, TENTACLE-CLICK)
+////////////////////////////////////////////////////////////////////////////////
+*/
+.bb-kbtn {
+  height: 64px !important;
+  padding: 0 32px !important;
+  background: linear-gradient(135deg, #ff1493, #ff66b3) !important;
+  color: #fff !important;
+  font-weight: 900 !important;
+  font-size: 16px !important;
+  border-radius: 9999px !important;
+  position: relative !important;
+  overflow: hidden !important;
+  box-shadow: 0 0 20px rgba(255,20,147,.8), 0 8px 0 #99004d !important;
+  animation: btnThrob 1.6s ease-in-out infinite;
+  transition: all .2s;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+}
+
+.bb-kbtn::before {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border-radius: 9999px;
+  background: #1a0022;
+  z-index: 0;
+}
+
+.bb-kbtn > span {
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 -1px 0 rgba(0,0,0,.3));
+}
+
+.bb-kbtn:hover {
+  transform: scale(1.05) !important;
+  box-shadow: 0 0 30px rgba(255,20,147,1), 0 12px 0 #99004d !important;
+  animation: none;
+}
+
+.bb-kbtn:active {
+  transform: scale(0.98) translateY(2px);
+  box-shadow: 0 0 15px rgba(255,20,147,.6) !important;
+}
+
+.bb-kbtn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.3) 10%, transparent 11%);
+  background-size: 12px 12px;
+  animation: cumDrip 1.2s linear infinite;
+  pointer-events: none;
+  opacity: .6;
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 8. ANT-DESIGN FULL OVERRIDE (PERVERTED TAGS, BUTTONS, LAYOUT)
+////////////////////////////////////////////////////////////////////////////////
+*/
+.ant-tag {
+  background: linear-gradient(135deg, #ff66b3, #ff1493) !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 9999px !important;
+  padding: .2em .8em !important;
+  font-size: .75rem !important;
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%) !important;
+  box-shadow: 0 0 10px rgba(255,20,147,.6) !important;
+  animation: tagPulse .8s ease-in-out infinite alternate;
+}
+
+.ant-tag:hover {
+  background: #fff !important;
+  color: #ff1493 !important;
+  box-shadow: 0 0 20px #ff1493 !important;
+}
+
+button.ant-btn {
+  height: 56px !important;
+  font-weight: 900 !important;
+  border-radius: 12px !important;
+  transition: all .2s !important;
+}
+
+button.ant-btn.ant-btn-primary {
+  background: linear-gradient(135deg, #ff1493, #ff66b3) !important;
+  color: #fff !important;
+  border: 2px solid #fff !important;
+  box-shadow: 0 0 20px rgba(255,20,147,.7), 0 6px 0 #99004d !important;
+}
+
+button.ant-btn:has(svg.lucide-messages-square) {
+  background: linear-gradient(135deg, #ff66b3, #ff1493) !important;
+  color: #fff !important;
+  border: 3px solid #000 !important;
+  outline: 2px solid #fff !important;
+  box-shadow: 0 0 30px rgba(255,20,147,.9) !important;
+  animation: chatPulse 2s ease-in-out infinite;
+}
+
+button.ant-btn:has(svg.lucide-messages-square):hover {
+  background: #fff !important;
+  color: #ff1493 !important;
+  transform: scale(1.05);
+}
+
+/* Hide default Chub junk */
+h3.ant-typography, h5.ant-typography, .ant-layout-footer, .ant-ribbon { display: none !important; }
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 9. ANIMATIONS (HENTAI-FLAVORED KEYFRAMES)
+////////////////////////////////////////////////////////////////////////////////
+*/
+@keyframes tentacleRise {
+  0% { transform: translateY(100vh) scale(0.8) rotate(5deg); opacity: 0; }
+  100% { transform: translateY(0) scale(1.1) rotate(2deg); opacity: 1; }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { filter: drop-shadow(0 0 15px #ff1493); }
+  50% { filter: drop-shadow(0 0 30px #ff66b3); }
+}
+
+@keyframes dripText {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(3px); }
+}
+
+@keyframes panelPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(255,20,147,.3); }
+  50% { box-shadow: 0 0 40px rgba(255,20,147,.6); }
+}
+
+@keyframes numberThrob {
+  0%, 100% { transform: translateY(-50%) scale(1); }
+  50% { transform: translateY(-50%) scale(1.15); }
+}
+
+@keyframes heartBeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+}
+
+@keyframes btnThrob {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+@keyframes cumDrip {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 12px; }
+}
+
+@keyframes tagPulse {
+  from { transform: scale(1); }
+  to { transform: scale(1.08); }
+}
+
+@keyframes chatPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(255,20,147,.7); }
+  50% { box-shadow: 0 0 40px rgba(255,20,147,1); }
+}
+
+@keyframes neonFlicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .9; }
+  52% { opacity: 1; }
+}
+
+@keyframes listEnter {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes dripLine {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 10. RESPONSIVE (MOBILE = FULL TENTACLE IMMERSION)
+////////////////////////////////////////////////////////////////////////////////
+*/
+@media(max-width:768px) {
+  .bbx-band { grid-template-columns: 1fr !important; padding-top: 0 !important; margin-top: 0 !important; }
+  .bbx-band::before { content: none !important; }
+  .bbx-hero { background: var(--hero) top center / cover no-repeat !important; min-height: 60vh !important; }
+  .bb-intros, .bb-support { border-radius: 0 !important; }
+  .bb-kbtn { width: 100% !important; }
+}
+</style>
