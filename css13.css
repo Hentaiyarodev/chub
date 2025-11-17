@@ -1,0 +1,443 @@
+<!--
+=================================================================
+  LUMINA FRAMEWORK – MODERN GLASS V2 (CHUB.AI ULTRA-CUSTOM)
+  Tema: Minimalista, Glassmorphism, Tipografia Premium, Micro-interações
+  Sem neon | Totalmente moderno | Ultra-responsivo | AntD Full Override
+=================================================================
+-->
+
+<style>
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 1. FONT IMPORTS (Elegante + Legível)
+////////////////////////////////////////////////////////////////////////////////
+*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap');
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 2. ROOT & CORE VARIABLES
+////////////////////////////////////////////////////////////////////////////////
+*/
+:root {
+  --lumina-bg: #f8f9fc;
+  --lumina-panel: rgba(255, 255, 255, 0.68);
+  --lumina-glass: rgba(255, 255, 255, 0.42);
+  --lumina-border: rgba(255, 255, 255, 0.3);
+  --lumina-ink: #1a1a2e;
+  --lumina-muted: #64748b;
+  --lumina-accent: #6366f1; /* Indigo moderno */
+  --lumina-cut: 20px;
+  --lumina-radius: 16px;
+  --lumina-gap: 24px;
+  --lumina-font-body: 'Inter', system-ui, sans-serif;
+  --lumina-font-heading: 'Playfair Display', Georgia, serif;
+}
+
+.lm-sec {
+  font-family: var(--lumina-font-body);
+  background: var(--lumina-bg);
+  color: var(--lumina-ink);
+  position: relative;
+  overflow: visible !important;
+  padding: var(--lumina-gap) 0;
+}
+
+.lm-wrap {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 3. TYPOGRAPHY & HIERARCHY
+////////////////////////////////////////////////////////////////////////////////
+*/
+.lm-title {
+  font-family: var(--lumina-font-heading);
+  font-size: clamp(48px, 7vw, 78px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0 0 12px;
+  background: linear-gradient(135deg, var(--lumina-ink), #4f46e5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.lm-subtitle {
+  font-size: clamp(16px, 1.8vw, 18px);
+  color: var(--lumina-muted);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  margin-bottom: 32px;
+  max-width: 680px;
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 4. GLASS PANELS & CARDS (com backdrop-filter)
+////////////////////////////////////////////////////////////////////////////////
+*/
+.lm-panel {
+  background: var(--lumina-glass);
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  border: 1px solid var(--lumina-border);
+  border-radius: var(--lumina-radius);
+  padding: clamp(20px, 3vw, 32px);
+  margin-bottom: var(--lumina-gap);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.lm-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.3), transparent 50%);
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.lm-panel:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 5. ANT DESIGN FULL INTEGRATION
+////////////////////////////////////////////////////////////////////////////////
+*/
+
+/* Grid System */
+.lm-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--lumina-gap);
+}
+
+@media (min-width: 769px) {
+  .lm-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .lm-grid .ant-col:first-child { order: 1; }
+  .lm-grid .ant-col:nth-child(2) { order: 2; }
+}
+
+/* Tags com glass effect */
+.ant-tag {
+  background: rgba(255, 255, 255, 0.5) !important;
+  backdrop-filter: blur(6px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.6) !important;
+  color: var(--lumina-ink) !important;
+  font-weight: 600 !important;
+  font-size: 11px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  padding: 4px 10px !important;
+  border-radius: 8px !important;
+  transition: all 0.2s ease !important;
+  clip-path: none !important;
+}
+
+.ant-tag:hover {
+  background: var(--lumina-accent) !important;
+  color: white !important;
+  transform: translateY(-1px);
+}
+
+/* Cards com glass */
+.ant-card {
+  background: var(--lumina-glass) !important;
+  border: 1px solid var(--lumina-border) !important;
+  border-radius: var(--lumina-radius) !important;
+  overflow: hidden !important;
+  box-shadow: none !important;
+}
+
+.ant-card-head {
+  background: transparent !important;
+  border-bottom: 1px solid var(--lumina-border) !important;
+  padding: 16px 24px !important;
+}
+
+.ant-card-head-title {
+  font-family: var(--lumina-font-heading) !important;
+  font-size: 20px !important;
+  color: var(--lumina-ink) !important;
+}
+
+/* Collapse com glass */
+.ant-collapse {
+  background: transparent !important;
+  border: none !important;
+}
+
+.ant-collapse-item {
+  border: none !important;
+  margin-bottom: 12px !important;
+  border-radius: var(--lumina-radius) !important;
+  overflow: hidden !important;
+}
+
+.ant-collapse-header {
+  background: var(--lumina-glass) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid var(--lumina-border) !important;
+  border-radius: var(--lumina-radius) !important;
+  padding: 16px 20px !important;
+  font-weight: 600 !important;
+}
+
+.ant-collapse-content {
+  background: rgba(255, 255, 255, 0.8) !important;
+  backdrop-filter: blur(12px) !important;
+  border: 1px solid var(--lumina-border) !important;
+  border-top: none !important;
+  border-radius: 0 0 var(--lumina-radius) var(--lumina-radius) !important;
+}
+
+/* Botões com glass + micro-interação */
+button.ant-btn {
+  height: 48px !important;
+  border-radius: 12px !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+button.ant-btn.ant-btn-primary {
+  background: var(--lumina-accent) !important;
+  border: none !important;
+  color: white !important;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3) !important;
+}
+
+button.ant-btn.ant-btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.3), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+button.ant-btn.ant-btn-primary:hover::before {
+  opacity: 1;
+}
+
+button.ant-btn.ant-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4) !important;
+}
+
+/* Botão de chat com sonar pulse */
+button.ant-btn:has(svg.lucide-messages-square)::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: inherit;
+  background: transparent;
+  box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4);
+  animation: sonarPulse 2.4s ease-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes sonarPulse {
+  0% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4); }
+  70% { box-shadow: 0 0 0 16px rgba(99, 102, 241, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0); }
+}
+
+/* Hero Image com parallax leve */
+.lm-hero {
+  position: relative;
+  min-height: 60vh;
+  border-radius: var(--lumina-radius);
+  overflow: hidden;
+  margin-bottom: var(--lumina-gap);
+}
+
+.lm-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--hero-img, url('https://i.imgur.com/YOURIMAGE.jpg')) center/cover no-repeat;
+  transform: scale(1.05);
+  transition: transform 0.8s ease;
+}
+
+.lm-hero:hover::before {
+  transform: scale(1.08);
+}
+
+.lm-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 60%, var(--lumina-bg) 100%);
+}
+
+/* Relações em Carousel Horizontal com Scroll Snap */
+.lm-relations {
+  margin-top: 32px;
+}
+
+.lm-relations .zg-body {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 8px 0 20px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+}
+
+.lm-relations .zg-body::-webkit-scrollbar {
+  height: 6px;
+}
+
+.lm-relations .zg-body::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.2);
+  border-radius: 3px;
+}
+
+.lm-relations .zg-rel-tile {
+  flex: 0 0 140px;
+  scroll-snap-align: start;
+  background: var(--lumina-glass);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--lumina-border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.lm-relations .zg-rel-tile:hover {
+  transform: translateY(-6px);
+}
+
+.lm-relations .zg-rel-tile img {
+  width: 100%;
+  height: 84px;
+  object-fit: cover;
+}
+
+.lm-relations .zg-rel-label {
+  padding: 8px;
+  font-weight: 600;
+  font-size: 13px;
+  text-align: center;
+  background: rgba(255,255,255,0.8);
+}
+
+.lm-relations .zg-rel-tile::after {
+  content: attr(data-rel);
+  display: block;
+  font-size: 10px;
+  color: var(--lumina-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-align: center;
+  padding: 0 8px 8px;
+}
+
+/* Quote com glass */
+.lm-quote {
+  background: var(--lumina-glass);
+  backdrop-filter: blur(12px);
+  border-left: 4px solid var(--lumina-accent);
+  padding: 20px 24px;
+  margin: 32px 0;
+  border-radius: 0 var(--lumina-radius) var(--lumina-radius) 0;
+  position: relative;
+  font-style: italic;
+}
+
+.lm-quote::before {
+  content: '“';
+  position: absolute;
+  left: 12px;
+  top: 8px;
+  font-size: 60px;
+  color: var(--lumina-accent);
+  opacity: 0.3;
+  font-family: Georgia, serif;
+}
+
+.lm-quote .by {
+  display: block;
+  margin-top: 12px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--lumina-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Responsividade Avançada */
+@media (max-width: 768px) {
+  .lm-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .lm-title {
+    font-size: clamp(36px, 8vw, 56px);
+  }
+  .lm-hero {
+    min-height: 40vh;
+  }
+  button.ant-btn:has(svg.lucide-messages-square) {
+    width: 100% !important;
+    margin-top: 16px;
+  }
+}
+
+/* Animações de entrada */
+.lm-title, .lm-subtitle, .lm-panel, .ant-card, .ant-collapse {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.lm-title { animation-delay: 0.2s; }
+.lm-subtitle { animation-delay: 0.3s; }
+.lm-panel:nth-child(1) { animation-delay: 0.4s; }
+.lm-panel:nth-child(2) { animation-delay: 0.5s; }
+
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Overrides Chub.ai */
+h1.ant-typography, h2.ant-typography, h3.ant-typography {
+  font-family: var(--lumina-font-heading) !important;
+  color: var(--lumina-ink) !important;
+}
+.msg-mkdn-container { font-size: 16px !important; line-height: 1.7 !important; }
+
+/* Esconde elementos nativos */
+.ant-layout-footer, .ant-ribbon { display: none !important; }
+
+/* Crédito discreto */
+.lumina-credit {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  font-size: 11px;
+  color: var(--lumina-muted);
+  font-family: monospace;
+  z-index: 9999;
+  opacity: 0.7;
+}
+</style>
+
