@@ -1,0 +1,334 @@
+<style>
+/*
+=================================================================
+  MILFUI VIXEN - SEDUCTION GALLERY EDITION (HENTAI MILF TRAPACEIRA)
+=================================================================
+*/
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 1. FONT IMPORTS (SEXY & ELEGANT)
+////////////////////////////////////////////////////////////////////////////////
+*/
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Playfair+Display:wght@600;800&family=Great+Vibes&display=swap');
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 2. CORE THEME & LAYOUT (DARK, LUXURIOUS, PERVERTED VIBE)
+////////////////////////////////////////////////////////////////////////////////
+*/
+:root {
+  --ink: #ffe4e6;
+  --muted: #ff9ab8;
+  --accent: #ff1a75;
+  --hero: url('https://files.catbox.moe/xxxxxx.jpg') center/cover no-repeat; /* MAIN MILF ART */
+  --panel: #1a001a;
+  --pf-cut2: 24px;
+  --font-heading: 'Cinzel Decorative', cursive;
+  --font-flavor: 'Great Vibes', cursive;
+}
+
+/* Full bleed & luxury layout */
+.bb-sec {
+  font-family: 'Playfair Display', serif;
+  position: relative;
+  --gap: 28px;
+  --hero-over: clamp(100px, 12vw, 240px);
+  overflow: visible !important;
+  background: radial-gradient(circle at 50% 100%, rgba(255,26,117,0.15), transparent 70%);
+}
+
+.bb-wrap { max-width: 1300px; padding: 0 12px; }
+
+.bb-header { margin-bottom: 32px; }
+
+/* Subtitle badge */
+.bb-collection-subtitle {
+  background: linear-gradient(135deg, #ff1a75, #ff6b9d);
+  color: #000;
+  padding: 8px 16px;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .15em;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%);
+  box-shadow: 0 0 15px rgba(255,26,117,0.6);
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+/* Main title */
+.bb-title {
+  font-family: var(--font-heading);
+  font-size: clamp(56px, 9vw, 110px) !important;
+  line-height: .9 !important;
+  color: var(--ink) !important;
+  text-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent), 3px 3px 0 #000;
+  letter-spacing: 0.03em !important;
+  margin: 0 0 16px !important;
+}
+
+/* Tagline */
+.bb-tagline {
+  font-family: var(--font-flavor);
+  font-size: clamp(20px, 2.2vw, 28px) !important;
+  color: #ffb3c6 !important;
+  font-style: italic;
+  text-shadow: 0 0 8px rgba(255,26,117,0.5);
+}
+
+/* Panels */
+.bb-intros, .bb-support, .bb-presets, .bb-gallery {
+  background: var(--panel);
+  padding: clamp(20px, 2.5vw, 32px);
+  border: 1px solid rgba(255,26,117,0.3);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.6), inset 0 0 20px rgba(255,26,117,0.1);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--pf-cut2)), calc(100% - var(--pf-cut2)) 100%, 0 100%);
+  backdrop-filter: blur(4px);
+}
+
+/* Section titles */
+.bb-section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(18px, 2vw, 24px);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: .8em;
+  text-shadow: 0 0 10px var(--accent);
+}
+.bb-section-title::before {
+  content: "♡";
+  font-size: 1.4em;
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+/* Intro list */
+.bb-intro-list li {
+  background: rgba(255,26,117,0.08);
+  padding: 18px 18px 18px 72px;
+  border-left: 4px solid var(--accent);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 18px), calc(100% - 18px) 100%, 0 100%);
+  transition: all .3s ease;
+}
+.bb-intro-list li:hover {
+  transform: translateX(8px);
+  box-shadow: 0 0 20px rgba(255,26,117,0.4);
+}
+.bb-intro-list li::before {
+  content: counter(scn, decimal-leading-zero);
+  left: 18px;
+  font-family: var(--font-flavor);
+  font-size: 32px;
+  color: var(--accent);
+  text-shadow: 0 0 12px var(--accent);
+  animation: kissGlow 2s ease-in-out infinite;
+}
+
+/* Quote */
+.bb-quote {
+  background: linear-gradient(90deg, rgba(255,26,117,0.15), transparent);
+  border-left: 4px solid var(--accent);
+  padding: 16px 16px 16px 56px;
+  font-family: var(--font-flavor);
+  font-size: 1.1em;
+  color: #ffccd5;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+  box-shadow: 0 0 15px rgba(255,26,117,0.3);
+}
+.bb-quote::before {
+  content: "💋";
+  left: 14px;
+  top: 8px;
+  font-size: 36px;
+  color: var(--accent);
+}
+
+/* HERO BAND */
+.bbx-band {
+  --bleed: 520px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  margin-top: calc(-1*var(--bleed)) !important;
+  padding-top: var(--bleed) !important;
+}
+.bbx-band::before {
+  background: var(--hero) center center/cover no-repeat;
+  background-size: contain;
+  filter: drop-shadow(0 0 30px rgba(255,26,117,0.6));
+  animation: float 6s ease-in-out infinite;
+}
+
+/* CTA BUTTON */
+.bb-support .bb-kbtn {
+  --ink: #000;
+  --paper: #ffe4e6;
+  --cta: linear-gradient(135deg, #ff1a75, #ff6b9d);
+  background: var(--cta) !important;
+  color: #fff !important;
+  font-family: var(--font-flavor);
+  font-size: 18px !important;
+  padding: 1.2rem 2rem !important;
+  border-radius: 9999px;
+  box-shadow: 0 0 20px rgba(255,26,117,0.6), 0 8px 0 #000 inset;
+  text-shadow: 0 2px 0 rgba(0,0,0,0.3);
+  animation: tempt 2s ease-in-out infinite;
+}
+.bb-support .bb-kbtn:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 0 30px rgba(255,26,117,0.8);
+}
+
+/* BADGES */
+.bb-badge {
+  --cta: linear-gradient(135deg, #ff1a75, #ff6b9d);
+  background: var(--cta);
+  color: #000;
+  font-weight: 800;
+  font-size: 11px;
+  text-transform: uppercase;
+  padding: .7em 1.3em;
+  border: 1.5px solid #000;
+  box-shadow: 0 0 0 1.5px #fff, 0 4px 0 #000;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%);
+}
+.bb-badge::after {
+  content: "💋";
+  margin-left: 6px;
+  font-size: 1.2em;
+}
+
+/* GALLERY - HORIZONTAL SCROLL WITH HENTAI PREVIEWS */
+.bb-gallery {
+  --gap: 16px;
+  padding: 24px 8px !important;
+  overflow: hidden;
+}
+.bb-gallery-title {
+  margin: 0 0 16px 16px !important;
+  font-family: var(--font-heading);
+  font-size: 20px;
+  color: var(--accent);
+  text-shadow: 0 0 10px var(--accent);
+}
+.bb-gallery-container {
+  display: flex;
+  gap: var(--gap);
+  overflow-x: auto;
+  padding: 0 16px 16px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) rgba(255,26,117,0.2);
+}
+.bb-gallery-container::-webkit-scrollbar {
+  height: 8px;
+}
+.bb-gallery-container::-webkit-scrollbar-track {
+  background: rgba(255,26,117,0.1);
+  border-radius: 4px;
+}
+.bb-gallery-container::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 4px;
+  box-shadow: 0 0 10px var(--accent);
+}
+.bb-gallery-item {
+  flex: 0 0 auto;
+  width: 220px;
+  scroll-snap-align: start;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  transition: all .3s ease;
+  cursor: pointer;
+}
+.bb-gallery-item:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 16px 32px rgba(255,26,117,0.4), 0 0 20px var(--accent);
+  z-index: 10;
+}
+.bb-gallery-item img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  filter: brightness(0.9) contrast(1.1);
+  transition: filter .3s;
+}
+.bb-gallery-item:hover img {
+  filter: brightness(1.1) contrast(1.2) saturate(1.3);
+}
+.bb-gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.7));
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 16px;
+  opacity: 0;
+  transition: opacity .3s;
+}
+.bb-gallery-item:hover .bb-gallery-overlay {
+  opacity: 1;
+}
+.bb-gallery-caption {
+  color: #fff;
+  font-family: var(--font-flavor);
+  font-size: 18px;
+  text-shadow: 0 2px 4px #000;
+}
+.bb-gallery-label {
+  color: #ff9ab8;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  margin-top: 4px;
+}
+
+/* ANT DESIGN OVERRIDES */
+.ant-tag {
+  background: linear-gradient(135deg, #ff6b9d, #ff1a75) !important;
+  color: #000 !important;
+  border: 1.5px solid #000 !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%) !important;
+  box-shadow: 0 0 0 1px #fff !important;
+}
+.ant-tag:hover {
+  background: #000 !important;
+  color: #ff1a75 !important;
+  box-shadow: 0 0 15px rgba(255,26,117,0.8) !important;
+}
+
+button.ant-btn.ant-btn-primary {
+  background: linear-gradient(135deg, #ff1a75, #ff6b9d) !important;
+  border: 2px solid #000 !important;
+  color: #fff !important;
+  box-shadow: 0 6px 0 #000 !important;
+}
+button.ant-btn.ant-btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 0 #000, 0 0 20px rgba(255,26,117,0.6) !important;
+}
+
+/* HIDE DEFAULT ELEMENTS */
+h3.ant-typography, h5.ant-typography, .ant-layout-footer, .ant-ribbon { display: none !important; }
+
+/* ANIMATIONS */
+@keyframes pulseGlow { 0%,100% { box-shadow: 0 0 15px rgba(255,26,117,0.6); } 50% { box-shadow: 0 0 25px rgba(255,26,117,1); } }
+@keyframes heartbeat { 0%,100% { transform: scale(1); } 50% { transform: scale(1.3); } }
+@keyframes kissGlow { 0%,100% { text-shadow: 0 0 12px var(--accent); } 50% { text-shadow: 0 0 25px var(--accent); } }
+@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+@keyframes tempt { 0%,100% { filter: hue-rotate(0deg); } 50% { filter: hue-rotate(15deg); } }
+
+/* RESPONSIVE */
+@media(max-width:768px) {
+  .bbx-band { grid-template-columns: 1fr !important; }
+  .bbx-band::before { content: none !important; }
+  .bbx-hero { min-height: 60vh !important; background: var(--hero) center/cover no-repeat !important; }
+  .bb-title { font-size: clamp(48px, 10vw, 80px) !important; }
+  .bb-gallery-item { width: 180px; }
+  .bb-gallery-item img { height: 240px; }
+}
+</style>
+
