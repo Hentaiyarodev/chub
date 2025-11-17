@@ -1,0 +1,330 @@
+<style>
+/*
+=================================================================
+  MILFUI VIXEN - SEDUCTION THEME (HENTAI MILF TRAPACEIRA EDITION)
+=================================================================
+*/
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 1. FONT IMPORTS (SEXY & ELEGANT)
+////////////////////////////////////////////////////////////////////////////////
+*/
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Playfair+Display:wght@600;800&family=Great+Vibes&display=swap');
+
+/*
+////////////////////////////////////////////////////////////////////////////////
+// 2. CORE THEME & LAYOUT (DARK, LUXURIOUS, PERVERTED VIBE)
+////////////////////////////////////////////////////////////////////////////////
+*/
+:root {
+  --ink: #ffe4e6;          /* Soft pink-white text */
+  --muted: #ff9ab8;        /* Muted pink */
+  --accent: #ff1a75;       /* Hot neon pink */
+  --hero: url('https://files.catbox.moe/xxxxxx.jpg') center/cover no-repeat; /* REPLACE with your MILF hentai art (catbox.moe) */
+  --panel: #1a001a;        /* Deep purple-black */
+  --pf-cut2: 24px;
+  --font-heading: 'Cinzel Decorative', cursive;
+  --font-flavor: 'Great Vibes', cursive;
+}
+
+/* Full bleed & luxury layout */
+.bb-sec {
+  font-family: 'Playfair Display', serif;
+  position: relative;
+  --gap: 28px;
+  --hero-over: clamp(100px, 12vw, 240px);
+  overflow: visible !important;
+  background: radial-gradient(circle at 50% 100%, rgba(255,26,117,0.15), transparent 70%);
+}
+
+.bb-wrap { max-width: 1300px; padding: 0 12px; }
+
+.bb-header { margin-bottom: 32px; }
+
+/* Subtitle badge - dripping with seduction */
+.bb-collection-subtitle {
+  background: linear-gradient(135deg, #ff1a75, #ff6b9d);
+  color: #000;
+  padding: 8px 16px;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .15em;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%);
+  box-shadow: 0 0 15px rgba(255,26,117,0.6);
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+/* Main title - dripping luxury */
+.bb-title {
+  font-family: var(--font-heading);
+  font-size: clamp(56px, 9vw, 110px) !important;
+  line-height: .9 !important;
+  color: var(--ink) !important;
+  text-shadow: 
+    0 0 10px var(--accent),
+    0 0 20px var(--accent),
+    3px 3px 0 #000;
+  letter-spacing: 0.03em !important;
+  margin: 0 0 16px !important;
+}
+
+/* Tagline - whispered temptation */
+.bb-tagline {
+  font-family: var(--font-flavor);
+  font-size: clamp(20px, 2.2vw, 28px) !important;
+  color: #ffb3c6 !important;
+  font-style: italic;
+  text-shadow: 0 0 8px rgba(255,26,117,0.5);
+}
+
+/* Panels - velvet texture */
+.bb-intros, .bb-support, .bb-presets, .bb-gallery {
+  background: var(--panel);
+  padding: clamp(20px, 2.5vw, 32px);
+  border: 1px solid rgba(255,26,117,0.3);
+  box-shadow: 
+    0 8px 32px rgba(0,0,0,0.6),
+    inset 0 0 20px rgba(255,26,117,0.1);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--pf-cut2)), calc(100% - var(--pf-cut2)) 100%, 0 100%);
+  backdrop-filter: blur(4px);
+}
+
+/* Section titles - with heart icon */
+.bb-section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(18px, 2vw, 24px);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: .8em;
+  text-shadow: 0 0 10px var(--accent);
+}
+.bb-section-title::before {
+  content: "♡";
+  font-size: 1.4em;
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+/* Intro list - numbered with lipstick kisses */
+.bb-intro-list {
+  margin: 0;
+  padding: 0 !important;
+  list-style: none;
+  counter-reset: scn;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.bb-intro-list li {
+  counter-increment: scn;
+  background: rgba(255,26,117,0.08);
+  padding: 18px 18px 18px 72px;
+  border-left: 4px solid var(--accent);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 18px), calc(100% - 18px) 100%, 0 100%);
+  transition: all .3s ease;
+  position: relative;
+}
+.bb-intro-list li:hover {
+  transform: translateX(8px);
+  box-shadow: 0 0 20px rgba(255,26,117,0.4);
+}
+.bb-intro-list li::before {
+  content: counter(scn, decimal-leading-zero);
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-flavor);
+  font-size: 32px;
+  color: var(--accent);
+  text-shadow: 0 0 12px var(--accent);
+  animation: kissGlow 2s ease-in-out infinite;
+}
+
+/* Quote - whispered in the dark */
+.bb-quote {
+  background: linear-gradient(90deg, rgba(255,26,117,0.15), transparent);
+  border-left: 4px solid var(--accent);
+  padding: 16px 16px 16px 56px;
+  font-family: var(--font-flavor);
+  font-size: 1.1em;
+  color: #ffccd5;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+  box-shadow: 0 0 15px rgba(255,26,117,0.3);
+}
+.bb-quote::before {
+  content: "💋";
+  position: absolute;
+  left: 14px;
+  top: 8px;
+  font-size: 36px;
+  color: var(--accent);
+}
+
+/* HERO BAND - MILF ON THE RIGHT, SEDUCTION ON THE LEFT */
+.bbx-band {
+  --bleed: 520px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  margin-top: calc(-1*var(--bleed)) !important;
+  padding-top: var(--bleed) !important;
+}
+.bbx-band::before {
+  content: "";
+  position: absolute;
+  left: calc(50% + 10px);
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: var(--hero) center center/cover no-repeat;
+  background-size: contain;
+  background-position: center bottom;
+  filter: drop-shadow(0 0 30px rgba(255,26,117,0.6));
+  animation: float 6s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* CTA BUTTON - "COME CLOSER..." */
+.bb-support .bb-kbtn {
+  --ink: #000;
+  --paper: #ffe4e6;
+  --cta: linear-gradient(135deg, #ff1a75, #ff6b9d);
+  background: var(--cta) !important;
+  color: #fff !important;
+  font-family: var(--font-flavor);
+  font-size: 18px !important;
+  padding: 1.2rem 2rem !important;
+  border-radius: 9999px;
+  box-shadow: 
+    0 0 20px rgba(255,26,117,0.6),
+    0 8px 0 #000 inset;
+  text-shadow: 0 2px 0 rgba(0,0,0,0.3);
+  animation: tempt 2s ease-in-out infinite;
+}
+.bb-support .bb-kbtn:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 0 30px rgba(255,26,117,0.8);
+}
+
+/* BADGES - NSFW TAGS WITH LIPSTICK MARKS */
+.bb-badge {
+  --cta: linear-gradient(135deg, #ff1a75, #ff6b9d);
+  background: var(--cta);
+  color: #000;
+  font-weight: 800;
+  font-size: 11px;
+  text-transform: uppercase;
+  padding: .7em 1.3em;
+  border: 1.5px solid #000;
+  box-shadow: 0 0 0 1.5px #fff, 0 4px 0 #000;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%);
+}
+.bb-badge::after {
+  content: "💋";
+  margin-left: 6px;
+  font-size: 1.2em;
+}
+
+/* ANT DESIGN OVERRIDES - FULL INTEGRATION */
+.ant-tag {
+  background: linear-gradient(135deg, #ff6b9d, #ff1a75) !important;
+  color: #000 !important;
+  border: 1.5px solid #000 !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%) !important;
+  box-shadow: 0 0 0 1px #fff !important;
+}
+.ant-tag:hover {
+  background: #000 !important;
+  color: #ff1a75 !important;
+  box-shadow: 0 0 15px rgba(255,26,117,0.8) !important;
+}
+
+button.ant-btn.ant-btn-primary {
+  background: linear-gradient(135deg, #ff1a75, #ff6b9d) !important;
+  border: 2px solid #000 !important;
+  color: #fff !important;
+  box-shadow: 0 6px 0 #000 !important;
+}
+button.ant-btn.ant-btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 0 #000, 0 0 20px rgba(255,26,117,0.6) !important;
+}
+
+/* HIDE DEFAULT ELEMENTS */
+h3.ant-typography, h5.ant-typography, .ant-layout-footer, .ant-ribbon { display: none !important; }
+
+/* ANIMATIONS */
+@keyframes pulseGlow { 0%,100% { box-shadow: 0 0 15px rgba(255,26,117,0.6); } 50% { box-shadow: 0 0 25px rgba(255,26,117,1); } }
+@keyframes heartbeat { 0%,100% { transform: scale(1); } 50% { transform: scale(1.3); } }
+@keyframes kissGlow { 0%,100% { text-shadow: 0 0 12px var(--accent); } 50% { text-shadow: 0 0 25px var(--accent); } }
+@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+@keyframes tempt { 0%,100% { filter: hue-rotate(0deg); } 50% { filter: hue-rotate(15deg); } }
+
+/* RESPONSIVE */
+@media(max-width:768px) {
+  .bbx-band { grid-template-columns: 1fr !important; }
+  .bbx-band::before { content: none !important; }
+  .bbx-hero { min-height: 60vh !important; background: var(--hero) center/cover no-repeat !important; }
+  .bb-title { font-size: clamp(48px, 10vw, 80px) !important; }
+}
+
+/* GALERIA DE FOTOS - ESTILO POLAROID COM CORAÇÕES */
+.bb-gallery {
+  margin-top: 24px;
+}
+.bb-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  padding: 8px 0;
+}
+.bb-polaroid {
+  position: relative;
+  background: #fff;
+  padding: 12px 12px 32px 12px;
+  border-radius: 8px;
+  box-shadow: 
+    0 8px 20px rgba(0,0,0,0.5),
+    0 0 0 1px rgba(255,26,117,0.2);
+  transform: rotate(var(--rot, 0deg));
+  transition: all .3s ease;
+}
+.bb-polaroid:hover {
+  transform: rotate(0) translateY(-8px) scale(1.05);
+  box-shadow: 
+    0 16px 32px rgba(0,0,0,0.6),
+    0 0 25px rgba(255,26,117,0.8);
+  z-index: 10;
+}
+.bb-polaroid img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+  object-fit: cover;
+  filter: sepia(0.2) contrast(1.1);
+  transition: filter .3s;
+}
+.bb-polaroid:hover img {
+  filter: sepia(0) contrast(1.2) brightness(1.1);
+}
+.bb-polaroid::after {
+  content: "♡";
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 20px;
+  color: var(--accent);
+  text-shadow: 0 0 10px var(--accent);
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+.bb-polaroid:nth-child(1) { --rot: -3deg; }
+.bb-polaroid:nth-child(2) { --rot: 2deg; }
+.bb-polaroid:nth-child(3) { --rot: -2deg; }
+.bb-polaroid:nth-child(4) { --rot: 3deg; }
+</style>
