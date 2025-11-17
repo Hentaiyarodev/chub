@@ -1,0 +1,428 @@
+<div class="hb-sec">
+  <!-- ===================================================== -->
+  <!--  HENTAI BUNNY UI v9 - "TENTACLE ECSTASY" THEME       -->
+  <!--  Pervertido, orgânico, hentai sem neon, ultra-complexo -->
+  <!-- ===================================================== -->
+
+  <!-- 1. FONTS & CORE VARIABLES -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@900&family=Creepster&family=Playfair+Display+SC:wght@700&family=Marcellus+SC&display=swap');
+
+    :root {
+      --ink: #ffe4e1;      /* pele rosada clara */
+      --blood: #8b0000;    /* vermelho escuro sangue */
+      --slime: #ff69b4;    /* rosa choque viscoso */
+      --tentacle: #4b0082; /* roxo profundo tentáculo */
+      --wet: #ff1493;      /* rosa molhado */
+      --cream: #fffacd;    /* creme pálido */
+      --lust: #dc143c;     /* vermelho luxúria */
+      --gap: 24px;
+      --cut: 28px;
+      --blur: 8px;
+    }
+
+    .hb-sec {
+      --panel: linear-gradient(145deg, rgba(75,0,130,0.92), rgba(139,0,0,0.88));
+      font-family: 'Marcellus SC', serif;
+      position: relative;
+      overflow: visible !important;
+      background: #1a001a;
+      color: var(--ink);
+    }
+
+    /* ===================================================== */
+    /* 2. ANT DESIGN FULL OVERRIDE (TODOS OS COMPONENTES)   */
+    /* ===================================================== */
+    .ant-typography, .ant-typography h1, .ant-typography h2, .ant-typography h3 {
+      font-family: 'Cinzel Decorative', cursive !important;
+      color: var(--ink) !important;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.6), 0 0 12px var(--slime) !important;
+    }
+
+    .ant-tag {
+      background: linear-gradient(135deg, var(--wet), var(--slime)) !important;
+      color: #000 !important;
+      border: none !important;
+      border-radius: 0 !important;
+      padding: 0.2em 0.8em !important;
+      font-weight: 900 !important;
+      font-size: 0.65rem !important;
+      text-transform: uppercase !important;
+      clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%) !important;
+      box-shadow: 0 2px 6px rgba(255,20,147,0.4) !important;
+      animation: pulseSlime 3s ease-in-out infinite !important;
+    }
+
+    .ant-tag:hover {
+      background: #000 !important;
+      color: var(--slime) !important;
+      transform: scale(1.05);
+    }
+
+    .ant-btn {
+      height: 56px !important;
+      padding: 0 2em !important;
+      border-radius: 12px !important;
+      font-weight: 900 !important;
+      font-size: 15px !important;
+      background: var(--tentacle) !important;
+      color: var(--cream) !important;
+      border: 2px solid var(--slime) !important;
+      box-shadow: 
+        0 0 0 1px #000,
+        0 4px 0 var(--blood),
+        inset 0 2px 4px rgba(255,255,255,0.2),
+        0 0 20px rgba(255,105,180,0.6) !important;
+      transition: all .2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ant-btn::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+      transform: translateX(-100%);
+      animation: shimmer 2.5s infinite;
+    }
+
+    .ant-btn:hover {
+      background: var(--lust) !important;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 0 var(--blood), 0 0 30px rgba(255,20,147,0.8) !important;
+    }
+
+    .ant-btn:has(svg.lucide-messages-square) {
+      background: linear-gradient(135deg, var(--slime), var(--wet)) !important;
+      border: 3px solid #000 !important;
+      outline: 2px solid var(--cream) !important;
+      box-shadow: 
+        0 0 0 3px var(--tentacle),
+        0 0 30px var(--slime),
+        0 6px 0 #000 !important;
+      animation: throb 1.8s ease-in-out infinite;
+    }
+
+    .ant-btn:has(svg.lucide-messages-square):hover {
+      background: #fff !important;
+      color: #000 !important;
+      box-shadow: 0 0 0 4px var(--slime) !important;
+    }
+
+    .ant-card {
+      background: rgba(75,0,130,0.85) !important;
+      border: none !important;
+      border-radius: 16px !important;
+      overflow: hidden;
+      clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%) !important;
+      backdrop-filter: blur(var(--blur));
+      box-shadow: 0 8px 32px rgba(139,0,0,0.6);
+    }
+
+    .ant-collapse {
+      background: transparent !important;
+      border: none !important;
+    }
+
+    .ant-collapse-item {
+      border: none !important;
+      margin-bottom: 16px;
+    }
+
+    .ant-collapse-header {
+      background: linear-gradient(90deg, rgba(255,20,147,0.3), transparent) !important;
+      padding: 16px !important;
+      border-radius: 12px 12px 0 0 !important;
+      color: var(--cream) !important;
+      font-weight: 900;
+    }
+
+    .ant-collapse-content {
+      background: rgba(26,0,26,0.9) !important;
+      backdrop-filter: blur(10px);
+      border-radius: 0 0 12px 12px !important;
+      padding: 20px !important;
+    }
+
+    .ant-image-img {
+      clip-path: polygon(0 0, 100% 0, 100% calc(100% - 32px), calc(100% - 32px) 100%, 0 100%) !important;
+      transition: all .4s ease;
+      filter: contrast(1.1) saturate(1.3);
+    }
+
+    .ant-image-img:hover {
+      transform: scale(1.05);
+      filter: contrast(1.2) saturate(1.5) drop-shadow(0 0 20px var(--slime));
+    }
+
+    /* ===================================================== */
+    /* 3. CUSTOM LAYOUT - TENTACLE GRID & OOZE PANELS       */
+    /* ===================================================== */
+    .hb-wrap {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 12px;
+    }
+
+    .hb-hero-band {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--gap);
+      align-items: start;
+      position: relative;
+      margin-top: -200px;
+      padding-top: 200px;
+      overflow: visible !important;
+    }
+
+    .hb-hero-band::before {
+      content: "";
+      position: absolute;
+      left: 48%;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background: var(--hero-img) center bottom / contain no-repeat;
+      filter: drop-shadow(0 0 40px var(--slime));
+      z-index: 1;
+      animation: ooze 8s ease-in-out infinite;
+    }
+
+    .hb-left, .hb-right { grid-column: 1; }
+    .hb-hero { grid-column: 2; }
+
+    @media (max-width: 768px) {
+      .hb-hero-band { 
+        grid-template-columns: 1fr !important;
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+      }
+      .hb-hero { 
+        grid-row: 1; 
+        min-height: 60vh;
+        background: var(--hero-img) center / cover no-repeat !important;
+      }
+      .hb-left, .hb-right { grid-row: 2; }
+    }
+
+    /* ===================================================== */
+    /* 4. OOZE PANELS - INTROS, SCENARIOS, RELATIONSHIPS    */
+    /* ===================================================== */
+    .hb-panel {
+      background: var(--panel);
+      padding: clamp(20px, 3vw, 32px);
+      border-radius: 16px;
+      clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%);
+      position: relative;
+      overflow: hidden;
+      margin-bottom: var(--gap);
+      backdrop-filter: blur(var(--blur));
+    }
+
+    .hb-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 30%, rgba(255,105,180,0.2), transparent 70%);
+      animation: drip 6s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    .hb-section-title {
+      font-family: 'Creepster', cursive;
+      font-size: clamp(20px, 2.5vw, 28px);
+      color: var(--slime);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin: 0 0 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hb-section-title::before {
+      content: "♡";
+      font-size: 1.4em;
+      animation: heartbeat 1.5s ease-in-out infinite;
+    }
+
+    /* Scenario List with Tentacle Numbers */
+    .hb-scenario-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      counter-reset: tentacle;
+    }
+
+    .hb-scenario-list li {
+      counter-increment: tentacle;
+      background: rgba(139,0,0,0.3);
+      padding: 20px 20px 20px 80px;
+      border-radius: 12px;
+      position: relative;
+      clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+      transition: all .3s ease;
+      border: 1px solid rgba(255,105,180,0.4);
+    }
+
+    .hb-scenario-list li:hover {
+      transform: translateX(8px);
+      background: rgba(255,20,147,0.2);
+      box-shadow: 0 0 20px rgba(255,105,180,0.5);
+    }
+
+    .hb-scenario-list li::before {
+      content: counter(tentacle, decimal-leading-zero);
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: 'Playfair Display SC', serif;
+      font-size: 36px;
+      font-weight: 900;
+      color: var(--wet);
+      text-shadow: 0 0 10px var(--slime);
+      animation: writhe 4s ease-in-out infinite;
+    }
+
+    /* ===================================================== */
+    /* 5. ANIMATIONS - OOZE, DRIP, WRITHE, THROB, HEARTBEAT  */
+    /* ===================================================== */
+    @keyframes ooze {
+      0%, 100% { transform: scale(1) rotate(0deg); }
+      50% { transform: scale(1.02) rotate(0.5deg); }
+    }
+
+    @keyframes drip {
+      0% { transform: translateY(-100%); opacity: 0; }
+      50% { opacity: 0.3; }
+      100% { transform: translateY(100%); opacity: 0; }
+    }
+
+    @keyframes writhe {
+      0%, 100% { transform: translateY(-50%) rotate(0deg); }
+      25% { transform: translateY(-50%) rotate(3deg) scaleX(1.05); }
+      75% { transform: translateY(-50%) rotate(-2deg) scaleX(0.98); }
+    }
+
+    @keyframes throb {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.03); }
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    @keyframes pulseSlime {
+      0%, 100% { box-shadow: 0 2px 6px rgba(255,20,147,0.4); }
+      50% { box-shadow: 0 4px 12px rgba(255,20,147,0.7); }
+    }
+
+    @keyframes shimmer {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    /* ===================================================== */
+    /* 6. HENTAI RELATIONSHIP TENTACLE CAROUSEL             */
+    /* ===================================================== */
+    .hb-rel-panel {
+      margin: 32px 0 !important;
+      overflow: hidden;
+    }
+
+    .hb-rel-scroll {
+      display: flex;
+      gap: 16px;
+      padding: 8px 0;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-color: var(--slime) rgba(0,0,0,0.3);
+    }
+
+    .hb-rel-scroll::-webkit-scrollbar {
+      height: 10px;
+    }
+
+    .hb-rel-scroll::-webkit-scrollbar-track {
+      background: rgba(0,0,0,0.3);
+      border-radius: 5px;
+    }
+
+    .hb-rel-scroll::-webkit-scrollbar-thumb {
+      background: var(--slime);
+      border-radius: 5px;
+      border: 2px solid var(--tentacle);
+    }
+
+    .hb-rel-tile {
+      flex: 0 0 140px;
+      height: 200px;
+      background: rgba(75,0,130,0.8);
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      border: 2px solid var(--wet);
+      box-shadow: 0 4px 12px rgba(255,105,180,0.3);
+      transition: all .3s ease;
+      scroll-snap-align: center;
+    }
+
+    .hb-rel-tile:hover {
+      transform: scale(1.05) translateY(-4px);
+      box-shadow: 0 0 25px var(--slime);
+      border-color: var(--cream);
+    }
+
+    .hb-rel-tile img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      filter: sepia(0.2) contrast(1.1);
+    }
+
+    .hb-rel-name {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 8px;
+      background: linear-gradient(transparent, #000);
+      color: var(--cream);
+      font-weight: 900;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .hb-rel-role {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: var(--blood);
+      color: #fff;
+      padding: 2px 6px;
+      font-size: 9px;
+      border-radius: 4px;
+      font-weight: 900;
+    }
+
+    /* ===================================================== */
+    /* 7. FINAL TOUCHES - HIDE DEFAULT CHUB UI              */
+    /* ===================================================== */
+    h3.ant-typography, h5.ant-typography, .ant-layout-footer, .ant-ribbon { display: none !important; }
+
+    .ant-space.ant-space-horizontal { flex-wrap: wrap; gap: 8px; }
+
+    /* Mobile Overrides */
+    @media (max-width: 768px) {
+      .hb-hero-band::before { display: none; }
+      .hb-panel { border-radius: 0; }
+      .ant-btn { height: 52px !important; }
+    }
+  </style>
